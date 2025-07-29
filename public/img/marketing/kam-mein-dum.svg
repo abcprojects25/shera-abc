@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 90.47 90.47">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: #19469b;
+      }
+
+      .cls-4 {
+        fill: #22356b;
+      }
+
+      .cls-2 {
+        font-size: 13.55px;
+      }
+
+      .cls-2, .cls-3 {
+        font-family: Shera-Bold, Shera;
+        font-weight: 700;
+      }
+
+      .cls-3 {
+        font-size: 25.4px;
+      }
+
+      .cls-5 {
+        fill: url(#linear-gradient-2);
+        fill-rule: evenodd;
+      }
+
+      .cls-6 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-7 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0" y1="45.23" x2="90.47" y2="45.23" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".52" stop-color="#9b9d9f"/>
+      <stop offset=".6" stop-color="#fff"/>
+      <stop offset="1" stop-color="#97999c"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="44.35" y1="11.05" x2="44.35" y2="79.96" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".52" stop-color="#adafb2"/>
+      <stop offset=".6" stop-color="#fff"/>
+      <stop offset="1" stop-color="#97999c"/>
+    </linearGradient>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <circle class="cls-4" cx="45.23" cy="45.23" r="45.23"/>
+      <g>
+        <path class="cls-7" d="M45.23,90.47C20.29,90.47,0,70.18,0,45.23S20.29,0,45.23,0s45.23,20.29,45.23,45.23-20.29,45.23-45.23,45.23ZM45.23,1.47C21.1,1.47,1.47,21.1,1.47,45.23s19.63,43.77,43.77,43.77,43.77-19.63,43.77-43.77S69.37,1.47,45.23,1.47Z"/>
+        <path class="cls-5" d="M75.87,58.24c1.7-4,2.65-8.41,2.65-13.03,0-18.4-14.91-33.31-33.31-33.31-9.42,0-17.92,3.91-23.98,10.2h-.58l-2.15,2.63v-2.63h-8.31v22.68h1.72c0,.14-.01.29-.01.43,0,9.62,4.09,18.29,10.61,24.37v5.75h8.29c.05,0,.1,0,.16,0,4.32,2.05,9.15,3.2,14.25,3.2s9.92-1.15,14.24-3.19h18.05v-11.65c0-1.21-.13-2.23-.4-3.1-.28-.93-.7-1.71-1.23-2.34Z"/>
+        <text class="cls-2" transform="translate(40.73 55.32)"><tspan x="0" y="0">Mein</tspan></text>
+        <text class="cls-3" transform="translate(10.43 42.37)"><tspan class="cls-6" x="0" y="0">K</tspan><tspan x="15.27" y="0">am</tspan></text>
+        <text class="cls-3" transform="translate(22.75 72.93)"><tspan x="0" y="0">Dum</tspan></text>
+        <path class="cls-1" d="M66.29,33.84c0-3.19,2.58-5.77,5.77-5.77h0c-3.19,0-5.77-2.58-5.77-5.77h0c0,3.19-2.58,5.77-5.77,5.77h0c3.19,0,5.77,2.58,5.77,5.77h0Z"/>
+        <path class="cls-1" d="M58.7,24.07c0-1.84,1.5-3.34,3.34-3.34h0c-1.84,0-3.34-1.5-3.34-3.34h0c0,1.84-1.5,3.34-3.34,3.34h0c1.84,0,3.34,1.5,3.34,3.34h0Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
