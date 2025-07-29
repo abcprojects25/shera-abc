@@ -158,12 +158,14 @@ try {
             // Populate sortable image list
             $('#edit-sortable-images').empty();
             data.images.forEach(function (image) {
-                $('#edit-sortable-images').append(`
-                    <li class="list-group-item d-flex justify-content-between align-items-center" data-id="${image.id}">
-                        <img src="/storage/${image.image_path}" height="50">
-                        <span class="handle" style="cursor: move;">⇅</span>
-                    </li>
-                `);
+               $('#edit-sortable-images').append(`
+    <li class="list-group-item d-flex justify-content-between align-items-center" data-id="${image.id}">
+    <img src="/storage/${image.image_path}" height="50">
+    <span class="handle" style="cursor: move;">⇅</span>
+    <button type="button" class="btn btn-sm btn-danger delete-image" data-id="${image.id}">&times;</button>
+</li>
+
+`);
             });
 
             new bootstrap.Modal(document.getElementById('editModal')).show();
@@ -188,6 +190,31 @@ $('#applications').val(JSON.stringify(tagify.value.map(tag => tag.value)));
 
     });
 });
+
+// Delegate delete image click event
+$(document).on('click', '.delete-image', function () {
+    const imageId = $(this).data('id');
+
+    if (confirm('Are you sure you want to delete this image?')) {
+        fetch(`/admin/products/images/${imageId}`, {
+            method: 'DELETE',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                'Accept': 'application/json',
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                $(this).closest('li').remove(); // Remove the image from UI
+            } else {
+                alert('Failed to delete image.');
+            }
+        })
+        .catch(() => alert('Something went wrong.'));
+    }
+});
+
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

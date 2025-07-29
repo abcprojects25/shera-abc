@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductImage;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -168,5 +169,21 @@ class ProductController extends Controller
 
     return response()->json(['status' => 'success', 'message' => 'Product deleted successfully.']);
 }
+
+
+
+public function deleteImage($id)
+{
+    $image = ProductImage::findOrFail($id);
+
+    if (\Storage::disk('public')->exists($image->image_path)) {
+        \Storage::disk('public')->delete($image->image_path);
+    }
+
+    $image->delete();
+
+    return response()->json(['status' => 'success', 'message' => 'Image deleted successfully.']);
+}
+
 
 }
