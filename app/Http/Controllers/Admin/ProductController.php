@@ -16,6 +16,7 @@ class ProductController extends Controller
     if ($search = $request->input('search')) {
         $query->where(function ($q) use ($search) {
             $q->where('name', 'like', "%$search%")
+              ->orWhere('id', 'like', "%$search%")
               ->orWhere('description', 'like', "%$search%")
               ->orWhere('category', 'like', "%$search%")
               ->orWhere('applications', 'like', "%$search%");
