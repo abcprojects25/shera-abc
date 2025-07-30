@@ -30,7 +30,7 @@
     </style>
 
     <div class="container mt-5">
-        <h2>All Products</h2>
+        <h2>All  Details Products</h2>
         <form method="GET" action="{{ route('admin.products.products_lists') }}" class="mb-4">
             <div class="input-group">
                 <input type="text" name="search" value="{{ request('search') }}" class="form-control"
