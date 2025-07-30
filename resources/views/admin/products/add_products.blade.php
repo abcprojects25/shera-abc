@@ -13,7 +13,7 @@
         </div>
 
         <div class="container main_container">
-            <h1 class="product-heading">ADD New Product</h1>
+            <h1 class="product-heading">ADD NEW PRODUCT</h1>
             <div class="product_container">
                 <form id="product-form" action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data"
                     novalidate>
