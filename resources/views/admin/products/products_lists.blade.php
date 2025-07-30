@@ -136,44 +136,6 @@
         </div>
     </div>
 
-    <script>
-        $(function () {
-            $('.edit-btn').click(function (e) {
-                e.preventDefault();
-                let id = $(this).data('id');
-
-                $.get('/admin/products/' + id + '/edit', function (data) {
-                    $('#product_id').val(id);
-                    $('#category').val(data.category);
-                    $('#name').val(data.name);
-                    $('#description').val(data.description);
-                    // Initialize Tagify
-                    let appInput = document.querySelector('#applications');
-                    let tagify = new Tagify(appInput);
-
-                    try {
-                        const apps = data.applications.split(',').map(item => item.trim());
-                        tagify.addTags(apps);
-                    } catch (e) {
-                        tagify.addTags([]);
-                    }
-
-
-                    $('#editForm').attr('action', '/admin/products/' + id);
-
-                    // Populate sortable image list
-                    $('#edit-sortable-images').empty();
-                    data.images.forEach(function (image) {
-                        $('#edit-sortable-images').append(`
-                        <li class="list-group-item d-flex justify-content-between align-items-center" data-id="${image.id}">
-                            <img src="/storage/${image.image_path}" height="50">
-                            <span class="handle" style="cursor: move;">⇅</span>
-                        </li>
-                    `);
-                    });
-
-                    new bootstrap.Modal(document.getElementById('editModal')).show();
-                });
             });
 
             // jQuery UI sortable for images
@@ -190,7 +152,7 @@
                 });
                 $('#image_order').val(order.join(','));
 
-                $('#applications').val(JSON.stringify(tagify.value.map(tag => tag.value)));
+
 
             });
         });

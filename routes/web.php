@@ -75,6 +75,9 @@ Route::get('/admin/products/{product}/edit', [ProductController::class, 'edit'])
 Route::put('/admin/products/{product}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('/admin/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 
+Route::delete('/admin/products/images/{id}', [ProductController::class, 'deleteImage'])->name('admin.products.deleteImage');
+
+
 Route::prefix('admin/products')->name('admin.products.')->middleware('auth')->group(function () {
     Route::resource('product_categories', CategoryController::class);
 });
