@@ -1,0 +1,97 @@
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none !important;
+    color: #fff !important;
+}
+
+/* HEADING STYLE */
+h1 {
+    color: #204281 !important;
+    font-size: 32px !important;
+}
+
+/* MAIN CONTENT */
+.main_content {
+    padding-top: 100px;
+}
+/* BREADCRUMB  */
+.breadcrumb_container {
+    /* padding-top: 60px; */
+}
+.breadcrumb li > a,
+.breadcrumb span {
+    color: #00ab4d !important;
+    font-size: 18px;
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+/* PRODUCT FORM */
+.main_container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /* height: 100vh; */
+    padding: 0px 80px !important;
+}
+
+.product_container {
+    position: relative;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    /* max-width: 800px; */
+}
+.product-heading {
+    margin-bottom: 30px;
+}
+.img_container {
+    position: absolute;
+    top: 30%;
+    right: 0%;
+}
+
+#applications-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+tags.tagify.tagify--noTags.tagify--empty {
+    width: 100%;
+    padding: 0px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+form input[type="text"],
+form input[type="file"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+form label {
+    margin-bottom: 10px;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+form button {
+    width: 100%;
+}
