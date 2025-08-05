@@ -1481,11 +1481,19 @@ h4.wcf--title {
 .clients_stories .container {
     position: relative;
 }
-.clients_stories .pattern {
+.clients_stories .pattern,
+.brand-heading .pattern {
     width: 40%;
     position: absolute;
     top: -30%;
     right: 0px;
+}
+.brand-heading {
+    position: relative;
+    padding-inline: 15%;
+}
+.brand-heading .pattern {
+    top: -15%;
 }
 
 .clients_stories .gallery-box {
@@ -2634,6 +2642,24 @@ p {
 .shera-black {
     color: #1c1d20 !important;
 }
+.shera-white {
+    color: #fff !important;
+}
+.shera-alt-white {
+    color: #f3f3f3 !important;
+}
+
+.shera-para {
+    font-size: 16px;
+    color: #696969;
+    font-weight: 400;
+}
+
+.shera-mini-heading {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "Beatrice Trial", Sans-serif;
+}
 
 .fit-contain {
     object-fit: contain !important;
@@ -2721,6 +2747,27 @@ p {
 }
 .me-7 {
     margin-right: 70px;
+}
+.mt-1 {
+    margin-top: 5px;
+}
+.mt-2 {
+    margin-top: 10px;
+}
+.mt-3 {
+    margin-top: 15px;
+}
+.mt-4 {
+    margin-top: 20px;
+}
+.mt-5 {
+    margin-top: 30px;
+}
+.mt-6 {
+    margin-top: 45px;
+}
+.mt-7 {
+    margin-top: 70px;
 }
 
 /* height */
@@ -3010,6 +3057,10 @@ p {
 .pro-list .list span {
     width: calc(100% - 35px);
 }
+.shera-list {
+    gap: 10px;
+    align-items: flex-start;
+}
 .shera-list-icon {
     width: 14px;
     height: 14px;
@@ -3022,6 +3073,9 @@ p {
 }
 .shera-list-icon img {
     width: 8px;
+}
+.shera-list-icon ~ span {
+    width: calc(100% - 30px);
 }
 
 .shera-product-page .shera-pro-products .wcf--title span {
@@ -3824,6 +3878,234 @@ p {
 
 /* project page end */
 
+/* applications page */
+.applications-page .about-application .image-box {
+    padding-right: 5%;
+}
+.applications-page .applications-features .heading-box .sub-heading {
+    font-size: 16px;
+    font-weight: 400;
+}
+.applications-page .applications-features .feature-wrapper .grid-box {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 50px;
+}
+.applications-page .applications-features .feature-wrapper .grid-box .grid-item .icon-box {
+    width: 120px;
+    margin-inline: auto;
+    background-color: #dcf7e8;
+    border-radius: 50%;
+    padding: 13px;
+}
+.applications-page .applications-features .feature-wrapper .grid-box .grid-item .icon-box .bordered-box {
+    border: 1px solid #6d451b;
+    padding: 15px;
+    border-radius: 50%;
+}
+.applications-page .applications-features .feature-wrapper .grid-box .grid-item .text-box {
+    text-align: center;
+}
+.applications-page .products-used .application-products .product-text {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.applications-page .products-used .application-products .product-text::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0.4;
+    z-index: 1;
+    transition: 0.5s all ease;
+}
+.applications-page .products-used .application-products .product-text:hover::after {
+    opacity: 0;
+}
+.applications-page .products-used .application-products .product-text .image-box {
+    overflow: hidden;
+}
+.applications-page .products-used .application-products .product-text .image-box img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    transition: 0.5s all ease;
+}
+.applications-page .products-used .application-products .product-text:hover .image-box img {
+    scale: 1.05;
+}
+
+.applications-page .products-used .application-products .product-text .text-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 2;
+    opacity: 1;
+    transform: translateY(15px);
+    transition: 0.5s all ease;
+}
+.applications-page .products-used .application-products .product-text:hover .text-box {
+    opacity: 1;
+    transform: translateY(0px);
+}
+.applications-page .products-used .application-products .product-text .text-box .heading {
+    font-size: 35px;
+}
+
+.applications-page .products-used .table-responsive {
+    padding-inline: 15%;
+}
+.applications-page .products-used .table-responsive table {
+    border-collapse: collapse;
+}
+.applications-page .products-used .table-responsive table {
+    box-shadow: 0px 0px 20px 0px #00ab4d1c;
+}
+.applications-page .products-used .table-responsive table thead {
+    background: #00ab4d;
+    color: white;
+}
+.applications-page .products-used .table-responsive table thead th {
+    background: #00ab4d;
+    color: white;
+    padding: 20px;
+}
+.applications-page .products-used .table-responsive table tbody td {
+    padding: 12px 35px;
+    text-align: center;
+}
+/* applications page end */
+
+/* faq page */
+.faq-section .accordion-container {
+    padding-inline: 15%;
+}
+.faq-section .accordion-container .elementor-accordion {
+    box-shadow: 0px 0px 20px 0px #12121214;
+    background: #fff;
+}
+.faq-section .accordion-container .elementor-accordion .elementor-accordion-item {
+    border-color: #1212123b;
+}
+.faq-section .accordion-container .elementor-tab-title {
+    padding: 20px 15px;
+    background: #fff;
+    color: #00ab4d;
+}
+.faq-section .accordion-container .elementor-tab-title .elementor-accordion-title,
+.faq-section .accordion-container .elementor-tab-title .elementor-accordion-icon {
+    color: #121212;
+    font-family: "Beatrice Trial", sans-serif !important;
+    font-size: 14px;
+    font-weight: 300;
+}
+.faq-section .accordion-container .elementor-tab-title .elementor-accordion-icon {
+    font-size: 12px;
+}
+.faq-section .accordion-container .elementor-tab-title.elementor-active {
+    padding: 20px 15px;
+    background: #121212;
+    color: #fff;
+}
+.faq-section .accordion-container .elementor-tab-title.elementor-active .elementor-accordion-title,
+.faq-section .accordion-container .elementor-tab-title.elementor-active .elementor-accordion-icon {
+    color: #fff;
+}
+.faq-section .accordion-container .elementor-tab-title {
+    color: #00ab4d;
+}
+.faq-section .accordion-container .elementor-tab-content {
+    font-size: 12px;
+}
+.faq-section .accordion-container .elementor-tab-content .accordion-list .list {
+    padding: 0;
+}
+
+.faq-page .faq-section .brand-heading .pattern {
+    top: -190%;
+}
+/* faq page end */
+
+/* testimonial page */
+.testimonial-page .clients_stories .pattern {
+    top: -15%;
+}
+/* testimonial page end */
+
+/* project parent page */
+.project-card-section .project-cards-wrapper .project-card {
+    position: relative;
+    display: flex;
+    transition: 0.5s all ease;
+}
+.project-card-section .project-cards-wrapper .project-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #00ab4d;
+    border-radius: 50px;
+    opacity: 0;
+    z-index: 1;
+    transition: 0.5s all ease;
+}
+.project-card-section .project-cards-wrapper .project-card:hover::after {
+    opacity: 0.2;
+}
+.project-card-section .project-cards-wrapper .project-card:hover {
+    position: relative;
+}
+.project-card-section .project-cards-wrapper .project-card .image-box {
+    flex: 1;
+    border: 5px solid transparent;
+    overflow: hidden;
+    border-radius: 50px;
+    transition: 0.5s all ease;
+}
+.project-card-section .project-cards-wrapper .project-card:hover .image-box {
+    border: 5px solid #00ab4d;
+}
+.project-card-section .project-cards-wrapper .project-card .image-box img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    transition: 0.5s all ease;
+}
+.project-card-section .project-cards-wrapper .project-card:hover .image-box img {
+    scale: 1.05;
+}
+.project-card-section .project-cards-wrapper .project-card .project-detail {
+    position: absolute;
+    left: 50%;
+    width: max-content;
+    padding: 15px 30px;
+    bottom: 5px;
+    transform: translate(-50%, 0px);
+    z-index: 2;
+    transition: 0.5s all ease;
+}
+.project-card-section .project-cards-wrapper .project-card:hover .project-detail {
+    transform: translate(-50%, 50%);
+    border-radius: 100px;
+    background: #00ab4d;
+}
+.project-card-section .project-cards-wrapper .project-card .project-detail .sub-heading {
+    color: white !important;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+    transition: 0.5s all ease;
+}
+/* project parent page end */
+
 @media screen and (max-width: 1296px) {
     .nav_top .container,
     .top-bar .container {
@@ -3893,7 +4175,6 @@ p {
 .nav-tab-wrapper .tab-body-wrapper .tab-body.active {
     display: block;
 }
-
 
 .shera-product-section,
 .shera-product-wrapper {
@@ -4154,3 +4435,19 @@ h4.shera-brown {
 }
 
 /* CHANGES BY HARSH END HERE */
+.test-scroll {
+    height: 300px;
+    background-color: red;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 30px;
+    z-index: 2222;
+    position: relative;
+    overscroll-behavior: contain;
+    touch-action: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.test-content {
+    height: 500px;
+    background-color: blue;
+}

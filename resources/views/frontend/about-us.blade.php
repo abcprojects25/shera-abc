@@ -270,7 +270,7 @@
                                 </ul>
                                 <ul class="top-menu-list">
                                     <li class="list">
-                                        <a href="" class="link">About Us</a>
+                                        <a href="#" class="link">About Us</a>
                                     </li>
                                     <li class="list">
                                         <a href="" class="link">Knowledge Center</a>

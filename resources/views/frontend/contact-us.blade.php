@@ -277,7 +277,7 @@
                                 </ul>
                                 <ul class="top-menu-list">
                                     <li class="list">
-                                        <a href="" class="link">About Us</a>
+                                        <a href="{{ url('/about-us') }}" class="link">About Us</a>
                                     </li>
                                     <li class="list">
                                         <a href="" class="link">Knowledge Center</a>
@@ -292,7 +292,7 @@
                                         <a href="" class="link">Support</a>
                                     </li>
                                     <li class="list">
-                                        <a href="" class="link">Contact Us</a>
+                                        <a href="{{ url('/contact-us') }}" class="link">Contact Us</a>
                                     </li>
 
                                     <!-- <li class="list">
@@ -705,51 +705,49 @@
 
                             <!-- Right Column: Contact Form -->
                             <div class="col-md-6 contact_form_right">
-                                <form action="" method="post">
-                                    <div class="row mb-3">
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control" placeholder="First Name" required />
-                                        </div>
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control" placeholder="Last Name" required />
-                                        </div>
-                                    </div>
+                                <form action="{{ route('enquiry.submit') }}" method="post">
+    @csrf
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <input type="text" name="first_name" class="form-control" placeholder="First Name" required />
+        </div>
+        <div class="col-md-6">
+            <input type="text" name="last_name" class="form-control" placeholder="Last Name" required />
+        </div>
+    </div>
 
-                                    <div class="mb-3">
-                                        <input type="email" class="form-control" placeholder="Email Address" required />
-                                    </div>
+    <div class="mb-3">
+        <input type="email" name="email" class="form-control" placeholder="Email Address" required />
+    </div>
 
-                                    <div class="mb-3">
-                                        <input type="tel" class="form-control" placeholder="Phone Number" required />
-                                    </div>
+    <div class="mb-3">
+        <input type="tel" name="contact" class="form-control" placeholder="Phone Number" required />
+    </div>
 
-                                    <div class="mb-3">
-                                        <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
-                                    </div>
+    <div class="mb-3">
+        <textarea name="message" class="form-control" rows="4" placeholder="Your Message" required></textarea>
+    </div>
 
-                                    <div
-                                        class="elementor-element elementor-element-845e997 elementor-widget elementor-widget-wcf--arolax-button"
-                                        data-id="845e997"
-                                        data-element_type="widget"
-                                        data-settings='{"wcf-animation":"fade","fade-from":"left","data-duration":0.75,"fade-offset":40,"delay":0.15,"on-scroll":1,"ease":"power2.out"}'
-                                        data-widget_type="wcf--arolax-button.default"
-                                        style="transition: none; translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; margin-top: 40px"
-                                    >
-                                        <div class="elementor-widget-container">
-                                            <div class="wc-btn-wrapper style-2">
-                                                <a href="#" class="wc-btn-group">
-                                                    <span class="wc-btn-play">
-                                                        <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
-                                                    </span>
-                                                    <span class="wc-btn-primary"> Send Message </span>
-                                                    <span class="wc-btn-play">
-                                                        <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+    <div
+        class="elementor-element elementor-element-845e997 elementor-widget elementor-widget-wcf--arolax-button"
+        style="margin-top: 40px"
+    >
+        <div class="elementor-widget-container">
+            <div class="wc-btn-wrapper style-2">
+                <button type="submit" class="wc-btn-group" style="border: none; background: none; padding: 0;">
+                    <span class="wc-btn-play">
+                        <i class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
+                    </span>
+                    <span class="wc-btn-primary"> Send Message </span>
+                    <span class="wc-btn-play">
+                        <i class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+
                             </div>
                         </div>
                     </section>

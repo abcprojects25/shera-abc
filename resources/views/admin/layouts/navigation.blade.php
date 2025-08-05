@@ -1,100 +1,135 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
-    <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-                    </a>
-                </div>
+<ul class="nav">
+	<li class="nav-header"><span class="nav-label">Dashboard</span></li>
+	<li class="nav-item">
+		<a class="nav-link" href="/admin/dashboard">
+			<span class="shape1"></span><span class="shape2"></span> <i class="ti-home sidemenu-icon"></i> <span class="sidemenu-label"> Dashboard </span>
+		</a>
+	</li> 
+	<li class="nav-header"><span class="nav-label">SEO</span></li> 
+	<li class="nav-item">
+		<a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-wallet sidemenu-icon"></i><span class="sidemenu-label"> SEO </span><i class="angle fe fe-chevron-right"></i></a>
+	<ul class="nav-sub">
+            <li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/seo/url/listing">URL Listing</a> </li>
+            <li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/seo">On Page Seo Tag</a> </li>
+            <li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/seo/header-tags">Common Header</a> </li>
+						<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/seo/banner"> Banner </a> </li> 
+            <br />
+        </ul>
+	</li>
+	<li class="nav-header"><span class="nav-label">CMS</span></li> 
+	{{-- <li class="nav-item">
+		<a class="nav-link" href="/admin/cms/all-pages">
+			<span class="shape1"></span><span class="shape2"></span> <i class="ti-shield sidemenu-icon"></i> <span class="sidemenu-label"> CMS Pages </span>
+		</a>
+	</li>  --}}
+	<li class="nav-item">
+		<a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-layers-alt sidemenu-icon"></i><span class="sidemenu-label"> Products </span><i class="angle fe fe-chevron-right"></i></a>
+		<ul class="nav-sub">
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/product/all-product"> All Products </a> </li>  
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/product/product-add"> Add New </a> </li>     
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/product/product-categories"> Categories </a> </li>     
+    
+			{{-- <li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/product/product-subcategories"> Sub Categories </a> </li>      --}}
+		</ul>
+	</li> 
 
-                <!-- Navigation Links -->'
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
-            </div>
+	
+		<!-- <li class="nav-item">
+		<a class="nav-link" href="/admin/product-enquiries">
+			<span class="shape1"></span><span class="shape2"></span> <i class="ti-view-list-alt sidemenu-icon"></i> <span class="sidemenu-label"> Product Enquiries </span>
+		</a>
+	</li> -->
+	<li class="nav-item">
+		<a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-layout-media-center-alt sidemenu-icon"></i><span class="sidemenu-label"> Projects </span><i class="angle fe fe-chevron-right"></i></a>
+		<ul class="nav-sub">
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/project/all-project"> All Projects </a> </li>  
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/project/project-add"> Add New </a> </li>  
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/project/project-categories"> Categories </a> </li>  
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/project/project-subcategories"> Sub Categories </a> </li>   
+		</ul>
+	</li> 
+	<li class="nav-item">
+		<a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-layout-grid2 sidemenu-icon"></i><span class="sidemenu-label"> Blogs </span><i class="angle fe fe-chevron-right"></i></a>
+		<ul class="nav-sub">
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/blog/all-post"> All Post </a> </li>  
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/blog/blog-add"> Add New </a> </li>  
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/blog/blog-categories"> Categories </a> </li>  
+			{{-- <li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/blog/blog-subcategories"> Sub Categories </a> </li>      --}}
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/blog/blog-tags"> Tags </a> </li>     
+		</ul>
+	</li> 
+	<!--
+	<li class="nav-item">
+		<a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-wallet sidemenu-icon"></i><span class="sidemenu-label"> Support </span><i class="angle fe fe-chevron-right"></i></a>
+		<ul class="nav-sub">
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/support/catalogues"> Catalogues </a> </li>  
+		</ul>
+	</li> 
+	<li class="nav-item">
+		<a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-view-list-alt sidemenu-icon"></i><span class="sidemenu-label"> About </span><i class="angle fe fe-chevron-right"></i></a>
+		<ul class="nav-sub">
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/about/test-certificate"> Test And Certificate </a> </li>  
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/about/testimonials"> Testimonials </a> </li>  
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/about/video-gallery"> Video Gallery </a> </li>  
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/about/event-gallery"> Event Gallery </a> </li>  
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/about/our-milestone"> Our Milestone </a> </li>  
+		</ul>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="/admin/faq">
+			<span class="shape1"></span><span class="shape2"></span> <i class="ti-receipt sidemenu-icon"></i> <span class="sidemenu-label"> FAQ </span>
+		</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="/admin/home-banner">
+			<span class="shape1"></span><span class="shape2"></span> <i class="ti-layout-slider-alt sidemenu-icon"></i> <span class="sidemenu-label"> Home Banner </span>
+		</a>
+	</li>
+	-->	
+	
+	<li class="nav-header"><span class="nav-label">For Enquiry</span></li>
+	<!--
+	<li class="nav-item">
+		<a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-view-list-alt sidemenu-icon"></i><span class="sidemenu-label"> Contact </span><i class="angle fe fe-chevron-right"></i></a>
+		<ul class="nav-sub">  
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/contact-us"> Contact Us </a>  </li> 
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/dealers-distributors">  Dealers & Distributors  </a>  </li> 
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/inquiry"> Enquiry </a> </li> 
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/branches-location"> Branch Location </a> </li> 
+		</ul>
+	</li> 
+	-->
+	
+	<li class="nav-item">
+		<a class="nav-link" href="/admin/contact-us">
+			<span class="shape1"></span><span class="shape2"></span> <i class="ti-view-list-alt sidemenu-icon"></i> <span class="sidemenu-label">  Contact Us </span>
+		</a>
+	</li> 
 
-            <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
-                <x-dropdown align="right" width="48">
-                    <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <div>{{ Auth::user()->name }}</div>
 
-                            <div class="ms-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </button>
-                    </x-slot>
-
-                    <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
-
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
-                    </x-slot>
-                </x-dropdown>
-            </div>
-
-            <!-- Hamburger -->
-            <div class="-me-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-        </div>
-
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-            </div>
-
-            <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
-                </x-responsive-nav-link>
-
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-responsive-nav-link>
-                </form>
-            </div>
-        </div>
-    </div>
-</nav>
+	{{-- <li class="nav-item">
+		<a class="nav-link" href="/admin/follow-us">
+			<span class="shape1"></span><span class="shape2"></span> <i class="ti-new-window sidemenu-icon"></i> <span class="sidemenu-label"> Popup Inquiry </span>
+		</a>
+	</li>	
+	<li class="nav-item">
+		<a class="nav-link" href="/admin/newsletter-subscription">
+			<span class="shape1"></span><span class="shape2"></span> <i class="ti-shield sidemenu-icon"></i> <span class="sidemenu-label">  Newsletter </span>
+		</a>
+	</li>  	
+	<li class="nav-item">
+		<a class="nav-link" href="/admin/career">
+			<span class="shape1"></span><span class="shape2"></span> <i class="ti-layout-list-thumb sidemenu-icon"></i> <span class="sidemenu-label"> Career </span>
+		</a>
+	</li>    --}}
+	 
+	<li class="nav-header"><span class="nav-label">For Admin</span></li>
+	<li class="nav-item">
+		<a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-wallet sidemenu-icon"></i><span class="sidemenu-label"> Administration </span><i class="angle fe fe-chevron-right"></i></a>
+		<ul class="nav-sub">
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/change-password">Change Password</a> </li> 
+			<br />			
+		</ul>
+	</li>  
+	 
+</ul>

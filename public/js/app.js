@@ -138,9 +138,6 @@
 //     });
 // });
 
-// import './bootstrap';
-
-
 const circleButton = () => {
     const parentContainer = document.querySelector(".home_projects");
     const button = document.querySelector(".circle_div");
@@ -686,13 +683,15 @@ const gsapAos = () => {
 };
 
 const test = () => {
-    const arr = [69, 99, 11, 5, 30, 35, 77, 50, 46];
+    const arr = [69, 99, 11, 55, 30, 35, 77, 50, 46];
+    const sortedArray = [];
 
     for (let i = 0; i < arr.length; i++) {
         setTimeout(() => {
             console.log(arr[i]);
+            sortedArray.push(arr[i]);
+            console.log(sortedArray);
         }, arr[i]);
-        console.log(arr[i]);
     }
 };
 test();
