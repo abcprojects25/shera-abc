@@ -3,7 +3,7 @@
 <?php use App\Http\Controllers\admin\ProductController; ?>
 <!-- ===== ===== --> 
 
-
+<!-- //sample msg -->
 	<div class="main-content side-content pt-0">
 		<div class="container-fluid">
 			<div class="inner-body">
