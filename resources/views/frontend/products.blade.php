@@ -670,8 +670,10 @@
                                                             </div>
                                                         </div>
                                                         <div class="products-container">
+                                                            @foreach($subCategoriesByMain[1] ?? [] as $subCategory)
                                                             <div class="product-wrapper mb-7">
                                                                 <div class="row align-center">
+                                                                    @if($loop->iteration % 2 != 0)
                                                                     <div class="col-12 col-lg-8">
                                                                         <div class="elementor-widget-container">
                                                                             <div
@@ -681,80 +683,38 @@
                                                                                 data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"left","data-duration":1.5}'
                                                                                 data-widget_type="wcf--title.default"
                                                                             >
+                                                                            
                                                                                 <div class="product-card">
                                                                                     <div class="text-content">
                                                                                         <div class="heading-box mb-4">
+                                                                                            @php
+                                                                                            $words = explode(' ', $subCategory->name);
+                                                                                        @endphp
                                                                                             <h3 class="sub-heading">
-                                                                                                <span class="shera-green">Shera</span>
-                                                                                                High Performance Board
+                                                                                                 <span class="shera-green">{{ $words[0] }}</span>
+                                                                                                    {{ implode(' ', array_slice($words, 1)) }}
                                                                                             </h3>
                                                                                         </div>
                                                                                         <div class="information-box mb-5">
                                                                                             <p>
-                                                                                                SHERA PRO board offers a seamless blend of luxury and functionality, making it an excellent choice for
-                                                                                                projects that demand quick instalation.
+                                                                                                {{ $subCategory->description }}
                                                                                             </p>
+                                                                                            
                                                                                         </div>
                                                                                         <div class="application-box mb-5">
                                                                                             <h4 class="inner-title shera-green mb-3">Applications</h4>
-                                                                                            <ul class="application-list">
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">External Cladding / Façade</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">External Ceiling</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Wall Solution</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Flooring</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Landscaping</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">CNC Cutting</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Roof Underlay</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                            </ul>
+                                                                                                    <ul class="application-list">
+                                                                                                        @foreach($subCategory->applications as $app)
+                                                                                                            <li class="list mb-1">
+                                                                                                                <a href="#" class="link">
+                                                                                                                    <div class="icon-box">
+                                                                                                                        <img src="{{ asset($app->image) }}" alt="{{ $app->name }}">
+                                                                                                                    </div>
+                                                                                                                    <p class="text">{{ $app->name }}</p>
+                                                                                                                </a>
+                                                                                                            </li>
+                                                                                                        @endforeach
+                                                                                                    </ul>
                                                                                         </div>
                                                                                         <div class="wcf__btn icon-position-after">
                                                                                             <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
@@ -768,6 +728,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
+                                                                                
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -784,290 +745,27 @@
                                                                                     <!-- Additional required wrapper -->
                                                                                     <div class="swiper-wrapper">
                                                                                         <!-- Slides -->
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/advance/advance-1.png" alt="" />
+                                                                                        @foreach($subCategory->categoryImages as $image)
+                                                                                            <div class="swiper-slide">
+                                                                                                <div class="image-box">
+                                                                                                   <img src="{{ asset($image->image_path) }}" alt="{{ $image->alt }}">
+                                                                                                </div>
                                                                                             </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/advance/advance-2.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/advance/advance-3.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
+                                                                                        @endforeach
                                                                                     </div>
-                                                                                    <!-- If we need pagination -->
                                                                                 </div>
+                                                                                <!-- If we need pagination -->
                                                                                 <div class="swiper-pagination right">
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/advance/advance-1.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/advance/advance-2.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/advance/advance-3.png" alt="" />
-                                                                                    </div>
+                                                                                    @foreach($subCategory->categoryImages as $image)
+                                                                                        <div class="pagination-image">
+                                                                                            <img src="{{ asset($image->image_path) }}" alt="{{ $image->alt }}">
+                                                                                        </div>
+                                                                                    @endforeach
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-wrapper mb-7">
-                                                                <div class="row align-center">
-                                                                    <div class="col-12 col-lg-5">
-                                                                        <div class="elementor-widget-container h-100">
-                                                                            <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title h-100"
-                                                                                data-id="f9e9057"
-                                                                                data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"left","data-duration":1.5}'
-                                                                                data-widget_type="wcf--title.default"
-                                                                            >
-                                                                                <div class="swiper product-swipper deco-board-swipper h-100">
-                                                                                    <!-- Additional required wrapper -->
-                                                                                    <div class="swiper-wrapper">
-                                                                                        <!-- Slides -->
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/deco-board/blossom/deco-blossom.jpg" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/deco-board/brick/brick-1.jpg" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/deco-board/rocco/deco-rocco.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/deco-board/demo.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <!-- If we need pagination -->
-                                                                                </div>
-                                                                                <div class="swiper-pagination left">
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/deco-board/blossom/deco-blossom.jpg" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/deco-board/brick/brick-1.jpg" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/deco-board/rocco/deco-rocco.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/deco-board/demo.png" alt="" />
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-12 col-lg-7">
-                                                                        <div class="elementor-widget-container">
-                                                                            <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
-                                                                                data-id="f9e9057"
-                                                                                data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"right","data-duration":1.5}'
-                                                                                data-widget_type="wcf--title.default"
-                                                                            >
-                                                                                <div class="product-card alt">
-                                                                                    <div class="text-content">
-                                                                                        <div class="heading-box mb-4">
-                                                                                            <h3 class="sub-heading">
-                                                                                                <span class="shera-green">Shera</span>
-                                                                                                Deco Boards
-                                                                                            </h3>
-                                                                                        </div>
-                                                                                        <div class="information-box mb-5">
-                                                                                            <p>
-                                                                                                Our Deco Boards are built for strength and durability With beautiful textures, these are perfect for a
-                                                                                                wide range of applications and can be customized to match any design.
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <div class="application-box mb-5">
-                                                                                            <h4 class="inner-title shera-green mb-3">Applications</h4>
-                                                                                            <ul class="application-list">
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">External Cladding / Façade</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">External Ceiling</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Wall Solution</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Flooring</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Landscaping</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">CNC Cutting</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Roof Underlay</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                            <!-- <ul class="application-list">
-                                                                                                        <li class="list mb-1">
-                                                                                                            <a href="" class="link">Wall Partition</a>
-                                                                                                        </li>
-                                                                                                        <li class="list mb-1">
-                                                                                                            <a href="" class="link"> False Ceiling</a>
-                                                                                                        </li>
-                                                                                                        <li class="list mb-1">
-                                                                                                            <a href="" class="link">Wall Cladding</a>
-                                                                                                        </li>
-                                                                                                        <li class="list mb-1">
-                                                                                                            <a href="" class="link">External Cladding</a>
-                                                                                                        </li>
-                                                                                                        <li class="list mb-1">
-                                                                                                            <a href="" class="link">Landscaping Roof Underlay</a>
-                                                                                                        </li>
-                                                                                                    </ul> -->
-                                                                                        </div>
-                                                                                        <div class="wcf__btn icon-position-after">
-                                                                                            <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
-                                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-                                                                                                    <path
-                                                                                                        d="M3.49146 0.25V1.5876H11.53L0.9375 12.683L1.83777 13.626L12.4303 2.53061V10.9508H13.7073V0.25H3.49146Z"
-                                                                                                    ></path>
-                                                                                                </svg>
-                                                                                                Explore All Products
-                                                                                            </a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-wrapper mb-7">
-                                                                <div class="row align-center">
-                                                                    <div class="col-12 col-lg-7">
-                                                                        <div class="elementor-widget-container">
-                                                                            <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
-                                                                                data-id="f9e9057"
-                                                                                data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"left","data-duration":1.5}'
-                                                                                data-widget_type="wcf--title.default"
-                                                                            >
-                                                                                <div class="product-card">
-                                                                                    <div class="text-content">
-                                                                                        <div class="heading-box mb-4">
-                                                                                            <h3 class="sub-heading">
-                                                                                                <span class="shera-green">Shera</span>
-                                                                                                Uncoloured Planks
-                                                                                            </h3>
-                                                                                        </div>
-                                                                                        <div class="information-box mb-5">
-                                                                                            <p>Classic designs that radiate sophistication, bringing timeless elegance to any space.</p>
-                                                                                        </div>
-                                                                                        <div class="application-box mb-5">
-                                                                                            <h4 class="inner-title shera-green mb-3">Applications</h4>
-                                                                                            <ul class="application-list">
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Internal & External Cladding</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">False Ceiling</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Landscaping</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                            <!-- <ul class="application-list">
-                                                                                                        <li class="list mb-1">
-                                                                                                            <a href="" class="link">Internal & External Cladding</a>
-                                                                                                        </li>
-                                                                                                        <li class="list mb-1">
-                                                                                                            <a href="" class="link"> False Ceiling</a>
-                                                                                                        </li>
-                                                                                                        <li class="list mb-1">
-                                                                                                            <a href="" class="link">Landscaping</a>
-                                                                                                        </li>
-                                                                                                    </ul> -->
-                                                                                        </div>
-                                                                                        <div class="wcf__btn icon-position-after">
-                                                                                            <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
-                                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-                                                                                                    <path
-                                                                                                        d="M3.49146 0.25V1.5876H11.53L0.9375 12.683L1.83777 13.626L12.4303 2.53061V10.9508H13.7073V0.25H3.49146Z"
-                                                                                                    ></path>
-                                                                                                </svg>
-                                                                                                Explore All Products
-                                                                                            </a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                                    @else
                                                                     <div class="col-12 col-lg-5">
                                                                         <div class="elementor-widget-container h-100">
                                                                             <div
@@ -1081,99 +779,22 @@
                                                                                     <!-- Additional required wrapper -->
                                                                                     <div class="swiper-wrapper">
                                                                                         <!-- Slides -->
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/uncoloured/straight/un-straight-grain.png" alt="" />
+                                                                                        @foreach($subCategory->categoryImages as $image)
+                                                                                            <div class="swiper-slide">
+                                                                                                <div class="image-box">
+                                                                                                   <img src="{{ asset($image->image_path) }}" alt="{{ $image->alt }}">
+                                                                                                </div>
                                                                                             </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/uncoloured/cassia/un-cassia.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/uncoloured/antique/un-antique.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/uncoloured/demo.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <!-- If we need pagination -->
-                                                                                </div>
-                                                                                <div class="swiper-pagination right">
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/uncoloured/straight/un-straight-grain.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/uncoloured/cassia/un-cassia.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/uncoloured/antique/un-antique.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/uncoloured/demo.png" alt="" />
+                                                                                        @endforeach
                                                                                     </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-wrapper mb-7">
-                                                                <div class="row align-center">
-                                                                    <div class="col-12 col-lg-5">
-                                                                        <div class="elementor-widget-container">
-                                                                            <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
-                                                                                data-id="f9e9057"
-                                                                                data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"left","data-duration":1.5}'
-                                                                                data-widget_type="wcf--title.default"
-                                                                            >
-                                                                                <div class="swiper product-swipper deco-board-swipper h-100">
-                                                                                    <!-- Additional required wrapper -->
-                                                                                    <div class="swiper-wrapper">
-                                                                                        <!-- Slides -->
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/pre-coloured/golden-sand/pre-golden-sand.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/pre-coloured/wallnut/pre-wallnut.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/pre-coloured/afro/pre-afro.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/pre-coloured/demo.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <!-- If we need pagination -->
-                                                                                </div>
+                                                                                <!-- If we need pagination -->
                                                                                 <div class="swiper-pagination left">
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/pre-coloured/golden-sand/pre-golden-sand.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/pre-coloured/wallnut/pre-wallnut.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/pre-coloured/afro/pre-afro.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/pre-coloured/demo.png" alt="" />
-                                                                                    </div>
+                                                                                    @foreach($subCategory->categoryImages as $image)
+                                                                                        <div class="pagination-image">
+                                                                                            <img src="{{ asset($image->image_path) }}" alt="{{ $image->alt }}">
+                                                                                        </div>
+                                                                                    @endforeach
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1184,52 +805,42 @@
                                                                                 class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
                                                                                 data-id="f9e9057"
                                                                                 data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"right","data-duration":1.5}'
+                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"left","data-duration":1.5}'
                                                                                 data-widget_type="wcf--title.default"
                                                                             >
+                                                                            
                                                                                 <div class="product-card alt">
                                                                                     <div class="text-content">
                                                                                         <div class="heading-box mb-4">
+                                                                                          @php
+                                                                                            $words = explode(' ', $subCategory->name);
+                                                                                        @endphp
                                                                                             <h3 class="sub-heading">
-                                                                                                <span class="shera-green">Shera</span>
-                                                                                                Pre-Coloured Planks
+                                                                                                 <span class="shera-green">{{ $words[0] }}</span>
+                                                                                                    {{ implode(' ', array_slice($words, 1)) }}
                                                                                             </h3>
+                                                                                       
                                                                                         </div>
                                                                                         <div class="information-box mb-5">
                                                                                             <p>
-                                                                                                Our versatile range of Pre-Coloured Planks come with a premium finish that not only beautifies your
-                                                                                                space with timeless style but also promises long-lasting appeal.
+                                                                                                {{ $subCategory->description }}
                                                                                             </p>
+                                                                                            
                                                                                         </div>
                                                                                         <div class="application-box mb-5">
                                                                                             <h4 class="inner-title shera-green mb-3">Applications</h4>
-                                                                                            <ul class="application-list">
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Internal & External Cladding</p>
-                                                                                                    </a>
-                                                                                                </li>
-
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Landscaping</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                            <!-- <ul class="application-list">
-                                                                                                        <li class="list mb-1">
-                                                                                                            <a href="" class="link">Internal & External Cladding</a>
-                                                                                                        </li>
-                                                                                                        <li class="list mb-1">
-                                                                                                            <a href="" class="link"> Landscaping</a>
-                                                                                                        </li>
-                                                                                                    </ul> -->
+                                                                                                    <ul class="application-list">
+                                                                                                        @foreach($subCategory->applications as $app)
+                                                                                                            <li class="list mb-1">
+                                                                                                                <a href="#" class="link">
+                                                                                                                    <div class="icon-box">
+                                                                                                                        <img src="{{ asset($app->image) }}" alt="{{ $app->name }}">
+                                                                                                                    </div>
+                                                                                                                    <p class="text">{{ $app->name }}</p>
+                                                                                                                </a>
+                                                                                                            </li>
+                                                                                                        @endforeach
+                                                                                                    </ul>
                                                                                         </div>
                                                                                         <div class="wcf__btn icon-position-after">
                                                                                             <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
@@ -1242,486 +853,15 @@
                                                                                             </a>
                                                                                         </div>
                                                                                     </div>
-                                                                                </div>
+                                                                                </div>  
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    @endif
                                                                 </div>
                                                             </div>
-                                                            <div class="product-wrapper mb-7">
-                                                                <div class="row align-center">
-                                                                    <div class="col-12 col-lg-7">
-                                                                        <div class="elementor-widget-container">
-                                                                            <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
-                                                                                data-id="f9e9057"
-                                                                                data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"left","data-duration":1.5}'
-                                                                                data-widget_type="wcf--title.default"
-                                                                            >
-                                                                                <div class="product-card">
-                                                                                    <div class="text-content">
-                                                                                        <div class="heading-box mb-4">
-                                                                                            <h3 class="sub-heading">
-                                                                                                <span class="shera-green">Shera</span>
-                                                                                                Splendid Planks
-                                                                                            </h3>
-                                                                                        </div>
-                                                                                        <div class="information-box mb-5">
-                                                                                            <p>
-                                                                                                SHERA Splendid Planks offer versatile edge profiles for unique grooved wall effects, suitable for both
-                                                                                                indoor and outdoor use. They are user-friendly, install quickly, and provide an exceptional solution for
-                                                                                                your wall design needs.
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <div class="application-box mb-5">
-                                                                                            <h4 class="inner-title shera-green mb-3">Applications</h4>
-                                                                                            <ul class="application-list">
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Internal & External Cladding</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">False Ceiling</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Landscaping</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                        <div class="wcf__btn icon-position-after">
-                                                                                            <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
-                                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-                                                                                                    <path
-                                                                                                        d="M3.49146 0.25V1.5876H11.53L0.9375 12.683L1.83777 13.626L12.4303 2.53061V10.9508H13.7073V0.25H3.49146Z"
-                                                                                                    ></path>
-                                                                                                </svg>
-                                                                                                Explore All Products
-                                                                                            </a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-12 col-lg-5">
-                                                                        <div class="elementor-widget-container">
-                                                                            <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
-                                                                                data-id="f9e9057"
-                                                                                data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"right","data-duration":1.5}'
-                                                                                data-widget_type="wcf--title.default"
-                                                                            >
-                                                                                <div class="swiper product-swipper deco-board-swipper h-100">
-                                                                                    <!-- Additional required wrapper -->
-                                                                                    <div class="swiper-wrapper">
-                                                                                        <!-- Slides -->
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/splendid/cassia/yellow-flame-cassia.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/splendid/dl05/deline-dl05.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/splendid/dx12/deline-dx12.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/splendid/demo.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <!-- If we need pagination -->
-                                                                                </div>
-                                                                                <div class="swiper-pagination right">
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/splendid/cassia/yellow-flame-cassia.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/splendid/dl05/deline-dl05.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/splendid/dx12/deline-dx12.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/splendid/demo.png" alt="" />
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-wrapper mb-7">
-                                                                <div class="row align-center">
-                                                                    <div class="col-12 col-lg-5">
-                                                                        <div class="elementor-widget-container">
-                                                                            <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
-                                                                                data-id="f9e9057"
-                                                                                data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"left","data-duration":1.5}'
-                                                                                data-widget_type="wcf--title.default"
-                                                                            >
-                                                                                <div class="swiper product-swipper deco-board-swipper h-100">
-                                                                                    <!-- Additional required wrapper -->
-                                                                                    <div class="swiper-wrapper">
-                                                                                        <!-- Slides -->
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/floor/floor-1.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/floor/floor-2.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/floor/demo.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <!-- If we need pagination -->
-                                                                                </div>
-                                                                                <div class="swiper-pagination left">
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/floor/floor-1.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/floor/floor-2.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/floor/demo.png" alt="" />
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-12 col-lg-7">
-                                                                        <div class="elementor-widget-container">
-                                                                            <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
-                                                                                data-id="f9e9057"
-                                                                                data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"right","data-duration":1.5}'
-                                                                                data-widget_type="wcf--title.default"
-                                                                            >
-                                                                                <div class="product-card alt">
-                                                                                    <div class="text-content">
-                                                                                        <div class="heading-box mb-4">
-                                                                                            <h3 class="sub-heading">
-                                                                                                <span class="shera-green">Shera</span>
-                                                                                                Floor Planks
-                                                                                            </h3>
-                                                                                        </div>
-                                                                                        <div class="information-box mb-5">
-                                                                                            <p>
-                                                                                                SHERA Floor Plank offers the natural feel of wood with a cassia texture. Strong, termite-resistant, and
-                                                                                                impact-proof, it’s ideal for indoor and outdoor use, saving time and costs.
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <div class="application-box mb-5">
-                                                                                            <h4 class="inner-title shera-green mb-3">Applications</h4>
-                                                                                            <ul class="application-list">
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Flooring</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Pergola</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Decking</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Fins</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Fence</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Stairs</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Outdoor Furniture</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                        <div class="wcf__btn icon-position-after">
-                                                                                            <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
-                                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-                                                                                                    <path
-                                                                                                        d="M3.49146 0.25V1.5876H11.53L0.9375 12.683L1.83777 13.626L12.4303 2.53061V10.9508H13.7073V0.25H3.49146Z"
-                                                                                                    ></path>
-                                                                                                </svg>
-                                                                                                Explore All Products
-                                                                                            </a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-wrapper mb-7">
-                                                                <div class="row align-center">
-                                                                    <div class="col-12 col-lg-7">
-                                                                        <div class="elementor-widget-container">
-                                                                            <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
-                                                                                data-id="f9e9057"
-                                                                                data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"left","data-duration":1.5}'
-                                                                                data-widget_type="wcf--title.default"
-                                                                            >
-                                                                                <div class="product-card">
-                                                                                    <div class="text-content">
-                                                                                        <div class="heading-box mb-4">
-                                                                                            <h3 class="sub-heading">
-                                                                                                <span class="shera-green">Shera</span>
-                                                                                                Skirt
-                                                                                            </h3>
-                                                                                        </div>
-                                                                                        <div class="information-box mb-5">
-                                                                                            <p>
-                                                                                                SHERA Skirt covers joints between the wall and floor, offering durability, termite resistance, and
-                                                                                                moisture protection, while providing a clean, neat finish.
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <div class="application-box mb-5">
-                                                                                            <h4 class="inner-title shera-green mb-3">Applications</h4>
-                                                                                            <ul class="application-list">
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Interior</p></a
-                                                                                                    >
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                        <div class="wcf__btn icon-position-after">
-                                                                                            <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
-                                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-                                                                                                    <path
-                                                                                                        d="M3.49146 0.25V1.5876H11.53L0.9375 12.683L1.83777 13.626L12.4303 2.53061V10.9508H13.7073V0.25H3.49146Z"
-                                                                                                    ></path>
-                                                                                                </svg>
-                                                                                                Explore All Products
-                                                                                            </a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-12 col-lg-5">
-                                                                        <div class="elementor-widget-container">
-                                                                            <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
-                                                                                data-id="f9e9057"
-                                                                                data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"right","data-duration":1.5}'
-                                                                                data-widget_type="wcf--title.default"
-                                                                            >
-                                                                                <div class="swiper product-swipper deco-board-swipper h-100">
-                                                                                    <!-- Additional required wrapper -->
-                                                                                    <div class="swiper-wrapper">
-                                                                                        <!-- Slides -->
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/skirt/SkirtModernProfile.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/skirt/skirt.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <!-- If we need pagination -->
-                                                                                </div>
-                                                                                <div class="swiper-pagination right">
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/skirt/SkirtModernProfile.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/skirt/skirt.png" alt="" />
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-wrapper mb-7">
-                                                                <div class="row align-center">
-                                                                    <div class="col-12 col-lg-5">
-                                                                        <div class="elementor-widget-container">
-                                                                            <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
-                                                                                data-id="f9e9057"
-                                                                                data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"left","data-duration":1.5}'
-                                                                                data-widget_type="wcf--title.default"
-                                                                            >
-                                                                                <div class="swiper product-swipper deco-board-swipper h-100">
-                                                                                    <!-- Additional required wrapper -->
-                                                                                    <div class="swiper-wrapper">
-                                                                                        <!-- Slides -->
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/door/doorframe.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/door/door-1.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-pro/products/door/door-3.jpg" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <!-- If we need pagination -->
-                                                                                </div>
-                                                                                <div class="swiper-pagination left">
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/door/doorframe.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/door/door-1.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-pro/products/door/door-3.jpg" alt="" />
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-12 col-lg-7">
-                                                                        <div class="elementor-widget-container">
-                                                                            <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
-                                                                                data-id="f9e9057"
-                                                                                data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"right","data-duration":1.5}'
-                                                                                data-widget_type="wcf--title.default"
-                                                                            >
-                                                                                <div class="product-card alt">
-                                                                                    <div class="text-content">
-                                                                                        <div class="heading-box mb-4">
-                                                                                            <h3 class="sub-heading">
-                                                                                                <span class="shera-green">Shera</span>
-                                                                                                Door Frame
-                                                                                            </h3>
-                                                                                        </div>
-                                                                                        <div class="information-box mb-5">
-                                                                                            <p>
-                                                                                                SHERA Door Frames are termite, moisture, and weather-resistant, with a modern look. Pre-primed and ready
-                                                                                                for painting, they suit both interior and exterior use.
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <div class="application-box mb-5">
-                                                                                            <h4 class="inner-title shera-green mb-3">Applications</h4>
-
-                                                                                            <ul class="application-list">
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Interior</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Exterior</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                        <div class="wcf__btn icon-position-after">
-                                                                                            <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
-                                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-                                                                                                    <path
-                                                                                                        d="M3.49146 0.25V1.5876H11.53L0.9375 12.683L1.83777 13.626L12.4303 2.53061V10.9508H13.7073V0.25H3.49146Z"
-                                                                                                    ></path>
-                                                                                                </svg>
-                                                                                                Explore All Products
-                                                                                            </a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                            @endforeach
+                                                           
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1932,141 +1072,51 @@
                                                             </div>
                                                         </div>
                                                         <div class="products-container">
+                                                            @foreach($subCategoriesByMain[2] ?? [] as $subCategory)
                                                             <div class="product-wrapper mb-7">
                                                                 <div class="row align-center">
-                                                                    <div class="col-12 col-lg-5">
-                                                                        <div class="elementor-widget-container h-100">
-                                                                            <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title h-100"
-                                                                                data-id="f9e9057"
-                                                                                data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"left","data-duration":1.5}'
-                                                                                data-widget_type="wcf--title.default"
-                                                                            >
-                                                                                <div class="swiper product-swipper deco-board-swipper h-100">
-                                                                                    <!-- Additional required wrapper -->
-                                                                                    <div class="swiper-wrapper">
-                                                                                        <!-- Slides -->
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-neu/product/plain-board.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-neu/product/plain-board-2.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-neu/product/plain-board-3.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <!-- If we need pagination -->
-                                                                                </div>
-                                                                                <div class="swiper-pagination left">
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-neu/product/plain-board.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-neu/product/plain-board-2.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-neu/product/plain-board-3.png" alt="" />
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-12 col-lg-7">
+                                                                    @if($loop->iteration % 2 != 0)
+                                                                    <div class="col-12 col-lg-8">
                                                                         <div class="elementor-widget-container">
                                                                             <div
                                                                                 class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
                                                                                 data-id="f9e9057"
                                                                                 data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"right","data-duration":1.5}'
+                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"left","data-duration":1.5}'
                                                                                 data-widget_type="wcf--title.default"
                                                                             >
-                                                                                <div class="product-card alt">
+                                                                            
+                                                                                <div class="product-card">
                                                                                     <div class="text-content">
                                                                                         <div class="heading-box mb-4">
+                                                                                            @php
+                                                                                            $words = explode(' ', $subCategory->name);
+                                                                                        @endphp
                                                                                             <h3 class="sub-heading">
-                                                                                                <span class="shera-green">SHERA</span>
-                                                                                                <span class="shera-blue"> Neu</span>
+                                                                                                 <span class="shera-green">{{ $words[0] }}</span>
+                                                                                                    <span class="shera-blue">{{ implode(' ', array_slice($words, 1)) }}</span>
                                                                                             </h3>
                                                                                         </div>
                                                                                         <div class="information-box mb-5">
-                                                                                            <p class="mb-2">
-                                                                                                SHERA NEU Fibre Cement Board is a versatile, durable, and cost-effective solution for construction.
-                                                                                                Designed for efficient installation, it resists chipping and requires fewer paint coats.
-                                                                                            </p>
                                                                                             <p>
-                                                                                                Ideal for mezzanine flooring, ceilings, wall partitions, wall paneling, and underlayment, it ensures
-                                                                                                lasting performance at an affordable price.
+                                                                                                {{ $subCategory->description }}
                                                                                             </p>
+                                                                                            
                                                                                         </div>
                                                                                         <div class="application-box mb-5">
                                                                                             <h4 class="inner-title shera-green mb-3">Applications</h4>
-                                                                                            <ul class="application-list">
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Ceiling</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Mezzanine Flooring</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Wall Ceiling</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Wall Partition</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Underlayment</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                            <!-- <ul class="application-list">
-                                                                                                        <li class="list mb-1">
-                                                                                                            <a href="" class="link">Wall Partition</a>
-                                                                                                        </li>
-                                                                                                        <li class="list mb-1">
-                                                                                                            <a href="" class="link"> False Ceiling</a>
-                                                                                                        </li>
-                                                                                                        <li class="list mb-1">
-                                                                                                            <a href="" class="link">Wall Cladding</a>
-                                                                                                        </li>
-                                                                                                        <li class="list mb-1">
-                                                                                                            <a href="" class="link">External Cladding</a>
-                                                                                                        </li>
-                                                                                                        <li class="list mb-1">
-                                                                                                            <a href="" class="link">Landscaping Roof Underlay</a>
-                                                                                                        </li>
-                                                                                                    </ul> -->
+                                                                                                    <ul class="application-list">
+                                                                                                        @foreach($subCategory->applications as $app)
+                                                                                                            <li class="list mb-1">
+                                                                                                                <a href="#" class="link">
+                                                                                                                    <div class="icon-box">
+                                                                                                                        <img src="{{ asset($app->image) }}" alt="{{ $app->name }}">
+                                                                                                                    </div>
+                                                                                                                    <p class="text">{{ $app->name }}</p>
+                                                                                                                </a>
+                                                                                                            </li>
+                                                                                                        @endforeach
+                                                                                                    </ul>
                                                                                         </div>
                                                                                         <div class="wcf__btn icon-position-after">
                                                                                             <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
@@ -2080,11 +1130,140 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
+                                                                                
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    <div class="col-12 col-lg-4">
+                                                                        <div class="elementor-widget-container h-100">
+                                                                            <div
+                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title h-100"
+                                                                                data-id="f9e9057"
+                                                                                data-element_type="widget"
+                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"right","data-duration":1.5}'
+                                                                                data-widget_type="wcf--title.default"
+                                                                            >
+                                                                                <div class="swiper product-swipper deco-board-swipper h-100">
+                                                                                    <!-- Additional required wrapper -->
+                                                                                    <div class="swiper-wrapper">
+                                                                                        <!-- Slides -->
+                                                                                        @foreach($subCategory->categoryImages as $image)
+                                                                                            <div class="swiper-slide">
+                                                                                                <div class="image-box">
+                                                                                                   <img src="{{ asset($image->image_path) }}" alt="{{ $image->alt }}">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        @endforeach
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!-- If we need pagination -->
+                                                                                <div class="swiper-pagination right">
+                                                                                    @foreach($subCategory->categoryImages as $image)
+                                                                                        <div class="pagination-image">
+                                                                                            <img src="{{ asset($image->image_path) }}" alt="{{ $image->alt }}">
+                                                                                        </div>
+                                                                                    @endforeach
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    @else
+                                                                    <div class="col-12 col-lg-5">
+                                                                        <div class="elementor-widget-container h-100">
+                                                                            <div
+                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title h-100"
+                                                                                data-id="f9e9057"
+                                                                                data-element_type="widget"
+                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"right","data-duration":1.5}'
+                                                                                data-widget_type="wcf--title.default"
+                                                                            >
+                                                                                <div class="swiper product-swipper deco-board-swipper h-100">
+                                                                                    <!-- Additional required wrapper -->
+                                                                                    <div class="swiper-wrapper">
+                                                                                        <!-- Slides -->
+                                                                                        @foreach($subCategory->categoryImages as $image)
+                                                                                            <div class="swiper-slide">
+                                                                                                <div class="image-box">
+                                                                                                   <img src="{{ asset($image->image_path) }}" alt="{{ $image->alt }}">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        @endforeach
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!-- If we need pagination -->
+                                                                                <div class="swiper-pagination left">
+                                                                                    @foreach($subCategory->categoryImages as $image)
+                                                                                        <div class="pagination-image">
+                                                                                            <img src="{{ asset($image->image_path) }}" alt="{{ $image->alt }}">
+                                                                                        </div>
+                                                                                    @endforeach
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-12 col-lg-7">
+                                                                        <div class="elementor-widget-container">
+                                                                            <div
+                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
+                                                                                data-id="f9e9057"
+                                                                                data-element_type="widget"
+                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"left","data-duration":1.5}'
+                                                                                data-widget_type="wcf--title.default"
+                                                                            >
+                                                                            
+                                                                                <div class="product-card alt">
+                                                                                    <div class="text-content">
+                                                                                        <div class="heading-box mb-4">
+                                                                                          @php
+                                                                                            $words = explode(' ', $subCategory->name);
+                                                                                        @endphp
+                                                                                            <h3 class="sub-heading">
+                                                                                                 <span class="shera-green">{{ $words[0] }}</span>
+                                                                                                    {{ implode(' ', array_slice($words, 1)) }}
+                                                                                            </h3>
+                                                                                       
+                                                                                        </div>
+                                                                                        <div class="information-box mb-5">
+                                                                                            <p>
+                                                                                                {{ $subCategory->description }}
+                                                                                            </p>
+                                                                                            
+                                                                                        </div>
+                                                                                        <div class="application-box mb-5">
+                                                                                            <h4 class="inner-title shera-green mb-3">Applications</h4>
+                                                                                                    <ul class="application-list">
+                                                                                                        @foreach($subCategory->applications as $app)
+                                                                                                            <li class="list mb-1">
+                                                                                                                <a href="#" class="link">
+                                                                                                                    <div class="icon-box">
+                                                                                                                        <img src="{{ asset($app->image) }}" alt="{{ $app->name }}">
+                                                                                                                    </div>
+                                                                                                                    <p class="text">{{ $app->name }}</p>
+                                                                                                                </a>
+                                                                                                            </li>
+                                                                                                        @endforeach
+                                                                                                    </ul>
+                                                                                        </div>
+                                                                                        <div class="wcf__btn icon-position-after">
+                                                                                            <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+                                                                                                    <path
+                                                                                                        d="M3.49146 0.25V1.5876H11.53L0.9375 12.683L1.83777 13.626L12.4303 2.53061V10.9508H13.7073V0.25H3.49146Z"
+                                                                                                    ></path>
+                                                                                                </svg>
+                                                                                                Explore All Products
+                                                                                            </a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>  
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    @endif
                                                                 </div>
                                                             </div>
+                                                            @endforeach
+                                                           
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2357,242 +1536,52 @@
                                             <div class="container">
                                                 <div class="row align-center">
                                                     <div class="col-12">
-                                                        <div class="products-container">
+                                                         <div class="products-container">
+                                                            @foreach($subCategoriesByMain[8] ?? [] as $subCategory)
                                                             <div class="product-wrapper mb-7">
                                                                 <div class="row align-center">
-                                                                    <div class="col-12 col-lg-5">
-                                                                        <div class="elementor-widget-container h-100">
+                                                                    @if($loop->iteration % 2 != 0)
+                                                                    <div class="col-12 col-lg-8">
+                                                                        <div class="elementor-widget-container">
                                                                             <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title h-100"
+                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
                                                                                 data-id="f9e9057"
                                                                                 data-element_type="widget"
                                                                                 data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"left","data-duration":1.5}'
                                                                                 data-widget_type="wcf--title.default"
                                                                             >
-                                                                                <div class="swiper product-swipper deco-board-swipper h-100">
-                                                                                    <!-- Additional required wrapper -->
-                                                                                    <div class="swiper-wrapper">
-                                                                                        <!-- Slides -->
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-accessories/products/accessories/accessories-1.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <!-- <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-accessories/products/accessories/accessories-2.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-accessories/products/accessories/accessories-3.png" alt="" />
-                                                                                            </div>
-                                                                                        </div> -->
-                                                                                    </div>
-                                                                                    <!-- If we need pagination -->
-                                                                                </div>
-                                                                                <div class="swiper-pagination left">
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-accessories/products/accessories/accessories-1.png" alt="" />
-                                                                                    </div>
-                                                                                    <!-- <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-accessories/products/accessories/accessories-2.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-accessories/products/accessories/accessories-3.png" alt="" />
-                                                                                    </div> -->
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-12 col-lg-7">
-                                                                        <div class="elementor-widget-container">
-                                                                            <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
-                                                                                data-id="f9e9057"
-                                                                                data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"right","data-duration":1.5}'
-                                                                                data-widget_type="wcf--title.default"
-                                                                            >
-                                                                                <div class="product-card alt">
-                                                                                    <div class="text-content">
-                                                                                        <div class="heading-box mb-4">
-                                                                                            <h3 class="sub-heading">
-                                                                                                <span class="shera-green">Shera</span>
-                                                                                                Jointing Compound
-                                                                                            </h3>
-                                                                                        </div>
-                                                                                        <div class="information-box mb-5">
-                                                                                            <p class="mb-2">
-                                                                                                Shera Jointing Compound is a high-performance, ready-to-use compound specially formulated for seamless
-                                                                                                joint treatment in Shera boards and other fiber cement board systems. It ensures a smooth,
-                                                                                                crack-resistant finish, providing both aesthetic and functional value to your construction projects.
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <div class="application-box mb-5">
-                                                                                            <h4 class="inner-title shera-green mb-3">Applications</h4>
-                                                                                            <ul class="application-list">
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">External Cladding / Façade</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">External Ceiling</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Wall Solution</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Flooring</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Landscaping</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">CNC Cutting</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Roof Underlay</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                        <div class="wcf__btn icon-position-after">
-                                                                                            <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
-                                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-                                                                                                    <path
-                                                                                                        d="M3.49146 0.25V1.5876H11.53L0.9375 12.683L1.83777 13.626L12.4303 2.53061V10.9508H13.7073V0.25H3.49146Z"
-                                                                                                    ></path>
-                                                                                                </svg>
-                                                                                                Explore All Products
-                                                                                            </a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-wrapper mb-7">
-                                                                <div class="row align-center">
-                                                                    <div class="col-12 col-lg-7">
-                                                                        <div class="elementor-widget-container">
-                                                                            <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
-                                                                                data-id="f9e9057"
-                                                                                data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"right","data-duration":1.5}'
-                                                                                data-widget_type="wcf--title.default"
-                                                                            >
+                                                                            
                                                                                 <div class="product-card">
                                                                                     <div class="text-content">
                                                                                         <div class="heading-box mb-4">
+                                                                                            @php
+                                                                                            $words = explode(' ', $subCategory->name);
+                                                                                        @endphp
                                                                                             <h3 class="sub-heading">
-                                                                                                <span class="shera-green">Shera</span>
-                                                                                                Flexible Jointing Compound
+                                                                                                 <span class="shera-green">{{ $words[0] }}</span>
+                                                                                                    {{ implode(' ', array_slice($words, 1)) }}
                                                                                             </h3>
                                                                                         </div>
                                                                                         <div class="information-box mb-5">
-                                                                                            <p class="mb-2">
-                                                                                                Shera Flexible Jointing Compound is designed to accommodate dynamic movements in wall and ceiling
-                                                                                                systems. Enhanced with superior flexibility, it is perfect for environments prone to temperature
-                                                                                                fluctuations or structural movement, ensuring long-term joint durability and crack resistance.
+                                                                                            <p>
+                                                                                                {{ $subCategory->description }}
                                                                                             </p>
+                                                                                            
                                                                                         </div>
                                                                                         <div class="application-box mb-5">
                                                                                             <h4 class="inner-title shera-green mb-3">Applications</h4>
-                                                                                            <ul class="application-list">
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">External Cladding / Façade</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">External Ceiling</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Wall Solution</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Flooring</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Landscaping</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">CNC Cutting</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Roof Underlay</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                            </ul>
+                                                                                                    <ul class="application-list">
+                                                                                                        @foreach($subCategory->applications as $app)
+                                                                                                            <li class="list mb-1">
+                                                                                                                <a href="#" class="link">
+                                                                                                                    <div class="icon-box">
+                                                                                                                        <img src="{{ asset($app->image) }}" alt="{{ $app->name }}">
+                                                                                                                    </div>
+                                                                                                                    <p class="text">{{ $app->name }}</p>
+                                                                                                                </a>
+                                                                                                            </li>
+                                                                                                        @endforeach
+                                                                                                    </ul>
                                                                                         </div>
                                                                                         <div class="wcf__btn icon-position-after">
                                                                                             <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
@@ -2606,99 +1595,73 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
+                                                                                
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-12 col-lg-5">
+                                                                    <div class="col-12 col-lg-4">
                                                                         <div class="elementor-widget-container h-100">
                                                                             <div
                                                                                 class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title h-100"
                                                                                 data-id="f9e9057"
                                                                                 data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"left","data-duration":1.5}'
+                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"right","data-duration":1.5}'
                                                                                 data-widget_type="wcf--title.default"
                                                                             >
                                                                                 <div class="swiper product-swipper deco-board-swipper h-100">
                                                                                     <!-- Additional required wrapper -->
                                                                                     <div class="swiper-wrapper">
                                                                                         <!-- Slides -->
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-accessories/products/accessories/accessories-4.png" alt="" />
+                                                                                        @foreach($subCategory->categoryImages as $image)
+                                                                                            <div class="swiper-slide">
+                                                                                                <div class="image-box">
+                                                                                                   <img src="{{ asset($image->image_path) }}" alt="{{ $image->alt }}">
+                                                                                                </div>
                                                                                             </div>
-                                                                                        </div>
-                                                                                        <!-- <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-accessories/products/accessories/accessories-2.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-accessories/products/accessories/accessories-3.png" alt="" />
-                                                                                            </div>
-                                                                                        </div> -->
+                                                                                        @endforeach
                                                                                     </div>
-                                                                                    <!-- If we need pagination -->
                                                                                 </div>
+                                                                                <!-- If we need pagination -->
                                                                                 <div class="swiper-pagination right">
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-accessories/products/accessories/accessories-4.png" alt="" />
-                                                                                    </div>
-                                                                                    <!-- <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-accessories/products/accessories/accessories-2.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-accessories/products/accessories/accessories-3.png" alt="" />
-                                                                                    </div> -->
+                                                                                    @foreach($subCategory->categoryImages as $image)
+                                                                                        <div class="pagination-image">
+                                                                                            <img src="{{ asset($image->image_path) }}" alt="{{ $image->alt }}">
+                                                                                        </div>
+                                                                                    @endforeach
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-wrapper mb-7">
-                                                                <div class="row align-center">
+                                                                    @else
                                                                     <div class="col-12 col-lg-5">
                                                                         <div class="elementor-widget-container h-100">
                                                                             <div
                                                                                 class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title h-100"
                                                                                 data-id="f9e9057"
                                                                                 data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"left","data-duration":1.5}'
+                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"right","data-duration":1.5}'
                                                                                 data-widget_type="wcf--title.default"
                                                                             >
                                                                                 <div class="swiper product-swipper deco-board-swipper h-100">
                                                                                     <!-- Additional required wrapper -->
                                                                                     <div class="swiper-wrapper">
                                                                                         <!-- Slides -->
-                                                                                        <!-- <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-accessories/products/accessories/accessories-1.png" alt="" />
+                                                                                        @foreach($subCategory->categoryImages as $image)
+                                                                                            <div class="swiper-slide">
+                                                                                                <div class="image-box">
+                                                                                                   <img src="{{ asset($image->image_path) }}" alt="{{ $image->alt }}">
+                                                                                                </div>
                                                                                             </div>
-                                                                                        </div> -->
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-accessories/products/accessories/accessories-2.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <!-- <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-accessories/products/accessories/accessories-3.png" alt="" />
-                                                                                            </div>
-                                                                                        </div> -->
+                                                                                        @endforeach
                                                                                     </div>
-                                                                                    <!-- If we need pagination -->
                                                                                 </div>
+                                                                                <!-- If we need pagination -->
                                                                                 <div class="swiper-pagination left">
-                                                                                    <!-- <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-accessories/products/accessories/accessories-1.png" alt="" />
-                                                                                    </div> -->
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-accessories/products/accessories/accessories-2.png" alt="" />
-                                                                                    </div>
-                                                                                    <!-- <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-accessories/products/accessories/accessories-3.png" alt="" />
-                                                                                    </div> -->
+                                                                                    @foreach($subCategory->categoryImages as $image)
+                                                                                        <div class="pagination-image">
+                                                                                            <img src="{{ asset($image->image_path) }}" alt="{{ $image->alt }}">
+                                                                                        </div>
+                                                                                    @endforeach
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -2709,85 +1672,42 @@
                                                                                 class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
                                                                                 data-id="f9e9057"
                                                                                 data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"right","data-duration":1.5}'
+                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"left","data-duration":1.5}'
                                                                                 data-widget_type="wcf--title.default"
                                                                             >
+                                                                            
                                                                                 <div class="product-card alt">
                                                                                     <div class="text-content">
                                                                                         <div class="heading-box mb-4">
+                                                                                          @php
+                                                                                            $words = explode(' ', $subCategory->name);
+                                                                                        @endphp
                                                                                             <h3 class="sub-heading">
-                                                                                                <span class="shera-green">Shera</span>
-                                                                                                Fiberglass Mesh Tape
+                                                                                                 <span class="shera-green">{{ $words[0] }}</span>
+                                                                                                    {{ implode(' ', array_slice($words, 1)) }}
                                                                                             </h3>
+                                                                                       
                                                                                         </div>
                                                                                         <div class="information-box mb-5">
-                                                                                            <p class="mb-2">
-                                                                                                Shera Fiberglass Mesh Tape is a high-strength, alkali-resistant reinforcing tape specifically designed
-                                                                                                for use with Shera Jointing Compounds. Ideal for strengthening joints and preventing cracks, it ensures
-                                                                                                superior joint integrity and surface durability in both interior and exterior fiber cement board
-                                                                                                applications.
+                                                                                            <p>
+                                                                                                {{ $subCategory->description }}
                                                                                             </p>
+                                                                                            
                                                                                         </div>
                                                                                         <div class="application-box mb-5">
                                                                                             <h4 class="inner-title shera-green mb-3">Applications</h4>
-                                                                                            <ul class="application-list">
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">External Cladding / Façade</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">External Ceiling</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Wall Solution</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Flooring</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Landscaping</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">CNC Cutting</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Roof Underlay</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                            </ul>
+                                                                                                    <ul class="application-list">
+                                                                                                        @foreach($subCategory->applications as $app)
+                                                                                                            <li class="list mb-1">
+                                                                                                                <a href="#" class="link">
+                                                                                                                    <div class="icon-box">
+                                                                                                                        <img src="{{ asset($app->image) }}" alt="{{ $app->name }}">
+                                                                                                                    </div>
+                                                                                                                    <p class="text">{{ $app->name }}</p>
+                                                                                                                </a>
+                                                                                                            </li>
+                                                                                                        @endforeach
+                                                                                                    </ul>
                                                                                         </div>
                                                                                         <div class="wcf__btn icon-position-after">
                                                                                             <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
@@ -2800,310 +1720,15 @@
                                                                                             </a>
                                                                                         </div>
                                                                                     </div>
-                                                                                </div>
+                                                                                </div>  
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    @endif
                                                                 </div>
                                                             </div>
-                                                            <div class="product-wrapper mb-7">
-                                                                <div class="row align-center">
-                                                                    <div class="col-12 col-lg-7">
-                                                                        <div class="elementor-widget-container">
-                                                                            <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
-                                                                                data-id="f9e9057"
-                                                                                data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"right","data-duration":1.5}'
-                                                                                data-widget_type="wcf--title.default"
-                                                                            >
-                                                                                <div class="product-card">
-                                                                                    <div class="text-content">
-                                                                                        <div class="heading-box mb-4">
-                                                                                            <h3 class="sub-heading">
-                                                                                                <span class="shera-green">Shera</span>
-                                                                                                Cement Bonding
-                                                                                            </h3>
-                                                                                        </div>
-                                                                                        <div class="information-box mb-5">
-                                                                                            <p class="mb-2">
-                                                                                                Shera Cement Bonding Agent is a high-performance acrylic-based liquid admixture specially designed to
-                                                                                                enhance the adhesion between new and existing cement-based surfaces. It acts as a superior bonding
-                                                                                                primer, ensuring long-lasting performance and minimizing surface delamination in cement applications
-                                                                                                involving Shera fiber cement boards and other substrates.
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <div class="application-box mb-5">
-                                                                                            <h4 class="inner-title shera-green mb-3">Applications</h4>
-                                                                                            <ul class="application-list">
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">External Cladding / Façade</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">External Ceiling</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Wall Solution</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Flooring</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Landscaping</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">CNC Cutting</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Roof Underlay</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                        <div class="wcf__btn icon-position-after">
-                                                                                            <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
-                                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-                                                                                                    <path
-                                                                                                        d="M3.49146 0.25V1.5876H11.53L0.9375 12.683L1.83777 13.626L12.4303 2.53061V10.9508H13.7073V0.25H3.49146Z"
-                                                                                                    ></path>
-                                                                                                </svg>
-                                                                                                Explore All Products
-                                                                                            </a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-12 col-lg-5">
-                                                                        <div class="elementor-widget-container h-100">
-                                                                            <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title h-100"
-                                                                                data-id="f9e9057"
-                                                                                data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"left","data-duration":1.5}'
-                                                                                data-widget_type="wcf--title.default"
-                                                                            >
-                                                                                <div class="swiper product-swipper deco-board-swipper h-100">
-                                                                                    <!-- Additional required wrapper -->
-                                                                                    <div class="swiper-wrapper">
-                                                                                        <!-- Slides -->
-                                                                                        <!-- <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-accessories/products/accessories/accessories-4.png" alt="" />
-                                                                                            </div>
-                                                                                        </div> -->
-                                                                                        <!-- <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-accessories/products/accessories/accessories-2.png" alt="" />
-                                                                                            </div>
-                                                                                        </div> -->
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-accessories/products/accessories/accessories-3.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <!-- If we need pagination -->
-                                                                                </div>
-                                                                                <div class="swiper-pagination right">
-                                                                                    <!-- <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-accessories/products/accessories/accessories-4.png" alt="" />
-                                                                                    </div> -->
-                                                                                    <!-- <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-accessories/products/accessories/accessories-2.png" alt="" />
-                                                                                    </div> -->
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-accessories/products/accessories/accessories-3.png" alt="" />
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-wrapper mb-7">
-                                                                <div class="row align-center">
-                                                                    <div class="col-12 col-lg-5">
-                                                                        <div class="elementor-widget-container h-100">
-                                                                            <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title h-100"
-                                                                                data-id="f9e9057"
-                                                                                data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"left","data-duration":1.5}'
-                                                                                data-widget_type="wcf--title.default"
-                                                                            >
-                                                                                <div class="swiper product-swipper deco-board-swipper h-100">
-                                                                                    <!-- Additional required wrapper -->
-                                                                                    <div class="swiper-wrapper">
-                                                                                        <!-- Slides -->
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-accessories/products/tools/tool-1.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-accessories/products/tools/tool-2.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="swiper-slide">
-                                                                                            <div class="image-box">
-                                                                                                <img src="./img/products-page/shera-accessories/products/tools/tool-3.png" alt="" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <!-- If we need pagination -->
-                                                                                </div>
-                                                                                <div class="swiper-pagination left">
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-accessories/products/tools/tool-1.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-accessories/products/tools/tool-2.png" alt="" />
-                                                                                    </div>
-                                                                                    <div class="pagination-image">
-                                                                                        <img src="./img/products-page/shera-accessories/products/tools/tool-3.png" alt="" />
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-12 col-lg-7">
-                                                                        <div class="elementor-widget-container">
-                                                                            <div
-                                                                                class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
-                                                                                data-id="f9e9057"
-                                                                                data-element_type="widget"
-                                                                                data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"right","data-duration":1.5}'
-                                                                                data-widget_type="wcf--title.default"
-                                                                            >
-                                                                                <div class="product-card alt">
-                                                                                    <div class="text-content">
-                                                                                        <div class="heading-box mb-4">
-                                                                                            <h3 class="sub-heading">
-                                                                                                <span class="shera-green">Shera</span>
-                                                                                                Tools
-                                                                                            </h3>
-                                                                                        </div>
-                                                                                        <div class="information-box mb-5">
-                                                                                            <p class="mb-2">
-                                                                                                Our SHERA Tools are purpose-built to work seamlessly with our fibre cement boards. Whether you're
-                                                                                                cutting, drilling, sanding, or fastening our tools ensure ease of use, accuracy, and durability.
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <div class="application-box mb-5">
-                                                                                            <h4 class="inner-title shera-green mb-3">Applications</h4>
-                                                                                            <ul class="application-list">
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">External Cladding / Façade</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">External Ceiling</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Wall Solution</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Flooring</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Landscaping</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_2.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">CNC Cutting</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                                <li class="list mb-1">
-                                                                                                    <a href="" class="link">
-                                                                                                        <div class="icon-box">
-                                                                                                            <img src="./img/icons/icon_1.svg" alt="" />
-                                                                                                        </div>
-                                                                                                        <p class="text">Roof Underlay</p>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                        <div class="wcf__btn icon-position-after">
-                                                                                            <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
-                                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-                                                                                                    <path
-                                                                                                        d="M3.49146 0.25V1.5876H11.53L0.9375 12.683L1.83777 13.626L12.4303 2.53061V10.9508H13.7073V0.25H3.49146Z"
-                                                                                                    ></path>
-                                                                                                </svg>
-                                                                                                Explore All Products
-                                                                                            </a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                            @endforeach
+                                                           
                                                         </div>
                                                     </div>
                                                 </div>

@@ -40,9 +40,20 @@ class ProductController extends Controller
 
     public function userProductPage()
 {
-    $Products = Products::all();
-    return view('frontend.products', compact('Products'));
+        $mainCategoryIds = [1, 2, 8];
+        $mainCategories = Categories::whereIn('id', $mainCategoryIds)->get();
+        $subCategoriesByMain = [];
+        foreach ($mainCategoryIds as $mainCategoryId) {
+                $subCategoryIds = Categories_lookups::where('category_id', $mainCategoryId)
+                    ->pluck('categry_lookup');
+
+                $subCategoriesByMain[$mainCategoryId] = Categories::whereIn('id', $subCategoryIds)->whereNotIn('id', [1, 2, 8])->get();
+            
+
+            }
+        return view('frontend.products', compact('mainCategories', 'subCategoriesByMain'));
 }
+
     public function Home_Index(){
       $Products = Products::orderBy('product_order','asc')->where('is_master_pro',1)->get();
       $count = Products::where('is_deleted',0)->count();
@@ -830,6 +841,7 @@ private function slugify($text)
      public function deleteCategories($id)
      {
        $id=base64_decode($id);
+       CategoryImage::where('category_id', $id)->delete();
        Categories::where('id',$id)->delete();
        toast('Category Deleted Successfully!!!','success');
        return redirect()->back();
@@ -899,12 +911,16 @@ public function SubCategoriesAddEdit(Request $request) {
             $Insert->save();
 
             // Save lookup for all selected categories
-            foreach($request->category_id as $j => $item) {
+            // Since only one category_id is expected, wrap it in an array
+            $categoryIds = [$request->category_id];
+
+            foreach($categoryIds as $item) {
                 $looup = new Categories_lookups;
                 $looup->categry_lookup = $Insert->id;
                 $looup->category_id = $item;
                 $looup->save();
             }
+
         }
     }
 
@@ -1027,14 +1043,16 @@ public function storeApplication(Request $request)
     foreach ($request->name as $index => $name) {
         $imagePath = null;
         if ($request->hasFile("image.$index")) {
-            $imagePath = $request->file("image")[$index]->store('uploads/images', 'public');
+            $image = $request->file("image.$index");
+            $imagePath = $image->getClientOriginalName();
+            $image->move(public_path('uploads/images'), $imagePath);
         }
 
         ProductApplication::create([
             'category_id' => $request->category_id,
             'name' => $name,
             'alt_text' => $request->alt_text[$index] ?? null,
-            'image' => $imagePath,
+            'image' => 'uploads/images/' . $imagePath,
             'status' => 1,
         ]);
     }
@@ -1052,7 +1070,7 @@ public function storeCategoryImages(Request $request)
     ]);
 
     foreach ($request->file('images') as $index => $image) {
-        $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+$imageName = $image->getClientOriginalName();
         $image->move(public_path('uploads/category_images'), $imageName);
 
         CategoryImage::create([

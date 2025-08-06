@@ -70,7 +70,7 @@
 											<td class="text-center">{{$Categories->firstItem() + $k}} </td>
 											<td> {{date('d M Y',strtotime($item->created_at))}}<br> <small class="text-muted">{{date('H:i:A',strtotime($item->created_at))}}</small> </td> 
 											<td> {{$item->name}}</td>
-											<td> {{$item->description}}</td>
+                                            <td> {{ \Illuminate\Support\Str::limit($item->description, 50) }}</td>
 					<td>
     @php
         $subcategories = ProductController::FetchSubCategories($item->id);
@@ -87,19 +87,46 @@
     @endif
 </td>
 <!-- Add Applications Button -->
-<td>
-    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addApplicationModal" onclick="openAppModal({{ $item->id }})">
-        Add Application
-    </button>
+<td class="text-center">
+    @php
+        $applications = \App\Models\admin\ProductApplication::where('category_id', $item->id)->get();
+    @endphp
+    <div>
+        @if($applications->isNotEmpty())
+            <ul class="list-unstyled mt-2 mb-2" style="max-height: 120px; overflow-y: auto;">
+                @foreach($applications as $app)
+                    <li class="badge badge-info mb-1">{{ $app->name }}</li>
+                @endforeach
+            </ul>
+        @else
+            <span class="text-muted d-block mt-2 mb-2">No Applications</span>
+        @endif
+        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addApplicationModal" onclick="openAppModal({{ $item->id }})">
+            Add Application
+        </button>
+    </div>
 </td>
 
 
 <!-- Add Images Button -->
 <td class="text-center">
-   <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#addCategoryImageModal" data-category="{{ $item->id }}">
-    Add Images
-</button>
-
+    @php
+        $categoryImages = \App\Models\admin\CategoryImage::where('category_id', $item->id)->get();
+    @endphp
+    @if($categoryImages->isNotEmpty())
+        <ul class="list-unstyled mb-2" style="max-height: 120px; overflow-y: auto;">
+            @foreach($categoryImages as $img)
+                <li class="badge badge-info mb-1">
+                    {{ basename($img->image_path) }}
+                </li>
+            @endforeach
+        </ul>
+    @else
+        <span class="text-muted d-block"></span>
+    @endif
+    <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#addCategoryImageModal" data-category="{{ $item->id }}">
+        Add Images
+    </button>
 </td>
 
 											@if($item->status == 0)
