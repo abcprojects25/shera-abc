@@ -85,7 +85,7 @@
 											<th style="width:110px"> Created At </th> 
 											
 											<th> Tags Title </th>  
-											<th class="text-center" > Tag COde </th>
+											<th class="text-center" > Tag Code </th>
 											<th class="text-center" style="width:60px"> Status </th>
 											<th style="width:190px"> Actions </th>
 										</tr> 

@@ -224,7 +224,7 @@ public function edit($id)
         $obj->page_name = $request->page_name;
         $obj->urls = $request->page_url;
         $obj->utype = 2;
-        $obj->user_id = $user_id;
+        $obj->id = $user_id;
         $obj->status = 1;
         $obj->save();
         // toast('URL Added Successfully!!!','success');
@@ -251,7 +251,7 @@ public function edit($id)
          $user_id = auth('admin')->user()->id;
       
 
-        Urls::where('id',$request->edit_id)->update(['page_name' => $request->page_name,'urls' => $request->page_url,'user_id' => $user_id,
+        Urls::where('id',$request->edit_id)->update(['page_name' => $request->page_name,'urls' => $request->page_url,'id' => $user_id,
         'status'=>$request->is_active,'updated_at'=>now()]);
        
         Session::flash('success','URL Updated Successfully.');

@@ -272,7 +272,7 @@
                                 </ul>
                                 <ul class="top-menu-list">
                                     <li class="list">
-                                        <a href="" class="link">About Us</a>
+                                        <a href="{{ url('/about-us') }}" class="link">About Us</a>
                                     </li>
                                     <li class="list">
                                         <a href="" class="link">Knowledge Center</a>
@@ -287,7 +287,7 @@
                                         <a href="" class="link">Support</a>
                                     </li>
                                     <li class="list">
-                                        <a href="" class="link">Contact Us</a>
+                                        <a href="{{ url('/contact-us') }}" class="link">Contact Us</a>
                                     </li>
 
                                     <!-- <li class="list">
@@ -372,7 +372,7 @@
                                                                         id="menu-item-9436"
                                                                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-9436"
                                                                     >
-                                                                        <a href="{{ url('/products#product1') }}">
+                                                                        <a href="#">
                                                                             SHERA PRO
                                                                             <span class="submenu-indicator">
                                                                                 <svg
@@ -670,7 +670,7 @@
                         </div>
                     </div>
                     <div data-elementor-type="wp-page" data-elementor-id="34" class="elementor elementor-34">
-                        <div class="inner-page shera-project-page">
+                        <div class="inner-page project-parent-page">
                             <section class="banner">
                                 <div class="image-box">
                                     <img src="./img/products-page/banner/banner.jpg" alt="" />
@@ -691,69 +691,13 @@
                                         >
                                             <div class="elementor-widget-container">
                                                 <!-- <h2 class="sub-heading alt mb-3">Shera Product</h2> -->
-                                                <h2 class="sub-heading alt"><span class="mini-heading">Project</span> <span class="heading"> Deco Board Brick</span></h2>
+                                                <h2 class="sub-heading alt"><span class="mini-heading">Project</span> <span class="heading"> Hospital</span></h2>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                            <section class="section project-description pb-0">
-                                <div class="container">
-                                    <div class="image-box">
-                                        <img src="./img/projects/2.jpg" alt="" />
-                                        <div class="image-tagline">
-                                            <i>Urban Brew Café - Bangalore, India</i>
-                                        </div>
-                                    </div>
-                                    <div class="text-content">
-                                        <p class="mb-0">
-                                            Urban Brew Café, nestled in the cultural and tech-savvy hub of Bangalore, set out to establish a strong identity through innovative design and memorable
-                                            architecture. The vision was to craft a cozy yet elegant café that drew in visitors not only for its coffee but also for its distinct and upscale visual
-                                            character. The aesthetic needed to match the quality of experience the brand aimed to deliver — refined, warm, and urban.
-                                        </p>
-                                        <ul class="detail-list">
-                                            <li class="list-item"><span>Location : </span> Mumbai</li>
-                                            <li class="list-item"><span>Product : </span> Deco Board</li>
-                                            <li class="list-item"><span>Thickness : </span> 6mm</li>
-                                            <li class="list-item"><span>Size : </span> 1100 inch</li>
-                                            <li class="list-item"><span>Total Sq.Ft. : </span> 1000</li>
-                                        </ul>
-                                    </div>
-                                    <div class="row align-center">
-                                        <div class="col-12">
-                                            <div class="products-container">
-                                                <div class="product-wrapper">
-                                                    <div class="row">
-                                                        <div class="col-12 col-lg-5">
-                                                            <div class="elementor-widget-container h-100">
-                                                                <div
-                                                                    class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title h-100"
-                                                                    data-id="f9e9057"
-                                                                    data-element_type="widget"
-                                                                    data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"left","data-duration":1.5}'
-                                                                    data-widget_type="wcf--title.default"
-                                                                ></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-lg-7">
-                                                            <div class="elementor-widget-container">
-                                                                <div
-                                                                    class="elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
-                                                                    data-id="f9e9057"
-                                                                    data-element_type="widget"
-                                                                    data-settings='{"wcf-animation":"fade","ease":"power3","fade-offset":150,"delay":0.15,"on-scroll":1,"fade-from":"right","data-duration":1.5}'
-                                                                    data-widget_type="wcf--title.default"
-                                                                ></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                            <section class="section projects-gallery-section">
+                            <section class="section project-card-section background-section">
                                 <div class="container">
                                     <div class="heading-box mb-5">
                                         <div
@@ -766,255 +710,127 @@
                                                 class="elementor-element elementor-element-7d0fae9 wcf-t-animation-text_move elementor-widget elementor-widget-wcf--title"
                                                 data-id="7d0fae9"
                                                 data-element_type="widget"
-                                                data-settings='{"text_transform_origin":"top center -50","wcf_text_animation":"text_move","text_delay":0.15,"text_duration":1,"text_stagger":0.02,"text_on_scroll":"yes","text_rotation_di":"x","text_rotation":"-80","wcf-animation":"none"}'
+                                                data-settings='{"text_transform_origin":"top center -50","wcf_text_animation":"text_move","text_delay":2.15,"text_duration":1,"text_stagger":0.02,"text_on_scroll":"yes","text_rotation_di":"x","text_rotation":"-80","wcf-animation":"none"}'
                                                 data-widget_type="wcf--title.default"
                                             >
                                                 <div class="elementor-widget-container">
-                                                    <h4 class="wcf--title">Project</h4>
-                                                    <h2 class="wcf--title alt">Gallery</h2>
+                                                    <h4 class="wcf--title">Transforming Healthcare</h4>
+                                                    <h2 class="wcf--title alt">Hospital Projects</h2>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="project-gallery">
-                                        <div class="row">
-                                            <div class="col-12 col-lg-5">
-                                                <div class="swiper-slide">
-                                                    <div class="product-card">
-                                                        <div class="image-box">
-                                                            <img src="./img/projects/3.jpg" alt="" data-fancybox="project-gallery" data-caption="Caption #2" />
-                                                        </div>
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-4">
+                                            <div class="project-cards-wrapper">
+                                                <a href="#" class="project-card">
+                                                    <div class="image-box">
+                                                        <img src="./img/projects/2.jpg" alt="" />
                                                     </div>
-                                                </div>
+                                                    <div class="project-detail">
+                                                        <h4 class="sub-heading shera-black">Urban Brew Cafe - Bnaglore</h4>
+                                                    </div>
+                                                </a>
                                             </div>
-                                            <div class="col-12 col-lg-4">
-                                                <div class="swiper-slide">
-                                                    <div class="product-card">
-                                                        <div class="image-box">
-                                                            <img src="./img/projects/6.jpg" alt="" data-fancybox="project-gallery" data-caption="Caption #2" />
-                                                        </div>
+                                        </div>
+                                        <div class="col-lg-4 mb-4">
+                                            <div class="project-cards-wrapper">
+                                                <a href="#" class="project-card">
+                                                    <div class="image-box">
+                                                        <img src="./img/projects/1.jpg" alt="" />
                                                     </div>
-                                                </div>
+                                                    <div class="project-detail">
+                                                        <h4 class="sub-heading shera-black">Urban Brew Cafe - Bnaglore</h4>
+                                                    </div>
+                                                </a>
                                             </div>
-                                            <div class="col-12 col-lg-3">
-                                                <div class="swiper-slide">
-                                                    <div class="product-card">
-                                                        <div class="image-box">
-                                                            <img src="./img/projects/1.jpg" alt="" data-fancybox="project-gallery" data-caption="Caption #2" />
-                                                        </div>
+                                        </div>
+                                        <div class="col-lg-4 mb-4">
+                                            <div class="project-cards-wrapper">
+                                                <a href="#" class="project-card">
+                                                    <div class="image-box">
+                                                        <img src="./img/projects/4.jpg" alt="" />
                                                     </div>
-                                                </div>
+                                                    <div class="project-detail">
+                                                        <h4 class="sub-heading shera-black">Urban Brew Cafe - Bnaglore</h4>
+                                                    </div>
+                                                </a>
                                             </div>
-
-                                            <div class="col-12 col-lg-4">
-                                                <div class="swiper-slide">
-                                                    <div class="product-card">
-                                                        <div class="image-box">
-                                                            <img src="./img/projects/7.jpg" alt="" data-fancybox="project-gallery" data-caption="Caption #2" />
-                                                        </div>
+                                        </div>
+                                        <div class="col-lg-4 mb-4">
+                                            <div class="project-cards-wrapper">
+                                                <a href="#" class="project-card">
+                                                    <div class="image-box">
+                                                        <img src="./img/projects/3.jpg" alt="" />
                                                     </div>
-                                                </div>
+                                                    <div class="project-detail">
+                                                        <h4 class="sub-heading shera-black">Urban Brew Cafe - Bnaglore</h4>
+                                                    </div>
+                                                </a>
                                             </div>
-                                            <div class="col-12 col-lg-4">
-                                                <div class="swiper-slide">
-                                                    <div class="product-card">
-                                                        <div class="image-box">
-                                                            <img src="./img/projects/8.jpg" alt="" data-fancybox="project-gallery" data-caption="Caption #2" />
-                                                        </div>
+                                        </div>
+                                        <div class="col-lg-4 mb-4">
+                                            <div class="project-cards-wrapper">
+                                                <a href="#" class="project-card">
+                                                    <div class="image-box">
+                                                        <img src="./img/projects/5.jpg" alt="" />
                                                     </div>
-                                                </div>
+                                                    <div class="project-detail">
+                                                        <h4 class="sub-heading shera-black">Urban Brew Cafe - Bnaglore</h4>
+                                                    </div>
+                                                </a>
                                             </div>
-                                            <div class="col-12 col-lg-4">
-                                                <div class="swiper-slide">
-                                                    <div class="product-card">
-                                                        <div class="image-box">
-                                                            <img src="./img/projects/5.jpg" alt="" data-fancybox="project-gallery" data-caption="Caption #2" />
-                                                        </div>
+                                        </div>
+                                        <div class="col-lg-4 mb-4">
+                                            <div class="project-cards-wrapper">
+                                                <a href="#" class="project-card">
+                                                    <div class="image-box">
+                                                        <img src="./img/projects/6.jpg" alt="" />
                                                     </div>
-                                                </div>
+                                                    <div class="project-detail">
+                                                        <h4 class="sub-heading shera-black">Urban Brew Cafe - Bnaglore</h4>
+                                                    </div>
+                                                </a>
                                             </div>
-                                            <div class="col-12 col-lg-5">
-                                                <div class="swiper-slide">
-                                                    <div class="product-card">
-                                                        <div class="image-box">
-                                                            <img src="./img/projects/2.jpg" alt="" data-fancybox="project-gallery" data-caption="Caption #2" />
-                                                        </div>
+                                        </div>
+                                        <div class="col-lg-4 mb-4">
+                                            <div class="project-cards-wrapper">
+                                                <a href="#" class="project-card">
+                                                    <div class="image-box">
+                                                        <img src="./img/projects/8.jpg" alt="" />
                                                     </div>
-                                                </div>
+                                                    <div class="project-detail">
+                                                        <h4 class="sub-heading shera-black">Urban Brew Cafe - Bnaglore</h4>
+                                                    </div>
+                                                </a>
                                             </div>
-                                            <div class="col-12 col-lg-7">
-                                                <div class="swiper-slide">
-                                                    <div class="product-card">
-                                                        <div class="image-box">
-                                                            <img src="./img/projects/4.jpg" alt="" data-fancybox="project-gallery" data-caption="Caption #2" />
-                                                        </div>
+                                        </div>
+                                        <div class="col-lg-4 mb-4">
+                                            <div class="project-cards-wrapper">
+                                                <a href="#" class="project-card">
+                                                    <div class="image-box">
+                                                        <img src="./img/projects/7.jpg" alt="" />
                                                     </div>
-                                                </div>
+                                                    <div class="project-detail">
+                                                        <h4 class="sub-heading shera-black">Urban Brew Cafe - Bnaglore</h4>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 mb-4">
+                                            <div class="project-cards-wrapper">
+                                                <a href="#" class="project-card">
+                                                    <div class="image-box">
+                                                        <img src="./img/projects/1.jpg" alt="" />
+                                                    </div>
+                                                    <div class="project-detail">
+                                                        <h4 class="sub-heading shera-black">Urban Brew Cafe - Bnaglore</h4>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </section>
-                            <section class="section projects-section background-section">
-                                <div class="container">
-                                    <div class="heading-box mb-5">
-                                        <div
-                                            class="elementor-element elementor-element-946b02c e-con-full e-flex e-con e-child"
-                                            data-id="946b02c"
-                                            data-element_type="container"
-                                            data-settings='{"wcf_enable_cursor_hover_effect_text":"View","wcf-animation":"none"}'
-                                        >
-                                            <div
-                                                class="elementor-element elementor-element-7d0fae9 wcf-t-animation-text_move elementor-widget elementor-widget-wcf--title"
-                                                data-id="7d0fae9"
-                                                data-element_type="widget"
-                                                data-settings='{"text_transform_origin":"top center -50","wcf_text_animation":"text_move","text_delay":0.15,"text_duration":1,"text_stagger":0.02,"text_on_scroll":"yes","text_rotation_di":"x","text_rotation":"-80","wcf-animation":"none"}'
-                                                data-widget_type="wcf--title.default"
-                                            >
-                                                <div class="elementor-widget-container">
-                                                    <h4 class="wcf--title">More Deco Board Brick</h4>
-                                                    <h2 class="wcf--title alt">Projects</h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="project-gallery">
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="swiper-container">
-                                                    <div class="swiper project-swipper">
-                                                        <!-- Additional required wrapper -->
-                                                        <div class="swiper-wrapper">
-                                                            <!-- Slides -->
-                                                            <div class="swiper-slide">
-                                                                <a href="#" class="product-card">
-                                                                    <div class="image-box">
-                                                                        <img src="./img/projects/1.jpg" alt="" />
-                                                                        <div class="hover-box">
-                                                                            <a href="" class="icon-box"> View </a>
-                                                                            <div class="text-box">
-                                                                                <ul class="detail-list">
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Location : </span> Mumbai</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Total Sq.Ft. : </span> 1000</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Product : </span> Deco Board</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Thickness : </span> 6mm</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Size : </span> 1100 inch</p>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        
-                                                            <div class="swiper-slide">
-                                                                <a href="#" class="product-card">
-                                                                    <div class="image-box">
-                                                                        <img src="./img/projects/3.jpg" alt="" />
-                                                                        <div class="hover-box">
-                                                                            <a href="" class="icon-box"> View </a>
-                                                                            <div class="text-box">
-                                                                                <ul class="detail-list">
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Location : </span> Mumbai</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Total Sq.Ft. : </span> 1000</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Product : </span> Deco Board</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Thickness : </span> 6mm</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Size : </span> 1100 inch</p>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <div class="swiper-slide">
-                                                                <a href="#" class="product-card">
-                                                                    <div class="image-box">
-                                                                        <img src="./img/projects/4.jpg" alt="" />
-                                                                        <div class="hover-box">
-                                                                            <a href="" class="icon-box"> View </a>
-                                                                            <div class="text-box">
-                                                                                <ul class="detail-list">
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Location : </span> Mumbai</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Total Sq.Ft. : </span> 1000</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Product : </span> Deco Board</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Thickness : </span> 6mm</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Size : </span> 1100 inch</p>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <div class="swiper-slide">
-                                                                <a href="#" class="product-card">
-                                                                    <div class="image-box">
-                                                                        <img src="./img/projects/5.jpg" alt="" />
-                                                                        <div class="hover-box">
-                                                                            <a href="" class="icon-box"> View </a>
-                                                                            <div class="text-box">
-                                                                                <ul class="detail-list">
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Location : </span> Mumbai</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Total Sq.Ft. : </span> 1000</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Product : </span> Deco Board</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Thickness : </span> 6mm</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Size : </span> 1100 inch</p>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="swipper-button-wrapper">
-                                                        <div class="swipper-button swiper-button-prev"></div>
-                                                        <div class="swipper-button swiper-button-next"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="container-fluid"></div>
                             </section>
                         </div>
                     </div>
@@ -1065,7 +881,7 @@
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-6">
                                     <h5>Products</h5>
-                                    <a href="{{ url('/products#product1') }}"> SHERA PRO </a>
+                                    <a href=""> SHERA PRO </a>
                                     <a href=""> SHERA NEU </a>
                                     <a href=""> SHERA Accessories </a>
                                 </div>

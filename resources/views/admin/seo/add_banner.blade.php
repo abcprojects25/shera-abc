@@ -214,6 +214,7 @@
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
+                                            <th>Sr no.</th>
                                             <th>Page Name</th>
                                             <th>Image</th>
                                             <th>Status</th>
@@ -223,6 +224,7 @@
                                     <tbody>
                                         @forelse($banners as $banner)
                                             <tr>
+                                                <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $banner->bannerUrl->page_name ?? 'N/A' }}</td>
                                                 <td>
                                                     @if ($banner->image)
@@ -233,20 +235,20 @@
                                                 </td>
                                                 <td>{{ $banner->status ? 'Active' : 'Inactive' }}</td>
                                                 <td>
-                                                    <form action="{{ url('/admin/seo/banner/delete/' . $banner->id) }}"
-                                                        method="POST" onsubmit="return confirm('Are you sure?')">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button class="btn btn-danger btn-sm ">Delete</button>
-                                                    </form>
-
+                                                    
                                                     <!-- Edit Button -->
                                                     <button class="btn btn-primary btn-sm mt-1 btn-color-btn"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#editBannerModal{{ $banner->id }}">
-                                                        Edit
-                                                    </button>
-
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#editBannerModal{{ $banner->id }}">
+                                                    Edit
+                                                </button>
+                                                
+                                                <form action="{{ url('/admin/seo/banner/delete/' . $banner->id) }}"
+                                                    method="POST" onsubmit="return confirm('Are you sure?')">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-danger btn-sm ">Delete</button>
+                                                </form>
 
                                                     <div class="modal fade" id="editBannerModal{{ $banner->id }}"
                                                         tabindex="-1"

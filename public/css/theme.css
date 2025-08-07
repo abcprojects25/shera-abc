@@ -4106,6 +4106,53 @@ p {
 }
 /* project parent page end */
 
+.blog-card-section .blog-cards-wrapper .blog-card .image-box {
+    overflow: hidden;
+    border-radius: 30px;
+}
+.blog-card-section .blog-cards-wrapper .blog-card .image-box img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    transition: 0.5s all ease;
+}
+.blog-card-section .blog-cards-wrapper .blog-card:hover .image-box img {
+    scale: 1.05;
+}
+.blog-card-section .blog-cards-wrapper .blog-card:hover .badge-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.blog-card-section .blog-cards-wrapper .blog-card .badge-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.blog-card-section .blog-cards-wrapper .blog-card .badge-wrapper .badge {
+    border: 1px solid #00ab4d;
+    border-radius: 100px;
+    padding: 4px 10px;
+    padding-top: 7.5px;
+}
+.blog-card-section .blog-cards-wrapper .blog-card .badge-wrapper .badge .shera-mini-heading {
+    font-size: 10px;
+    color: #00ab4d;
+}
+.blog-card-section .blog-cards-wrapper .blog-card .badge-wrapper .text span {
+    font-size: 12px;
+    color: #696969;
+}
+.blog-card-section .blog-cards-wrapper .blog-card .blog-detail .sub-heading {
+    font-size: 16px;
+    font-weight: 450;
+    text-transform: capitalize;
+}
+.blog-card-section .blog-cards-wrapper .blog-card .blog-detail .blog-content {
+    font-size: 14px;
+}
+/* blog page */
+
+/* blog page end */
+
 @media screen and (max-width: 1296px) {
     .nav_top .container,
     .top-bar .container {
@@ -4359,6 +4406,7 @@ h4.shera-brown {
     align-items: center;
 }
 .contact_form_heading {
+    width: 100%;
 }
 .contact_form_heading p {
     font-size: 75px;
@@ -4405,6 +4453,12 @@ h4.shera-brown {
 .career_container .career_heading p span {
     color: #00ab4d;
 }
+.career_container .career_para p {
+    font-size: 18px;
+    /* color: #ddd; */
+    margin: 20px;
+}
+
 .career_container .career_middle_sec img {
     width: 75px;
     height: 75px;
@@ -4433,6 +4487,141 @@ h4.shera-brown {
     padding: 20px 0;
     padding-bottom: 100px;
 }
+
+/* MAP DESIGN  */
+
+#map {
+    background-color: gray;
+    color: #000;
+    margin: 20px 0px;
+    height: 50vh;
+    width: 100%;
+}
+
+.dealer_nav_tabs {
+    margin: 20px 0;
+}
+
+ul.nav.nav-tabs {
+    display: flex;
+    gap: 75px;
+}
+
+ul.nav.nav-tabs li a.nav-link {
+    border: none;
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+}
+ul.nav.nav-tabs li a.nav-link.active {
+    border: none;
+    color: #007a37;
+    border-bottom: 2px solid #00ab4d;
+}
+
+.card {
+    height: 180px !important;
+    /*border: 1px solid #00ab4d;
+  */
+    padding: 40px 25px;
+    /* background-color: #ddd; */
+    background-color: #00ab4d;
+    color: #fff;
+    font-family: "Beatrice Trial", sans-serif !important;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.card-info {
+    position: relative;
+    padding: 0px 20px;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: space-between;
+    /* gap: 30px; */
+}
+
+.card-head h5 {
+    font-weight: 800;
+}
+
+.card-body {
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+    margin: 10px 0px 0px;
+}
+
+.map-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-title {
+    /* font-weight: 600; */
+}
+.card-text {
+    /* font-weight: 600; */
+}
+
+.card-address span {
+    padding: 0 20px;
+    display: inline-block;
+    max-width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    /* font-weight: 800; */
+}
+
+.location {
+    color: #fff;
+    font-weight: 600;
+}
+
+.location:hover {
+    border-bottom: 2px solid #000;
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #fff;
+}
+
+/* .swiper-container-wrapper {
+  position: relative;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  color: #000;
+}
+
+.swiper-button-prev {
+  left: -10px;
+}
+
+.swiper-button-next {
+  right: -30px;
+} */
 
 /* CHANGES BY HARSH END HERE */
 .test-scroll {

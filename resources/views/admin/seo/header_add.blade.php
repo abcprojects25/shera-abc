@@ -75,7 +75,7 @@
 													</div>
 												</div>  
 												<div class="form-group">
-													<label for=""> Tags Code </label>
+													<label for=""> Tags Code :  <span>*</span> </label>
 													<textarea name="tags_description" class="form-control" cols="10" rows="10" id="tags_description" placeholder="Tags Code..."> </textarea> 
 												</div> 
 												 

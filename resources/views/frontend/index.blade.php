@@ -428,7 +428,7 @@
                                                                
                                                             </li>
                                                             <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
-                                                                <a href="#" class="wcf-nav-item"
+                                                                <a href="{{ url('/project') }}" class="wcf-nav-item"
                                                                     >Projects<span class="wcf-submenu-indicator"
                                                                         ><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
                                                                             <path

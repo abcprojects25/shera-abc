@@ -247,12 +247,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         /* Blog */
         Route::group(['prefix' => 'blog', 'as' => 'blog'], function () {
 
-                    Route::get('/media', [NewMediaController::class, 'index'])->name('index');
-   Route::post('/store/media', [NewMediaController::class, 'store'])->name('store');
-    Route::get('/{media}', [NewMediaController::class, 'show'])->name('show');
-    Route::put('/edit/{media}', [NewMediaController::class, 'update'])->name('update'); // changed here
-    Route::delete('/{media}', [NewMediaController::class, 'destroy'])->name('.destroy');
-    Route::get('/list', [NewMediaController::class, 'getMedia'])->name('.list');
+            // Route::get('/media', [NewMediaController::class, 'index'])->name('index');
+            // Route::post('/store/media', [NewMediaController::class, 'store'])->name('store');
+            // Route::get('/{media}', [NewMediaController::class, 'show'])->name('show');
+            // Route::put('/edit/{media}', [NewMediaController::class, 'update'])->name('update'); // changed here
+            // Route::delete('/{media}', [NewMediaController::class, 'destroy'])->name('.destroy');
+            // Route::get('/list', [NewMediaController::class, 'getMedia'])->name('.list');
 
 
             Route::get('/all-post', [BlogController::class, 'Index'])->name('blog.index');

@@ -271,7 +271,7 @@
                                 </ul>
                                 <ul class="top-menu-list">
                                     <li class="list">
-                                        <a href="" class="link">About Us</a>
+                                        <a href="{{ url('/about-us') }}" class="link">About Us</a>
                                     </li>
                                     <li class="list">
                                         <a href="" class="link">Knowledge Center</a>
@@ -362,7 +362,7 @@
                                                                         id="menu-item-9436"
                                                                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-9436"
                                                                     >
-                                                                        <a href="{{ url('/products#product1') }}">
+                                                                        <a href="#">
                                                                             SHERA PRO
                                                                             <span class="submenu-indicator">
                                                                                 <svg
@@ -416,17 +416,83 @@
                                                                                         d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
                                                                                     ></path></svg></span
                                                                         ></a>
-                                                                      
+                                                                        <!-- <ul class="sub-menu">
+                                                                            <li id="menu-item-9459" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9459">
+                                                                                <a href="https://crowdytheme.com/wp/arolax/modern-agency/">Modern Agency</a>
+                                                                            </li>
+                                                                            <li id="menu-item-9460" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9460">
+                                                                                <a href="https://crowdytheme.com/wp/arolax/photography-studio/">Photography Studio</a>
+                                                                            </li>
+                                                                            <li id="menu-item-9461" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9461">
+                                                                                <a href="https://crowdytheme.com/wp/arolax/creative-portfolio/">Creative Portfolio</a>
+                                                                            </li>
+                                                                            <li id="menu-item-9462" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9462">
+                                                                                <a href="https://crowdytheme.com/wp/arolax/creative-agency/">Creative Agency</a>
+                                                                            </li>
+                                                                            <li id="menu-item-9463" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9463">
+                                                                                <a href="https://crowdytheme.com/wp/arolax/creative-agency-two/">Creative Agency Two</a>
+                                                                            </li>
+                                                                            <li id="menu-item-9464" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9464">
+                                                                                <a href="https://crowdytheme.com/wp/arolax/travel-agency/">Travel Agency</a>
+                                                                            </li>
+                                                                            <li id="menu-item-9465" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9465">
+                                                                                <a href="https://crowdytheme.com/wp/arolax/arolax-developer/">Web Developer</a>
+                                                                            </li>
+                                                                            <li id="menu-item-9466" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9466">
+                                                                                <a href="https://crowdytheme.com/wp/arolax/photographer/home/">Photographer</a>
+                                                                            </li>
+                                                                            <li id="menu-item-9467" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9467">
+                                                                                <a href="https://crowdytheme.com/wp/arolax/film-production-agency/home-page/">Film Production Agency</a>
+                                                                            </li>
+                                                                            <li id="menu-item-9468" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9468">
+                                                                                <a href="https://crowdytheme.com/wp/arolax/law-firm-agency/home-light/">Law Firm Agency</a>
+                                                                            </li>
+                                                                            <li id="menu-item-9469" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9469">
+                                                                                <a href="https://crowdytheme.com/wp/arolax/digital-agency/">Digital Agency</a>
+                                                                            </li>
+                                                                            <li id="menu-item-9611" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9611">
+                                                                                <a href="https://crowdytheme.com/wp/arolax/content-writer/">Content Writer</a>
+                                                                            </li>
+                                                                            <li id="menu-item-9612" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9612">
+                                                                                <a href="https://crowdytheme.com/wp/arolax/event-planner/">Event Planner</a>
+                                                                            </li>
+                                                                            <li id="menu-item-9613" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9613">
+                                                                                <a href="https://crowdytheme.com/wp/arolax/digital-marketer/">Digital Marketing</a>
+                                                                            </li>
+                                                                            <li id="menu-item-9614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9614">
+                                                                                <a href="https://crowdytheme.com/wp/arolax/health-coach/">Health Coach</a>
+                                                                            </li>
+                                                                            <li id="menu-item-9632" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9632">
+                                                                                <a href="https://crowdytheme.com/wp/arolax/resume/">Resume</a>
+                                                                            </li>
+                                                                            <li id="menu-item-9633" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9633">
+                                                                                <a href="https://crowdytheme.com/wp/arolax/digital-product-agency/">Digital Product Agency</a>
+                                                                            </li>
+                                                                        </ul> -->
                                                                     </li>
                                                                 </ul>
                                                             </li>
                                                             <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
                                                                 <a href="#" class="wcf-nav-item"
                                                                     >Applications
-                                                                
+                                                                    <!-- <span class="wcf-submenu-indicator">
+                                                                        <svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path
+                                                                                d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
+                                                                            ></path></svg>
+                                                                    </span> -->
+                                                                </a>
+                                                                <!-- <ul class="sub-menu">
+                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
+                                                                        <a href="#">Shera PRO</a>
+                                                                    </li>
+                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
+                                                                        <a href="#">Shera NEU</a>
+                                                                    </li>
+                                                                </ul> -->
                                                             </li>
                                                             <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
-                                                                <a href="#" class="wcf-nav-item"
+                                                                <a href="{{ url('/project') }}" class="wcf-nav-item"
                                                                     >Projects<span class="wcf-submenu-indicator"
                                                                         ><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
                                                                             <path
@@ -475,7 +541,30 @@
                                             </div>
                                         </div>
                                     </div>
-                                   
+                                    <!-- <div
+                                        class="elementor-element elementor-element-9b2e6a5 e-con-full elementor-hidden-mobile e-flex e-con e-child"
+                                        data-id="9b2e6a5"
+                                        data-element_type="container"
+                                        data-settings='{"wcf_enable_cursor_hover_effect_text":"View","wcf-animation":"none"}'
+                                    >
+                                        <div
+                                            class="elementor-element elementor-element-380e55d elementor-widget elementor-widget-wcf--arolax-button"
+                                            data-id="380e55d"
+                                            data-element_type="widget"
+                                            data-settings='{"wcf-animation":"none"}'
+                                            data-widget_type="wcf--arolax-button.default"
+                                        >
+                                            <div class="elementor-widget-container">
+                                                <div class="wc-btn-wrapper style-1">
+                                                    <a href="#" class="wc-btn-group">
+                                                        <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
+                                                        <span class="wc-btn-primary"> Lets Talk </span>
+                                                        <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
