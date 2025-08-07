@@ -51,202 +51,118 @@
 							</div> 
 							<div class="card-body pt-0">
 								<div class="">
-									<form method="POST" action="/admin/product/product-update" class="row justify-content-md-center" enctype="multipart/form-data" >
-										@csrf
-										<input type="hidden" value="{{ $edit_data->id}}" name="edit_id">
-										<div class="col-xl-11 col-lg-9 col-md-12">
-											<div class="card shade">
-												<div class="row">
-													<div class="col-lg-9">
-														<div class="row">
-															{{-- <div class="col-lg-4 form-group">
-																<label> Select Category </label>
-																<select name="category_id" class="custom-select w-100" required="">
-																	<option value="" selected disabled>-- Select Category -- </option>
-																	@foreach ($Categories as $item)
-																		<option value="{{$item->id}}" {{ $item->id == $edit_data->category_id ? 'selected' : '' }}> {{$item->name}}  </option>
-																	@endforeach
-																</select>
-															</div>  --}}
-															<div class="col-lg-4 form-group area_interest">
-																<label> Select Category </label>
-																@php
-																$Categories = \App\Models\Categories::where('type', 1)->get();
-															@endphp
+									<form method="POST" action="/admin/product/product-update" class="row justify-content-md-center" enctype="multipart/form-data">
+    @csrf
+    <input type="hidden" value="{{ $edit_data->id }}" name="edit_id">
 
-															<select name="category_ids[]" class="form-control" multiple required="">
-																@if(count($Categories) > 0)
-																	@foreach ($Categories as $item)
-																		<option value="{{ $item->id }}">{{ $item->name }}</option>
-																	@endforeach
-																@else
-																	<option disabled>No categories found</option>
-																@endif
-															</select>
-															</div> 
-															<div class="col-lg-8 form-group">
-																<label>Product Title : <span>*</span></label>
-																<input name="product_title" value="{{($edit_data->title) ? $edit_data->title : ''}}"  class="form-control" placeholder="Product Title..." maxlength="255" type="text" id="product_title" onkeypress="ArticleNameurl();" onblur="ArticleNameurl();">
-															</div>
+    <div class="col-xl-11 col-lg-9 col-md-12">
+        <div class="card shade">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="row">
+                        <div class="col-lg-6 form-group area_interest">
+                            <label> Select Category : <span>*</span> </label>
+                           <select name="category_id" id="mainCategory" class="form-control" required>
+								<option value="" selected disabled>-- Select Category --</option>
+								@foreach ($Categories as $item)
+									<option value="{{ $item->id }}">{{ $item->name }}</option>
+								@endforeach
+							</select>
+                        </div>
 
-															<div class="col-lg-4 form-group">
-																<label>Application : <span>*</span></label>
-																<input name="application" value="{{($edit_data->application) ? $edit_data->application : ''}}" required="" class="form-control" placeholder="Application..." maxlength="255" type="text" id="application">
-															</div>
-															</div>
-															<!-- <div class="col-lg-12 form-group">
-																<label>Page URL : <span>*</span></label>
-																<div class="input-group mb-2"> 
-																	<div class="input-group-prepend"> <div class="input-group-text">https://vivaacp.com/product/</div> </div>
-																	<input name="product_url" value="{{($edit_data->product_url) ? $edit_data->product_url : ''}}" required="" class="form-control"  maxlength="255" type="text" id="page_url" >
-																</div> 
-															</div> -->
-															{{-- <div class="col-lg-8 form-group">
-																<label>Video Title : </label>
-																<input name="video_title" value="{{($edit_data->video_title) ? $edit_data->video_title : ''}}" required="" class="form-control" placeholder="Title..." maxlength="255" type="text" id="video_title">
-															</div>
-															<div class="col-lg-4 form-group">
-																<label>Type : <span>*</span></label> 
-																<select name="video_type" id="types" class="custom-select w-100" required="">
-																	<option value="">Select Type</option> 
-																	<option value="1" {{ $edit_data->video_type == 1 ? 'selected' : '' }}> YouTube </option>       
-																	<option value="2" {{ $edit_data->video_type == 2 ? 'selected' : '' }}> Vimeo </option>
-																</select>
-															</div>
-															<div class="col-lg-8 form-group">
-																<label>Video URL : <span>*</span></label>
-																<input name="video_url" value="{{($edit_data->video_url) ? $edit_data->video_url : ''}}" required="" class="form-control" placeholder="URL..." maxlength="255" type="text" id="url">
-															</div> --}}
-															<!-- <div class="col-lg-4 form-group">
-																<label>SKU : <span>*</span></label>
-																<input name="sku" value="{{($edit_data->sku) ? $edit_data->sku : ''}}" required="" class="form-control" placeholder="SKU..." maxlength="255" type="text" id="sku">
-															</div> -->
-															{{-- <div class="col-lg-4 form-group">
-																<label>Panel Sizes : <span>*</span></label>
-																<input name="panel_size" value="{{($edit_data->panel_size) ? $edit_data->panel_size : ''}}" required="" class="form-control" placeholder="Panel Size..." maxlength="255" type="text" id="panel_size">
-															</div> --}}
-															<!-- <div class="col-lg-4 form-group">
-																<label>Features :</label>
-																<input name="features" value="{{($edit_data->features) ? $edit_data->features : ''}}"  class="form-control" placeholder="Features..." maxlength="255" type="text" id="features">
-															</div> -->
-															<!-- {{-- <div class="col-lg-4 form-group">
-																<label>Properties : <span>*</span></label>
-																<input name="properties" value="{{($edit_data->properties) ? $edit_data->properties : ''}}" required="" class="form-control" placeholder="Properties..." maxlength="255" type="text" id="properties">
-															</div>
-															<div class="col-lg-4 form-group">
-																<label>Application : <span>*</span></label>
-																<input name="application" value="{{($edit_data->application) ? $edit_data->application : ''}}" required="" class="form-control" placeholder="Application..." maxlength="255" type="text" id="application">
-															</div>															
-															<div class="col-lg-4 form-group">
-																<label>Thickness : <span>*</span></label>
-																<input name="thickness" value="{{($edit_data->thickness) ? $edit_data->thickness : ''}}" required="" class="form-control" placeholder="Thickness..." maxlength="255" type="text" id="thickness">
-															</div>
-															<div class="col-lg-4 form-group">
-																<label>Core : <span>*</span></label>
-																<input name="core" value="{{($edit_data->core) ? $edit_data->core : ''}}" required="" class="form-control" placeholder="Core..." maxlength="255" type="text" id="core">
-															</div>
-															<div class="col-lg-4 form-group">
-																<label>Coil Thickness : <span>*</span></label>
-																<input name="coil_thickness" value="{{($edit_data->coil_thickness) ? $edit_data->coil_thickness : ''}}" required="" class="form-control" placeholder="Coil Thickness..." maxlength="255" type="text" id="coil_thickness">
-															</div>
-															<div class="col-lg-4 form-group">
-																<label>  Select Catalogues Brochure </label>
-																<select name="brochure_id" class="custom-select w-100">
-																	<option value="" selected disabled>-- Select Catalogues Brochure --</option>
-																	@foreach ($Catalogues as $item)
-																		<option value="{{$item->id}}" {{ $item->id == $edit_data->brochure_id ? 'selected' : '' }}> {{$item->title}} </option>
-																	@endforeach
-																</select>
-															</div>  --}} -->
-															
-														</div>
-													</div>													
-													<div class="col-lg-3">
-														<div class="card shade"> 
-															<div class="form-group text-center">
-																<div class="image-upload"> <br>
-																	<label for="description">Add Product Thumbnail</label>
-																	<input type="hidden" name="thumnail" class="hidden-image-data" required/>
-																	<input type="hidden" name="edit_thumnail" value="{{$edit_data->image}}"/>
-																	<center>
-																		<label for="upload"> 
-																		<img src="{{($edit_data->image) ? $edit_data->image : '/admin/img/choose_file.jpg'}}" id='imgid' class="text-center img-fluid" style="cursor: pointer" title="Click here to update Image" /> </label>
-																	</center>
-																	<small> Image should be below 1mb.</small>
-																	<input type="file" id="upload" name="image" class="text-center" data-target="#myModal121" data-toggle="modal" accept="image/*">
-																	<div id="upload-demo-i" style="cursor: pointer" onclick="editImage()"></div>
-																</div>
-															</div>
-														</div>
+                        <div class="col-lg-6 form-group area_interest">
+                            <label> Select Sub Category : <span>*</span> </label>
+                            <select name="subcategory_id" id="subCategory" class="form-control" required>
+									<option value="" selected disabled>-- Select Sub Category --</option>
+									@foreach ($SubCategories as $item)
+										<option value="{{ $item->id }}" data-parent="{{ $item->category_id }}">{{ $item->name }}</option>
+									@endforeach
+							</select>
+                        </div>
 
-													</div>
-												</div>   
-												 
-											 <div class="form-group">
-													<label> Edit Product Images </label> <br />
-													<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ServerImageModal">
-														Edit Product Images
-													</button> 
-												</div> 
-												 
-												<div class="form-group">
-													<label for="BookDescription"> Product Description </label>
-													<textarea name="description" class="form-control content" cols="10" rows="5" id="description" placeholder="Meta Description...">
-														{{ strip_tags($edit_data->description) }}
+                        <div class="col-lg-8 form-group">
+                            <label>Product Title : <span>*</span></label>
+                            <input name="product_title" value="{{ $edit_data->title ?? '' }}" class="form-control" placeholder="Product Title..." maxlength="255" type="text" id="product_title" onkeypress="ArticleNameurl();" onblur="ArticleNameurl();">
+                        </div>
 
-													</textarea> 
-												</div>
-												
-												<!-- <div class="form-group">
-													<label> Edit Product Names </label>
-													
-												</div> -->
+                        <div class="col-lg-4 form-group">
+                            <label>Texture</label>
+                            <input type="text" class="form-control" name="texture" value="{{ $edit_data->texture ?? '' }}" placeholder="Texture">
+                        </div>
 
+                        <div class="col-lg-4 form-group">
+                            <label>Profile</label>
+                            <input type="text" class="form-control" name="profile" value="{{ $edit_data->profile ?? '' }}" placeholder="Profile">
+                        </div>
 
-												{{-- <div class="form-group">
-													<label> Add Project Names </label>
-													<select name="project_tags[]" multiple data-role="tagsinput" id="search_projects" Placeholder="Project type and enter.."> 
-														@if (isset($edit_data->project_tags))
-														@php
-															$project_tags = explode(',', $edit_data->project_tags);
-														@endphp
-														@foreach ($project_tags as $project_tag)
-															<option value="{{$project_tag}}">{{$project_tag}}</option>
-														@endforeach
-														@endif 
-													</select>
-												</div> --}}
-												<!-- <div class="form-group">
-													<label> Add Tags </label>
-													<select name="tags[]" multiple data-role="tagsinput" id="search_tags" Placeholder="Tag type and enter.."> 
-														@if (isset($edit_data->tags))
-														@php
-															$tags = explode(',', $edit_data->tags);
-														@endphp
-														@foreach ($tags as $tag)
-															<option value="{{$tag}}">{{$tag}}</option>
-														@endforeach
-														@endif
-													</select>
-												</div> -->
-												{{-- <div class="form-check-inline">
-													<label class="form-check-label">
-													  <input type="checkbox" name="same_properties" class="form-check-input" value="1">Same Properties For All
-													</label>
-												  </div> --}}
-												<div class="form-group">
-													<label>Status </label>
-													<select name="is_active" class="custom-select w-100">
-														<option value="1">Active</option>
-														<option value="0">In Active</option>
-													</select>
-												</div>
-												<div class="submit">
-													<input class="btn btn-primary w-100" type="submit" value="Edit Now">  
-												</div> 
-											</div> <!-- --> 
-										</div> <!-- -->  
-									</form> 
+                        <div class="col-lg-4 form-group">
+                            <label>Colour</label>
+                            <input type="text" class="form-control" name="colour" value="{{ $edit_data->colour ?? '' }}" placeholder="Colour">
+                        </div>
+
+                        <div class="col-lg-4 form-group">
+                            <label>Size</label>
+                            <input type="text" class="form-control" name="size" value="{{ $edit_data->size ?? '' }}" placeholder="Size">
+                        </div>
+
+                        <div class="col-lg-4 form-group">
+                            <label>Thickness</label>
+                            <input type="text" class="form-control" name="thickness" value="{{ $edit_data->thickness ?? '' }}" placeholder="Thickness">
+                        </div>
+
+                        <div class="col-lg-4 form-group">
+                            <label>Weight</label>
+                            <input type="text" class="form-control" name="weight" value="{{ $edit_data->weight ?? '' }}" placeholder="Weight">
+                        </div>
+
+                        <div class="col-lg-4 form-group">
+                            <label>Quantity</label>
+                            <input type="number" class="form-control" name="quantity" value="{{ $edit_data->quantity ?? '' }}" placeholder="Quantity">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="card shade">
+                        <div class="form-group text-center">
+                            <div class="image-upload"><br>
+                                <label for="description">Add Product Thumbnail</label>
+                                <input type="hidden" name="thumnail" class="hidden-image-data" />
+                                <input type="hidden" name="edit_thumnail" value="{{ $edit_data->image }}" />
+                                <center>
+                                    <label for="upload">
+                                        <img src="{{ $edit_data->image ?? '/admin/img/choose_file.jpg' }}" id='imgid' class="text-center img-fluid" style="cursor: pointer" title="Click here to update Image" />
+                                    </label>
+                                </center>
+                                <small> Image should be below 1mb.</small>
+                                <input type="file" id="upload" name="image" class="text-center" data-target="#myModal121" data-toggle="modal" accept="image/*">
+                                <div id="upload-demo-i" style="cursor: pointer" onclick="editImage()"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="BookDescription"> Product Description </label>
+                <textarea name="description" class="form-control content" cols="10" rows="5" id="description" placeholder="Meta Description...">{{ strip_tags($edit_data->description) }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Status </label>
+                <select name="is_active" class="custom-select w-100">
+                    <option value="1" {{ $edit_data->status == 1 ? 'selected' : '' }}>Active</option>
+                    <option value="0" {{ $edit_data->status == 0 ? 'selected' : '' }}>Inactive</option>
+                </select>
+            </div>
+
+            <div class="submit">
+                <input class="btn btn-primary w-100" type="submit" value="Edit Now">
+            </div>
+        </div>
+    </div>
+</form>
+
 								</div>
 							</div>
 						</div>
@@ -263,7 +179,29 @@
  
 @include('admin.layouts.footer')
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mainCategory = document.getElementById('mainCategory');
+        const subCategory = document.getElementById('subCategory');
 
+        const allSubOptions = Array.from(subCategory.options).slice(1); 
+
+        mainCategory.addEventListener('change', function () {
+            const selectedMainId = this.value;
+
+            console.log('Selected main category:', selectedMainId);
+
+            subCategory.innerHTML = '<option value="" selected disabled>-- Select Sub Category --</option>';
+
+            allSubOptions.forEach(option => {
+                console.log('Option parent:', option.dataset.parent);
+                if (option.dataset.parent === selectedMainId) {
+                    subCategory.appendChild(option);
+                }
+            });
+        });
+    });
+</script>
  <!-- Croper Model  -->
 <div id="myModal121" class="modal fade " role="dialog">
 	<div class="modal-dialog">

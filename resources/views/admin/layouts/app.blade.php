@@ -12,7 +12,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	 <title> Admin : AAPL </title>
+	 <title> Admin : SHERA </title>
 
 	<link href="/favicon.ico" type="image/x-icon" rel="icon"/>
 	<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon"/>

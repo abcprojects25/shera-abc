@@ -18,9 +18,9 @@
 					</div>
 					<div class="d-flex">
 						<div class="justify-content-center">
-							<a href="/admin/product/all-home-product" class="btn btn-white btn-icon-text my-2 mr-2"> <i class="fe fe-folder-plus mr-2"></i> Home Product Listing </a> 
-							<a href="#" class="btn btn-white btn-icon-text my-2 mr-2" data-toggle="modal" data-target="#exampleModal"> <i class="fe fe-folder-plus mr-2"></i> Add New Categories </a>
-							<a href="/admin/product/product-add" class="btn btn-white btn-icon-text my-2 mr-2"> <i class="fe fe-folder-plus mr-2"></i> Add New Product </a> 
+							<!-- <a href="/admin/product/all-home-product" class="btn btn-white btn-icon-text my-2 mr-2"> <i class="fe fe-folder-plus mr-2"></i> Home Product Listing </a>  -->
+							<!-- <a href="#" class="btn btn-white btn-icon-text my-2 mr-2" data-toggle="modal" data-target="#exampleModal"> <i class="fe fe-folder-plus mr-2"></i> Add New Categories </a> -->
+							<a href="/admin/product/product-add" class="btn btn-white btn-icon-text my-3 mr-5"> <i class="fe fe-folder-plus mr-2"></i> Add New Product </a> 
 						</div>
 					</div>
 				</div>
@@ -89,12 +89,10 @@
 											<tr>
 												<th style="width:50px">Sr No.</th>
 												<th> Category </th>
-												<!-- <th style="width:80px"> Photo	 </th>    -->
 												<th> Name </th>  
-												<!-- <th> Description </th>   -->
-												<th class="text-center" style="width:60px"> Applications </th>
+												<th> Description </th>
 												<th class="text-center" style="width:60px"> Thumbnail </th>
-												<th class="sort" style="width:120px"> Created At </th> 
+												 <th class="text-center" style="width:120px"> Created At </th>
 												<th class="text-center" style="width:60px"> Status </th>
 												<th> Actions </th>
 											</tr>
@@ -108,34 +106,23 @@
 													@endphp
 													<td> {{$category}} </td>
 													<td> {{$item->title}}</td>
-													<!-- <th> {{strip_tags($item->description)}} </td> -->
-													<td>
-														@if (isset($item->application))
-														@php
-														$tags = explode(',', $item->application);
-														@endphp
-														@foreach ($tags as $application)
-														<span class="badge badge-primary" style="margin-bottom:2px;">{{$application}}</span> <br />
-														@endforeach
-														@endif
-													</td>
+													<td> {!! $item->description !!}
+ </td>
 													@if (!empty($item->image))
 													<td style="width:80px"><img src="{{$item->image}}" class="img-fluid" /></td>
 													@else
-													<td><img src="/admin/img/no_img_xl.jpg" class="img-fluid" /></td>
+													<td><i>No Image Selected</i></td>
 													@endif
-													<td> {{date('Y-m-d',strtotime($item->created_at))}}<br/> <small class="text-muted">{{date('H:i a',strtotime($item->created_at))}}</small></td> 
-												@if($item->status == 0)
-  
-@else
-    <td>
-        <a href="product-status/{{ base64_encode($item->status) }}/{{ base64_encode($item->id) }}"
-           class="btn btn-primary status-toggle"
-           title="Change Status">
-            <i class='fa fa-check'></i>
-        </a>
-    </td>
-@endif
+													<td class="text-center">
+														{{ $item->created_at->format('Y-m-d') }}<br/>
+														<small class="text-muted">{{ $item->created_at->format('h:i A') }}</small>
+													</td>
+
+  												 @if($item->status == 0) 
+												<td class="text-center"><a href="product-status/{{base64_encode($item->status)}}/{{base64_encode($item->id)}}" class="btn btn-danger status_inactive" title="Change Status"><i class='fa fa-times'></i></a> </td>
+											@else 
+												<td class="text-center"> <a href="product-status/{{base64_encode($item->status)}}/{{base64_encode($item->id)}}" class="btn btn-primary status-active" title="Change Status"><i class='fa fa-check'></i></a> </td>
+											@endif
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @include('sweetalert::alert')
 
@@ -165,13 +152,9 @@
     });
 </script>
 
-													@if($item->is_master_pro == 0) 
-													<td><a href="product-home-status/{{base64_encode($item->is_master_pro)}}/{{base64_encode($item->id)}}" class="btn btn-danger status_inactive" title="Change Status"><i class='fa fa-times'></i></a> </td>
-													@else 
-													<td> <a href="product-home-status/{{base64_encode($item->is_master_pro)}}/{{base64_encode($item->id)}}" class="btn btn-primary status-active" title="Change Status"><i class='fa fa-check'></i></a> </td>
-													@endif
+													
 													<td class="actions"> 
-														{{-- <a href="#" class="btn ripple btn-info" data-toggle="modal" data-target="#exampleModal"> Edit Thumbnail </a> --}}
+													
 														<a href="/admin/product/product-edit/{{base64_encode($item->id)}}" class="btn ripple btn-info"> Edit </a>
 														<a href="/admin/product/product-view/{{base64_encode($item->id)}}" class="btn ripple btn-warning"> View </a> 
 										<a onclick="deleteProduct(event, '{{base64_encode($item->id)}}')" href="#" class="btn ripple btn-danger">

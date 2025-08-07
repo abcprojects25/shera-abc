@@ -43,6 +43,9 @@ Route::group(['as' => 'laravelpwa.'], function () {
     Route::get('/offline/', 'LaravelPWAController@offline');
 });
 
+
+/* ===== Frontend Route ===== */
+
 Route::get('/', function () {
     return view('frontend.index');
 })->name('frontend.index');
@@ -51,10 +54,6 @@ Route::get('/', function () {
 Route::get('/about-us', function () {
     return view('frontend.about-us');
 });
-
-// Route::get('/products', function () {
-//     return view('frontend.products');
-// });
 
 Route::get('/product-description', function () {
     return view('frontend.product-description');
@@ -75,8 +74,6 @@ Route::get('/contact-us', function () {
 Route::post('/submit-enquiry', [CmsController::class, 'storeEnquiry'])->name('enquiry.submit');
 Route::post('/products/images/store', [ProductImageController::class, 'store'])->name('admin.products.images.store');
 Route::get('/products', [ProductController::class, 'userProductPage'])->name('frontend.products');
-
-
 
 Route::post('/admin/store-application', [ProductController::class, 'storeApplication'])->name('store.application');
 Route::post('/admin/category-images/store', [ProductController::class, 'storeCategoryImages'])->name('admin.category_images.store');
@@ -102,7 +99,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
         });
 
-           Route::group(['prefix'=>'seo', 'as' =>'seo'], function(){
+        Route::group(['prefix'=>'seo', 'as' =>'seo'], function(){
         // seo start here
         Route::get('/',[SeoController::class, 'Index'])->name('seo.index');
         Route::get('/add',[SeoController::class, 'add'])->name('seo.add.page');
@@ -132,7 +129,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
         Route::delete('/banner/delete/{id}', [SeoController::class, 'deleteBanner'])->name('banner.delete');
 
-     Route::post('/banner/update/{id}', [SeoController::class, 'updateBanner'])->name('banner.update');
+        Route::post('/banner/update/{id}', [SeoController::class, 'updateBanner'])->name('banner.update');
 
 
 
@@ -211,7 +208,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         /* Product */
         Route::group(['prefix' => 'product', 'as' => 'product'], function () {
             Route::get('/all-product', [ProductController::class, 'Index']);
-            Route::get('/all-home-product', [ProductController::class, 'Home_Index']);
+            // Route::get('/all-home-product', [ProductController::class, 'Home_Index']);
 
             Route::get('/product-add', [ProductController::class, 'AddProduct']);
             Route::get('/product-details', [ProductController::class, 'AddDetails']);
@@ -366,10 +363,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::get('/newsletter-subscription', [CmsController::class, 'Subscribe'])->name('subscribe.index');
         Route::get('/subscription-delete/{id}', [CmsController::class, 'SubscribeDelete'])->name('subscribe.delete');
 
-        /* Contact Us */
-        /* Route::get('/contact-us', [CmsController::class, 'ContactUs'])->name('contactus.index');
-        Route::get('/contact-us-delete/{id}', [CmsController::class, 'ContactUsDelete'])->name('contactus.delete'); */
-		
 		  /* SHIVAM CHANGES START HERE */
 		Route::get('/contact-us',[CmsController::class, 'ContactUs'])->name('contactus.index');
         // Route::get('/contact-us-delete/{id}',[CmsController::class, 'ContactUsDelete'])->name('contactus.delete');

@@ -64,9 +64,14 @@ class ProductController extends Controller
 
      // Add Product page
      public function AddProduct(){
-      $Categories = Categories::where('type',1)->where('status',1)->get();
-      $Catalogues = Catalogues::select('id','title','thumnail')->where('status',1)->get();
-      return view('admin.product.add',compact('Categories','Catalogues'));
+        $Categories = Categories::whereIn('id', [1, 2, 8])->where('status', 1)->get();
+        $mainCategoryIds = $Categories->pluck('id');
+        $SubCategories = Categories_lookups::whereIn('category_id', $mainCategoryIds)->whereNotIn('categry_lookup', [1, 2, 8])
+            ->join('categories', 'categories.id', '=', 'categories_lookups.categry_lookup')
+            ->select('categories.id', 'categories.name', 'categories_lookups.category_id')
+            ->get();
+            
+      return view('admin.product.add',compact('Categories','SubCategories'));
     }
 
      // Add Product details
@@ -88,11 +93,14 @@ class ProductController extends Controller
     // Add Product Edit
     public function EditProduct($id){
       $id = base64_decode($id);
-      $Categories = Categories::where('type',1)->get();
+      $Categories = Categories::whereIn('id', [1, 2, 8])->where('status', 1)->get();
       $edit_data = Products::where('id',$id)->first();
-      $Catalogues = Catalogues::select('id','title','thumnail')->where('status',1)->get();
-
-      return view('admin.product.edit',compact('Categories','edit_data','Catalogues'));
+        $mainCategoryIds = $Categories->pluck('id');
+        $SubCategories = Categories_lookups::whereIn('category_id', $mainCategoryIds)->whereNotIn('categry_lookup', [1, 2, 8])
+            ->join('categories', 'categories.id', '=', 'categories_lookups.categry_lookup')
+            ->select('categories.id', 'categories.name', 'categories_lookups.category_id')
+            ->get();
+      return view('admin.product.edit',compact('Categories','edit_data','mainCategoryIds','SubCategories'));
     }
 
     public function product_categories(){
@@ -117,304 +125,58 @@ public static function FetchSubCategories($parent_id)
         ->get();
 }
 
+ public function productStore(Request $request)
+{
+    ini_set('memory_limit', '3072M');
+    ini_set('max_execution_time', '10980');
+    ini_set('upload_max_filesize', '100M');
 
+    $product = new Products();
 
+    // Handle thumbnail upload (optional)
 
- public function productStore(Request $request){
-  ini_set('memory_limit', '3072M');
-  ini_set('max_execution_time', 10980);
-  ini_set('upload_max_filesize', '100M');
-
-  // if tag not exist insert
-  if($request->tags != null){
-    foreach($request->tags as $k=>$item){
-      $check = Tags::select('id')->where('name',$item)->first();
-      if(empty($check)){
-        $data = new Tags();
-        $data->name = $item;
-        $data->status = 1;
-        $data->save();
-      }
-    }
-    $tags = implode(',',$request->tags);
-
-    // $ar_tags = GoogleTranslate::trans($tags, 'ar');
-    // $es_tags = GoogleTranslate::trans($tags, 'es');
-    // $fr_tags = GoogleTranslate::trans($tags, 'fr');
-    // $sw_tags = GoogleTranslate::trans($tags, 'sw');
-
-    $ar_tags = null;
-    $es_tags = null;
-    $fr_tags = null;
-    $sw_tags = null;
-  }else{
-    $tags = null;
-    $ar_tags = null;
-    $es_tags = null;
-    $fr_tags = null;
-    $sw_tags = null;
-  }
-
-  if($request->project_tags != null){
-    $project_tags = implode(',',$request->project_tags);
-
-    // $ar_project_tags = GoogleTranslate::trans($project_tags, 'ar');
-    // $es_project_tags = GoogleTranslate::trans($project_tags, 'es');
-    // $fr_project_tags = GoogleTranslate::trans($project_tags, 'fr');
-    // $sw_project_tags = GoogleTranslate::trans($project_tags, 'sw');
-
-    $ar_project_tags = null;
-    $es_project_tags = null;
-    $fr_project_tags = null;
-    $sw_project_tags = null;
-  }else{
-    $project_tags = null;
-    $ar_project_tags = null;
-    $es_project_tags = null;
-    $fr_project_tags = null;
-    $sw_project_tags = null;
-  }
-
-  $rand = rand(111,999);
+      $rand = rand(111,999);
   if($request->thumnail != null){
       $thumnail = $this->uploadcropimages($request->thumnail, 'product_'.$rand);
   }else{
       $thumnail = $request->thumnail;
   }
 
-  if($request->category_ids != null){
-    $category_ids = implode(',',$request->category_ids);
-  }else{
-    $category_ids = null;
-  }
+    // Store all requested fields
+    
+    $product->title = $request->product_title;
+    $product->category_id = $request->subcategory_id;
+    $product->image = $thumnail;
+    $product->texture = $request->texture;
+    $product->profile = $request->profile;
+    $product->colour = $request->colour;
+    $product->size = $request->size;
+    $product->thickness = $request->thickness;
+    $product->weight = $request->weight;
+    $product->quantity = $request->quantity;
+    $product->description = $request->description;
+    $product->status = $request->is_active;
 
-  if($request->product_title != null){
-    // $ar_title = GoogleTranslate::trans($request->product_title, 'ar');
-    // $es_title = GoogleTranslate::trans($request->product_title, 'es');
-    // $fr_title = GoogleTranslate::trans($request->product_title, 'fr');
-    // $sw_title = GoogleTranslate::trans($request->product_title, 'sw');
+    $product->save();
 
-    $ar_title = null;
-    $es_title = null;
-    $fr_title = null;
-    $sw_title = null;
-  }else{
-    $ar_title = null;
-    $es_title = null;
-    $fr_title = null;
-    $sw_title = null;
-  }
+    // Optional: set product_order as product ID
+    $product->update(['product_order' => $product->id]);
 
-  if($request->features != null){
-    // $ar_features = GoogleTranslate::trans($request->features, 'ar');
-    // $es_features = GoogleTranslate::trans($request->features, 'es');
-    // $fr_features = GoogleTranslate::trans($request->features, 'fr');
-    // $sw_features = GoogleTranslate::trans($request->features, 'sw');
-
-    $ar_features = null;
-    $es_features = null;
-    $fr_features = null;
-    $sw_features = null;
-  }else{
-    $ar_features = null;
-    $es_features = null;
-    $fr_features = null;
-    $sw_features = null;
-  }
-
-  if($request->properties != null){
-    // $ar_properties = GoogleTranslate::trans($request->properties, 'ar');
-    // $es_properties = GoogleTranslate::trans($request->properties, 'es');
-    // $fr_properties = GoogleTranslate::trans($request->properties, 'fr');
-    // $sw_properties = GoogleTranslate::trans($request->properties, 'sw');
-
-    $ar_properties = null;
-    $es_properties = null;
-    $fr_properties = null;
-    $sw_properties = null;
-  }else{
-    $ar_properties = null;
-    $es_properties = null;
-    $fr_properties = null;
-    $sw_properties = null;
-  }
-
-  if($request->features != null){
-    // $ar_application = GoogleTranslate::trans($request->application, 'ar');
-    // $es_application = GoogleTranslate::trans($request->application, 'es');
-    // $fr_application = GoogleTranslate::trans($request->application, 'fr');
-    // $sw_application = GoogleTranslate::trans($request->application, 'sw');
-
-    $ar_application = null;
-    $es_application = null;
-    $fr_application = null;
-    $sw_application = null;
-  }else{
-    $ar_application = null;
-    $es_application = null;
-    $fr_application = null;
-    $sw_application = null;
-  }
-
-  if($request->description != null){
-    // $ar_description = GoogleTranslate::trans($request->description, 'ar');
-    // $es_description = GoogleTranslate::trans($request->description, 'es');
-    // $fr_description = GoogleTranslate::trans($request->description, 'fr');
-    // $sw_description = GoogleTranslate::trans($request->description, 'sw');
-
-    $ar_description = null;
-    $es_description = null;
-    $fr_description = null;
-    $sw_description = null;
-  }else{
-    $ar_description = null;
-    $es_description = null;
-    $fr_description = null;
-    $sw_description = null;
-  }
-
-  $obj = new Products();
-    $obj->category_id = $category_ids;
-    $obj->title = $request->product_title;
-    $obj->ar_title = $ar_title;
-    $obj->es_title = $es_title;
-    $obj->fr_title = $fr_title;
-    $obj->sw_title = $sw_title;
-    $obj->image = $thumnail;
-    $obj->brochure_id = $request->brochure_id;        
-    $obj->product_url = $request->product_url;        
-    $obj->video_title = $request->video_title;
-    $obj->video_type = $request->video_type;
-    $obj->video_url = $request->video_url;
-    $obj->sku = $request->sku;
-    $obj->panel_size = $request->panel_size; 
-    $obj->features = $request->features;
-    $obj->ar_features = $ar_features;
-    $obj->es_features = $es_features;
-    $obj->fr_features = $fr_features;
-    $obj->sw_features = $sw_features; 
-    $obj->properties = $request->properties;
-    $obj->ar_properties = $ar_properties;        
-    $obj->es_properties = $es_properties;        
-    $obj->fr_properties = $fr_properties;        
-    $obj->sw_properties = $sw_properties;
-    $obj->application = $request->application;
-    $obj->ar_application = $ar_application;
-    $obj->es_application = $es_application;
-    $obj->fr_application = $fr_application;
-    $obj->sw_application = $sw_application;
-    $obj->thickness = $request->thickness;
-    $obj->core = $request->core;    
-    $obj->coil_thickness = $request->coil_thickness;
-    $obj->tags = $tags;
-    $obj->ar_tags = $ar_tags;
-    $obj->es_tags = $es_tags;
-    $obj->fr_tags = $fr_tags;
-    $obj->sw_tags = $sw_tags;
-    $obj->project_tags = $project_tags;
-    $obj->ar_project_tags = $ar_project_tags;
-    $obj->es_project_tags = $es_project_tags;
-    $obj->fr_project_tags = $fr_project_tags;
-    $obj->sw_project_tags = $sw_project_tags;
-    $obj->description = $request->description;
-    $obj->ar_description = $ar_description;
-    $obj->es_description = $es_description;
-    $obj->fr_description = $fr_description;
-    $obj->sw_description = $sw_description;
-    $obj->status = $request->is_active;
-    $obj->texture = $request->texture;
-    $obj->profile = $request->profile;
-    $obj->colour = $request->colour;
-    $obj->size = $request->size;
-    $obj->weight = $request->weight;
-    $obj->quantity = $request->quantity;
-    $obj->save();
-
-    $Update = Products::find($obj->id);
-    $Update->product_order = $obj->id;
-    $Update->update();
-
-   toast('Product Inserted Successfully!!!','success');
-  return redirect('/admin/product/all-product');
+    toast('Product Inserted Successfully!', 'success');
+    return redirect('/admin/product/all-product');
 }
 
 
     //update product
-  public function editStore(Request $request){
+  public function editStore(Request $request)
+{
     ini_set('memory_limit', '3072M');
-    ini_set('max_execution_time', 10980);
+    ini_set('max_execution_time', '10980');
     ini_set('upload_max_filesize', '100M');
 
-    // Same As Properties For All
-    if($request->category_ids != null && isset($request->same_properties) && $request->same_properties == 1){
-        foreach($request->category_ids as $k=>$item){
-            $check = Products::select('id')->where('category_id',$item)->count();
-            if($check > 0){
-                $result = Products::select('id')->where('category_id',$item)->get();
-                foreach($result as $item1){
-                    $data1 = Products::Find($item1->id);
-                    $data1->panel_size = $request->panel_size;
-                    $data1->features = $request->features;
-                    $data1->properties = $request->properties;
-                    $data1->application = $request->application;
-                    $data1->thickness = $request->thickness;
-                    $data1->core = $request->core;
-                    $data1->coil_thickness = $request->coil_thickness;    
-                    $data1->update();
-                }
-            }
-        }
-    }
+    $product = Products::findOrFail($request->edit_id); 
 
-    // if tag not exist insert
-    if($request->tags != null){
-        foreach($request->tags as $k=>$item){
-            $check = Tags::select('id')->where('name',$item)->first();
-            if(empty($check)){
-                $data = new Tags();
-                $data->name = $item;
-                $data->status = 1;
-                $data->save();
-            }
-        }
-        $tags = implode(',',$request->tags);
-
-        // $ar_tags = GoogleTranslate::trans($tags, 'ar');
-        // $es_tags = GoogleTranslate::trans($tags, 'es');
-        // $fr_tags = GoogleTranslate::trans($tags, 'fr');
-        // $sw_tags = GoogleTranslate::trans($tags, 'sw');
-        $ar_tags = null;
-        $es_tags = null;
-        $fr_tags = null;
-        $sw_tags = null;
-
-    }else{
-        $tags = null;
-        $ar_tags = null;
-        $es_tags = null;
-        $fr_tags = null;
-        $sw_tags = null;
-    }
-
-    if($request->project_tags != null){
-        $project_tags = implode(',',$request->project_tags);
-        // $ar_project_tags = GoogleTranslate::trans($project_tags, 'ar');
-        // $es_project_tags = GoogleTranslate::trans($project_tags, 'es');
-        // $fr_project_tags = GoogleTranslate::trans($project_tags, 'fr');
-        // $sw_project_tags = GoogleTranslate::trans($project_tags, 'sw');
-        $ar_project_tags = null;
-        $es_project_tags = null;
-        $fr_project_tags = null;
-        $sw_project_tags = null;
-    }else{
-        $project_tags = null;
-        $ar_project_tags = null;
-        $es_project_tags = null;
-        $fr_project_tags = null;
-        $sw_project_tags = null;
-    }
-
-    $Image_path = public_path().$request->edit_thumnail;
+$Image_path = public_path().$request->edit_thumnail;
     if(File::exists($Image_path) && $request->thumnail != null) {
         File::delete($Image_path);
     }
@@ -425,147 +187,26 @@ public static function FetchSubCategories($parent_id)
     }else{
         $thumnail = $request->edit_thumnail;
     }
+   
+    $product->title = $request->product_title;
+    $product->category_id = $request->subcategory_id;
+    $product->image = $thumnail;
+    $product->texture = $request->texture;
+    $product->profile = $request->profile;
+    $product->colour = $request->colour;
+    $product->size = $request->size;
+    $product->thickness = $request->thickness;
+    $product->weight = $request->weight;
+    $product->quantity = $request->quantity;
+    $product->description = $request->description;
+    $product->status = $request->is_active;
 
-    if($request->category_ids != null){
-        $category_ids = implode(',',$request->category_ids);
-    }else{
-        $category_ids = null;
-    }
+    $product->update();
 
-    if($request->product_title != null){
-        // $ar_title = GoogleTranslate::trans($request->product_title, 'ar');
-        // $es_title = GoogleTranslate::trans($request->product_title, 'es');
-        // $fr_title = GoogleTranslate::trans($request->product_title, 'fr');
-        // $sw_title = GoogleTranslate::trans($request->product_title, 'sw');
-        $ar_title = null;
-        $es_title = null;
-        $fr_title = null;
-        $sw_title = null;
-    }else{
-        $ar_title = null;
-        $es_title = null;
-        $fr_title = null;
-        $sw_title = null;
-    }
-
-    if($request->features != null){
-        // $ar_features = GoogleTranslate::trans($request->features, 'ar');
-        // $es_features = GoogleTranslate::trans($request->features, 'es');
-        // $fr_features = GoogleTranslate::trans($request->features, 'fr');
-        // $sw_features = GoogleTranslate::trans($request->features, 'sw');
-        $ar_features = null;
-        $es_features = null;
-        $fr_features = null;
-        $sw_features = null;
-    }else{
-        $ar_features = null;
-        $es_features = null;
-        $fr_features = null;
-        $sw_features = null;
-    }
-
-    if($request->properties != null){
-        // $ar_properties = GoogleTranslate::trans($request->properties, 'ar');
-        // $es_properties = GoogleTranslate::trans($request->properties, 'es');
-        // $fr_properties = GoogleTranslate::trans($request->properties, 'fr');
-        // $sw_properties = GoogleTranslate::trans($request->properties, 'sw');
-        $ar_properties = null;
-        $es_properties = null;
-        $fr_properties = null;
-        $sw_properties = null;
-    }else{
-        $ar_properties = null;
-        $es_properties = null;
-        $fr_properties = null;
-        $sw_properties = null;
-    }
-
-    if($request->features != null){
-        // $ar_application = GoogleTranslate::trans($request->application, 'ar');
-        // $es_application = GoogleTranslate::trans($request->application, 'es');
-        // $fr_application = GoogleTranslate::trans($request->application, 'fr');
-        // $sw_application = GoogleTranslate::trans($request->application, 'sw');
-        $ar_application = null;
-        $es_application = null;
-        $fr_application = null;
-        $sw_application = null;
-    }else{
-        $ar_application = null;
-        $es_application = null;
-        $fr_application = null;
-        $sw_application = null;
-    }
-
-    if($request->description != null){
-        // $ar_description = GoogleTranslate::trans($request->description, 'ar');
-        // $es_description = GoogleTranslate::trans($request->description, 'es');
-        // $fr_description = GoogleTranslate::trans($request->description, 'fr');
-        // $sw_description = GoogleTranslate::trans($request->description, 'sw');
-        $ar_description = null;
-        $es_description = null;
-        $fr_description = null;
-        $sw_description = null;
-    }else{
-        $ar_description = null;
-        $es_description = null;
-        $fr_description = null;
-        $sw_description = null;
-    }
-
-    $obj = Products::Find($request->edit_id);
-    $obj->category_id = $category_ids;
-    $obj->title = $request->product_title;
-    $obj->ar_title = $ar_title;
-    $obj->es_title = $es_title;
-    $obj->fr_title = $fr_title;
-    $obj->sw_title = $sw_title;
-    $obj->image = $thumnail;
-    $obj->brochure_id = $request->brochure_id;
-    $obj->product_url = $request->product_url;   
-    $obj->video_title = $request->video_title;
-    $obj->video_type = $request->video_type;
-    $obj->video_url = $request->video_url;
-    $obj->sku = $request->sku;
-    $obj->panel_size = $request->panel_size;
-    $obj->features = $request->features;
-    $obj->ar_features = $ar_features;
-    $obj->es_features = $es_features;
-    $obj->fr_features = $fr_features;
-    $obj->sw_features = $sw_features;        
-    $obj->properties = $request->properties;
-    $obj->ar_properties = $ar_properties;        
-    $obj->es_properties = $es_properties;        
-    $obj->fr_properties = $fr_properties;        
-    $obj->sw_properties = $sw_properties;
-    $obj->application = $request->application;
-    $obj->ar_application = $ar_application;
-    $obj->es_application = $es_application;
-    $obj->fr_application = $fr_application;
-    $obj->sw_application = $sw_application;
-    $obj->thickness = $request->thickness;
-    $obj->core = $request->core;
-    $obj->coil_thickness = $request->coil_thickness;        
-    $obj->tags = $tags;
-    $obj->ar_tags = $ar_tags;
-    $obj->es_tags = $es_tags;
-    $obj->fr_tags = $fr_tags;
-    $obj->sw_tags = $sw_tags;
-    $obj->project_tags = $project_tags;
-    $obj->ar_project_tags = $ar_project_tags;
-    $obj->es_project_tags = $es_project_tags;
-    $obj->fr_project_tags = $fr_project_tags;
-    $obj->sw_project_tags = $sw_project_tags;
-    $obj->description = $request->description;
-    $obj->ar_description = $ar_description;
-    $obj->es_description = $es_description;
-    $obj->fr_description = $fr_description;
-    $obj->sw_description = $sw_description;
-    $obj->status = $request->is_active;
-    $obj->update();
-
-    toast('Product Updated Successfully!!!','success');
+    toast('Product Updated Successfully!', 'success');
     return redirect('/admin/product/all-product');
 }
+
 
 
   public function changeStatus($status, $id)
@@ -726,7 +367,7 @@ public function CategoriesAddEdit(Request $request){
                 $Insert->type = $request->type;
                 $Insert->status = $request->is_active;
 
-                // Set SEO URL either from form or generate from category name
+                
                 $Insert->seourl = $request->seourl ?? $this->slugify($value);
 
                 // Handle image upload for new category
@@ -834,8 +475,6 @@ private function slugify($text)
 
     return $text;
 }
-
-
 
 
      public function deleteCategories($id)
