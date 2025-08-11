@@ -89,7 +89,7 @@
 <!-- Add Applications Button -->
 <td class="text-center">
     @php
-        $applications = \App\Models\admin\ProductApplication::where('category_id', $item->id)->get();
+        $applications = \App\Models\admin\CategoryApplication::where('category_id', $item->id)->get();
     @endphp
     <div>
         @if($applications->isNotEmpty())

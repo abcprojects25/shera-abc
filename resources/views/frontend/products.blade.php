@@ -806,15 +806,14 @@
                                                                                                     </ul>
                                                                                         </div>
                                                                                         <div class="wcf__btn icon-position-after">
-                                                                                            <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
+                                                                                            <a href="{{ url('/category/' . $subCategory->seourl) }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
                                                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-                                                                                                    <path
-                                                                                                        d="M3.49146 0.25V1.5876H11.53L0.9375 12.683L1.83777 13.626L12.4303 2.53061V10.9508H13.7073V0.25H3.49146Z"
-                                                                                                    ></path>
+                                                                                                    <path d="M3.49146 0.25V1.5876H11.53L0.9375 12.683L1.83777 13.626L12.4303 2.53061V10.9508H13.7073V0.25H3.49146Z"></path>
                                                                                                 </svg>
                                                                                                 Explore All Products
                                                                                             </a>
                                                                                         </div>
+
                                                                                     </div>
                                                                                 </div>
                                                                                 
@@ -931,12 +930,10 @@
                                                                                                         @endforeach
                                                                                                     </ul>
                                                                                         </div>
-                                                                                        <div class="wcf__btn icon-position-after">
-                                                                                            <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
+                                                                                       <div class="wcf__btn icon-position-after">
+                                                                                            <a href="{{ url('/category/' . $subCategory->seourl) }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
                                                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-                                                                                                    <path
-                                                                                                        d="M3.49146 0.25V1.5876H11.53L0.9375 12.683L1.83777 13.626L12.4303 2.53061V10.9508H13.7073V0.25H3.49146Z"
-                                                                                                    ></path>
+                                                                                                    <path d="M3.49146 0.25V1.5876H11.53L0.9375 12.683L1.83777 13.626L12.4303 2.53061V10.9508H13.7073V0.25H3.49146Z"></path>
                                                                                                 </svg>
                                                                                                 Explore All Products
                                                                                             </a>
@@ -1208,7 +1205,7 @@
                                                                                                     </ul>
                                                                                         </div>
                                                                                         <div class="wcf__btn icon-position-after">
-                                                                                            <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
+                                                                                            <a href="{{ url('/category/' . $subCategory->seourl) }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
                                                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
                                                                                                     <path
                                                                                                         d="M3.49146 0.25V1.5876H11.53L0.9375 12.683L1.83777 13.626L12.4303 2.53061V10.9508H13.7073V0.25H3.49146Z"
@@ -1334,7 +1331,7 @@
                                                                                                     </ul>
                                                                                         </div>
                                                                                         <div class="wcf__btn icon-position-after">
-                                                                                            <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
+                                                                                            <a href="{{ url('/category/' . $subCategory->seourl) }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
                                                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
                                                                                                     <path
                                                                                                         d="M3.49146 0.25V1.5876H11.53L0.9375 12.683L1.83777 13.626L12.4303 2.53061V10.9508H13.7073V0.25H3.49146Z"
@@ -1673,7 +1670,7 @@
                                                                                                     </ul>
                                                                                         </div>
                                                                                         <div class="wcf__btn icon-position-after">
-                                                                                            <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
+                                                                                            <a href="{{ url('/category/' . $subCategory->seourl) }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
                                                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
                                                                                                     <path
                                                                                                         d="M3.49146 0.25V1.5876H11.53L0.9375 12.683L1.83777 13.626L12.4303 2.53061V10.9508H13.7073V0.25H3.49146Z"
@@ -1799,7 +1796,7 @@
                                                                                                     </ul>
                                                                                         </div>
                                                                                         <div class="wcf__btn icon-position-after">
-                                                                                            <a href="{{ url('/deco-boards') }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
+                                                                                            <a href="{{ url('/category/' . $subCategory->seourl) }}" rel="nofollow" class="wcf-btn-default btn-hover-none">
                                                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
                                                                                                     <path
                                                                                                         d="M3.49146 0.25V1.5876H11.53L0.9375 12.683L1.83777 13.626L12.4303 2.53061V10.9508H13.7073V0.25H3.49146Z"

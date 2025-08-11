@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\admin\Medias;
 use App\Models\admin\Products;
 use App\Models\admin\ProductImages;
+use App\Models\admin\ProductApplication;
 use App\Models\admin\Categories_lookups;
 use App\Models\Categories;
 use App\Models\admin\Catalogues;
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
 use File;
 use App\Models\admin\Media;
-use App\Models\Admin\ProductApplication;
+use App\Models\Admin\CategoryApplication;
 use App\Models\admin\CategoryImage;
 use Illuminate\Support\Facades\DB;
 // use Intervention\Image\Facades\Image;
@@ -54,6 +55,29 @@ class ProductController extends Controller
         return view('frontend.products', compact('mainCategories', 'subCategoriesByMain'));
 }
 
+public function showCategoryProducts($slug)
+{
+    $subCategory = Categories::where('seourl', $slug)->firstOrFail();
+
+    $mainCategoryLookup = Categories_lookups::where('categry_lookup', $subCategory->id)->first();
+    $mainCategory = null;
+    if ($mainCategoryLookup) {
+        $mainCategory = Categories::find($mainCategoryLookup->category_id);
+    }
+
+    $subCategory->load('applications', 'products');
+
+    return view('frontend.deco-boards', compact('mainCategory', 'subCategory'));
+}
+
+public function show($slug)
+{
+    $product = Products::with('category', 'applications', 'productImages')->where('product_url', $slug)->firstOrFail();
+    return view('frontend.product-description', compact('product'));
+}
+
+
+
     public function Home_Index(){
       $Products = Products::orderBy('product_order','asc')->where('is_master_pro',1)->get();
       $count = Products::where('is_deleted',0)->count();
@@ -82,11 +106,8 @@ class ProductController extends Controller
      // Add Product View
     public function AddView($id){
       $id = base64_decode($id);
-    $product = Products::where('id', $id)->first();
-    $Categories = Categories::where('type', 1)->get();
-    $Catalogues = Catalogues::select('id', 'title', 'thumnail')->where('status', 1)->get();
-
-    return view('admin.product.view', compact('product', 'Categories', 'Catalogues'));
+     $view_data = Products::findOrFail($id);
+    return view('admin.product.view', compact('view_data'));
     }
 
     
@@ -147,6 +168,7 @@ public static function FetchSubCategories($parent_id)
     $product->title = $request->product_title;
     $product->category_id = $request->subcategory_id;
     $product->image = $thumnail;
+     $product->product_url = $request->product_url;
     $product->texture = $request->texture;
     $product->profile = $request->profile;
     $product->colour = $request->colour;
@@ -191,6 +213,7 @@ $Image_path = public_path().$request->edit_thumnail;
     $product->title = $request->product_title;
     $product->category_id = $request->subcategory_id;
     $product->image = $thumnail;
+    $product->product_url = $request->product_url;
     $product->texture = $request->texture;
     $product->profile = $request->profile;
     $product->colour = $request->colour;
@@ -208,6 +231,61 @@ $Image_path = public_path().$request->edit_thumnail;
 }
 
 
+public function storeProductApplication(Request $request)
+{
+    $request->validate([
+        'product_id' => 'required|exists:products,id',
+        'name' => 'required|array',
+        'name.*' => 'required|string|max:255',
+        'alt_text' => 'nullable|array',
+        'alt_text.*' => 'nullable|string|max:255',
+        'image' => 'nullable|array',
+        'image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
+
+    foreach ($request->name as $index => $name) {
+        $imagePath = null;
+        if ($request->hasFile("image.$index")) {
+            $image = $request->file("image.$index");
+            $imagePath = $image->getClientOriginalName();
+            $image->move(public_path('uploads/prod-app-images'), $imagePath);
+        }
+
+        ProductApplication::create([
+            'product_id' => $request->product_id,
+            'name' => $name,
+            'alt_text' => $request->alt_text[$index] ?? null,
+            'image' => 'uploads/prod-app-images/' . $imagePath,
+            'status' => 1,
+        ]);
+    }
+
+    return redirect()->back()->with('success', 'Applications added successfully.');
+}
+
+
+public function storeProductImages(Request $request)
+{
+    $request->validate([
+        'product_id' => 'required|exists:products,id',
+        'images.*' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+        'alt.*' => 'nullable|string|max:255',
+    ]);
+
+    foreach ($request->file('images') as $index => $image) {
+$imageName = $image->getClientOriginalName();
+        $image->move(public_path('uploads/product_images'), $imageName);
+
+        ProductImages::create([
+            'product_id' => $request->product_id,
+            'image_path'  => 'uploads/product_images/' . $imageName,
+            'alt'    => $request->alt[$index] ?? '',
+            'status'      => 1,
+        ]);
+    }
+
+    return back()->with('success', 'Images added successfully.');
+}
 
   public function changeStatus($status, $id)
 {
@@ -272,49 +350,49 @@ public function deleteProduct($id)
     }
 }
 
-      // images upload
-      public function fileStore(Request $request)
-      {
-        ini_set('memory_limit', '3072M');
-        ini_set('max_execution_time', 10080);
-        ini_set('upload_max_filesize', '20M');
+    //   // images upload
+    //   public function fileStore(Request $request)
+    //   {
+    //     ini_set('memory_limit', '3072M');
+    //     ini_set('max_execution_time', 10080);
+    //     ini_set('upload_max_filesize', '20M');
         
-          $rnd = rand();
-          $extension = $request->file->getClientOriginalExtension();
-          if($extension == "mp4" || $extension == "ogg" || $extension == "avi" || $extension == "mov" || $extension == "mkv"){
-            $file = $request->file('file');
-            $title_img = 'product'.'_'.$rnd.'.'.$extension;
-            $path_img = '/img/product/product'.'_'.$rnd.'.'.$extension;
-            $path = public_path().'/img/product/';
-            $file->move($path, $title_img);
-          }else{
-              $image = $request->file('file');
-              $imageName = $image->getClientOriginalName();
-              $img1=Image::make($image);   
-              $title_img = 'product'.'_'.$rnd.'.jpg';
-              $path_img = '/img/product/product'.'_'.$rnd.'.jpg';
-              $img1->save(public_path('/img/product/'.$title_img));
-          }
+    //       $rnd = rand();
+    //       $extension = $request->file->getClientOriginalExtension();
+    //       if($extension == "mp4" || $extension == "ogg" || $extension == "avi" || $extension == "mov" || $extension == "mkv"){
+    //         $file = $request->file('file');
+    //         $title_img = 'product'.'_'.$rnd.'.'.$extension;
+    //         $path_img = '/img/product/product'.'_'.$rnd.'.'.$extension;
+    //         $path = public_path().'/img/product/';
+    //         $file->move($path, $title_img);
+    //       }else{
+    //           $image = $request->file('file');
+    //           $imageName = $image->getClientOriginalName();
+    //           $img1=Image::make($image);   
+    //           $title_img = 'product'.'_'.$rnd.'.jpg';
+    //           $path_img = '/img/product/product'.'_'.$rnd.'.jpg';
+    //           $img1->save(public_path('/img/product/'.$title_img));
+    //       }
   
-          $obj = new ProductImages();
-          $obj->product_id = $request->parent_id;
-          $obj->status = 1;
-          $obj->urls = $path_img;
-          $obj->save();
-          return response()->json(['success'=>$title_img]);
-      }
+    //       $obj = new ProductImages();
+    //       $obj->product_id = $request->parent_id;
+    //       $obj->status = 1;
+    //       $obj->urls = $path_img;
+    //       $obj->save();
+    //       return response()->json(['success'=>$title_img]);
+    //   }
 
-      public function editImgStore(Request $request){
-        $moduleid = $request->moduleid;
-        $inputTitle = $request->inputTitle;
-        $inputAlt = $request->inputAlt;
-        $inputUrl = $request->inputUrl;
-        $inputDescription = $request->inputDescription;
+    //   public function editImgStore(Request $request){
+    //     $moduleid = $request->moduleid;
+    //     $inputTitle = $request->inputTitle;
+    //     $inputAlt = $request->inputAlt;
+    //     $inputUrl = $request->inputUrl;
+    //     $inputDescription = $request->inputDescription;
       
-        ProductImages::where('id',$moduleid)->update(['title' => $inputTitle,'alt' => $inputAlt,'urls' => $inputUrl,
-        'description' =>$inputDescription]);
-        return redirect()->back();
-      }
+    //     ProductImages::where('id',$moduleid)->update(['title' => $inputTitle,'alt' => $inputAlt,'urls' => $inputUrl,
+    //     'description' =>$inputDescription]);
+    //     return redirect()->back();
+    //   }
 
       public function statusCategories($status,$id)
      {
@@ -506,17 +584,17 @@ private function slugify($text)
 
     return $relativePath;
 }
-    public function deleteProductPhoto(Request $request){
-      $moduleid = (int) $request->moduleid;
-      $Image_path = public_path().$request->inputUrl;
-      $res=ProductImages::where('id',$moduleid)->delete();
-      if(File::exists($Image_path)) {
-         File::delete($Image_path);
-            return true;
-        }else{
-            return false;
-        }
-    }
+    // public function deleteProductPhoto(Request $request){
+    //   $moduleid = (int) $request->moduleid;
+    //   $Image_path = public_path().$request->inputUrl;
+    //   $res=ProductImages::where('id',$moduleid)->delete();
+    //   if(File::exists($Image_path)) {
+    //      File::delete($Image_path);
+    //         return true;
+    //     }else{
+    //         return false;
+    //     }
+    // }
 
 public function SubCategoriesAddEdit(Request $request) {
     $categories = explode(',', $request->subcategory_name);
@@ -687,7 +765,7 @@ public function storeApplication(Request $request)
             $image->move(public_path('uploads/images'), $imagePath);
         }
 
-        ProductApplication::create([
+        CategoryApplication::create([
             'category_id' => $request->category_id,
             'name' => $name,
             'alt_text' => $request->alt_text[$index] ?? null,

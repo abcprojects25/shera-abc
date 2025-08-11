@@ -80,11 +80,18 @@
 							</select>
                         </div>
 
-                        <div class="col-lg-8 form-group">
+                        <div class="col-lg-12 form-group">
                             <label>Product Title : <span>*</span></label>
                             <input name="product_title" value="{{ $edit_data->title ?? '' }}" class="form-control" placeholder="Product Title..." maxlength="255" type="text" id="product_title" onkeypress="ArticleNameurl();" onblur="ArticleNameurl();">
                         </div>
 
+						<div class="col-lg-12 form-group">
+							<label>Product URL : <span>*</span></label>
+							<div class="input-group mb-2"> 
+							<div class="input-group-prepend"> <div class="input-group-text">https://shera.com/product/</div> </div>
+							<input name="product_url" value="{{ $edit_data->product_url ?? '' }}" class="form-control" placeholder="Product URL..." maxlength="255" type="text" id="page_url" onkeypress="ArticleNameurl();" onblur="ArticleNameurl();">
+</div>
+						</div>
                         <div class="col-lg-4 form-group">
                             <label>Texture</label>
                             <input type="text" class="form-control" name="texture" value="{{ $edit_data->texture ?? '' }}" placeholder="Texture">
@@ -117,7 +124,7 @@
 
                         <div class="col-lg-4 form-group">
                             <label>Quantity</label>
-                            <input type="number" class="form-control" name="quantity" value="{{ $edit_data->quantity ?? '' }}" placeholder="Quantity">
+                            <input type="text" class="form-control" name="quantity" value="{{ $edit_data->quantity ?? '' }}" placeholder="Quantity">
                         </div>
                     </div>
                 </div>

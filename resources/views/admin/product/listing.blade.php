@@ -92,6 +92,8 @@
 												<th> Name </th>  
 												<th> Description </th>
 												<th class="text-center" style="width:60px"> Thumbnail </th>
+												<th class="sort text-center" style="width:60px">Applications</th> 
+	                                        <th class="sort text-center" style="width:60px">Images</th> 
 												 <th class="text-center" style="width:120px"> Created At </th>
 												<th class="text-center" style="width:60px"> Status </th>
 												<th> Actions </th>
@@ -113,99 +115,70 @@
 													@else
 													<td><i>No Image Selected</i></td>
 													@endif
-													<td class="text-center">
+													
+														<!-- Add Applications Button -->
+														<td class="text-center">
+															@php
+																$applications = \App\Models\admin\ProductApplication::where('product_id', $item->id)->get();
+															@endphp
+															<div>
+																@if($applications->isNotEmpty())
+																	<ul class="list-unstyled mt-2 mb-2" style="max-height: 120px; overflow-y: auto;">
+																		@foreach($applications as $app)
+																			<li class="badge badge-info mb-1">{{ $app->name }}</li>
+																		@endforeach
+																	</ul>
+																@else
+																	<span class="text-muted d-block mt-2 mb-2">No Applications</span>
+																@endif
+																<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addApplicationModal" onclick="openAppModal({{ $item->id }})">
+																	Add Application
+																</button>
+															</div>
+														</td>
+
+														<!-- Add Images Button -->
+														<td class="text-center">
+															@php
+																$productImages = \App\Models\admin\ProductImages::where('product_id', $item->id)->get();
+															@endphp
+															@if($productImages->isNotEmpty())
+																<ul class="list-unstyled mb-2" style="max-height: 120px; overflow-y: auto;">
+																	@foreach($productImages as $img)
+																		<li class="badge badge-info mb-1">
+																			{{ basename($img->image_path) }}
+																		</li>
+																	@endforeach
+																</ul>
+															@else
+																<span class="text-muted d-block"></span>
+															@endif
+															<button class="btn btn-sm btn-success" data-toggle="modal" data-target="#addProductImageModal" data-product="{{ $item->id }}">
+																Add Images
+															</button>
+														</td>
+														<td class="text-center">
 														{{ $item->created_at->format('Y-m-d') }}<br/>
 														<small class="text-muted">{{ $item->created_at->format('h:i A') }}</small>
 													</td>
-
   												 @if($item->status == 0) 
 												<td class="text-center"><a href="product-status/{{base64_encode($item->status)}}/{{base64_encode($item->id)}}" class="btn btn-danger status_inactive" title="Change Status"><i class='fa fa-times'></i></a> </td>
 											@else 
 												<td class="text-center"> <a href="product-status/{{base64_encode($item->status)}}/{{base64_encode($item->id)}}" class="btn btn-primary status-active" title="Change Status"><i class='fa fa-check'></i></a> </td>
 											@endif
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-@include('sweetalert::alert')
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('.status-toggle').forEach(function (btn) {
-            btn.addEventListener('click', function (e) {
-                e.preventDefault(); // Stop default navigation
-                const url = this.getAttribute('href');
-
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: "Do you want to change the product status?",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonText: 'Yes, change it!',
-                    cancelButtonText: 'Cancel',
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = url; // Redirect after confirm
-                    }
-                });
-            });
-        });
-    });
-</script>
-
+											
 													
 													<td class="actions"> 
 													
 														<a href="/admin/product/product-edit/{{base64_encode($item->id)}}" class="btn ripple btn-info"> Edit </a>
 														<a href="/admin/product/product-view/{{base64_encode($item->id)}}" class="btn ripple btn-warning"> View </a> 
 										<a onclick="deleteProduct(event, '{{base64_encode($item->id)}}')" href="#" class="btn ripple btn-danger">
-    <i class="fa fa-trash" aria-hidden="true"></i>
-</a>
+														<i class="fa fa-trash" aria-hidden="true"></i>
+													</a>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-// Delete function
-function deleteProduct(event, productId) {
-    event.preventDefault();
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#d33',
-        cancelButtonColor: '#3085d6',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            window.location.href = '/admin/product/delete-product/' + productId;
-        }
-    });
-}
-
-// Show toast if there's a success message
-document.addEventListener('DOMContentLoaded', function() {
-    @if(session('success'))
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        });
-        
-        Toast.fire({
-            icon: 'success',
-            title: '{{ session('success') }}'
-        });
-    @endif
-});
-</script>
-														<!--
-														<a href="#" onclick="GetParentId({{$item->id}})" data-toggle="modal" data-target="#ServerImageModal" class="btn ripple btn-primary"> Add Images </a> 
-														-->
+<!--
+	<a href="#" onclick="GetParentId({{$item->id}})" data-toggle="modal" data-target="#ServerImageModal" class="btn ripple btn-primary"> Add Images </a> 
+	-->
 													</td>
 												</tr> 
 												@endforeach
@@ -224,7 +197,202 @@ document.addEventListener('DOMContentLoaded', function() {
 	</div>	
 <!-- End Main Content-->
 
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	@include('sweetalert::alert')
+	
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			document.querySelectorAll('.status-toggle').forEach(function (btn) {
+				btn.addEventListener('click', function (e) {
+					e.preventDefault(); // Stop default navigation
+					const url = this.getAttribute('href');
+	
+					Swal.fire({
+						title: 'Are you sure?',
+						text: "Do you want to change the product status?",
+						icon: 'warning',
+						showCancelButton: true,
+						confirmButtonText: 'Yes, change it!',
+						cancelButtonText: 'Cancel',
+						confirmButtonColor: '#3085d6',
+						cancelButtonColor: '#d33'
+					}).then((result) => {
+						if (result.isConfirmed) {
+							window.location.href = url; // Redirect after confirm
+						}
+					});
+				});
+			});
+		});
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script>
+		// Delete function
+		function deleteProduct(event, productId) {
+		event.preventDefault();
+		Swal.fire({
+			title: 'Are you sure?',
+			text: "You won't be able to revert this!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#d33',
+			cancelButtonColor: '#3085d6',
+			confirmButtonText: 'Yes, delete it!'
+		}).then((result) => {
+			if (result.isConfirmed) {
+				window.location.href = '/admin/product/delete-product/' + productId;
+			}
+		});
+	}
+	
+	// Show toast if there's a success message
+	document.addEventListener('DOMContentLoaded', function() {
+		@if(session('success'))
+			const Toast = Swal.mixin({
+				toast: true,
+				position: 'top-end',
+				showConfirmButton: false,
+				timer: 3000,
+				timerProgressBar: true,
+				didOpen: (toast) => {
+					toast.addEventListener('mouseenter', Swal.stopTimer)
+					toast.addEventListener('mouseleave', Swal.resumeTimer)
+				}
+			});
+			
+			Toast.fire({
+				icon: 'success',
+				title: '{{ session('success') }}'
+			});
+		@endif
+	});
+	</script>
 
+
+<!-- Add Application Modal -->
+<div class="modal fade" id="addApplicationModal" tabindex="-1" role="dialog" aria-labelledby="addApplicationModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form action="{{ route('store.ProductApplication') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <input type="hidden" name="product_id" id="application_product_id">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Application</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="application-fields-wrapper">
+                    <!-- Initial Application Block -->
+                    <div class="application-block border rounded p-2 mb-3">
+                        <div class="form-group">
+                            <label>Application Name</label>
+                            <input type="text" name="name[]" class="form-control" required>
+                        </div>
+                      
+                        <div class="form-group">
+                            <label>Image</label>
+                            <input type="file" name="image[]" class="form-control-file">
+                        </div>
+                          <div class="form-group">
+                            <label>Alt Text</label>
+                            <input type="text" name="alt_text[]" class="form-control">
+                        </div>
+                        <button type="button" class="btn btn-danger btn-sm remove-block d-none">Remove</button>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="addApplicationBlock()">Add More</button>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Save Applications</button>
+            </div>
+        </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+<!-- Add Category Image Modal -->
+<div class="modal fade" id="addProductImageModal" tabindex="-1" role="dialog" aria-labelledby="addProductImageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <form id="productImageForm" action="{{ route('admin.product_images.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="hidden" name="product_id" id="productImageProductId">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Product Images</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div id="image-upload-group">
+                        <div class="row mb-3 image-group">
+                            <div class="col-md-6">
+                                <input type="file" name="images[]" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" name="alt[]" class="form-control" placeholder="Alt text (optional)">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-sm btn-secondary" id="addMoreImages">+ Add More</button>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save Images</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openAppModal(productId) {
+        document.getElementById('application_product_id').value = productId;
+    }
+
+    function addApplicationBlock() {
+        let wrapper = document.getElementById('application-fields-wrapper');
+        let block = wrapper.querySelector('.application-block');
+        let newBlock = block.cloneNode(true);
+        // Clear input values
+        newBlock.querySelectorAll('input').forEach(input => input.value = '');
+        newBlock.querySelector('.remove-block').classList.remove('d-none');
+        wrapper.appendChild(newBlock);
+    }
+
+    // Event delegation to handle remove
+    document.addEventListener('click', function (e) {
+        if (e.target && e.target.classList.contains('remove-block')) {
+            e.target.closest('.application-block').remove();
+        }
+    });
+</script>
+<script>
+    $('#addProductImageModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var productId = button.data('product');
+        $('#productImageProductId').val(productId);
+    });
+
+    // Add more image+alt input fields
+    $('#addMoreImages').click(function () {
+        $('#image-upload-group').append(`
+            <div class="row mb-3 image-group">
+                <div class="col-md-6">
+                    <input type="file" name="images[]" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="alt[]" class="form-control" placeholder="Alt text (optional)">
+                </div>
+            </div>
+        `);
+    });
+</script>
 <!-- Add Data -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-md modal-dialog-centered">

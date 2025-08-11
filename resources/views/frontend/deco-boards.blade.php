@@ -1,7 +1,9 @@
+
 <!DOCTYPE html>
 
 <html class="no-js" lang="en">
     <!--<![endif]-->
+
 
     <head>
         <meta charset="UTF-8" />
@@ -16,8 +18,8 @@
         <meta http-equiv="pragma" content="no-cache" />
         <meta name="theme-color" content="#800000" />
 
-        <link rel="icon" type="image/png" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}" />
+        <link rel="apple-touch-icon" href="{{ asset('favicon.ico') }}" />
 
         <meta
             name="description"
@@ -55,12 +57,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
-        <link rel="stylesheet" id="wpo_min-header-0-css" href="css/wpo-minify-header-8839aa18.min.css?ver=02" type="text/css" media="all" />
-        <link rel="stylesheet" id="wpo_min-header-0-css" href="css/wpo-minify-header-49bab0b4.min.css?ver=02" type="text/css" media="all" />
-        <link rel="stylesheet" href="css/theme.css?ver=02" type="text/css" media="all" />
+        <link rel="stylesheet" id="wpo_min-header-0-css" href="{{ asset('css/wpo-minify-header-8839aa18.min.css') }}?ver=02" type="text/css" media="all" />
+<link rel="stylesheet" id="wpo_min-header-0-css" href="{{ asset('css/wpo-minify-header-49bab0b4.min.css') }}?ver=02" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('css/theme.css') }}?ver=02" type="text/css" media="all" />
 
-        <script type="text/javascript" src="js/jquery.min.js" id="jquery-core-js"></script>
-        <script type="text/javascript" src="js/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}" id="jquery-core-js"></script>
+<script type="text/javascript" src="{{ asset('js/jquery-migrate.min.js') }}" id="jquery-migrate-js"></script>
 
         <style id="arolax-theme-global-css">
             @media (max-width: 767.98px) {
@@ -288,16 +290,6 @@
                                     <li class="list">
                                         <a href="{{ url('/contact-us') }}" class="link">Contact Us</a>
                                     </li>
-
-                                    <!-- <li class="list">
-                                        <a href="" class="link">Careers</a>
-                                    </li>
-                                    <li class="list">
-                                        <a href="" class="link">Support</a>
-                                    </li>
-                                    <li class="list">
-                                        <a href="" class="link">Contact Us</a>
-                                    </li> -->
                                 </ul>
                             </div>
                         </div>
@@ -322,7 +314,7 @@
                                             <div class="elementor-widget-container">
                                                 <div class="elementor-image">
                                                     <a href="{{ url('/') }}" aria-label="Site Logo">
-                                                        <img width="125" height="34" src="img/logo.png" class="attachment-full size-full wp-image-6069" alt="" />
+                                                        <img width="125" height="34" src="{{ asset('img/logo.png') }}" class="attachment-full size-full wp-image-6069" alt="" />
                                                     </a>
                                                 </div>
                                             </div>
@@ -425,80 +417,16 @@
                                                                                         d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
                                                                                     ></path></svg></span
                                                                         ></a>
-                                                                        <!-- <ul class="sub-menu">
-                                                                            <li id="menu-item-9459" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9459">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/modern-agency/">Modern Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9460" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9460">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/photography-studio/">Photography Studio</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9461" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9461">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/creative-portfolio/">Creative Portfolio</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9462" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9462">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/creative-agency/">Creative Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9463" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9463">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/creative-agency-two/">Creative Agency Two</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9464" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9464">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/travel-agency/">Travel Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9465" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9465">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/arolax-developer/">Web Developer</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9466" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9466">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/photographer/home/">Photographer</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9467" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9467">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/film-production-agency/home-page/">Film Production Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9468" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9468">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/law-firm-agency/home-light/">Law Firm Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9469" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9469">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/digital-agency/">Digital Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9611" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9611">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/content-writer/">Content Writer</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9612" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9612">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/event-planner/">Event Planner</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9613" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9613">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/digital-marketer/">Digital Marketing</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9614">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/health-coach/">Health Coach</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9632" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9632">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/resume/">Resume</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9633" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9633">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/digital-product-agency/">Digital Product Agency</a>
-                                                                            </li>
-                                                                        </ul> -->
+                                                                        
                                                                     </li>
                                                                 </ul>
                                                             </li>
                                                             <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
                                                                 <a href="#" class="wcf-nav-item"
                                                                     >Applications
-                                                                    <!-- <span class="wcf-submenu-indicator">
-                                                                        <svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
-                                                                            <path
-                                                                                d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
-                                                                            ></path></svg>
-                                                                    </span> -->
+                                                                   
                                                                 </a>
-                                                                <!-- <ul class="sub-menu">
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Shera PRO</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Shera NEU</a>
-                                                                    </li>
-                                                                </ul> -->
+                                                                
                                                             </li>
                                                             <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
                                                                 <a href="#" class="wcf-nav-item"
@@ -523,97 +451,7 @@
                                                                     </li>
                                                                 </ul>
                                                             </li>
-                                                            <!-- <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
-                                                                <a href="#" class="wcf-nav-item"
-                                                                    >Knowledge Center<span class="wcf-submenu-indicator"
-                                                                        ><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
-                                                                            <path
-                                                                                d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
-                                                                            ></path></svg></span
-                                                                ></a>
-                                                                <ul class="sub-menu">
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Technical Details</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Catalogue</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">FAQs</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Manuals</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Certifications</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li> -->
-                                                            <!-- <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
-                                                                <a href="#" class="wcf-nav-item"
-                                                                    >Resources<span class="wcf-submenu-indicator"
-                                                                        ><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
-                                                                            <path
-                                                                                d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
-                                                                            ></path></svg></span
-                                                                ></a>
-                                                                <ul class="sub-menu">
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">News</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Events</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Blogs</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Customers Testimonials</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li> -->
-                                                            <!-- <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
-                                                                <a href="#" class="wcf-nav-item"
-                                                                    >Support<span class="wcf-submenu-indicator"
-                                                                        ><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
-                                                                            <path
-                                                                                d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
-                                                                            ></path></svg></span
-                                                                ></a>
-                                                                <ul class="sub-menu">
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Be our Dealer</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Be our Retailer</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Require Installation Service</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li> -->
-                                                            <!-- <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
-                                                                <a href="#" class="wcf-nav-item"
-                                                                    >Contact Us
-                                                                    <span class="wcf-submenu-indicator"
-                                                                        ><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
-                                                                            <path
-                                                                                d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
-                                                                            ></path></svg></span
-                                                                >
-                                                                </a>
-                                                                <ul class="sub-menu">
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Be our Dealer</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Be our Retailer</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Require Installation Service</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li> -->
+                                                            
                                                         </ul>
                                                         <button class="wcf-menu-close" type="button">
                                                             <svg aria-hidden="true" class="e-font-icon-svg e-fas-times" viewBox="0 0 352 512" xmlns="http://www.w3.org/2000/svg">
@@ -640,30 +478,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <div
-                                        class="elementor-element elementor-element-9b2e6a5 e-con-full elementor-hidden-mobile e-flex e-con e-child"
-                                        data-id="9b2e6a5"
-                                        data-element_type="container"
-                                        data-settings='{"wcf_enable_cursor_hover_effect_text":"View","wcf-animation":"none"}'
-                                    >
-                                        <div
-                                            class="elementor-element elementor-element-380e55d elementor-widget elementor-widget-wcf--arolax-button"
-                                            data-id="380e55d"
-                                            data-element_type="widget"
-                                            data-settings='{"wcf-animation":"none"}'
-                                            data-widget_type="wcf--arolax-button.default"
-                                        >
-                                            <div class="elementor-widget-container">
-                                                <div class="wc-btn-wrapper style-1">
-                                                    <a href="#" class="wc-btn-group">
-                                                        <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
-                                                        <span class="wc-btn-primary"> Lets Talk </span>
-                                                        <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> -->
+                                    
                                 </div>
                             </div>
                         </div>
@@ -672,7 +487,7 @@
                         <div class="inner-page product-page deco-product-page">
                             <section class="banner">
                                 <div class="image-box">
-                                    <img src="./img/products-page/banner/banner.jpg" alt="" />
+                                    <img src="{{ asset('img/products-page/banner/banner.jpg') }}" alt="" />
                                 </div>
                                 <div class="heading-box">
                                     <div
@@ -690,7 +505,7 @@
                                         >
                                             <div class="elementor-widget-container">
                                                 <!-- <h2 class="sub-heading alt mb-3">Product</h2> -->
-                                                <h2 class="sub-heading alt"><span class="mini-heading">Product</span><span class="heading">Deco Boards</span></h2>
+                                                <h2 class="sub-heading alt"><span class="mini-heading">Product</span><span class="heading">{{ $subCategory->name }}</span></h2>
                                             </div>
                                         </div>
                                     </div>
@@ -720,7 +535,9 @@
                                                     data-widget_type="wcf--title.default"
                                                 >
                                                     <div class="elementor-widget-container">
-                                                        <h4 class="wcf--title mini-title">Shera Pro Product</h4>
+                                                        @if($mainCategory)
+                                                        <h4 class="wcf--title mini-title">{{ $mainCategory->name }} Product</h4>
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 <div
@@ -731,7 +548,7 @@
                                                     data-widget_type="wcf--title.default"
                                                 >
                                                     <div class="elementor-widget-container">
-                                                        <h2 class="wcf--title sub-heading alt">Deco Boards</h2>
+                                                        <h2 class="wcf--title sub-heading alt">{{ $subCategory->name }}</h2>
                                                     </div>
                                                 </div>
                                                 <div
@@ -743,8 +560,7 @@
                                                 >
                                                     <div class="elementor-widget-container p-0">
                                                         <p class="wcf--para">
-                                                            Our Deco Boards are built for strength and durability with beautiful textures, these are perfect for a wide range of applications and can be
-                                                            customized to match any design.
+                                                            {{ $subCategory->description }}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -757,222 +573,47 @@
                                                 >
                                                     <div class="elementor-widget-container p-0">
                                                         <ul class="usp-icon-list">
+                                                            @foreach($subCategory->applications as $app)
                                                             <li class="list">
                                                                 <div class="icon">
-                                                                    <img src="./img/products-page/shera-pro/icons/excellent.png" alt="" />
+                                                                    <img src="{{ asset($app->image) }}" alt="{{ $app->name }}">
                                                                 </div>
                                                                 <div class="text">
                                                                     <p>
-                                                                        Excellent <br />
-                                                                        Aesthetic
+                                                                        {{ $app->name }}
                                                                     </p>
                                                                 </div>
                                                             </li>
-                                                            <li class="list">
-                                                                <div class="icon">
-                                                                    <img src="./img/products-page/shera-pro/icons/crystal.png" alt="" />
-                                                                </div>
-                                                                <div class="text">
-                                                                    <p>
-                                                                        Crystal Engineering <br />
-                                                                        Technology
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li class="list">
-                                                                <div class="icon">
-                                                                    <img src="./img/products-page/shera-pro/icons/protection.png" alt="" />
-                                                                </div>
-                                                                <div class="text">
-                                                                    <p>
-                                                                        Protection From <br />
-                                                                        All Elements
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li class="list">
-                                                                <div class="icon">
-                                                                    <img src="./img/products-page/shera-pro/icons/strong.png" alt="" />
-                                                                </div>
-                                                                <div class="text">
-                                                                    <p>
-                                                                        Strong And <br />
-                                                                        Durable
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li class="list">
-                                                                <div class="icon">
-                                                                    <img src="./img/products-page/shera-pro/icons/versatile.png" alt="" />
-                                                                </div>
-                                                                <div class="text">
-                                                                    <p>
-                                                                        Versatile <br />
-                                                                        Solution
-                                                                    </p>
-                                                                </div>
-                                                            </li>
+                                                            @endforeach
+                                                            
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="products-container">
+                                            <div class="products-container" style="flex: 1;">
                                                 <div class="product-wrapper">
                                                     <div class="row">
+                                                        @foreach($subCategory->products as $product)
                                                         <div class="col col-12 col-lg-4">
-                                                            <a href="{{ url('/product-description') }}" class="product-card">
+                                                            <a href="{{ route('product.show', $product->product_url) }}" class="product-card">
                                                                 <div class="image-box mb-4">
-                                                                    <img src="./img/products-page/shera-pro/products/deco-board/brick/brick-1.jpg" alt="" />
+                                                                    <!-- this is thumbnail image  -->
+                                                                     <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
                                                                     <div class="hovered-box">
                                                                         <!-- <h4 class="title">Wall Partitions, False Ceiling, Wall Cladding, Landscaping, External Cladding</h4> -->
                                                                         <ul class="information-list">
-                                                                            <li class="list mb-1">Profile : Square-Cut Edge</li>
-                                                                            <li class="list mb-1">Colour : Uncoloured</li>
+                                                                            <li class="list mb-1">Profile : {{ $product->profile }}</li>
+                                                                            <li class="list mb-1">Colour : {{ $product->colour }}</li>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
                                                                 <div class="text-box">
-                                                                    <h3 class="title inner-title mb-1">Brick</h3>
+                                                                    <h3 class="title inner-title mb-1">{{ $product->title }}</h3>
                                                                 </div>
                                                             </a>
                                                         </div>
-                                                        <div class="col col-12 col-lg-4">
-                                                            <a href="{{ url('/product-description') }}" class="product-card">
-                                                                <div class="image-box mb-4">
-                                                                    <img src="./img/products-page/shera-pro/products/deco-board/rocco/deco-rocco.png" alt="" />
-                                                                    <div class="hovered-box">
-                                                                        <!-- <h4 class="title">Wall Partitions, False Ceiling, Wall Cladding, Landscaping, External Cladding</h4> -->
-                                                                        <ul class="information-list">
-                                                                            <li class="list mb-1">Profile : Square-Cut Edge</li>
-                                                                            <li class="list mb-1">Colour : Uncoloured</li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-box">
-                                                                    <h3 class="title inner-title mb-1">Rocco</h3>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col col-12 col-lg-4">
-                                                            <a href="{{ url('/product-description') }}" class="product-card">
-                                                                <div class="image-box mb-4">
-                                                                    <img src="./img/products-page/shera-pro/products/deco-board/stucco/deco-stucco.png" alt="" />
-                                                                    <div class="hovered-box">
-                                                                        <!-- <h4 class="title">Wall Partitions, False Ceiling, Wall Cladding, Landscaping, External Cladding</h4> -->
-                                                                        <ul class="information-list">
-                                                                            <li class="list mb-1">Profile : Square-Cut Edge</li>
-                                                                            <li class="list mb-1">Colour : Uncoloured</li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-box">
-                                                                    <h3 class="title inner-title mb-1">Stucco</h3>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col col-12 col-lg-4">
-                                                            <a href="{{ url('/product-description') }}" class="product-card">
-                                                                <div class="image-box mb-4">
-                                                                    <img src="./img/products-page/shera-pro/products/deco-board/drop/deco-drop.png" alt="" />
-
-                                                                    <div class="hovered-box">
-                                                                        <!-- <h4 class="title">Wall Partitions, False Ceiling, Wall Cladding, Landscaping, External Cladding</h4> -->
-                                                                        <ul class="information-list">
-                                                                            <li class="list mb-1">Profile : Square-Cut Edge</li>
-                                                                            <li class="list mb-1">Colour : Uncoloured</li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-box">
-                                                                    <h3 class="title inner-title mb-1">Drop</h3>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col col-12 col-lg-4">
-                                                            <a href="{{ url('/product-description') }}" class="product-card">
-                                                                <div class="image-box mb-4">
-                                                                    <img src="./img/products-page/shera-pro/products/deco-board/blossom/deco-blossom.jpg" alt="" />
-                                                                    <div class="hovered-box">
-                                                                        <!-- <h4 class="title">Wall Partitions, False Ceiling, Wall Cladding, Landscaping, External Cladding</h4> -->
-                                                                        <ul class="information-list">
-                                                                            <li class="list mb-1">Profile : Square-Cut Edge</li>
-                                                                            <li class="list mb-1">Colour : Uncoloured</li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-box">
-                                                                    <h3 class="title inner-title mb-1">Blossom</h3>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col col-12 col-lg-4">
-                                                            <a href="{{ url('/product-description') }}" class="product-card">
-                                                                <div class="image-box mb-4">
-                                                                    <img src="./img/products-page/shera-pro/products/deco-board/cassia/deco-cassia.png" alt="" />
-                                                                    <div class="hovered-box">
-                                                                        <!-- <h4 class="title">Wall Partitions, False Ceiling, Wall Cladding, Landscaping, External Cladding</h4> -->
-                                                                        <ul class="information-list">
-                                                                            <li class="list mb-1">Profile : Square-Cut Edge</li>
-                                                                            <li class="list mb-1">Colour : Uncoloured</li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-box">
-                                                                    <h3 class="title inner-title mb-1">Cassia</h3>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col col-12 col-lg-4">
-                                                            <a href="{{ url('/product-description') }}" class="product-card">
-                                                                <div class="image-box mb-4">
-                                                                    <img src="./img/products-page/shera-pro/products/deco-board/straight-grain-3/deco-straight-grain-3.png" alt="" />
-                                                                    <div class="hovered-box">
-                                                                        <!-- <h4 class="title">Wall Partitions, False Ceiling, Wall Cladding, Landscaping, External Cladding</h4> -->
-                                                                        <ul class="information-list">
-                                                                            <li class="list mb-1">Profile : Square-Cut Edge</li>
-                                                                            <li class="list mb-1">Colour : Uncoloured</li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-box">
-                                                                    <h3 class="title inner-title mb-1">Straight Grain 3</h3>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col col-12 col-lg-4">
-                                                            <a href="{{ url('/product-description') }}" class="product-card">
-                                                                <div class="image-box mb-4">
-                                                                    <img src="./img/products-page/shera-pro/products/deco-board/straignt-grain-4/deco-straight-grain-4.png" alt="" />
-                                                                    <div class="hovered-box">
-                                                                        <!-- <h4 class="title">Wall Partitions, False Ceiling, Wall Cladding, Landscaping, External Cladding</h4> -->
-                                                                        <ul class="information-list">
-                                                                            <li class="list mb-1">Profile : Square-Cut Edge</li>
-                                                                            <li class="list mb-1">Colour : Uncoloured</li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-box">
-                                                                    <h3 class="title inner-title mb-1">Straight Grain 4</h3>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col col-12 col-lg-4">
-                                                            <a href="{{ url('/product-description') }}" class="product-card">
-                                                                <div class="image-box mb-4">
-                                                                    <img src="./img/products-page/shera-pro/products/deco-board/cassiano/deco-cassiano.png" alt="" />
-                                                                    <div class="hovered-box">
-                                                                        <!-- <h4 class="title">Wall Partitions, False Ceiling, Wall Cladding, Landscaping, External Cladding</h4> -->
-                                                                        <ul class="information-list">
-                                                                            <li class="list mb-1">Profile : Square-Cut Edge</li>
-                                                                            <li class="list mb-1">Colour : Uncoloured</li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="text-box">
-                                                                    <h3 class="title inner-title mb-1">Cassiano</h3>
-                                                                </div>
-                                                            </a>
-                                                        </div>
+                                                        @endforeach
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -1014,7 +655,7 @@
                                                     <div class="swiper-slide">
                                                         <a href="" class="application-card">
                                                             <div class="image-box">
-                                                                <img src="./img/shera-applications/wall-cladding.jpg" alt="" />
+                                                                <img src="{{ asset('img/shera-applications/wall-cladding.jpg') }}" alt="" />
                                                             </div>
                                                             <div class="text-box">
                                                                 <h4 class="title">Wall Cladding</h4>
@@ -1024,7 +665,7 @@
                                                     <div class="swiper-slide">
                                                         <a href="" class="application-card">
                                                             <div class="image-box">
-                                                                <img src="./img/shera-applications/wall-partitions.png" alt="" />
+                                                                <img src="{{ asset('img/shera-applications/wall-partitions.png') }}" alt="" />
                                                             </div>
                                                             <div class="text-box">
                                                                 <h4 class="title">Wall Partitions</h4>
@@ -1034,7 +675,7 @@
                                                     <div class="swiper-slide">
                                                         <a href="" class="application-card">
                                                             <div class="image-box">
-                                                                <img src="./img/shera-applications/landscaping.jpg" alt="" />
+                                                                <img src="{{ asset('img/shera-applications/landscaping.jpg') }}" alt="" />
                                                             </div>
                                                             <div class="text-box">
                                                                 <h4 class="title">Landscaping</h4>
@@ -1044,7 +685,7 @@
                                                     <div class="swiper-slide">
                                                         <a href="" class="application-card">
                                                             <div class="image-box">
-                                                                <img src="./img/shera-applications/external-cladding.jpg" alt="" />
+                                                                <img src="{{ asset('img/shera-applications/external-cladding.jpg') }}" alt="" />
                                                             </div>
                                                             <div class="text-box">
                                                                 <h4 class="title">External Cladding</h4>
@@ -1054,7 +695,7 @@
                                                     <div class="swiper-slide">
                                                         <a href="" class="application-card">
                                                             <div class="image-box">
-                                                                <img src="./img/shera-applications/false-ceiling.jpg" alt="" />
+                                                                <img src="{{ asset('img/shera-applications/false-ceiling.jpg') }}" alt="" />
                                                             </div>
                                                             <div class="text-box">
                                                                 <h4 class="title">False Ceiling</h4>
@@ -1070,48 +711,6 @@
                                             </div>
                                         </div>
 
-                                        <!-- <div class="row">
-                                            <div class="col col-12 col-lg-3">
-                                                <a href="" class="application-card">
-                                                    <div class="image-box">
-                                                        <img src="./img/shera-applications/56e15d4177655aacefb2632171b73d433aa14ba7.png" alt="" />
-                                                    </div>
-                                                    <div class="text-box">
-                                                        <h4 class="title">Ceiling</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col col-12 col-lg-3">
-                                                <a href="" class="application-card">
-                                                    <div class="image-box">
-                                                        <img src="./img/shera-applications/77059a237835abf1566df125631bfd7be082f092.jpg" alt="" />
-                                                    </div>
-                                                    <div class="text-box">
-                                                        <h4 class="title">Ceiling</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col col-12 col-lg-3">
-                                                <a href="" class="application-card">
-                                                    <div class="image-box">
-                                                        <img src="./img/shera-applications/dc90aeb91d529a9b7a1f9f1876cd58aa7bf0dfa9.jpg" alt="" />
-                                                    </div>
-                                                    <div class="text-box">
-                                                        <h4 class="title">Ceiling</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col col-12 col-lg-3">
-                                                <a href="" class="application-card">
-                                                    <div class="image-box">
-                                                        <img src="./img/shera-applications/shera-applications.jpg" alt="" />
-                                                    </div>
-                                                    <div class="text-box">
-                                                        <h4 class="title">Ceiling</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div> -->
                                     </div>
                                 </div>
                             </section>
@@ -1122,7 +721,7 @@
                         <div class="container clients_lising">
                             <div class="row align-center">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <img src="img/logo_w.svg" class="img-fluid" />
+                                    <img src="{{ asset('img/logo_w.svg') }}" class="img-fluid" />
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="d-flex justify-content-end">
@@ -1148,15 +747,15 @@
                                 <div class="col-lg-4 col-md-4 col-sm-4 text-end social-icons">
                                     <a href="#">
                                         <!-- <i class="fab fa-linkedin"></i>  -->
-                                        <img src="./img/icons/linkedin.svg" alt="" />
+                                        <img src="{{ asset('img/icons/linkedin.svg') }}" alt="" />
                                     </a>
                                     <a href="#">
                                         <!-- <i class="fab fa-instagram"></i> -->
-                                        <img class="instagram" src="./img/icons/instagram.svg" alt="" />
+                                        <img class="instagram" src="{{ asset('img/icons/instagram.svg') }}" alt="" />
                                     </a>
                                     <a href="#">
                                         <!-- <i class="fab fa-youtube"></i>  -->
-                                        <img class="youtube" src="./img/icons/youtube.svg" alt="" />
+                                        <img class="youtube" src="{{ asset('img/icons/youtube.svg') }}" alt="" />
                                     </a>
                                 </div>
                                 <div class="col-12"><div class="divider-style-03"></div></div>
@@ -1303,17 +902,17 @@
                 mix-blend-mode: difference;
             }
         </style>
-        <link rel="stylesheet" id="wpo_min-footer-0-css" href="css/wpo-minify-footer-24b84006.min.css" type="text/css" media="all" />
+        <link rel="stylesheet" id="wpo_min-footer-0-css" href="{{ asset('css/wpo-minify-footer-24b84006.min.css') }}" type="text/css" media="all" />
 
-        <script type="text/javascript" src="./js/gsap.min.js" id="gsap-js"></script>
-        <script type="text/javascript" src="./js/ScrollTrigger.min.js" id="ScrollTrigger-js"></script>
+        <script type="text/javascript" src="{{ asset('js/gsap.min.js') }}" id="gsap-js"></script>
+        <script type="text/javascript" src="{{ asset('js/ScrollTrigger.min.js') }}" id="ScrollTrigger-js"></script>
 
         <script type="text/javascript" id="arolax-essential--global-core-js-extra">
             /* <![CDATA[ */
             var AROLAX_ADDONS_JS = { ajaxUrl: "", _wpnonce: "d2b278181b" };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/wcf--global-core.min.js" id="arolax-essential--global-core-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wcf--global-core.min.js') }}" id="arolax-essential--global-core-js"></script>
         <script type="text/javascript" id="wcf--addons-js-extra">
             /* <![CDATA[ */
             var WCF_ADDONS_JS = {
@@ -1326,17 +925,17 @@
             };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/wcf-addons.min.js" id="wcf--addons-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wcf-addons.min.js') }}" id="wcf--addons-js"></script>
         <script type="text/javascript" id="arolax-script-js-extra">
             /* <![CDATA[ */
             var arolax_obj = { ajax_url: "", cart_update_qty_change: "" };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/script.min.js" id="arolax-script-js"></script>
-        <script type="text/javascript" src="js/swiper.min.js" id="swiper-js"></script>
-        <script type="text/javascript" src="js/slider.min.js" id="wcf--slider-js"></script>
-        <script type="text/javascript" src="js/jquery-numerator.min.js" id="jquery-numerator-js"></script>
-        <script type="text/javascript" src="js/counter.min.js" id="wcf--counter-js"></script>
+        <script type="text/javascript" src="{{ asset('js/script.min.js') }}" id="arolax-script-js"></script>
+        <script type="text/javascript" src="{{ asset('js/swiper.min.js') }}" id="swiper-js"></script>
+        <script type="text/javascript" src="{{ asset('js/slider.min.js') }}" id="wcf--slider-js"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery-numerator.min.js') }}" id="jquery-numerator-js"></script>
+        <script type="text/javascript" src="{{ asset('js/counter.min.js') }}" id="wcf--counter-js"></script>
         <script type="text/javascript" id="mediaelement-core-js-before">
             /* <![CDATA[ */
             var mejsL10n = {
@@ -1419,48 +1018,33 @@
             };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/mediaelement-and-player.min.js" id="mediaelement-core-js"></script>
-        <script type="text/javascript" src="js/mediaelement-migrate.min.js" id="mediaelement-migrate-js"></script>
+        <script type="text/javascript" src="{{ asset('js/mediaelement-and-player.min.js') }}" id="mediaelement-core-js"></script>
+        <script type="text/javascript" src="{{ asset('js/mediaelement-migrate.min.js') }}" id="mediaelement-migrate-js"></script>
         <script type="text/javascript" id="mediaelement-js-extra">
             /* <![CDATA[ */
             var _wpmejsSettings = { pluginPath: "", classPrefix: "mejs-", stretching: "responsive", audioShortcodeLibrary: "mediaelement", videoShortcodeLibrary: "mediaelement" };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/wp-mediaelement.min.js" id="wp-mediaelement-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wp-mediaelement.min.js') }}" id="wp-mediaelement-js"></script>
 
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script> -->
-        <script type="text/javascript" src="js/ScrollSmoother.min.js" id="ScrollSmoother-js"></script>
-        <script type="text/javascript" src="js/SplitText.min.js" id="SplitText-js"></script>
-        <script type="text/javascript" src="js/ScrollToPlugin.min.js" id="ScrollToPlugin-js"></script>
-        <script type="text/javascript" src="js/Flip.min.js" id="flip-js"></script>
-        <script type="text/javascript" src="js/post.js" id="wcf--posts-js"></script>
-        <script type="text/javascript" src="js/wcf-addons-pro.js" id="wcf--addons-pro-js"></script>
-        <script type="text/javascript" src="js/wcf-addons-ex.js" id="wcf--addons-ex-js"></script>
-        <script type="text/javascript" defer src="js/offcanvas-menu.js" id="wcf-offcanvas-menu-js"></script>
-        <script type="text/javascript" src="js/video-testimonial.js" id="arolax-video-testimonial-js"></script>
-        <script type="text/javascript" defer src="js/mailchimp.js" id="wcf--mailchimp-js"></script>
-        <script type="text/javascript" src="js/webpack.runtime.min.js" id="elementor-webpack-runtime-js"></script>
-        <script type="text/javascript" src="js/frontend-modules.min.js" id="elementor-frontend-modules-js"></script>
-        <script type="text/javascript" src="js/core.min.js" id="jquery-ui-core-js"></script>
-        <script type="text/javascript" src="js/app.js" id="jquery-ui-core-js"></script>
+        <script type="text/javascript" src="{{ asset('js/ScrollSmoother.min.js') }}" id="ScrollSmoother-js"></script>
+        <script type="text/javascript" src="{{ asset('js/SplitText.min.js') }}" id="SplitText-js"></script>
+        <script type="text/javascript" src="{{ asset('js/ScrollToPlugin.min.js') }}" id="ScrollToPlugin-js"></script>
+        <script type="text/javascript" src="{{ asset('js/Flip.min.js') }}" id="flip-js"></script>
+        <script type="text/javascript" src="{{ asset('js/post.js') }}" id="wcf--posts-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wcf-addons-pro.js') }}" id="wcf--addons-pro-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wcf-addons-ex.js') }}" id="wcf--addons-ex-js"></script>
+        <script type="text/javascript" defer src="{{ asset('js/offcanvas-menu.js') }}" id="wcf-offcanvas-menu-js"></script>
+        <script type="text/javascript" src="{{ asset('js/video-testimonial.js') }}" id="arolax-video-testimonial-js"></script>
+        <script type="text/javascript" defer src="{{ asset('js/mailchimp.js') }}" id="wcf--mailchimp-js"></script>
+        <script type="text/javascript" src="{{ asset('js/webpack.runtime.min.js') }}" id="elementor-webpack-runtime-js"></script>
+        <script type="text/javascript" src="{{ asset('js/frontend-modules.min.js') }}" id="elementor-frontend-modules-js"></script>
+        <script type="text/javascript" src="{{ asset('js/core.min.js') }}" id="jquery-ui-core-js"></script>
+        <script type="text/javascript" src="{{ asset('js/app.js') }}" id="jquery-ui-core-js"></script>
 
         <script>
-            // console.log("oh well");
-            // const arr = Array.from(document.querySelectorAll(".pinner .row"));
-            // arr.forEach((element, index) => {
-            //     ScrollTrigger.create({
-            //         trigger: ".pinner", // Element to "stick"
-            //         start: "top top", // Start when top hits viewport top
-            //         end: "50% top", // End when parent section ends
-            //         pin: element, // Pins the element in place
-            //         pinSpacing: false, // Prevents layout spacing issues
-            //         markers: true, // Set true for debugging
-            //         invalidateOnRefresh: true,
-            //     });
-            // });
-
-            // function calls
             loaderAnimation();
             loaderDisapper();
             jQuery(document).ready(function ($) {
@@ -1634,11 +1218,11 @@
             };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/frontend.min.js" id="elementor-frontend-js"></script>
+        <script type="text/javascript" src="{{ asset('js/frontend.min.js') }}" id="elementor-frontend-js"></script>
 
         <!-- Fancybox -->
-        <link rel="stylesheet" href="css/jquery.fancybox.min.css" type="text/css" />
-        <script src="js/jquery.fancybox.min.js"></script>
+        <link rel="stylesheet" href="{{ asset('css/jquery.fancybox.min.css') }}" type="text/css" />
+        <script src="{{ asset('js/jquery.fancybox.min.js') }}"></script>
 
         <script>
             // Fancybox Config

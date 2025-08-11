@@ -78,6 +78,13 @@ Route::get('/products', [ProductController::class, 'userProductPage'])->name('fr
 Route::post('/admin/store-application', [ProductController::class, 'storeApplication'])->name('store.application');
 Route::post('/admin/category-images/store', [ProductController::class, 'storeCategoryImages'])->name('admin.category_images.store');
 
+Route::post('/admin/store-ProductApplication', [ProductController::class, 'storeProductApplication'])->name('store.ProductApplication');
+Route::post('/admin/product-images/store', [ProductController::class, 'storeProductImages'])->name('admin.product_images.store');
+
+Route::get('/category/{slug}', [ProductController::class, 'showCategoryProducts'])->name('category.products');
+Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
+
+
 /* ===== ADMIN Route ===== */
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {

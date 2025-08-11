@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\admin\Categories_lookups;
-use App\Models\admin\ProductApplication;
+use App\Models\admin\CategoryApplication;
 use App\Models\admin\CategoryImage;
+use App\Models\admin\Products;
 
 class Categories extends Model
 {
@@ -29,12 +30,17 @@ class Categories extends Model
 
     public function applications()
     {
-        return $this->hasMany(ProductApplication::class, 'category_id');
+        return $this->hasMany(CategoryApplication::class, 'category_id');
     }
 
     public function categoryImages()
     {
         return $this->hasMany(CategoryImage::class, 'category_id');
     }
+
+    public function products()
+{
+    return $this->hasMany(Products::class, 'category_id'); 
+}
 
 }
