@@ -61,8 +61,10 @@
 														<div class="row">
 															<div class="col-lg-4 form-group area_interest">
 																<label> Select Category </label>
-																<select name="category_ids[]" id="multiple-checkboxes" class="form-control" multiple="multiple" required="">
+																<select name="category_ids[]" class="form-control" required="">
+																	<option value="">-- Select Category --</option>
 																	@foreach ($Categories as $item)
+
 																		<option value="{{$item->id}}"> {{$item->name}} </option>
 																	@endforeach 
 																</select>
@@ -74,7 +76,7 @@
 															<div class="col-lg-12 form-group">
 																<label>Page URL : <span>*</span></label>
 																<div class="input-group mb-2"> 
-																	<div class="input-group-prepend"> <div class="input-group-text"></div> </div>
+																	<div class="input-group-prepend"> <div class="input-group-text">https://shera.com/project/</div> </div>
 																	<input name="page_url" value="" required="" class="form-control"  maxlength="255" type="text" id="page_url" >
 																</div> 
 															</div>
@@ -83,29 +85,42 @@
 																<input name="project_summary" value=""  class="form-control" placeholder="Project summary..." type="text" id="project_summary">
 															</div>
 															<div class="col-lg-6 form-group">
-																<label>State, City Name :</label>
+																<label>Location :</label>
 																<input name="city_state_name" value="" class="form-control" placeholder="State, City Name..." type="text" id="city_state_name">
+															</div>
+
+															<div class="col-lg-6 form-group">
+																<label>Thickness :</label>
+																<input name="thickness" value="" class="form-control" placeholder="Thickness..." type="text" id="thickness">
+															</div>
+															<div class="col-lg-6 form-group">
+																<label>Size :</label>
+																<input name="size" value="" class="form-control" placeholder="Size..." type="text" id="size">
+															</div>
+															<div class="col-lg-6 form-group">
+																<label>Total Sq.ft : </label>
+																<input name="total_sqft" value="" class="form-control" placeholder="Total Sq.ft..." type="text" id="total_sqft">
 															</div>
 														</div>
 														<hr />
 														<div class="row">
-															<div class="col-lg-8 form-group">
+															<!-- <div class="col-lg-8 form-group">
 																<label>Video Title :</label>
 																<input name="video_title" value="" class="form-control" placeholder="Title..." maxlength="255" type="text" id="title">
-															</div>
-															<div class="col-lg-4 form-group">
+															</div> -->
+															<!-- <div class="col-lg-4 form-group">
 																<label>Type :</label> 
 																<select name="video_type" id="types" class="custom-select w-100">
 																	<option value="">Select Type</option> 
 																	<option value="1"> YouTube </option>       
 																	<option value="2"> Vimeo </option>
 																</select>
-															</div>
-															<div class="col-lg-8 form-group">
+															</div> -->
+															<!-- <div class="col-lg-8 form-group">
 																<label>Video URL :</label>
 																<input name="video_url" value=""class="form-control" placeholder="URL..." maxlength="255" type="text" id="url">
-															</div>	
-															<div class="col-lg-4 form-group">
+															</div>	 -->
+															<!-- <div class="col-lg-4 form-group">
 																<label>Direction :</label> 
 																<select name="direction" id="direction" class="custom-select w-100">
 																	<option selected disabled>Select Direction</option> 
@@ -114,7 +129,7 @@
 																	<option value="north"> North</option>
 																	<option value="south"> South</option>
 																</select>
-															</div>						
+															</div>						 -->
 															<div class="col-lg-12 form-group">
 																<label> Add Products </label>
 																<select name="products[]" id="search_products" multiple data-role="tagsinput" Placeholder="Products type and enter.."> 
@@ -159,28 +174,23 @@
 													</div>
 												</div>   
 												 
-												{{-- <div class="form-group">
-													<label> Add Project Images </label> <br />
-													<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ServerImageModal">
-														Add Project Images
-													</button>
-												</div>  --}}
+											
 												
 												<div class="form-group">
 													<label for="BookDescription"> Project Description </label>
 													<textarea name="description" class="form-control content" cols="10" rows="5" id="description" placeholder="Description...">
-														<p> <strong> Shade Used: </strong> VA-481 & VA-103  <br />
+														<!-- <p> <strong> Shade Used: </strong> VA-481 & VA-103  <br />
 														<strong> Specifications: </strong> 3mm <br />
-														<strong> Quantity: </strong> 1000 Sq.Mtr </p>
+														<strong> Quantity: </strong> 1000 Sq.Mtr </p> -->
 													</textarea> 
 												</div> 
 												
-												<div class="form-group">
+												<!-- <div class="form-group">
 													<label> Add Tags </label>
 													<select name="tags[]" id="search_tags" multiple data-role="tagsinput" Placeholder="Tags type and enter.."> 
 
 													</select>
-												</div>
+												</div> -->
 												
 												<div class="form-group">
 													<label>Status </label>

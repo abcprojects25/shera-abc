@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\admin\Medias;
 use App\Models\admin\Products;
+use App\Models\admin\Projects;
 use App\Models\admin\ProductImages;
 use App\Models\admin\ProductApplication;
 use App\Models\admin\Categories_lookups;
@@ -20,7 +21,6 @@ use App\Models\admin\Media;
 use App\Models\Admin\CategoryApplication;
 use App\Models\admin\CategoryImage;
 use Illuminate\Support\Facades\DB;
-// use Intervention\Image\Facades\Image;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver as GdDriver;
 
@@ -67,14 +67,25 @@ public function showCategoryProducts($slug)
 
     $subCategory->load('applications', 'products');
 
+     
     return view('frontend.deco-boards', compact('mainCategory', 'subCategory'));
 }
 
 public function show($slug)
 {
-    $product = Products::with('category', 'applications', 'productImages')->where('product_url', $slug)->firstOrFail();
-    return view('frontend.product-description', compact('product'));
+    $product = Products::with('category', 'applications', 'productImages')
+        ->where('product_url', $slug)
+        ->firstOrFail();
+
+    $projects =  Projects::with('category')
+        ->where('products', 'like', '%' . $product->name . '%')
+        ->where('status', 1)
+        ->get();
+
+
+    return view('frontend.product-description', compact('product', 'projects'));
 }
+
 
 
 

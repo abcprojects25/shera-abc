@@ -20,8 +20,8 @@
         <meta http-equiv="pragma" content="no-cache" />
         <meta name="theme-color" content="#800000" />
 
-        <link rel="icon" type="image/png" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}" />
+        <link rel="apple-touch-icon" href="{{ asset('favicon.ico') }}" />
 
         <meta
             name="description"
@@ -59,13 +59,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
-        <link rel="stylesheet" id="wpo_min-header-0-css" href="css/wpo-minify-header-8839aa18.min.css?ver=02" type="text/css" media="all" />
-        <link rel="stylesheet" id="wpo_min-header-0-css" href="css/wpo-minify-header-49bab0b4.min.css?ver=02" type="text/css" media="all" />
+        <link rel="stylesheet" id="wpo_min-header-0-css" href="{{ asset('css/wpo-minify-header-8839aa18.min.css?ver=02') }}" type="text/css" media="all" />
+        <link rel="stylesheet" id="wpo_min-header-0-css" href="{{ asset('css/wpo-minify-header-49bab0b4.min.css?ver=02') }}" type="text/css" media="all" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.css" />
-        <link rel="stylesheet" href="css/theme.css?ver=02" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('css/theme.css?ver=02') }}" type="text/css" media="all" />
 
-        <script type="text/javascript" src="js/jquery.min.js" id="jquery-core-js"></script>
-        <script type="text/javascript" src="js/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}" id="jquery-core-js"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery-migrate.min.js') }}" id="jquery-migrate-js"></script>
 
         <style id="arolax-theme-global-css">
             @media (max-width: 767.98px) {
@@ -289,16 +289,6 @@
                                     <li class="list">
                                         <a href="{{ url('/contact-us') }}" class="link">Contact Us</a>
                                     </li>
-
-                                    <!-- <li class="list">
-                                        <a href="" class="link">Careers</a>
-                                    </li>
-                                    <li class="list">
-                                        <a href="" class="link">Support</a>
-                                    </li>
-                                    <li class="list">
-                                        <a href="" class="link">Contact Us</a>
-                                    </li> -->
                                 </ul>
                             </div>
                         </div>
@@ -323,7 +313,7 @@
                                             <div class="elementor-widget-container">
                                                 <div class="elementor-image">
                                                     <a href="{{ url('/') }}" aria-label="Site Logo">
-                                                        <img width="125" height="34" src="img/logo.png" class="attachment-full size-full wp-image-6069" alt="" />
+                                                        <img width="125" height="34" src="{{ asset('img/logo.png') }}" class="attachment-full size-full wp-image-6069" alt="" />
                                                     </a>
                                                 </div>
                                             </div>
@@ -426,80 +416,16 @@
                                                                                         d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
                                                                                     ></path></svg></span
                                                                         ></a>
-                                                                        <!-- <ul class="sub-menu">
-                                                                            <li id="menu-item-9459" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9459">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/modern-agency/">Modern Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9460" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9460">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/photography-studio/">Photography Studio</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9461" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9461">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/creative-portfolio/">Creative Portfolio</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9462" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9462">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/creative-agency/">Creative Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9463" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9463">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/creative-agency-two/">Creative Agency Two</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9464" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9464">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/travel-agency/">Travel Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9465" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9465">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/arolax-developer/">Web Developer</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9466" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9466">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/photographer/home/">Photographer</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9467" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9467">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/film-production-agency/home-page/">Film Production Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9468" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9468">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/law-firm-agency/home-light/">Law Firm Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9469" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9469">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/digital-agency/">Digital Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9611" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9611">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/content-writer/">Content Writer</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9612" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9612">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/event-planner/">Event Planner</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9613" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9613">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/digital-marketer/">Digital Marketing</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9614">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/health-coach/">Health Coach</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9632" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9632">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/resume/">Resume</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9633" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9633">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/digital-product-agency/">Digital Product Agency</a>
-                                                                            </li>
-                                                                        </ul> -->
+                                                                
                                                                     </li>
                                                                 </ul>
                                                             </li>
                                                             <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
                                                                 <a href="#" class="wcf-nav-item"
                                                                     >Applications
-                                                                    <!-- <span class="wcf-submenu-indicator">
-                                                                        <svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
-                                                                            <path
-                                                                                d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
-                                                                            ></path></svg>
-                                                                    </span> -->
+                                                                    
                                                                 </a>
-                                                                <!-- <ul class="sub-menu">
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Shera PRO</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Shera NEU</a>
-                                                                    </li>
-                                                                </ul> -->
+                                                                
                                                             </li>
                                                             <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
                                                                 <a href="#" class="wcf-nav-item"
@@ -510,111 +436,15 @@
                                                                             ></path></svg></span
                                                                 ></a>
                                                                 <ul class="sub-menu">
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Hospital</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">School</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Commercial Building</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Residential</a>
-                                                                    </li>
+                                                                    @foreach($categories as $category)
+                                                                        <li id="menu-item-{{ $category->id }}" class="menu-item menu-item-type-custom menu-item-object-custom">
+                                                                            <a href="{{ route('frontend.project.category', $category->seourl) }}">{{ $category->name }}</a>
+                                                                        </li>
+                                                                    @endforeach
                                                                 </ul>
+
                                                             </li>
-                                                            <!-- <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
-                                                                <a href="#" class="wcf-nav-item"
-                                                                    >Knowledge Center<span class="wcf-submenu-indicator"
-                                                                        ><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
-                                                                            <path
-                                                                                d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
-                                                                            ></path></svg></span
-                                                                ></a>
-                                                                <ul class="sub-menu">
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Technical Details</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Catalogue</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">FAQs</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Manuals</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Certifications</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li> -->
-                                                            <!-- <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
-                                                                <a href="#" class="wcf-nav-item"
-                                                                    >Resources<span class="wcf-submenu-indicator"
-                                                                        ><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
-                                                                            <path
-                                                                                d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
-                                                                            ></path></svg></span
-                                                                ></a>
-                                                                <ul class="sub-menu">
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">News</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Events</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Blogs</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Customers Testimonials</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li> -->
-                                                            <!-- <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
-                                                                <a href="#" class="wcf-nav-item"
-                                                                    >Support<span class="wcf-submenu-indicator"
-                                                                        ><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
-                                                                            <path
-                                                                                d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
-                                                                            ></path></svg></span
-                                                                ></a>
-                                                                <ul class="sub-menu">
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Be our Dealer</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Be our Retailer</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Require Installation Service</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li> -->
-                                                            <!-- <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
-                                                                <a href="#" class="wcf-nav-item"
-                                                                    >Contact Us
-                                                                    <span class="wcf-submenu-indicator"
-                                                                        ><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
-                                                                            <path
-                                                                                d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
-                                                                            ></path></svg></span
-                                                                >
-                                                                </a>
-                                                                <ul class="sub-menu">
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Be our Dealer</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Be our Retailer</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Require Installation Service</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li> -->
+                                                            
                                                         </ul>
                                                         <button class="wcf-menu-close" type="button">
                                                             <svg aria-hidden="true" class="e-font-icon-svg e-fas-times" viewBox="0 0 352 512" xmlns="http://www.w3.org/2000/svg">
@@ -641,30 +471,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <div
-                                        class="elementor-element elementor-element-9b2e6a5 e-con-full elementor-hidden-mobile e-flex e-con e-child"
-                                        data-id="9b2e6a5"
-                                        data-element_type="container"
-                                        data-settings='{"wcf_enable_cursor_hover_effect_text":"View","wcf-animation":"none"}'
-                                    >
-                                        <div
-                                            class="elementor-element elementor-element-380e55d elementor-widget elementor-widget-wcf--arolax-button"
-                                            data-id="380e55d"
-                                            data-element_type="widget"
-                                            data-settings='{"wcf-animation":"none"}'
-                                            data-widget_type="wcf--arolax-button.default"
-                                        >
-                                            <div class="elementor-widget-container">
-                                                <div class="wc-btn-wrapper style-1">
-                                                    <a href="#" class="wc-btn-group">
-                                                        <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
-                                                        <span class="wc-btn-primary"> Lets Talk </span>
-                                                        <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> -->
+                                    
                                 </div>
                             </div>
                         </div>
@@ -673,7 +480,7 @@
                         <div class="inner-page project-parent-page">
                             <section class="banner">
                                 <div class="image-box">
-                                    <img src="./img/products-page/banner/banner.jpg" alt="" />
+                                    <img src="{{ asset('img/products-page/banner/banner.jpg') }}" alt="" />
                                 </div>
                                 <div class="heading-box">
                                     <div
@@ -691,7 +498,7 @@
                                         >
                                             <div class="elementor-widget-container">
                                                 <!-- <h2 class="sub-heading alt mb-3">Shera Product</h2> -->
-                                                <h2 class="sub-heading alt"><span class="mini-heading">Project</span> <span class="heading"> Hospital</span></h2>
+                                                <h2 class="sub-heading alt"><span class="mini-heading">Project</span> <span class="heading">{{ $Categories->name }}</span></h2>
                                             </div>
                                         </div>
                                     </div>
@@ -715,120 +522,27 @@
                                             >
                                                 <div class="elementor-widget-container">
                                                     <h4 class="wcf--title">Transforming Healthcare</h4>
-                                                    <h2 class="wcf--title alt">Hospital Projects</h2>
+                                                    <h2 class="wcf--title alt">{{ $Categories->name }} Projects</h2>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
+                                        @foreach ($data as $project)
                                         <div class="col-lg-4 mb-4">
                                             <div class="project-cards-wrapper">
                                                 <a href="#" class="project-card">
                                                     <div class="image-box">
-                                                        <img src="./img/projects/2.jpg" alt="" />
+                                                        <img src="{{ asset($project->image) }}" alt="{{ $project->title }}" />
                                                     </div>
                                                     <div class="project-detail">
-                                                        <h4 class="sub-heading shera-black">Urban Brew Cafe - Bnaglore</h4>
+                                                        <h4 class="sub-heading shera-black">{{ $project->title }} - {{ $project->city_state_name }}</h4>
                                                     </div>
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 mb-4">
-                                            <div class="project-cards-wrapper">
-                                                <a href="#" class="project-card">
-                                                    <div class="image-box">
-                                                        <img src="./img/projects/1.jpg" alt="" />
-                                                    </div>
-                                                    <div class="project-detail">
-                                                        <h4 class="sub-heading shera-black">Urban Brew Cafe - Bnaglore</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 mb-4">
-                                            <div class="project-cards-wrapper">
-                                                <a href="#" class="project-card">
-                                                    <div class="image-box">
-                                                        <img src="./img/projects/4.jpg" alt="" />
-                                                    </div>
-                                                    <div class="project-detail">
-                                                        <h4 class="sub-heading shera-black">Urban Brew Cafe - Bnaglore</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 mb-4">
-                                            <div class="project-cards-wrapper">
-                                                <a href="#" class="project-card">
-                                                    <div class="image-box">
-                                                        <img src="./img/projects/3.jpg" alt="" />
-                                                    </div>
-                                                    <div class="project-detail">
-                                                        <h4 class="sub-heading shera-black">Urban Brew Cafe - Bnaglore</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 mb-4">
-                                            <div class="project-cards-wrapper">
-                                                <a href="#" class="project-card">
-                                                    <div class="image-box">
-                                                        <img src="./img/projects/5.jpg" alt="" />
-                                                    </div>
-                                                    <div class="project-detail">
-                                                        <h4 class="sub-heading shera-black">Urban Brew Cafe - Bnaglore</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 mb-4">
-                                            <div class="project-cards-wrapper">
-                                                <a href="#" class="project-card">
-                                                    <div class="image-box">
-                                                        <img src="./img/projects/6.jpg" alt="" />
-                                                    </div>
-                                                    <div class="project-detail">
-                                                        <h4 class="sub-heading shera-black">Urban Brew Cafe - Bnaglore</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 mb-4">
-                                            <div class="project-cards-wrapper">
-                                                <a href="#" class="project-card">
-                                                    <div class="image-box">
-                                                        <img src="./img/projects/8.jpg" alt="" />
-                                                    </div>
-                                                    <div class="project-detail">
-                                                        <h4 class="sub-heading shera-black">Urban Brew Cafe - Bnaglore</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 mb-4">
-                                            <div class="project-cards-wrapper">
-                                                <a href="#" class="project-card">
-                                                    <div class="image-box">
-                                                        <img src="./img/projects/7.jpg" alt="" />
-                                                    </div>
-                                                    <div class="project-detail">
-                                                        <h4 class="sub-heading shera-black">Urban Brew Cafe - Bnaglore</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 mb-4">
-                                            <div class="project-cards-wrapper">
-                                                <a href="#" class="project-card">
-                                                    <div class="image-box">
-                                                        <img src="./img/projects/1.jpg" alt="" />
-                                                    </div>
-                                                    <div class="project-detail">
-                                                        <h4 class="sub-heading shera-black">Urban Brew Cafe - Bnaglore</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
+                                        @endforeach
+                                        
                                     </div>
                                 </div>
                             </section>
@@ -839,14 +553,14 @@
                         <div class="container clients_lising">
                             <div class="row align-center">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <img src="img/logo_w.svg" class="img-fluid" />
+                                    <img src="{{ asset('img/logo_w.svg') }}" class="img-fluid" />
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="d-flex justify-content-end">
                                         <p>Subscribe for updates</p>
                                         <form action="#" method="post" class="position-relative">
                                             <input class="form-control required" type="email" name="email" placeholder="Enter your email" />
-                                            <button class="btn" aria-label="submit"><img src="img/submit.png" class="img-fluid" /></button>
+                                            <button class="btn" aria-label="submit"><img src="{{ asset('img/submit.png') }}" class="img-fluid" /></button>
                                         </form>
                                     </div>
                                 </div>
@@ -857,23 +571,23 @@
                         <div class="container">
                             <div class="row justify-content-center align-items-center firts_ftr">
                                 <div class="col-lg-4 col-md-4 col-sm-4">
-                                    <a href="#" class="nav-link"> <img src="img/icons/call.svg" class="img-fluid" /> +91 8047625780</a>
+                                    <a href="#" class="nav-link"> <img src="{{ asset('img/icons/call.svg') }}" class="img-fluid" /> +91 8047625780</a>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 text-center">
-                                    <a href="#" class="nav-link"> <img src="img/icons/email.svg" class="img-fluid" /> info@sheraindia.in</a>
+                                    <a href="#" class="nav-link"> <img src="{{ asset('img/icons/email.svg') }}" class="img-fluid" /> info@sheraindia.in</a>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 text-end social-icons">
                                     <a href="#">
                                         <!-- <i class="fab fa-linkedin"></i>  -->
-                                        <img src="./img/icons/linkedin.svg" alt="" />
+                                        <img src="{{ asset('img/icons/linkedin.svg') }}" alt="" />
                                     </a>
                                     <a href="#">
                                         <!-- <i class="fab fa-instagram"></i> -->
-                                        <img class="instagram" src="./img/icons/instagram.svg" alt="" />
+                                        <img class="instagram" src="{{ asset('img/icons/instagram.svg') }}" alt="" />
                                     </a>
                                     <a href="#">
                                         <!-- <i class="fab fa-youtube"></i>  -->
-                                        <img class="youtube" src="./img/icons/youtube.svg" alt="" />
+                                        <img class="youtube" src="{{ asset('img/icons/youtube.svg') }}" alt="" />
                                     </a>
                                 </div>
                                 <div class="col-12"><div class="divider-style-03"></div></div>
@@ -1020,17 +734,17 @@
                 mix-blend-mode: difference;
             }
         </style>
-        <link rel="stylesheet" id="wpo_min-footer-0-css" href="css/wpo-minify-footer-24b84006.min.css" type="text/css" media="all" />
+        <link rel="stylesheet" id="wpo_min-footer-0-css" href="{{ asset('css/wpo-minify-footer-24b84006.min.css') }}" type="text/css" media="all" />
 
-        <script type="text/javascript" src="./js/gsap.min.js" id="gsap-js"></script>
-        <script type="text/javascript" src="./js/ScrollTrigger.min.js" id="ScrollTrigger-js"></script>
+        <script type="text/javascript" src="{{ asset('js/gsap.min.js') }}" id="gsap-js"></script>
+        <script type="text/javascript" src="{{ asset('js/ScrollTrigger.min.js') }}" id="ScrollTrigger-js"></script>
 
         <script type="text/javascript" id="arolax-essential--global-core-js-extra">
             /* <![CDATA[ */
             var AROLAX_ADDONS_JS = { ajaxUrl: "", _wpnonce: "d2b278181b" };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/wcf--global-core.min.js" id="arolax-essential--global-core-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wcf--global-core.min.js') }}" id="arolax-essential--global-core-js"></script>
         <script type="text/javascript" id="wcf--addons-js-extra">
             /* <![CDATA[ */
             var WCF_ADDONS_JS = {
@@ -1043,17 +757,17 @@
             };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/wcf-addons.min.js" id="wcf--addons-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wcf-addons.min.js') }}" id="wcf--addons-js"></script>
         <script type="text/javascript" id="arolax-script-js-extra">
             /* <![CDATA[ */
             var arolax_obj = { ajax_url: "", cart_update_qty_change: "" };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/script.min.js" id="arolax-script-js"></script>
-        <script type="text/javascript" src="js/swiper.min.js" id="swiper-js"></script>
-        <script type="text/javascript" src="js/slider.min.js" id="wcf--slider-js"></script>
-        <script type="text/javascript" src="js/jquery-numerator.min.js" id="jquery-numerator-js"></script>
-        <script type="text/javascript" src="js/counter.min.js" id="wcf--counter-js"></script>
+        <script type="text/javascript" src="{{ asset('js/script.min.js') }}" id="arolax-script-js"></script>
+        <script type="text/javascript" src="{{ asset('js/swiper.min.js') }}" id="swiper-js"></script>
+        <script type="text/javascript" src="{{ asset('js/slider.min.js') }}" id="wcf--slider-js"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery-numerator.min.js') }}" id="jquery-numerator-js"></script>
+        <script type="text/javascript" src="{{ asset('js/counter.min.js') }}" id="wcf--counter-js"></script>
         <script type="text/javascript" id="mediaelement-core-js-before">
             /* <![CDATA[ */
             var mejsL10n = {
@@ -1136,31 +850,31 @@
             };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/mediaelement-and-player.min.js" id="mediaelement-core-js"></script>
-        <script type="text/javascript" src="js/mediaelement-migrate.min.js" id="mediaelement-migrate-js"></script>
+        <script type="text/javascript" src="{{ asset('js/mediaelement-and-player.min.js') }}" id="mediaelement-core-js"></script>
+        <script type="text/javascript" src="{{ asset('js/mediaelement-migrate.min.js') }}" id="mediaelement-migrate-js"></script>
         <script type="text/javascript" id="mediaelement-js-extra">
             /* <![CDATA[ */
             var _wpmejsSettings = { pluginPath: "", classPrefix: "mejs-", stretching: "responsive", audioShortcodeLibrary: "mediaelement", videoShortcodeLibrary: "mediaelement" };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/wp-mediaelement.min.js" id="wp-mediaelement-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wp-mediaelement.min.js') }}" id="wp-mediaelement-js"></script>
 
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script> -->
-        <script type="text/javascript" src="js/ScrollSmoother.min.js" id="ScrollSmoother-js"></script>
-        <script type="text/javascript" src="js/SplitText.min.js" id="SplitText-js"></script>
-        <script type="text/javascript" src="js/ScrollToPlugin.min.js" id="ScrollToPlugin-js"></script>
-        <script type="text/javascript" src="js/Flip.min.js" id="flip-js"></script>
-        <script type="text/javascript" src="js/post.js" id="wcf--posts-js"></script>
-        <script type="text/javascript" src="js/wcf-addons-pro.js" id="wcf--addons-pro-js"></script>
-        <script type="text/javascript" src="js/wcf-addons-ex.js" id="wcf--addons-ex-js"></script>
-        <script type="text/javascript" defer src="js/offcanvas-menu.js" id="wcf-offcanvas-menu-js"></script>
-        <script type="text/javascript" src="js/video-testimonial.js" id="arolax-video-testimonial-js"></script>
-        <script type="text/javascript" defer src="js/mailchimp.js" id="wcf--mailchimp-js"></script>
-        <script type="text/javascript" src="js/webpack.runtime.min.js" id="elementor-webpack-runtime-js"></script>
-        <script type="text/javascript" src="js/frontend-modules.min.js" id="elementor-frontend-modules-js"></script>
-        <script type="text/javascript" src="js/core.min.js" id="jquery-ui-core-js"></script>
-        <script type="text/javascript" src="js/app.js" id="jquery-ui-core-js"></script>
+        <script type="text/javascript" src="{{ asset('js/ScrollSmoother.min.js') }}" id="ScrollSmoother-js"></script>
+        <script type="text/javascript" src="{{ asset('js/SplitText.min.js') }}" id="SplitText-js"></script>
+        <script type="text/javascript" src="{{ asset('js/ScrollToPlugin.min.js') }}" id="ScrollToPlugin-js"></script>
+        <script type="text/javascript" src="{{ asset('js/Flip.min.js') }}" id="flip-js"></script>
+        <script type="text/javascript" src="{{ asset('js/post.js') }}" id="wcf--posts-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wcf-addons-pro.js') }}" id="wcf--addons-pro-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wcf-addons-ex.js') }}" id="wcf--addons-ex-js"></script>
+        <script type="text/javascript" defer src="{{ asset('js/offcanvas-menu.js') }}" id="wcf-offcanvas-menu-js"></script>
+        <script type="text/javascript" src="{{ asset('js/video-testimonial.js') }}" id="arolax-video-testimonial-js"></script>
+        <script type="text/javascript" defer src="{{ asset('js/mailchimp.js') }}" id="wcf--mailchimp-js"></script>
+        <script type="text/javascript" src="{{ asset('js/webpack.runtime.min.js') }}" id="elementor-webpack-runtime-js"></script>
+        <script type="text/javascript" src="{{ asset('js/frontend-modules.min.js') }}" id="elementor-frontend-modules-js"></script>
+        <script type="text/javascript" src="{{ asset('js/core.min.js') }}" id="jquery-ui-core-js"></script>
+        <script type="text/javascript" src="{{ asset('js/app.js') }}" id="jquery-ui-core-js"></script>
 
         <script>
             // console.log("oh well");
@@ -1442,7 +1156,7 @@
             };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/frontend.min.js" id="elementor-frontend-js"></script>
+        <script type="text/javascript" src="{{ asset('js/frontend.min.js') }}" id="elementor-frontend-js"></script>
 
         <!-- Fancybox -->
 

@@ -443,7 +443,7 @@
                                                                
                                                             </li>
                                                             <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
-                                                                <a href="#" class="wcf-nav-item"
+                                                                <a href="{{ url('/project') }}" class="wcf-nav-item"
                                                                     >Projects<span class="wcf-submenu-indicator"
                                                                         ><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
                                                                             <path
@@ -678,7 +678,7 @@
                                                 data-widget_type="wcf--title.default"
                                             >
                                                 <div class="elementor-widget-container">
-                                                    <h4 class="wcf--title shera-brown"><span class="shera-green">SHERA</span> Deco Board Brick</h4>
+                                                    <h4 class="wcf--title shera-brown"><span class="shera-green">SHERA</span> {{ $product->category ? $product->category->name : '' }} : {{ $product->title }}</h4>
                                                     <h2 class="wcf--title alt">Projects</h2>
                                                 </div>
                                             </div>
@@ -692,29 +692,30 @@
                                                         <!-- Additional required wrapper -->
                                                         <div class="swiper-wrapper">
                                                             <!-- Slides -->
+                                                             @foreach($projects as $project)
                                                             <div class="swiper-slide">
-                                                                <a href="{{ url('/project') }}" class="product-card">
+                                                                <a href="{{ url('/project/' . $project->id) }}" class="product-card">
                                                                     <div class="image-box">
-                                                                        <img src="{{ asset('img/projects/1.jpg') }}" alt="" />
+                                                                        <img src="{{ asset($project->image) }}" alt="{{ $project->title }}" />
                                                                         <div class="hover-box">
-                                                                            <a href="" class="icon-box"> View </a>
+                                                                            <a href="{{ route('frontend.project.category', $project->category->seourl) }}" class="icon-box"> View </a>
                                                                             <div class="text-box">
-                                                                                <h4 class="title">Project Name</h4>
+                                                                                <h4 class="title">{{ $project->title }}</h4>
                                                                                 <ul class="detail-list">
                                                                                     <li>
-                                                                                        <p class="date"><span>Location :</span> Mumbai</p>
+                                                                                        <p class="date"><span>Location :</span> {{ $project->city_state_name ?? 'N/A' }}</p>
                                                                                     </li>
                                                                                     <li>
-                                                                                        <p class="date"><span>Product :</span> Deco Board</p>
+                                                                                        <p class="date"><span>Product :</span> {{ $project->products ?? 'N/A' }}</p>
                                                                                     </li>
                                                                                     <li>
-                                                                                        <p class="date"><span>Thickness :</span> 6mm</p>
+                                                                                        <p class="date"><span>Thickness :</span> {{ $project->thickness ?? 'N/A' }}</p>
                                                                                     </li>
                                                                                     <li>
-                                                                                        <p class="date"><span>Size :</span> 1100 inch</p>
+                                                                                        <p class="date"><span>Size :</span> {{ $project->size ?? 'N/A' }}</p>
                                                                                     </li>
                                                                                     <li>
-                                                                                        <p class="date"><span>Total Sq.Ft. :</span> 1000</p>
+                                                                                        <p class="date"><span>Total Sq.Ft. :</span> {{ $project->total_sqft ?? 'N/A' }}</p>
                                                                                     </li>
                                                                                 </ul>
                                                                             </div>
@@ -722,126 +723,8 @@
                                                                     </div>
                                                                 </a>
                                                             </div>
-                                                            <div class="swiper-slide">
-                                                                <a href="{{ url('/project') }}" class="product-card">
-                                                                    <div class="image-box">
-                                                                        <img src="{{ asset('img/projects/2.jpg') }}" alt="" />
-                                                                        <div class="hover-box">
-                                                                            <a href="" class="icon-box"> View </a>
-                                                                            <div class="text-box">
-                                                                                <h4 class="title">Project Name</h4>
-                                                                                <ul class="detail-list">
-                                                                                    <li>
-                                                                                        <p class="date"><span>Location :</span> Mumbai</p>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <p class="date"><span>Product :</span> Deco Board</p>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <p class="date"><span>Thickness :</span> 6mm</p>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <p class="date"><span>Size :</span> 1100 inch</p>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <p class="date"><span>Total Sq.Ft. :</span> 1000</p>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <div class="swiper-slide">
-                                                                <a href="{{ url('/project') }}" class="product-card">
-                                                                    <div class="image-box">
-                                                                        <img src="{{ asset('img/projects/3.jpg') }}" alt="" />
-                                                                        <div class="hover-box">
-                                                                            <a href="" class="icon-box"> View </a>
-                                                                            <div class="text-box">
-                                                                                <h4 class="title">Project Name</h4>
-                                                                                <ul class="detail-list">
-                                                                                    <li>
-                                                                                        <p class="date"><span>Location :</span> Mumbai</p>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <p class="date"><span>Product :</span> Deco Board</p>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <p class="date"><span>Thickness :</span> 6mm</p>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <p class="date"><span>Size :</span> 1100 inch</p>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <p class="date"><span>Total Sq.Ft. :</span> 1000</p>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <div class="swiper-slide">
-                                                                <a href="{{ url('/project') }}" class="product-card">
-                                                                    <div class="image-box">
-                                                                        <img src="{{ asset('img/projects/4.jpg') }}" alt="" />
-                                                                        <div class="hover-box">
-                                                                            <a href="" class="icon-box"> View </a>
-                                                                            <div class="text-box">
-                                                                                <h4 class="title">Project Name</h4>
-                                                                                <ul class="detail-list">
-                                                                                    <li>
-                                                                                        <p class="date"><span>Location :</span> Mumbai</p>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <p class="date"><span>Product :</span> Deco Board</p>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <p class="date"><span>Thickness :</span> 6mm</p>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <p class="date"><span>Size :</span> 1100 inch</p>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <p class="date"><span>Total Sq.Ft. :</span> 1000</p>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <div class="swiper-slide">
-                                                                <a href="{{ url('/project') }}" class="product-card">
-                                                                    <div class="image-box">
-                                                                        <img src="{{ asset('img/projects/5.jpg') }}" alt="" />
-                                                                        <div class="hover-box">
-                                                                            <a href="" class="icon-box"> View </a>
-                                                                            <div class="text-box">
-                                                                                <h4 class="title">Project Name</h4>
-                                                                                <ul class="detail-list">
-                                                                                    <li>
-                                                                                        <p class="date"><span>Location :</span> Mumbai</p>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <p class="date"><span>Product :</span> Deco Board</p>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <p class="date"><span>Thickness :</span> 6mm</p>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <p class="date"><span>Size :</span> 1100 inch</p>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <p class="date"><span>Total Sq.Ft. :</span> 1000</p>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
+                                                            @endforeach
+                                                           
                                                         </div>
                                                     </div>
                                                     <div class="swipper-button-wrapper">
@@ -962,7 +845,7 @@
                                                                 <div class="swiper-slide">
                                                                     <a href="#" class="product-card">
                                                                         <div class="image-box mb-4">
-                                                                            <img src="./img/products-page/shera-pro/products/deco-board/straight-grain-3/deco-straight-grain-3.png" alt="" />
+                                                                            <img src="{{ asset('img/products-page/shera-pro/products/deco-board/straight-grain-3/deco-straight-grain-3.png') }}" alt="" />
                                                                             <div class="hovered-box">
                                                                                 <!-- <h4 class="title">Wall Partitions, False Ceiling, Wall Cladding, Landscaping, External Cladding</h4> -->
                                                                                 <ul class="information-list">
@@ -979,7 +862,7 @@
                                                                 <div class="swiper-slide">
                                                                     <a href="#" class="product-card">
                                                                         <div class="image-box mb-4">
-                                                                            <img src="./img/products-page/shera-pro/products/deco-board/cassiano/deco-cassiano.png" alt="" />
+                                                                            <img src="{{ asset('img/products-page/shera-pro/products/deco-board/cassiano/deco-cassiano.png') }}" alt="" />
                                                                             <div class="hovered-box">
                                                                                 <!-- <h4 class="title">Wall Partitions, False Ceiling, Wall Cladding, Landscaping, External Cladding</h4> -->
                                                                                 <ul class="information-list">

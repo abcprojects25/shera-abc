@@ -16,7 +16,7 @@
 					</div>
 					<div class="d-flex">
 						<div class="justify-content-center">
-							<a href="/admin/project/home-project-listing" class="btn btn-white btn-icon-text my-2 mr-2"> <i class="fe fe-folder-plus mr-2"></i> Home Project Listing </a> 
+							<!-- <a href="/admin/project/home-project-listing" class="btn btn-white btn-icon-text my-2 mr-2"> <i class="fe fe-folder-plus mr-2"></i> Home Project Listing </a>  -->
 							<a href="#" class="btn btn-white btn-icon-text my-2 mr-2" data-toggle="modal" data-target="#exampleModal"> <i class="fe fe-folder-plus mr-2"></i> Add New Categories </a>
 							<a href="/admin/project/project-add" class="btn btn-white btn-icon-text my-2 mr-2"> <i class="fe fe-folder-plus mr-2"></i> Add New Project </a> 
 						</div>
@@ -69,9 +69,9 @@
 													<th style="width:30px">Id</th>
 													<th> Category </th>
 													<th> Title, URL & Created At </th>  
-													<th style="width:150px"> Photo </th>    
+													<th style="width:150px"> Thumbnail </th>    
 													<th class="text-center" style="width:60px"> Status </th>
-													<th class="text-center" style="width:50px"> Home Status </th> 
+													<!-- <th class="text-center" style="width:50px"> Home Status </th>  -->
 													<th> Actions </th>
 												</tr>
 											</thead>
@@ -100,18 +100,18 @@
 													<td class="text-center"> <a  href="project-status/{{base64_encode($item->status)}}/{{base64_encode($item->id)}}" class="btn btn-primary status-active" title="Change Status"><i class='fa fa-check'></i></a> </td>
 													@endif
 
-													@if($item->is_home == 0) 
+													<!-- @if($item->is_home == 0) 
 													<td class="text-center"><a  href="project-home-status/{{base64_encode($item->is_home)}}/{{base64_encode($item->id)}}" class="btn btn-danger status_inactive" title="Change Status"><i class='fa fa-times'></i></a> </td>
 													@else 
 													<td class="text-center"> <a  href="project-home-status/{{base64_encode($item->is_home)}}/{{base64_encode($item->id)}}" class="btn btn-primary status-active" title="Change Status"><i class='fa fa-check'></i></a> </td>
-													@endif
+													@endif -->
 													 
 													<td class="actions">
 														{{-- <a href="#" class="btn ripple btn-info" data-toggle="modal" data-target="#exampleModal"> Edit Thumbnail </a> --}}
 														<a href="/admin/project/project-edit/{{base64_encode($item->id)}}" class="btn ripple btn-info"> Edit </a>
 														<a href="/project-view/{{$item->url}}" class="btn ripple btn-warning" target="_blank"> View </a> 
 														<a onclick="return confirm('Are you sure?')" href="/admin/project/delete-project/{{base64_encode($item->id)}}" class="btn ripple btn-danger"> <i class="fa fa-trash" aria-hidden="true"></i>  </a>
-														<a href="#" onclick="GetParentId({{$item->id}})" id="AddImage" data-toggle="modal" data-target="#ServerImageModal" class="btn ripple btn-primary"> Add Images </a> 
+														<!-- <a href="#" onclick="GetParentId({{$item->id}})" id="AddImage" data-toggle="modal" data-target="#ServerImageModal" class="btn ripple btn-primary"> Add Images </a>  -->
 													</td>
 												</tr> 
 												@endforeach

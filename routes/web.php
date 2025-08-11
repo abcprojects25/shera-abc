@@ -59,9 +59,6 @@ Route::get('/product-description', function () {
     return view('frontend.product-description');
 });
 
-Route::get('/project', function () {
-    return view('frontend.project');
-});
 
 Route::get('/deco-boards', function () {
     return view('frontend.deco-boards');
@@ -83,6 +80,9 @@ Route::post('/admin/product-images/store', [ProductController::class, 'storeProd
 
 Route::get('/category/{slug}', [ProductController::class, 'showCategoryProducts'])->name('category.products');
 Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
+
+Route::get('/project', [ProjectController::class, 'userProjectPage'])->name('frontend.project');
+Route::get('/project/{categorySeoUrl}', [ProjectController::class, 'userProjectPageByCategory'])->name('frontend.project.category');
 
 
 /* ===== ADMIN Route ===== */

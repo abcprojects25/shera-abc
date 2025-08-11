@@ -61,7 +61,7 @@
 														<div class="row">															
 															<div class="col-lg-4 form-group area_interest">
 																<label> Select Category </label>
-																<select name="category_ids[]" id="multiple-checkboxes" class="form-control" multiple="multiple">
+																<select name="category_ids[]" class="form-control" >
 																	@foreach ($Categories as $item)
 																		@php
 																			$category = explode(',', $edit_data->category_id);
@@ -88,13 +88,13 @@
 																<input name="project_summary" value="{{($edit_data->project_summary) ? $edit_data->project_summary : ''}}"  class="form-control" placeholder="Project summary..." type="text" id="project_summary">
 															</div>
 															<div class="col-lg-6 form-group">
-																<label>State, City Name :</label>
+																<label>Location :</label>
 																<input name="city_state_name" value="{{($edit_data->city_state_name) ? $edit_data->city_state_name : ''}}" class="form-control" placeholder="State, City Name.." type="text" id="city_state_name">
 															</div>
 														</div>
 														<hr />
 														<div class="row">
-															<div class="col-lg-8 form-group">
+															<!-- <div class="col-lg-8 form-group">
 																<label>Video Title :</label>
 																<input name="video_title" value="{{($edit_data->video_title) ? $edit_data->video_title : ''}}" class="form-control" placeholder="Title..." maxlength="255" type="text" id="title">
 															</div>
@@ -119,7 +119,19 @@
 																	<option value="north" {{ $edit_data->direction == 'north' ? 'selected' : '' }}> North</option>
 																	<option value="south" {{ $edit_data->direction == 'south' ? 'selected' : '' }}> South</option>
 																</select>
-															</div>	
+															</div>	 -->
+															<div class="col-lg-6 form-group">
+																<label>Thickness :</label>
+																<input name="thickness" value="{{($edit_data->thickness) ? $edit_data->thickness : ''}}" class="form-control" placeholder="Thickness..." type="text" id="thickness">
+															</div>
+															<div class="col-lg-6 form-group">
+																<label>Size :</label>
+																<input name="size" value="{{($edit_data->size) ? $edit_data->size : ''}}" class="form-control" placeholder="Size..." type="text" id="size">
+															</div>
+															<div class="col-lg-6 form-group">
+																<label>Total Sq.ft : </label>
+																<input name="total_sqft" value="{{($edit_data->total_sqft) ? $edit_data->total_sqft : ''}}" class="form-control" placeholder="Total Sq.ft..." type="text" id="total_sqft">
+															</div>
 															<div class="col-lg-12 form-group">
 																<label> Add Products </label>
 																<select name="products[]" id="search_products" multiple data-role="tagsinput" Placeholder="Products type and enter.."> 
@@ -188,7 +200,7 @@
 														{{ $edit_data->description }}
 													</textarea> 
 												</div> 
-												
+<!-- 												
 												<div class="form-group">
 													<label> Add Tags </label>
 													<select name="tags[]" id="search_tags" multiple data-role="tagsinput" Placeholder="Tags type and enter.."> 
@@ -202,7 +214,7 @@
 														@endif
 													</select>
 												</div>
-												
+												 -->
 												<div class="form-group">
 													<label>Status </label>
 													<select name="is_active" class="custom-select w-100">

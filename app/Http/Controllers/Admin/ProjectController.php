@@ -15,28 +15,56 @@ use App\Models\Urls;
 use Response;
 use File;
 use Alert;
-use Image;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Session;
-use GoogleTranslate;
+// use GoogleTranslate;
 
 class ProjectController extends Controller
 {
-  //   public function __construct()
-  // {
-  //     $this->middleware('auth');
-  // }
-
+  
     public function index_view()
     {
-      $data = Projects::orderBy('project_order','asc')->get();
+      $data = Projects::orderBy('project_order','desc')->get();
       return view('admin.projects.listing',compact('data'));
     }
 
-    public function home_index(){
-      $data = Projects::orderBy('project_order','asc')->where('is_home',1)->get();
-      return view('admin.projects.listing-home',compact('data'));
-    }
 
+  public function userProjectPage()
+{
+    $category = Categories::select('id', 'name', 'seourl')->where('type', 2)->first();
+
+    $data = Projects::where('status', 1)
+                    ->where('category_id', $category->id)
+                    ->orderBy('project_order', 'desc')
+                    ->paginate(10);
+
+    return view('frontend.project', [
+        'data' => $data,
+        'Categories' => $category,
+        'BannerImages' => BannerImages::where('status', 1)->where('type', 2)->get(),
+        'categories' => Categories::select('id', 'name', 'seourl')->where('type', 2)->get(),
+    ]);
+}
+
+
+    public function userProjectPageByCategory($categorySeoUrl)
+{
+    $category = Categories::where('seourl', $categorySeoUrl)->firstOrFail();
+
+    $data = Projects::where('status', 1)
+                    ->where('category_id', $category->id)
+                    ->orderBy('project_order', 'desc')
+                    ->paginate(10);
+
+    return view('frontend.project', [
+        'data' => $data,
+        'Categories' => $category,
+        'BannerImages' => BannerImages::where('status', 1)->where('type', 2)->get(),
+        'categories' => Categories::select('id', 'name', 'seourl')->where('type', 2)->get(),
+    ]);
+}
+
+    
     public function project_edit($id){
       $id=base64_decode($id);
       $edit_data = Projects::where('id',$id)->first();
@@ -62,7 +90,7 @@ class ProjectController extends Controller
 
     public function projectStore(Request $request){
       if($request->tags != null){
-        // if tag not exist imsert
+      
         foreach($request->tags as $k=>$item){
           $check = Tags::select('id')->where('name',$item)->first();
           if(empty($check)){
@@ -73,31 +101,6 @@ class ProjectController extends Controller
           }
         }
 
-        $tags = implode(',',$request->tags);
-        $ar_tags = GoogleTranslate::trans($tags, 'ar');
-        $es_tags = GoogleTranslate::trans($tags, 'es');
-        $fr_tags = GoogleTranslate::trans($tags, 'fr');
-        $sw_tags = GoogleTranslate::trans($tags, 'sw');
-      }else{
-        $tags = null;
-        $ar_tags = null;
-        $es_tags = null;
-        $fr_tags = null;
-        $sw_tags = null;
-      }
-
-      if($request->products != null){
-        $products = implode(',',$request->products);
-        $ar_products = GoogleTranslate::trans($products, 'ar');
-        $es_products = GoogleTranslate::trans($products, 'es');
-        $fr_products = GoogleTranslate::trans($products, 'fr');
-        $sw_products = GoogleTranslate::trans($products, 'sw');
-      }else{
-        $products = null;
-        $ar_products = null;
-        $es_products = null;
-        $fr_products = null;
-        $sw_products = null;
       }
 
       if($request->category_ids != null){
@@ -112,89 +115,58 @@ class ProjectController extends Controller
       }else{
           $thumnail = $request->thumnail;
       }
-      if($request->banner_image != null){
-        $image = $request->file('banner_image');
-        $imageName = $image->getClientOriginalName();
-        $extension = $request->banner_image->getClientOriginalExtension();
-        $img1=Image::make($image);   
-        $title_img = 'Project_banner_'.$rand.'.'.$extension;
-        $banner_path = '/img/project/banner/Project_banner_'.$rand.'.'.$extension;
-        $img1->save(public_path('/img/project/banner/'.$title_img));
-      }else{
-        $banner_path = null;
-      }
 
-      if($request->page_title !== null){
-        $ar_title = GoogleTranslate::trans($request->page_title, 'ar');
-        $es_title = GoogleTranslate::trans($request->page_title, 'es');
-        $fr_title = GoogleTranslate::trans($request->page_title, 'fr');
-        $sw_title = GoogleTranslate::trans($request->page_title, 'sw');
-      }else{
-        $ar_title = null;
-        $es_title = null;
-        $fr_title = null;
-        $sw_title = null;
-      }
 
-      if($request->city_state_name !== null){
-        $ar_city_state_name = GoogleTranslate::trans($request->city_state_name, 'ar');
-        $es_city_state_name = GoogleTranslate::trans($request->city_state_name, 'es');
-        $fr_city_state_name = GoogleTranslate::trans($request->city_state_name, 'fr');
-        $sw_city_state_name = GoogleTranslate::trans($request->city_state_name, 'sw');
-      }else{
-        $ar_city_state_name = null;
-        $es_city_state_name = null;
-        $fr_city_state_name = null;
-        $sw_city_state_name = null;
-      }
+      if ($request->banner_image != null) {
+    $image = $request->file('banner_image');
+    $extension = $image->getClientOriginalExtension();
 
-      if($request->description !== null){
-        $ar_description = GoogleTranslate::trans($request->description, 'ar');
-        $es_description = GoogleTranslate::trans($request->description, 'es');
-        $fr_description = GoogleTranslate::trans($request->description, 'fr');
-        $sw_description = GoogleTranslate::trans($request->description, 'sw');
-      }else{
-        $ar_description = null;
-        $es_description = null;
-        $fr_description = null;
-        $sw_description = null;
-      } 
+    // Create a new unique name
+    $title_img = 'Project_banner_' . $rand . '.' . $extension;
+    $banner_path = '/img/project/banner/' . $title_img;
+
+    // Move the uploaded file to public/img/project/banner
+    $image->move(public_path('img/project/banner'), $title_img);
+} else {
+    $banner_path = null;
+}
+
+if ($request->tags != null) {
+    foreach ($request->tags as $k => $item) {
+        $check = Tags::select('id')->where('name', $item)->first();
+        if (empty($check)) {
+            $data = new Tags();
+            $data->name = $item;
+            $data->status = 1;
+            $data->save();
+        }
+    }
+    $tags = implode(',', $request->tags);
+} else {
+    $tags = null;
+}
+
+
  
       $Insert = new Projects();
         $Insert->category_id = $category_ids;
         $Insert->banner_image = $banner_path;
         $Insert->title = $request->page_title;
-        $Insert->ar_title = $ar_title;
-        $Insert->es_title = $es_title;
-        $Insert->fr_title = $fr_title;
-        $Insert->sw_title = $sw_title;
         $Insert->project_summary = $request->project_summary;        
         $Insert->url = $request->page_url;
         $Insert->city_state_name = $request->city_state_name;
-        $Insert->ar_city_state_name = $ar_city_state_name;
-        $Insert->es_city_state_name = $es_city_state_name;
-        $Insert->fr_city_state_name = $fr_city_state_name;
-        $Insert->sw_city_state_name = $sw_city_state_name;
         $Insert->image = $thumnail;
-        $Insert->video_title = $request->video_title;
-        $Insert->video_type = $request->video_type;
-        $Insert->video_url = $request->video_url;
+        // $Insert->video_title = $request->video_title;
+        // $Insert->video_type = $request->video_type;
+        // $Insert->video_url = $request->video_url;
+        $products = $request->products ? implode(',', $request->products) : null;
         $Insert->products = $products;
-        $Insert->ar_products = $ar_products;
-        $Insert->es_products = $es_products;
-        $Insert->fr_products = $fr_products;
-        $Insert->sw_products = $sw_products;
+        $Insert->thickness = $request->thickness;
+        $Insert->size = $request->size;
+        $Insert->total_sqft = $request->total_sqft;
         $Insert->tags = $tags;
-        $Insert->ar_tags = $ar_tags;
-        $Insert->es_tags = $es_tags;
-        $Insert->fr_tags = $fr_tags;
-        $Insert->sw_tags = $sw_tags;
         $Insert->direction = $request->direction; 
         $Insert->description = $request->description;
-        $Insert->ar_description = $ar_description;
-        $Insert->es_description = $es_description;
-        $Insert->fr_description = $fr_description;
-        $Insert->sw_description = $sw_description;
         $Insert->status = $request->is_active;
         $Insert->save();
 
@@ -215,14 +187,6 @@ class ProjectController extends Controller
       return redirect('/admin/project/all-project');
     }
 
-    public function p_data()
-    {
-      $id= $_GET['id'];
-      $data = Projects::where('id',$id)->first();
-      $datas = '<div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">'.$data->title.'</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button></div><div class="modal-body partner_listing"><div class="row"><div class="col-lg-3 col-md-3"><img src="'.$data->image.'" class="img-fluid d-block"></div><div class="col-lg-7 col-md-6 text-content-block wow light wow fadeIn animated" style="visibility: visible;"><h6> '.$data->title.' </h6><p> '.$data->description.' </p> <div class="d-flex"><div class="">  <h1> '.$data->list_title1.' </h1> '.$data->list_data1.' </div><div class="">  <h1> '.$data->list_title2.' </h1> '.$data->list_data2.' </div> </div></div> <div class="col-lg-2 col-md-3"> <a data-fancybox href="'.$data->video.'"><img src="/img/play.png" class="img-fluid play_icon"><img src="'.$data->thumbnail.'" class="img-fluid d-block"> </a></div></div></div> </div>';
-
-      return $datas;
-    }
   
     public function index(Request $request)
       {
@@ -250,38 +214,49 @@ class ProjectController extends Controller
          
       }
 
-      public function update(Request $request)
-      {
-        $rand = mt_rand("0000000", "9999999");
+     public function update(Request $request)
+{
+    $rand = mt_rand(0000000, 9999999);
 
-        $update = Projects::find($request->id);
-        $update->title = $request->title;
-        $update->description = $request->description;
-      
-        if ($request->file('vthumbnail') != null) {
-          $thumb = $request->file('vthumbnail');
-          $thumb_url = $this->uploadImage($thumb,'pro_'.$rand);
-          $update->image = $thumb_url;
-        }
+    $update = Projects::find($request->id);
 
-        $update->save();
-       toast('Project Successfully Updated!!!','success');
+    if (!$update) {
+        return back()->with('error', 'Project not found!');
+    }
 
-            return redirect('/admin/projects');
-      }
+    $update->title = $request->title;
+    $update->description = $request->description;
+    $update->city_state_name = $request->city_state_name;
+    $update->thickness = $request->thickness;
+    $update->size = $request->size;
+    $update->total_sqft = $request->total_sqft;
+
+    if ($request->hasFile('vthumbnail')) {
+        $thumb = $request->file('vthumbnail');
+        $thumb_url = $this->uploadImage($thumb, 'pro_' . $rand);
+        $update->image = $thumb_url;
+    }
+
+    $update->save();
+
+    toast('Project Successfully Updated!!!', 'success');
+
+    return redirect('/admin/projects');
+}
+
 
       public function uploadcropimages($imgdata, $randn)
-      {
-              $title_img = $randn.'.jpg';
-              $path = ('/img/project/'.$title_img);
-              $info = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imgdata));
-              $img1=Image::make($info);
-             // $img1->resize(400, 446);
-              $img1->save(public_path($path));
-              $url = url('img/project/'.$title_img);
-              return $path;
-              //$seourl = strtolower(preg_replace('/[^A-Za-z0-9-]+/', '-',$request->title));
-      }
+{
+    $title_img = $randn . '.jpg';
+    $path = public_path('img/project/' . $title_img);
+
+    // Decode base64 and store
+    $info = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imgdata));
+    file_put_contents($path, $info);
+
+    return '/img/project/' . $title_img; // relative path
+}
+
       
       public function uploadImage($f, $randn)
       {
@@ -399,37 +374,15 @@ class ProjectController extends Controller
             $data->save();
           }
         }
-        $tags = implode(',',$request->tags);
-        $ar_tags = GoogleTranslate::trans($tags, 'ar');
-        $es_tags = GoogleTranslate::trans($tags, 'es');
-        $fr_tags = GoogleTranslate::trans($tags, 'fr');
-        $sw_tags = GoogleTranslate::trans($tags, 'sw');
-      }else{
-        $tags = null;
-        $ar_tags = null;
-        $es_tags = null;
-        $fr_tags = null;
-        $sw_tags = null;
+
       }
 
-      $Image_path = public_path().$request->edit_thumnail;
-      if(File::exists($Image_path) && $request->thumnail != null) {
+        $Image_path = public_path().$request->edit_thumnail;
+    if(File::exists($Image_path) && $request->thumnail != null) {
         File::delete($Image_path);
-      }
-      
-      if($request->products != null){
-        $products = implode(',',$request->products);
-        $ar_products = GoogleTranslate::trans($products, 'ar');
-        $es_products = GoogleTranslate::trans($products, 'es');
-        $fr_products = GoogleTranslate::trans($products, 'fr');
-        $sw_products = GoogleTranslate::trans($products, 'sw');
-      }else{
-        $products = null;
-        $ar_products = null;
-        $es_products = null;
-        $fr_products = null;
-        $sw_products = null;
-      }
+    }
+
+ 
 
       if($request->category_ids != null){
         $category_ids = implode(',',$request->category_ids);
@@ -444,89 +397,54 @@ class ProjectController extends Controller
           $thumnail = $request->edit_thumnail;
       }
 
-      if($request->banner_image != null){
-        $image = $request->file('banner_image');
-        $imageName = $image->getClientOriginalName();
-        $extension = $request->banner_image->getClientOriginalExtension();
-        $img1=Image::make($image);   
-        $title_img = 'Project_banner_'.$rand.'.'.$extension;
-        $banner_path = '/img/project/banner/Project_banner_'.$rand.'.'.$extension;
-        $img1->save(public_path('/img/project/banner/'.$title_img));
-      }else{
-        $banner_path = $request->edit_banner_image;
-      }
+      if ($request->hasFile('banner_image')) {
+    $image = $request->file('banner_image');
+    $extension = $image->getClientOriginalExtension();
+    $title_img = 'Project_banner_' . $rand . '.' . $extension;
+    $banner_path = '/img/project/banner/' . $title_img;
 
-      if($request->page_title !== null){
-        $ar_title = GoogleTranslate::trans($request->page_title, 'ar');
-        $es_title = GoogleTranslate::trans($request->page_title, 'es');
-        $fr_title = GoogleTranslate::trans($request->page_title, 'fr');
-        $sw_title = GoogleTranslate::trans($request->page_title, 'sw');
-      }else{
-        $ar_title = null;
-        $es_title = null;
-        $fr_title = null;
-        $sw_title = null;
-      }
+    // Move the uploaded file to the public folder directly
+    $image->move(public_path('img/project/banner'), $title_img);
+} else {
+    $banner_path = $request->edit_banner_image ?? null;
+}
 
-      if($request->city_state_name !== null){
-        $ar_city_state_name = GoogleTranslate::trans($request->city_state_name, 'ar');
-        $es_city_state_name = GoogleTranslate::trans($request->city_state_name, 'es');
-        $fr_city_state_name = GoogleTranslate::trans($request->city_state_name, 'fr');
-        $sw_city_state_name = GoogleTranslate::trans($request->city_state_name, 'sw');
-      }else{
-        $ar_city_state_name = null;
-        $es_city_state_name = null;
-        $fr_city_state_name = null;
-        $sw_city_state_name = null;
-      }
-      
-      if($request->description !== null){
-        $ar_description = GoogleTranslate::trans($request->description, 'ar');
-        $es_description = GoogleTranslate::trans($request->description, 'es');
-        $fr_description = GoogleTranslate::trans($request->description, 'fr');
-        $sw_description = GoogleTranslate::trans($request->description, 'sw');
-      }else{
-        $ar_description = null;
-        $es_description = null;
-        $fr_description = null;
-        $sw_description = null;
-      }   
+// Process tags input
+if ($request->tags != null) {
+    $tags = implode(',', $request->tags);
+} else {
+    $tags = null;
+}
+
+// Process products input
+if ($request->products != null) {
+    $products = implode(',', $request->products);
+} else {
+    $products = null;
+}
+
+
 
       $obj = Projects::Find($request->edit_id);
         $obj->category_id = $category_ids;
         $obj->banner_image = $banner_path;
         $obj->title = $request->page_title;
-        $obj->ar_title = $ar_title;
-        $obj->es_title = $es_title;
-        $obj->fr_title = $fr_title;
-        $obj->sw_title = $sw_title;
+       
         $obj->project_summary = $request->project_summary;
         $obj->url = $request->page_url;
         $obj->city_state_name = $request->city_state_name;
-        $obj->ar_city_state_name = $ar_city_state_name;
-        $obj->es_city_state_name = $es_city_state_name;
-        $obj->fr_city_state_name = $fr_city_state_name;
-        $obj->sw_city_state_name = $sw_city_state_name;
+       
         $obj->image = $thumnail;
         $obj->video_title = $request->video_title;
         $obj->video_type = $request->video_type;
         $obj->video_url = $request->video_url;
         $obj->products = $products;
-        $obj->ar_products = $ar_products;
-        $obj->es_products = $es_products;
-        $obj->fr_products = $fr_products;
-        $obj->sw_products = $sw_products;
+     
         $obj->tags = $tags;
-        $obj->ar_tags = $ar_tags;
-        $obj->es_tags = $es_tags;
-        $obj->fr_tags = $fr_tags;
-        $obj->sw_tags = $sw_tags;
+        
         $obj->direction = $request->direction;        
         $obj->description = $request->description;
-        $obj->ar_description = $ar_description;
-        $obj->es_description = $es_description;
-        $obj->fr_description = $fr_description;
-        $obj->sw_description = $sw_description;
+      
         $obj->status = $request->is_active;
         $obj->update();
       return redirect('/admin/project/all-project');
@@ -589,34 +507,12 @@ class ProjectController extends Controller
          $is_exists = Categories::where('name',$value)->where('type',$request->type)->count();
          if($is_exists == 0){
 
-            $ar_value = GoogleTranslate::trans($value, 'ar');
-            $es_value = GoogleTranslate::trans($value, 'es');
-            $fr_value = GoogleTranslate::trans($value, 'fr');
-            $sw_value = GoogleTranslate::trans($value, 'sw');
-
-            if($request->category_description !== null){
-              $ar_description = GoogleTranslate::trans($request->category_description, 'ar');
-              $es_description = GoogleTranslate::trans($request->category_description, 'es');
-              $fr_description = GoogleTranslate::trans($request->category_description, 'fr');
-              $sw_description = GoogleTranslate::trans($request->category_description, 'sw');
-            }else{
-              $ar_description = null;
-              $es_description = null;
-              $fr_description = null;
-              $sw_description = null;
-            }
            
            $Insert = new Categories;
            $Insert->name = $value;
-           $Insert->ar_name = $ar_value;
-           $Insert->es_name = $es_value;
-           $Insert->fr_name = $fr_value;
-           $Insert->sw_name = $sw_value;
+          $Insert->seourl = $request->seourl ?? $this->slugify($value);
            $Insert->description = $request->category_description;
-           $Insert->ar_description = $ar_description;
-           $Insert->es_description = $es_description;
-           $Insert->fr_description = $fr_description;
-           $Insert->sw_description = $sw_description;
+          
            $Insert->type = $request->type;
            $Insert->status = $request->is_active;
            $Insert->save();
@@ -639,33 +535,13 @@ class ProjectController extends Controller
             $looup->save();
           }
         }
-        $ar_value = GoogleTranslate::trans($request->edit_category_name, 'ar');
-        $es_value = GoogleTranslate::trans($request->edit_category_name, 'es');
-        $fr_value = GoogleTranslate::trans($request->edit_category_name, 'fr');
-        $sw_value = GoogleTranslate::trans($request->edit_category_name, 'sw');
-        if($request->category_description !== null){
-          $ar_description = GoogleTranslate::trans($request->category_description, 'ar');
-          $es_description = GoogleTranslate::trans($request->category_description, 'es');
-          $fr_description = GoogleTranslate::trans($request->category_description, 'fr');
-          $sw_description = GoogleTranslate::trans($request->category_description, 'sw');
-        }else{
-          $ar_description = null;
-          $es_description = null;
-          $fr_description = null;
-          $sw_description = null;
-        }
+     
 
        $obj = Categories::find($request->edit_id);
        $obj->name = $request->edit_category_name;
-       $obj->ar_name = $ar_value;
-       $obj->es_name = $es_value;
-       $obj->fr_name = $fr_value;
-       $obj->sw_name = $sw_value;
+   
        $obj->description = $request->category_description;
-       $obj->ar_description = $ar_description;
-       $obj->es_description = $es_description;
-       $obj->fr_description = $fr_description;
-       $obj->sw_description = $sw_description;
+ 
        $obj->type = $request->type;
        $obj->status = $request->is_active_edit;
        $obj->update();
@@ -674,6 +550,33 @@ class ProjectController extends Controller
      return redirect()->back();
   }
 
+  private function slugify($text)
+{
+    // Replace non letter or digits by -
+    $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+
+    // Transliterate
+    $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+    // Remove unwanted characters
+    $text = preg_replace('~[^-\w]+~', '', $text);
+
+    // Trim
+    $text = trim($text, '-');
+
+    // Remove duplicate -
+    $text = preg_replace('~-+~', '-', $text);
+
+    // Lowercase
+    $text = strtolower($text);
+
+    // Return 'n-a' if empty
+    if (empty($text)) {
+        return 'n-a';
+    }
+
+    return $text;
+}
     public function deleteCategories($id)
     {
       $id=base64_decode($id);
