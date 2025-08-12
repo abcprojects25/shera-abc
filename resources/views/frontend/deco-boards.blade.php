@@ -573,19 +573,62 @@
                                                 >
                                                     <div class="elementor-widget-container p-0">
                                                         <ul class="usp-icon-list">
-                                                            @foreach($subCategory->applications as $app)
                                                             <li class="list">
                                                                 <div class="icon">
-                                                                    <img src="{{ asset($app->image) }}" alt="{{ $app->name }}">
+                                                                    <img src="{{ asset('img/products-page/shera-pro/icons/excellent.png') }}" alt="" />
                                                                 </div>
                                                                 <div class="text">
                                                                     <p>
-                                                                        {{ $app->name }}
+                                                                        Excellent <br />
+                                                                        Aesthetic
                                                                     </p>
                                                                 </div>
                                                             </li>
-                                                            @endforeach
-                                                            
+                                                            <li class="list">
+                                                                <div class="icon">
+                                                                    <img src="{{ asset('img/products-page/shera-pro/icons/crystal.png') }}" alt="" />
+                                                                </div>
+                                                                <div class="text">
+                                                                    <p>
+                                                                        Crystal Engineering <br />
+                                                                        Technology
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                            <li class="list">
+                                                                <div class="icon">
+                                                                    <img src="{{ asset('img/products-page/shera-pro/icons/protection.png') }}" alt="" />
+                                                                </div>
+                                                                <div class="text">
+                                                                    <p>
+                                                                        Protection From <br />
+                                                                        All Elements
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                            <li class="list">
+                                                                <div class="icon">
+                                                                    <img src="{{ asset('img/products-page/shera-pro/icons/strong.png') }}" alt="" />
+                                                                </div>
+                                                                <div class="text">
+                                                                    <p>
+                                                                        Strong And <br />
+                                                                        Durable
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                            <li class="list">
+                                                                <div class="icon">
+                                                                    <img src="{{ asset('img/products-page/shera-pro/icons/versatile.png') }}" alt="" />
+                                                                </div>
+                                                                <div class="text">
+                                                                    <p>
+                                                                        Versatile <br />
+                                                                        Solution
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                 
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -641,7 +684,7 @@
                                                     data-widget_type="wcf--title.default"
                                                 >
                                                     <div class="elementor-widget-container">
-                                                        <h2 class="sub-heading alt mb-3"><span class="shera-green">Shera</span> <span class="shera-brown">Deco Boards</span></h2>
+                                                        <h2 class="sub-heading alt mb-3"><span class="shera-green">Shera</span> <span class="shera-brown">{{ $subCategory->name }}</span></h2>
                                                         <h2 class="heading alt">Applications</h2>
                                                     </div>
                                                 </div>
@@ -652,56 +695,19 @@
                                                 <!-- Additional required wrapper -->
                                                 <div class="swiper-wrapper">
                                                     <!-- Slides -->
+                                                     @foreach($subCategory->applications as $app)
                                                     <div class="swiper-slide">
                                                         <a href="" class="application-card">
                                                             <div class="image-box">
-                                                                <img src="{{ asset('img/shera-applications/wall-cladding.jpg') }}" alt="" />
+                                                                <img src="{{ asset($app->image) }}" alt="{{ $app->alt_text }}" />
                                                             </div>
                                                             <div class="text-box">
-                                                                <h4 class="title">Wall Cladding</h4>
+                                                                <h4 class="title">  {{ $app->name }}</h4>
                                                             </div>
                                                         </a>
                                                     </div>
-                                                    <div class="swiper-slide">
-                                                        <a href="" class="application-card">
-                                                            <div class="image-box">
-                                                                <img src="{{ asset('img/shera-applications/wall-partitions.png') }}" alt="" />
-                                                            </div>
-                                                            <div class="text-box">
-                                                                <h4 class="title">Wall Partitions</h4>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="swiper-slide">
-                                                        <a href="" class="application-card">
-                                                            <div class="image-box">
-                                                                <img src="{{ asset('img/shera-applications/landscaping.jpg') }}" alt="" />
-                                                            </div>
-                                                            <div class="text-box">
-                                                                <h4 class="title">Landscaping</h4>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="swiper-slide">
-                                                        <a href="" class="application-card">
-                                                            <div class="image-box">
-                                                                <img src="{{ asset('img/shera-applications/external-cladding.jpg') }}" alt="" />
-                                                            </div>
-                                                            <div class="text-box">
-                                                                <h4 class="title">External Cladding</h4>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="swiper-slide">
-                                                        <a href="" class="application-card">
-                                                            <div class="image-box">
-                                                                <img src="{{ asset('img/shera-applications/false-ceiling.jpg') }}" alt="" />
-                                                            </div>
-                                                            <div class="text-box">
-                                                                <h4 class="title">False Ceiling</h4>
-                                                            </div>
-                                                        </a>
-                                                    </div>
+                                                    @endforeach
+                                                    
                                                 </div>
                                                 <!-- If we need pagination -->
                                             </div>

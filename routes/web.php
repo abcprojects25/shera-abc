@@ -55,15 +55,6 @@ Route::get('/about-us', function () {
     return view('frontend.about-us');
 });
 
-Route::get('/product-description', function () {
-    return view('frontend.product-description');
-});
-
-
-Route::get('/deco-boards', function () {
-    return view('frontend.deco-boards');
-});
-
 Route::get('/contact-us', function () {
     return view('frontend.contact-us');
 });

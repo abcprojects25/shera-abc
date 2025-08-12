@@ -331,6 +331,11 @@ document.getElementById('category_name').addEventListener('input', function() {
                             <label>Image</label>
                             <input type="file" name="image[]" class="form-control-file">
                         </div>
+
+                        <div class="form-group">
+                            <label>Icon</label>
+                            <input type="file" name="icon[]" class="form-control-file">
+                        </div>
                           <div class="form-group">
                             <label>Alt Text</label>
                             <input type="text" name="alt_text[]" class="form-control">

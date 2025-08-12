@@ -49,7 +49,6 @@ class ProductController extends Controller
                     ->pluck('categry_lookup');
 
                 $subCategoriesByMain[$mainCategoryId] = Categories::whereIn('id', $subCategoryIds)->whereNotIn('id', [1, 2, 8])->get();
-            
 
             }
         return view('frontend.products', compact('mainCategories', 'subCategoriesByMain'));
@@ -77,8 +76,8 @@ public function show($slug)
         ->where('product_url', $slug)
         ->firstOrFail();
 
-    $projects =  Projects::with('category')
-        ->where('products', 'like', '%' . $product->name . '%')
+    $projects = Projects::with('category')
+        ->where('products', 'like', '%' . $product->title . '%')
         ->where('status', 1)
         ->get();
 
@@ -766,14 +765,23 @@ public function storeApplication(Request $request)
         'alt_text.*' => 'nullable|string|max:255',
         'image' => 'nullable|array',
         'image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'icon' => 'nullable|array',
+        'icon.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ]);
 
     foreach ($request->name as $index => $name) {
         $imagePath = null;
+        $iconPath = null;   
         if ($request->hasFile("image.$index")) {
             $image = $request->file("image.$index");
             $imagePath = $image->getClientOriginalName();
             $image->move(public_path('uploads/images'), $imagePath);
+        }
+
+        if ($request->hasFile("icon.$index")) {
+            $icon = $request->file("icon.$index");
+            $iconPath = time() . '_icon_' . $icon->getClientOriginalName();
+            $icon->move(public_path('uploads/icons'), $iconPath);
         }
 
         CategoryApplication::create([
@@ -781,6 +789,7 @@ public function storeApplication(Request $request)
             'name' => $name,
             'alt_text' => $request->alt_text[$index] ?? null,
             'image' => 'uploads/images/' . $imagePath,
+            'icon' => $iconPath ? 'uploads/icons/' . $iconPath : null,
             'status' => 1,
         ]);
     }

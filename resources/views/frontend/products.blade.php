@@ -416,59 +416,7 @@
                                                                                         d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
                                                                                     ></path></svg></span
                                                                         ></a>
-                                                                        <!-- <ul class="sub-menu">
-                                                                            <li id="menu-item-9459" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9459">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/modern-agency/">Modern Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9460" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9460">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/photography-studio/">Photography Studio</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9461" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9461">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/creative-portfolio/">Creative Portfolio</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9462" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9462">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/creative-agency/">Creative Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9463" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9463">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/creative-agency-two/">Creative Agency Two</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9464" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9464">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/travel-agency/">Travel Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9465" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9465">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/arolax-developer/">Web Developer</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9466" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9466">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/photographer/home/">Photographer</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9467" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9467">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/film-production-agency/home-page/">Film Production Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9468" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9468">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/law-firm-agency/home-light/">Law Firm Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9469" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9469">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/digital-agency/">Digital Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9611" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9611">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/content-writer/">Content Writer</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9612" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9612">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/event-planner/">Event Planner</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9613" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9613">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/digital-marketer/">Digital Marketing</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9614">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/health-coach/">Health Coach</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9632" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9632">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/resume/">Resume</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9633" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9633">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/digital-product-agency/">Digital Product Agency</a>
-                                                                            </li>
-                                                                        </ul> -->
+                                                                       
                                                                     </li>
                                                                 </ul>
                                                             </li>
@@ -797,7 +745,7 @@
                                                                                                             <li class="list mb-1">
                                                                                                                 <a href="#" class="link">
                                                                                                                     <div class="icon-box">
-                                                                                                                        <img src="{{ asset($app->image) }}" alt="{{ $app->name }}">
+                                                                                                                        <img src="{{ asset($app->icon) }}" alt="{{ $app->name }}">
                                                                                                                     </div>
                                                                                                                     <p class="text">{{ $app->name }}</p>
                                                                                                                 </a>
@@ -922,7 +870,7 @@
                                                                                                             <li class="list mb-1">
                                                                                                                 <a href="#" class="link">
                                                                                                                     <div class="icon-box">
-                                                                                                                        <img src="{{ asset($app->image) }}" alt="{{ $app->name }}">
+                                                                                                                        <img src="{{ asset($app->icon) }}" alt="{{ $app->name }}">
                                                                                                                     </div>
                                                                                                                     <p class="text">{{ $app->name }}</p>
                                                                                                                 </a>

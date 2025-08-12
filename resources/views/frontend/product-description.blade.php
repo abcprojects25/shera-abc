@@ -692,6 +692,11 @@
                                                         <!-- Additional required wrapper -->
                                                         <div class="swiper-wrapper">
                                                             <!-- Slides -->
+                                                             @if($projects->isEmpty())
+                                                            <div class="swiper-slide">
+                                                                <p>No projects found.</p>   
+                                                            </div>
+                                                            @endif
                                                              @foreach($projects as $project)
                                                             <div class="swiper-slide">
                                                                 <a href="{{ url('/project/' . $project->id) }}" class="product-card">
