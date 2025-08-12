@@ -73,7 +73,8 @@
 													<th class="sort" style="width:120px"> Created At </th>
 													<th class="sort">Categories</th>  
 													<th class="sort">Blog Title</th>  
-													<th> Blog Url </th>  
+													<th> Blog Url </th> 
+													<th> Thumbnail </th> 
 													<th> Is Banner </th>  
 													<th> Is Popular </th>  
 													<th class="text-center sort" style="width:100px"> Status </th>
@@ -90,10 +91,14 @@
 													@endphp
 													<td> {{$category}} </td>
 													<td style="white-space: normal !important; word-wrap: break-word;"> {{$item->blog_title}} </td>
-													<td style="white-space: normal !important; word-wrap: break-word;"> <a href="/blog/view/{{$item->blog_url}}" target="_blank"> {{$item->blog_url}} </a> </td> 
-													{{-- <td class="text-center"> 
-														<a href="#" class="btn btn-primary status-active" title="Change Status"><i class="fa fa-check"></i></a>
-													</td>  --}}
+													<td style="white-space: normal !important; word-wrap: break-word;"> <a href="/blog/view/{{$item->blog_url}}" target="_blank"> {{$item->blog_url}} </a> </td>
+													<td>
+														@if($item->thumb_image != null)
+														<img src="{{$item->thumb_image}}" alt="Blog Image" class="img-thumbnail" style="width: 100px; height: 100px;">
+														@else
+														<img src="/admin/img/no_img_xl.jpg" alt="No Image" class="img-thumbnail" style="width: 100px; height: 100px;">
+														@endif 
+													
 													<td class="text-center">
     @if($item->is_banner == 0) 
     <a href="javascript:void(0)" onclick="changeStatus('/admin/blog/bannerStatus/{{base64_encode($item->is_banner)}}/{{base64_encode($item->id)}}', 'banner')" class="btn btn-danger status_inactive" title="Change Status"><i class='fa fa-times'></i></a>

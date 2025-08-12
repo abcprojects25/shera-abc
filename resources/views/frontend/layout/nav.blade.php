@@ -141,11 +141,18 @@
                                                                             ></path></svg></span
                                                                 ></a>
                                                                 <ul class="sub-menu">
-                                                                    @foreach($categories as $category)
-                                                                        <li id="menu-item-{{ $category->id }}" class="menu-item menu-item-type-custom menu-item-object-custom">
-                                                                            <a href="{{ route('frontend.project.category', $category->seourl) }}">{{ $category->name }}</a>
-                                                                        </li>
-                                                                    @endforeach
+                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
+                                                                        <a href="#">Hospital</a>
+                                                                    </li>
+                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
+                                                                        <a href="#">School</a>
+                                                                    </li>
+                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
+                                                                        <a href="#">Commercial Building</a>
+                                                                    </li>
+                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
+                                                                        <a href="#">Residential</a>
+                                                                    </li>
                                                                 </ul>
 
                                                             </li>

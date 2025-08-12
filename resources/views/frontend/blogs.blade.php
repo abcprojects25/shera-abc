@@ -58,12 +58,11 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-        <link rel="stylesheet" href="css/magnify.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" id="wpo_min-header-0-css" href="css/wpo-minify-header-8839aa18.min.css?ver=02" type="text/css" media="all" />
         <link rel="stylesheet" id="wpo_min-header-0-css" href="css/wpo-minify-header-49bab0b4.min.css?ver=02" type="text/css" media="all" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.css" />
         <link rel="stylesheet" href="css/theme.css?ver=02" type="text/css" media="all" />
-
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
         <script type="text/javascript" src="js/jquery.min.js" id="jquery-core-js"></script>
         <script type="text/javascript" src="js/jquery-migrate.min.js" id="jquery-migrate-js"></script>
@@ -98,10 +97,6 @@
             }
         </style>
         <style type="text/css" id="wp-custom-css">
-            .swiper-container {
-                overflow: hidden;
-            }
-
             /** Mega Menu CSS Start **/
             @media (min-width: 1200px) {
                 .elementor-element-b7b6d24,
@@ -295,15 +290,7 @@
                                         <a href="{{ url('/contact-us') }}" class="link">Contact Us</a>
                                     </li>
 
-                                    <!-- <li class="list">
-                                        <a href="" class="link">Careers</a>
-                                    </li>
-                                    <li class="list">
-                                        <a href="" class="link">Support</a>
-                                    </li>
-                                    <li class="list">
-                                        <a href="" class="link">Contact Us</a>
-                                    </li> -->
+                                  
                                 </ul>
                             </div>
                         </div>
@@ -328,7 +315,7 @@
                                             <div class="elementor-widget-container">
                                                 <div class="elementor-image">
                                                     <a href="{{ url('/') }}" aria-label="Site Logo">
-                                                        <img width="125" height="34" src="img/logo.png" class="attachment-full size-full wp-image-6069" alt="" />
+                                                        <img width="125" height="34" src="{{ asset('img/logo.png') }}" class="attachment-full size-full wp-image-6069" alt="" />
                                                     </a>
                                                 </div>
                                             </div>
@@ -359,12 +346,8 @@
                                                     <div class="wcf-nav-menu-container">
                                                         <ul id="menu-mega-menu" class="wcf-nav-menu-nav menu-layout-horizontal">
                                                             <!-- <li class="menu-item"><a href="#" class="wcf-nav-item">Home </a></li> -->
-                                                            <li class="menu-item">
-                                                                <a href="#" class="wcf-nav-item">Home Owner</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="#" class="wcf-nav-item">Professionals</a>
-                                                            </li>
+                                                            <li class="menu-item"><a href="#" class="wcf-nav-item">Home Owner</a></li>
+                                                            <li class="menu-item"><a href="#" class="wcf-nav-item">Professionals</a></li>
                                                             <li
                                                                 id="menu-item-9435"
                                                                 class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children menu-item-9435"
@@ -381,7 +364,7 @@
                                                                         id="menu-item-9436"
                                                                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-9436"
                                                                     >
-                                                                        <a href="{{ url('/products#product1') }}">
+                                                                        <a href="#">
                                                                             SHERA PRO
                                                                             <span class="submenu-indicator">
                                                                                 <svg
@@ -435,83 +418,19 @@
                                                                                         d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
                                                                                     ></path></svg></span
                                                                         ></a>
-                                                                        <!-- <ul class="sub-menu">
-                                                                            <li id="menu-item-9459" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9459">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/modern-agency/">Modern Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9460" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9460">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/photography-studio/">Photography Studio</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9461" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9461">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/creative-portfolio/">Creative Portfolio</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9462" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9462">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/creative-agency/">Creative Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9463" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9463">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/creative-agency-two/">Creative Agency Two</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9464" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9464">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/travel-agency/">Travel Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9465" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9465">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/arolax-developer/">Web Developer</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9466" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9466">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/photographer/home/">Photographer</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9467" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9467">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/film-production-agency/home-page/">Film Production Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9468" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9468">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/law-firm-agency/home-light/">Law Firm Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9469" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9469">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/digital-agency/">Digital Agency</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9611" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9611">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/content-writer/">Content Writer</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9612" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9612">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/event-planner/">Event Planner</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9613" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9613">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/digital-marketer/">Digital Marketing</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9614">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/health-coach/">Health Coach</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9632" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9632">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/resume/">Resume</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9633" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9633">
-                                                                                <a href="https://crowdytheme.com/wp/arolax/digital-product-agency/">Digital Product Agency</a>
-                                                                            </li>
-                                                                        </ul> -->
+                                                                       
                                                                     </li>
                                                                 </ul>
                                                             </li>
                                                             <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
                                                                 <a href="#" class="wcf-nav-item"
                                                                     >Applications
-                                                                    <!-- <span class="wcf-submenu-indicator">
-                                                                        <svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
-                                                                            <path
-                                                                                d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
-                                                                            ></path></svg>
-                                                                    </span> -->
+                                                                    
                                                                 </a>
-                                                                <!-- <ul class="sub-menu">
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Shera PRO</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Shera NEU</a>
-                                                                    </li>
-                                                                </ul> -->
+                                                               
                                                             </li>
                                                             <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
-                                                                <a href="#" class="wcf-nav-item"
+                                                                <a href="{{ url('/project') }}" class="wcf-nav-item"
                                                                     >Projects<span class="wcf-submenu-indicator"
                                                                         ><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
                                                                             <path
@@ -533,6 +452,7 @@
                                                                     </li>
                                                                 </ul>
                                                             </li>
+                                                           
                                                         </ul>
                                                         <button class="wcf-menu-close" type="button">
                                                             <svg aria-hidden="true" class="e-font-icon-svg e-fas-times" viewBox="0 0 352 512" xmlns="http://www.w3.org/2000/svg">
@@ -588,10 +508,10 @@
                         </div>
                     </div>
                     <div data-elementor-type="wp-page" data-elementor-id="34" class="elementor elementor-34">
-                        <div class="inner-page product-page shera-product-page">
+                        <div class="inner-page blog-parent-page">
                             <section class="banner">
                                 <div class="image-box">
-                                    <img src="./img/contactus/Contactus.webp" alt="" />
+                                    <img src="./img/products-page/banner/banner.jpg" alt="" />
                                 </div>
                                 <div class="heading-box">
                                     <div
@@ -609,163 +529,79 @@
                                         >
                                             <div class="elementor-widget-container">
                                                 <!-- <h2 class="sub-heading alt mb-3">Shera Product</h2> -->
-                                                <h2 class="sub-heading alt">
-                                                    <span class="mini-heading">Contact Us</span>
-                                                    <span class="heading">let’s us know how we can help!</span>
-                                                </h2>
+                                                <h2 class="sub-heading alt"><span class="mini-heading">Latest Articles</span> <span class="heading"> Explore Our Blogs</span></h2>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="section blog-card-section background-section">
+                                <div class="container">
+                                    <div class="heading-box mb-5">
+                                        <div
+                                            class="elementor-element elementor-element-946b02c e-con-full e-flex e-con e-child"
+                                            data-id="946b02c"
+                                            data-element_type="container"
+                                            data-settings='{"wcf_enable_cursor_hover_effect_text":"View","wcf-animation":"none"}'
+                                        >
+                                            <div
+                                                class="elementor-element elementor-element-7d0fae9 wcf-t-animation-text_move elementor-widget elementor-widget-wcf--title"
+                                                data-id="7d0fae9"
+                                                data-element_type="widget"
+                                                data-settings='{"text_transform_origin":"top center -50","wcf_text_animation":"text_move","text_delay":2.15,"text_duration":1,"text_stagger":0.02,"text_on_scroll":"yes","text_rotation_di":"x","text_rotation":"-80","wcf-animation":"none"}'
+                                                data-widget_type="wcf--title.default"
+                                            >
+                                                <div class="elementor-widget-container">
+                                                    <h4 class="wcf--title">Insights, stories, and updates from our team</h4>
+                                                    <h2 class="wcf--title alt">Our Blogs</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        @foreach ($categories as $item)
+                                        <div class="col-lg-4 mb-4">
+                                            <div class="blog-cards-wrapper">
+                                                <a href="{{ url('/blog/' . $item->seourl) }}" class="blog-card">
+                                                    <div class="image-box mb-3">
+                                                        <img src="{{ asset($item->category_img) }}" alt="{{ $item->name }}" />
+                                                    </div>
+                                                    <div class="badge-wrapper mb-3">
+                                                        <div class="badge">
+                                                            <h4 class="shera-mini-heading shera-green">{{ $item->created_at->format('d/m/Y') }}</h4>
+                                                        </div>
+                                                        <div class="text">
+                                                            <span class="shera-mini-heading">SHERA</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="blog-detail">
+                                                        <h4 class="sub-heading shera-black mb-1">{{ $item->name }}</h4>
+                                                        <p class="shera-para blog-content">
+                                                              {{ \Illuminate\Support\Str::limit(strip_tags($item->description), 100) }}
+                                                        </p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        @endforeach                                   
                                     </div>
                                 </div>
                             </section>
                         </div>
                     </div>
 
-                    <section class="container career_container">
-                        <div class="career_main">
-                            <div class="career_top_sec career_heading">
-                                <p>Connect with <span>Us</span></p>
-                            </div>
-                            <div class="career_middle_sec">
-                                <div class="career_images">
-                                    <img src="./img/contactus/member_1.webp" alt="" />
-                                    <img src="./img/contactus/member_2.webp" alt="" class="img_circle" />
-                                </div>
-                                <div class="career_heading">
-                                    <p>Start the <span>Conversation </span></p>
-                                </div>
-                            </div>
-                            <div class="career_bottom_sec career_heading">
-                                <p>With Shera</p>
-                            </div>
-                        </div>
-                        <div
-                            class="elementor-element elementor-element-536ee5e e-flex e-con-boxed e-con e-child"
-                            data-id="536ee5e"
-                            data-element_type="container"
-                            data-settings='{"wcf_enable_cursor_hover_effect_text":"View","wcf-animation":"none"}'
-                        >
-                            <div class="e-con-inner">
-                                <div
-                                    class="elementor-element elementor-element-65244cd elementor-widget elementor-widget-image"
-                                    data-id="65244cd"
-                                    data-element_type="widget"
-                                    data-settings='{"wcf-animation":"fade","fade-from":"bottom","data-duration":0.75,"fade-offset":40,"wcf-image-animation":"none","delay":0.15,"ease":"power2.out"}'
-                                    data-widget_type="image.default"
-                                    style="transition: none; translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1"
-                                >
-                                    <div class="elementor-widget-container">
-                                        <img
-                                            fetchpriority="high"
-                                            decoding="async"
-                                            width="1290"
-                                            height="600"
-                                            src="https://crowdytheme.com/wp/arolax/marketing-agency/wp-content/uploads/sites/8/2024/06/career-img-1.webp"
-                                            class="attachment-full size-full wp-image-421"
-                                            alt=""
-                                            srcset="
-                                                https://crowdytheme.com/wp/arolax/marketing-agency/wp-content/uploads/sites/8/2024/06/career-img-1.webp          1290w,
-                                                https://crowdytheme.com/wp/arolax/marketing-agency/wp-content/uploads/sites/8/2024/06/career-img-1-300x140.webp   300w,
-                                                https://crowdytheme.com/wp/arolax/marketing-agency/wp-content/uploads/sites/8/2024/06/career-img-1-1024x476.webp 1024w,
-                                                https://crowdytheme.com/wp/arolax/marketing-agency/wp-content/uploads/sites/8/2024/06/career-img-1-768x357.webp   768w
-                                            "
-                                            sizes="(max-width: 1290px) 100vw, 1290px"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section class="container contact_form">
-                        <div class="row contact_form_1 align-items-center justify-content-center">
-                            <div class="col-md-6 contact_form_heading mb-4">
-                                <p class="mb-0">We’ve been <span>waiting</span> for you!</p>
-                            </div>
-                            <div class="col-md-6 mb-4 contact_form_heading_1">
-                                <p class="mb-0">Add the best talent on the market, an agile skilled management & seamless involvement</p>
-                            </div>
-                        </div>
-
-                        <div class="contact_form_2 row mt-4">
-                            <div class="col-md-6 mb-4">
-                                <h4>We want to hear from you. Let us know how we can help!</h4>
-                                <p>
-                                    <a href="tel:+918097499099"><i class="fas fa-phone-alt"></i> +91 80974 99099</a>
-                                </p>
-                                <p>
-                                    <a href="mailto:india_sales@shera.com"><i class="fas fa-envelope"></i> india_sales@shera.com</a>
-                                </p>
-                                <p>
-                                    <i class="fas fa-map-marker-alt"></i> Mahaphant India Private Limited, WeWork Raheja Platinum, 2 nd Floor, Off Andheri – Kurla Road,
-                                    <br />
-                                    Marol, Andheri East, Mumbai - 400059
-                                </p>
-                            </div>
-
-                            <!-- Right Column: Contact Form -->
-                            <div class="col-md-6 contact_form_right">
-                                <form action="{{ route('enquiry.submit') }}" method="post">
-    @csrf
-    <div class="row mb-3">
-        <div class="col-md-6">
-            <input type="text" name="first_name" class="form-control" placeholder="First Name" required />
-        </div>
-        <div class="col-md-6">
-            <input type="text" name="last_name" class="form-control" placeholder="Last Name" required />
-        </div>
-    </div>
-
-    <div class="mb-3">
-        <input type="email" name="email" class="form-control" placeholder="Email Address" required />
-    </div>
-
-    <div class="mb-3">
-        <input type="tel" name="contact" class="form-control" placeholder="Phone Number" required />
-    </div>
-
-    <div class="mb-3">
-        <textarea name="message" class="form-control" rows="4" placeholder="Your Message" required></textarea>
-    </div>
-
-    <div
-        class="elementor-element elementor-element-845e997 elementor-widget elementor-widget-wcf--arolax-button"
-        style="margin-top: 40px"
-    >
-        <div class="elementor-widget-container">
-            <div class="wc-btn-wrapper style-2">
-                <button type="submit" class="wc-btn-group" style="border: none; background: none; padding: 0;">
-                    <span class="wc-btn-play">
-                        <i class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
-                    </span>
-                    <span class="wc-btn-primary"> Send Message </span>
-                    <span class="wc-btn-play">
-                        <i class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
-                    </span>
-                </button>
-            </div>
-        </div>
-    </div>
-</form>
-
-                            </div>
-                        </div>
-                    </section>
-
                     <div class="footer_top">
                         <div class="container clients_lising">
                             <div class="row align-center">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <img src="img/logo_w.svg" class="img-fluid" />
+                                    <img src="{{ asset('img/logo_w.svg') }}" class="img-fluid" />
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="d-flex justify-content-end">
                                         <p>Subscribe for updates</p>
                                         <form action="#" method="post" class="position-relative">
                                             <input class="form-control required" type="email" name="email" placeholder="Enter your email" />
-                                            <button class="btn" aria-label="submit">
-                                                <img src="img/submit.png" class="img-fluid" />
-                                            </button>
+                                            <button class="btn" aria-label="submit"><img src="{{ asset('img/submit.png') }}" class="img-fluid" /></button>
                                         </form>
                                     </div>
                                 </div>
@@ -779,10 +615,7 @@
                                     <a href="#" class="nav-link"> <img src="img/icons/call.svg" class="img-fluid" /> +91 8047625780</a>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 text-center">
-                                    <a href="#" class="nav-link">
-                                        <img src="img/icons/email.svg" class="img-fluid" />
-                                        info@sheraindia.in</a
-                                    >
+                                    <a href="#" class="nav-link"> <img src="img/icons/email.svg" class="img-fluid" /> info@sheraindia.in</a>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 text-end social-icons">
                                     <a href="#">
@@ -803,7 +636,7 @@
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-6">
                                     <h5>Products</h5>
-                                    <a href="{{ url('/products') }}"> SHERA PRO </a>
+                                    <a href=""> SHERA PRO </a>
                                     <a href=""> SHERA NEU </a>
                                     <a href=""> SHERA Accessories </a>
                                 </div>
@@ -865,22 +698,15 @@
         </div>
         <div class="lets-talk-box">
             <a href="#" class="lets-talk">
-                <span class="wc-btn-play">
-                    <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
-                </span>
+                <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
                 <span class="text"> Lets Talk </span>
-                <span class="wc-btn-play">
-                    <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
-                </span>
+                <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
                 <!-- <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-right1"></i>  -->
             </a>
         </div>
-        <div class="wcf-scroll-to-top scroll-to-">
-            <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-4"></i>
-        </div>
+        <div class="wcf-scroll-to-top scroll-to-"><i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-4"></i></div>
         <div class="wcf-cursor"></div>
         <div class="wcf-cursor-follower"></div>
-        <div class="loupe"></div>
 
         <script>
             const lazyloadRunObserver = () => {
@@ -966,13 +792,7 @@
                 ajaxUrl: "",
                 _wpnonce: "35217e1834",
                 post_id: "34",
-                i18n: {
-                    okay: "Okay",
-                    cancel: "Cancel",
-                    submit: "Submit",
-                    success: "Success",
-                    warning: "Warning",
-                },
+                i18n: { okay: "Okay", cancel: "Cancel", submit: "Submit", success: "Success", warning: "Warning" },
                 smoothScroller: null,
                 mode: "",
             };
@@ -1075,19 +895,14 @@
         <script type="text/javascript" src="js/mediaelement-migrate.min.js" id="mediaelement-migrate-js"></script>
         <script type="text/javascript" id="mediaelement-js-extra">
             /* <![CDATA[ */
-            var _wpmejsSettings = {
-                pluginPath: "",
-                classPrefix: "mejs-",
-                stretching: "responsive",
-                audioShortcodeLibrary: "mediaelement",
-                videoShortcodeLibrary: "mediaelement",
-            };
+            var _wpmejsSettings = { pluginPath: "", classPrefix: "mejs-", stretching: "responsive", audioShortcodeLibrary: "mediaelement", videoShortcodeLibrary: "mediaelement" };
             /* ]]> */
         </script>
         <script type="text/javascript" src="js/wp-mediaelement.min.js" id="wp-mediaelement-js"></script>
 
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script> -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" id="jquery-ui-core-js"></script>
         <script type="text/javascript" src="js/ScrollSmoother.min.js" id="ScrollSmoother-js"></script>
         <script type="text/javascript" src="js/SplitText.min.js" id="SplitText-js"></script>
         <script type="text/javascript" src="js/ScrollToPlugin.min.js" id="ScrollToPlugin-js"></script>
@@ -1100,7 +915,6 @@
         <script type="text/javascript" defer src="js/mailchimp.js" id="wcf--mailchimp-js"></script>
         <script type="text/javascript" src="js/webpack.runtime.min.js" id="elementor-webpack-runtime-js"></script>
         <script type="text/javascript" src="js/frontend-modules.min.js" id="elementor-frontend-modules-js"></script>
-        <script type="text/javascript" src="js/jquery.magnify.js" id="jquery-core-js"></script>
         <script type="text/javascript" src="js/core.min.js" id="jquery-ui-core-js"></script>
         <script type="text/javascript" src="js/app.js" id="jquery-ui-core-js"></script>
 
@@ -1123,21 +937,6 @@
             loaderAnimation();
             loaderDisapper();
             jQuery(document).ready(function ($) {
-                // circleButton();
-                // setActiveHover();
-                // neuSectionAnimation();
-                // marketingCampaign();
-                // pinElement();
-                // setWrapperMinHeight();
-                // navTab();
-                sheraFilter();
-                scrollCards();
-                gsapAos();
-            });
-        </script>
-
-        <script>
-            jQuery(document).ready(function ($) {
                 const swipperArray = Array.from(document.querySelectorAll(".product-swipper"));
 
                 swipperArray.forEach((swiperEl, swiperIndex) => {
@@ -1150,6 +949,12 @@
                         },
                         slidesPerView: 1,
                         spaceBetween: 20,
+                        breakpoints: {
+                            1920: { slidesPerView: 1 },
+                            1200: { slidesPerView: 1 },
+                            1028: { slidesPerView: 1 },
+                            480: { slidesPerView: 1 },
+                        },
                     });
 
                     // Get corresponding pagination container (next sibling)
@@ -1179,6 +984,105 @@
                     // Initialize
                     setActive(0);
                 });
+                new Swiper(".products-swipper", {
+                    loop: false,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    speed: 2000,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    slidesPerView: 3,
+                    spaceBetween: 10,
+                    paginationClickable: true,
+                    spaceBetween: 20,
+                    breakpoints: {
+                        1920: { slidesPerView: 3 },
+                        1200: { slidesPerView: 3 },
+                        1028: { slidesPerView: 2 },
+                        480: { slidesPerView: 1 },
+                    },
+                });
+                new Swiper(".application-swipper", {
+                    loop: false,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    speed: 2000,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    slidesPerView: 4,
+                    spaceBetween: 10,
+                    paginationClickable: true,
+                    spaceBetween: 20,
+                    breakpoints: {
+                        1920: { slidesPerView: 4 },
+                        1200: { slidesPerView: 4 },
+                        1028: { slidesPerView: 2 },
+                        480: { slidesPerView: 1 },
+                    },
+                });
+                new Swiper(".project-swipper", {
+                    loop: false,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    speed: 2000,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    slidesPerView: 4,
+                    spaceBetween: 10,
+                    paginationClickable: true,
+                    spaceBetween: 20,
+                    breakpoints: {
+                        1920: { slidesPerView: 3 },
+                        1200: { slidesPerView: 3 },
+                        1028: { slidesPerView: 2 },
+                        480: { slidesPerView: 1 },
+                    },
+                });
+                circleButton();
+                setActiveHover();
+                neuSectionAnimation();
+                marketingCampaign();
+                pinElement();
+                // setWrapperMinHeight();
+                // navTab();
+            });
+        </script>
+
+        <script>
+            jQuery(document).ready(function ($) {
+                // Swiper: Slider
+                new Swiper(".fibreboard", {
+                    loop: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    speed: 2000,
+                    nextButton: ".swiper-button-next",
+                    prevButton: ".swiper-button-prev",
+                    slidesPerView: 3,
+                    spaceBetween: 10,
+                    paginationClickable: true,
+                    spaceBetween: 20,
+                    breakpoints: {
+                        1920: { slidesPerView: 3 },
+                        1200: { slidesPerView: 3 },
+                        1028: { slidesPerView: 2 },
+                        480: { slidesPerView: 1 },
+                    },
+                });
 
                 new Swiper(".icon_swipper", {
                     loop: false,
@@ -1191,10 +1095,6 @@
                     prevButton: ".swiper-button-prev",
                     slidesPerView: 4,
                     spaceBetween: 10,
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
-                    },
                     paginationClickable: true,
                     spaceBetween: 20,
                     breakpoints: {
@@ -1231,11 +1131,7 @@
         <script type="text/javascript" id="elementor-frontend-js-before">
             /* <![CDATA[ */
             var elementorFrontendConfig = {
-                environmentMode: {
-                    edit: false,
-                    wpPreview: false,
-                    isScriptDebug: false,
-                },
+                environmentMode: { edit: false, wpPreview: false, isScriptDebug: false },
                 i18n: {
                     shareOnFacebook: "Share on Facebook",
                     shareOnTwitter: "Share on Twitter",
@@ -1259,51 +1155,15 @@
                 breakpoints: { xs: 0, sm: 480, md: 768, lg: 1025, xl: 1440, xxl: 1600 },
                 responsive: {
                     breakpoints: {
-                        mobile: {
-                            label: "Mobile Portrait",
-                            value: 767,
-                            default_value: 767,
-                            direction: "max",
-                            is_enabled: true,
-                        },
-                        mobile_extra: {
-                            label: "Mobile Landscape",
-                            value: 880,
-                            default_value: 880,
-                            direction: "max",
-                            is_enabled: true,
-                        },
-                        tablet: {
-                            label: "Tablet Portrait",
-                            value: 1024,
-                            default_value: 1024,
-                            direction: "max",
-                            is_enabled: true,
-                        },
-                        tablet_extra: {
-                            label: "Tablet Landscape",
-                            value: 1200,
-                            default_value: 1200,
-                            direction: "max",
-                            is_enabled: true,
-                        },
-                        laptop: {
-                            label: "Laptop",
-                            value: 1366,
-                            default_value: 1366,
-                            direction: "max",
-                            is_enabled: true,
-                        },
-                        widescreen: {
-                            label: "Widescreen",
-                            value: 2400,
-                            default_value: 2400,
-                            direction: "min",
-                            is_enabled: true,
-                        },
+                        mobile: { label: "Mobile Portrait", value: 767, default_value: 767, direction: "max", is_enabled: true },
+                        mobile_extra: { label: "Mobile Landscape", value: 880, default_value: 880, direction: "max", is_enabled: true },
+                        tablet: { label: "Tablet Portrait", value: 1024, default_value: 1024, direction: "max", is_enabled: true },
+                        tablet_extra: { label: "Tablet Landscape", value: 1200, default_value: 1200, direction: "max", is_enabled: true },
+                        laptop: { label: "Laptop", value: 1366, default_value: 1366, direction: "max", is_enabled: true },
+                        widescreen: { label: "Widescreen", value: 2400, default_value: 2400, direction: "min", is_enabled: true },
                     },
                     hasCustomBreakpoints: true,
-                },
+                }, 
                 version: "3.28.3",
                 is_static: false,
                 experimentalFeatures: {
@@ -1341,8 +1201,8 @@
         <script type="text/javascript" src="js/frontend.min.js" id="elementor-frontend-js"></script>
 
         <!-- Fancybox -->
-        <link rel="stylesheet" href="css/jquery.fancybox.min.css" type="text/css" />
-        <script src="js/jquery.fancybox.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.umd.js"></script>
 
         <script>
             // Fancybox Config
@@ -1351,6 +1211,10 @@
             //     loop: false,
             //     protect: true,
             // });
+
+            Fancybox.bind("[data-fancybox]", {
+                // Your custom options
+            });
         </script>
     </body>
 </html>

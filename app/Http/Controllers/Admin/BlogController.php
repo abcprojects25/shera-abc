@@ -17,6 +17,7 @@ use File;
 use Intervention\Image\Drivers\Gd\Driver as GdDriver;
 use GoogleTranslate;
 use App\Models\admin\Media;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -24,18 +25,34 @@ class BlogController extends Controller
     public function Index(){
       $Blogs = Blogs::select('id','blog_order','blog_title','blog_url','blog_content','thumb_image','is_banner','is_popular','status','category_id','created_at')
       ->where('blogs.is_deleted',0)->orderBy('blog_order','desc')->get();
-/*->where('status',1)
-      foreach($Blogs as $blog){
-        $obj = new MediaImages();
-        $obj->status = 1;
-        $obj->urls = $blog->thumb_image;
-        $obj->thumbnails = $blog->thumb_image;
-        $obj->save();
-      }
-      exit; */
        return view('admin.blog.listing',compact('Blogs'));
    }
  
+   public function userBlogpage()
+{
+     $categories = Categories::where('type', 3)
+                    ->where('status', 1) 
+                    ->get();
+
+    return view('frontend.blogs', compact('categories'));
+}
+
+public function blogsByCategory($category_seourl)
+{
+    $category = Categories::where('seourl', $category_seourl)->where('type', 3)->firstOrFail();
+
+    $blogs = Blogs::where('category_id', $category->id)
+                  ->where('is_deleted', 0)
+                  ->where('is_published', 1)
+                  ->orderBy('blog_order', 'desc')
+                  ->get();
+
+    $categories = Categories::where('type', 3)->get();
+
+    return view('frontend.blog', compact('category', 'blogs', 'categories'));
+}
+
+
     public function blogStatus($status,$id)
 {
     $id=base64_decode($id);
@@ -100,46 +117,9 @@ public function BlogPopularStatus($status,$id)
                 $data->save();
             }
         }
-
-        $tags = implode(',', $request->tags);
-
-        // Commented out Google Translate logic
-        // $ar_tags = GoogleTranslate::trans($tags, 'ar');
-        // $es_tags = GoogleTranslate::trans($tags, 'es');
-        // $fr_tags = GoogleTranslate::trans($tags, 'fr');
-        // $sw_tags = GoogleTranslate::trans($tags, 'sw');
-
-        $ar_tags = null;
-        $es_tags = null;
-        $fr_tags = null;
-        $sw_tags = null;
-    } else {
-        $tags = null;
-        $ar_tags = null;
-        $es_tags = null;
-        $fr_tags = null;
-        $sw_tags = null;
-    }
+      }
 
     $rand = rand(11111, 99999);
-
-    if($request->banner_image != null){
-        $image = $request->file('banner_image');
-        $imageName = $image->getClientOriginalName();
-        $extension = $request->banner_image->getClientOriginalExtension();
-        $img1 = Image::make($image);   
-        $title_img = 'Blog_banner_' . $rand . '.' . $extension;
-        $banner_path = '/img/blog/Blog_banner_' . $rand . '.' . $extension;
-        $img1->save(public_path('/img/blog/' . $title_img));
-
-        $obj = new MediaImages();
-        $obj->status = 1;
-        $obj->urls = $banner_path;
-        $obj->thumbnails = $banner_path;
-        $obj->save();
-    } else {
-        $banner_path = null;
-    }
 
     if($request->thumb_image != null){
         $thumb_path = $this->uploadcropimages($request->thumnail, $rand);
@@ -154,127 +134,18 @@ public function BlogPopularStatus($status,$id)
 
     $publish_date = date("Y-m-d", strtotime($request->publish_date));  
 
-    if($request->blog_name !== null){
-        // $ar_blog_title = GoogleTranslate::trans($request->blog_name, 'ar');
-        // $es_blog_title = GoogleTranslate::trans($request->blog_name, 'es');
-        // $fr_blog_title = GoogleTranslate::trans($request->blog_name, 'fr');
-        // $sw_blog_title = GoogleTranslate::trans($request->blog_name, 'sw');
-
-        $ar_blog_title = null;
-        $es_blog_title = null;
-        $fr_blog_title = null;
-        $sw_blog_title = null;
-    } else {
-        $ar_blog_title = null;
-        $es_blog_title = null;
-        $fr_blog_title = null;
-        $sw_blog_title = null;
-    }
-
-    if($request->blog_content !== null){
-        // $ar_blog_content = GoogleTranslate::trans($request->blog_content, 'ar');
-        // $es_blog_content = GoogleTranslate::trans($request->blog_content, 'es');
-        // $fr_blog_content = GoogleTranslate::trans($request->blog_content, 'fr');
-        // $sw_blog_content = GoogleTranslate::trans($request->blog_content, 'sw');
-
-        $ar_blog_content = null;
-        $es_blog_content = null;
-        $fr_blog_content = null;
-        $sw_blog_content = null;
-    } else {
-        $ar_blog_content = null;
-        $es_blog_content = null;
-        $fr_blog_content = null;
-        $sw_blog_content = null;
-    }
-
-    if($request->page_title !== null){
-        // $ar_page_title = GoogleTranslate::trans($request->page_title, 'ar');
-        // $es_page_title = GoogleTranslate::trans($request->page_title, 'es');
-        // $fr_page_title = GoogleTranslate::trans($request->page_title, 'fr');
-        // $sw_page_title = GoogleTranslate::trans($request->page_title, 'sw');
-
-        $ar_page_title = null;
-        $es_page_title = null;
-        $fr_page_title = null;
-        $sw_page_title = null;
-    } else {
-        $ar_page_title = null;
-        $es_page_title = null;
-        $fr_page_title = null;
-        $sw_page_title = null;
-    }
-
-    if($request->meta_keywords !== null){
-        // $ar_meta_keywords = GoogleTranslate::trans($request->meta_keywords, 'ar');
-        // $es_meta_keywords = GoogleTranslate::trans($request->meta_keywords, 'es');
-        // $fr_meta_keywords = GoogleTranslate::trans($request->meta_keywords, 'fr');
-        // $sw_meta_keywords = GoogleTranslate::trans($request->meta_keywords, 'sw');
-
-        $ar_meta_keywords = null;
-        $es_meta_keywords = null;
-        $fr_meta_keywords = null;
-        $sw_meta_keywords = null;
-    } else {
-        $ar_meta_keywords = null;
-        $es_meta_keywords = null;
-        $fr_meta_keywords = null;
-        $sw_meta_keywords = null;
-    }
-
-    if($request->meta_description !== null){
-        // $ar_meta_description = GoogleTranslate::trans($request->meta_description, 'ar');
-        // $es_meta_description = GoogleTranslate::trans($request->meta_description, 'es');
-        // $fr_meta_description = GoogleTranslate::trans($request->meta_description, 'fr');
-        // $sw_meta_description = GoogleTranslate::trans($request->meta_description, 'sw');
-
-        $ar_meta_description = null;
-        $es_meta_description = null;
-        $fr_meta_description = null;
-        $sw_meta_description = null;
-    } else {
-        $ar_meta_description = null;
-        $es_meta_description = null;
-        $fr_meta_description = null;
-        $sw_meta_description = null;
-    }
-
     $obj = new Blogs();
     $obj->category_id = $request->category_id;
-    $obj->banner_image = $banner_path;
+    // $obj->banner_image = $banner_path;
     $obj->thumb_image = $thumb_path;
     $obj->blog_title = $request->blog_name;
-    $obj->ar_blog_title = $ar_blog_title;
-    $obj->es_blog_title = $es_blog_title;
-    $obj->fr_blog_title = $fr_blog_title;
-    $obj->sw_blog_title = $sw_blog_title;
     $obj->blog_url = strtolower($request->blog_url);
-    $obj->blog_content = $request->blog_content;
-    $obj->ar_blog_content = $ar_blog_content;
-    $obj->es_blog_content = $es_blog_content;
-    $obj->fr_blog_content = $fr_blog_content;
-    $obj->sw_blog_content = $sw_blog_content;
-    $obj->tags = $tags;
+    $obj->blog_content = strip_tags($request->blog_content);
+    // $obj->tags = $tags;
     $obj->author = $request->author;
-    $obj->ar_tags = $ar_tags;
-    $obj->es_tags = $es_tags;
-    $obj->fr_tags = $fr_tags;
-    $obj->sw_tags = $sw_tags;
     $obj->page_title = $request->page_title;
-    $obj->ar_page_title = $ar_page_title;
-    $obj->es_page_title = $es_page_title;
-    $obj->fr_page_title = $fr_page_title;
-    $obj->sw_page_title = $sw_page_title;
     $obj->meta_keywords = $request->meta_keywords;
-    $obj->ar_meta_keywords = $ar_meta_keywords;
-    $obj->es_meta_keywords = $es_meta_keywords;
-    $obj->fr_meta_keywords = $fr_meta_keywords;
-    $obj->sw_meta_keywords = $sw_meta_keywords;
     $obj->meta_description = $request->meta_description;
-    $obj->ar_meta_description = $ar_meta_description;
-    $obj->es_meta_description = $es_meta_description;
-    $obj->fr_meta_description = $fr_meta_description;
-    $obj->sw_meta_description = $sw_meta_description;
     $obj->publish_date = $publish_date;
     $obj->is_published = $request->is_published;
     $obj->status = $request->is_published;
@@ -490,7 +361,7 @@ $blog = Blogs::findOrFail($id);
     $obj->fr_blog_title = $fr_blog_title;
     $obj->sw_blog_title = $sw_blog_title;
     $obj->blog_url = strtolower($request->blog_url);
-    $obj->blog_content = $request->blog_content;
+    $obj->blog_content = strip_tags($request->blog_content);
     $obj->ar_blog_content = $ar_blog_content;
     $obj->es_blog_content = $es_blog_content;
     $obj->fr_blog_content = $fr_blog_content;
@@ -553,6 +424,14 @@ $blog = Blogs::findOrFail($id);
             $Insert->name = $value;
             $Insert->type = $request->type;
             $Insert->status = $request->is_active;
+            $Insert->description = $request->description;
+            $Insert->seourl = Str::slug($value);
+            if ($request->hasFile('category_img')) {
+                    $file = $request->file('category_img');
+                    $filename = 'cat_' . time() . '.' . $file->getClientOriginalExtension();
+                    $file->move(public_path('uploads/blogCategories'), $filename);
+                    $Insert->category_img = 'uploads/blogCategories/' . $filename;
+                }
             $Insert->save();
 
             $looup = new Categories_lookups;
@@ -577,6 +456,14 @@ $blog = Blogs::findOrFail($id);
         $obj->name = $request->edit_category_name;
         $obj->type = $request->type;
         $obj->status = $request->is_active_edit;
+        $obj->description = $request->edit_description;
+        if ($request->hasFile('edit_category_img')) {
+            $file = $request->file('edit_category_img');
+            $filename = 'cat_' . time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/blogCategories'), $filename);
+            $obj->category_img = 'uploads/blogCategories/' . $filename;
+        }
+        $obj->seourl = Str::slug($request->edit_category_name);
         $obj->update();
         toast('Categories Successfully Edited!!!','success');
       }

@@ -64,9 +64,9 @@
 													<input name="blog_name" id="blog_name" value="" required="" class="form-control" placeholder="Blog Title..." onkeypress="ArticleNameurl();" onblur="ArticleNameurl();" type="text">
 												</div>
 												<div class="col-lg-6 col-md-6 form-group">
-    <label>Author (Optional)</label>
-    <input name="author" value="" class="form-control" placeholder="Author name..." type="text">
-</div>
+													<label>Author (Optional)</label>
+													<input name="author" value="" class="form-control" placeholder="Author name..." type="text">
+												</div>
 
 												<div class="col-lg-3 col-md-3 form-group">
 													<label>Select Categories </label>
@@ -80,7 +80,7 @@
 												<div class="col-lg-12 form-group"> 
 													<label>Blog URL : <span>*</span></label>
 													<div class="input-group mb-2"> 
-														<div class="input-group-prepend"> <div class="input-group-text">https://vivaacp.com/blog/</div> </div>
+														<div class="input-group-prepend"> <div class="input-group-text">https://shera.com/blog/</div> </div>
 														<input name="blog_url" value="" required="" class="form-control"  maxlength="255" type="text" id="blog_url">
 													</div>
 												</div> 												
@@ -97,7 +97,7 @@
 												</select>
 											</div> 
 											
-											<div class="card shade">
+											<!-- <div class="card shade">
 												<h5> SEO </h5>
 												<div class="row">
 													<div class="col-md-6 form-group">
@@ -118,14 +118,14 @@
 														<small> 0 of 320 characters used </small>
 													</div>
 												</div> 
-											</div> <!-- --> 								
+											</div> 								 -->
 										</div> <!-- -->
 										<div class="col-xl-3 col-lg-3 col-md-3"> 
 											<div class="form-group">
-												<div class="card shade">  
+												<!-- <div class="card shade">  
 													<label class="text-left"> Upload Image For Blog Content </label> 
 													<a href="#" id="AddImage" data-toggle="modal" data-target="#ServerImageModal" class="btn ripple btn-primary">Upload For Blog Content </a>  
-												</div>
+												</div> -->
 											</div>
 											<div class="form-group">
 												<div class="card shade">  
@@ -142,7 +142,7 @@
 													</div>
 												</div>
 											</div> 
-											<div class="form-group">
+											<!-- <div class="form-group">
 												<div class="card shade">  
 													<div id="choose-thumbnail" class="text-center">
 														<label class="text-left"> Choose Banner Image  </label>  
@@ -151,7 +151,7 @@
 														<label for="choose-file" class="w-100">Choose Banner</label>
 													</div>
 												</div>
-											</div>
+											</div> -->
 											<div class="form-group">
 												<div class="card shade">  
 													<label> Publish Date</label>
@@ -168,7 +168,7 @@
 												</div>
 											</div>
 										</div> <!-- --> 
-										<div class="col-lg-12">
+										<div class="col-lg-6">
 											<br />
 											<div class="submit">
 												 <input class="btn btn-primary w-100" type="submit" value="Add Now">  

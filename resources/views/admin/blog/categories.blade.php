@@ -58,6 +58,8 @@
 											<th style="width:50px">Id</th>
 											<th class="sort" style="width:120px"> Created At </th>
 											<th class="sort">Categories / Sub-categories</th> 
+											<th class="sort">Description</th>
+											<th class="text-center sort" style="width:100px"> Image </th>
 											<th class="text-center sort" style="width:100px"> Status </th>
 											<th> Actions </th>
 										</tr> 
@@ -67,13 +69,31 @@
 											<td> {{date('d M Y',strtotime($item->created_at))}}<br> <small class="text-muted">{{date('H:i:A',strtotime($item->created_at))}}</small> </td> 
 											<td> {{$item->name}}</td>
 											
+											<td>{!! \Illuminate\Support\Str::limit(strip_tags($item->description), 90) !!}</td>
+											<td class="text-center">
+												@if($item->category_img)
+													<img src="{{asset($item->category_img)}}" class="img-fluid" style="
+													max-width: 100px; max-height: 100px;"/>
+												@else
+													<img src="{{asset('uploads/no-image.png')}}" class="img-fluid" style="
+													max-width: 100px; max-height: 100px;"/>
+												@endif
+											</td>
 											@if($item->status == 0)
 												<td class="text-center"><a href="blog-categories-status/{{base64_encode($item->status)}}/{{base64_encode($item->id)}}" class="btn btn-danger status_inactive" title="Change Status"><i class='fa fa-times'></i></a> </td>
 											@else 
 												<td class="text-center"><a href="blog-categories-status/{{base64_encode($item->status)}}/{{base64_encode($item->id)}}" class="btn btn-primary status-active" title="Change Status"><i class='fa fa-check'></i></a> </td>
 											@endif			
 											<td class="actions">
-												<a href="#" class="btn ripple btn-info"  onclick="editDetails('{{$item->id}}','{{$item->name}}','{{$item->status}}')" data-toggle="modal" data-target="#subcategorieseditmodal"> Edit  </a> 
+												<a href="#" class="btn ripple btn-info edit-btn"
+   data-id="{{ $item->id }}"
+   data-name="{{ $item->name }}"
+   data-status="{{ $item->status }}"
+   data-description="{{ $item->description }}"
+   data-category_img="{{ $item->category_img }}"
+   data-toggle="modal" data-target="#subcategorieseditmodal"> Edit </a>
+
+
 												<a onclick="return confirm('Are you sure?')" href="blog-categories-delete/{{base64_encode($item->id)}}" class="btn ripple btn-danger"> <i class="fa fa-trash" aria-hidden="true"></i> </a>
 											</td>
 										</tr>
@@ -115,6 +135,15 @@
 								<input name="category_name" value=""  class="form-control" placeholder="Category type and enter..." data-role="tagsinput" maxlength="255" type="text" id="category_name">
 							</div>
 							<div class="form-group">
+								<label>Category Image</label>
+								<input type="file" name="category_img" class="form-control" accept="image/*">
+							</div>
+
+							<div class="form-group">
+								<label>Description</label>
+								<textarea name="description" class="form-control" placeholder="Enter category description..." rows="3"></textarea>
+							</div>
+							<div class="form-group">
 								<label>Status </label>
 								<select name="is_active" class="custom-select w-100">
 									<option value="1">Active</option>
@@ -137,7 +166,7 @@
 	<div class="modal-dialog modal-md modal-dialog-centered">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel"> Edit New Categories </h5>
+				<h5 class="modal-title" id="exampleModalLabel"> Edit Categories </h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -147,20 +176,31 @@
 					<div class="col-xl-12 col-lg-12 col-md-12">
 					@csrf			
 						<div class="card shade">
-							<div class="form-group area_interest">
+							<!-- <div class="form-group area_interest">
 								<label> Categories </label>
 								<select name="category_id[]" id="multiple-checkboxes"  class="custom-select w-100" multiple="multiple">
 									@foreach ($Category_list as $item)
 										<option value="{{$item->id}}"> {{$item->name}} </option>
 									@endforeach 
 								</select>
-							</div>
+							</div> -->
 							<div class="form-group">
 								<label> Category Name : <span>*</span></label>
 								<input name="edit_id" id="edit_id" value="0" type="hidden"/>
 								<input name="type" value="3" type="hidden"/>
-								<input name="edit_category_name" value=""  class="form-control" placeholder="Category type and enter..." maxlength="255" type="text" id="edit_category_name">
+								<input name="edit_category_name" id="edit_category_name" value=""  class="form-control" placeholder="Category type and enter..." maxlength="255" type="text" id="edit_category_name">
 							</div>
+							<div class="form-group">
+								<label>Current Image</label><br>
+								<img id="edit_category_img_preview" src="{{ asset('uploads/no-image.png') }}" alt="Category Image" style="max-width: 150px; max-height: 150px; display: block; margin-bottom: 10px;">
+								<input type="file" name="edit_category_img" id="edit_category_img" class="form-control" accept="image/*">
+							</div>
+							
+							<div class="form-group">
+								<label>Description</label>
+								<textarea name="edit_description" class="form-control" id="edit_description" placeholder="Enter category description..." rows="3"></textarea>
+							</div>	
+							
 							<div class="form-group">
 								<label>Status </label>
 								<select name="is_active_edit" class="custom-select w-100">
@@ -178,6 +218,8 @@
 		</div>
 	</div>
 </div>
+
+
 <!-- Add Sub Categories -->
 <div class="modal fade" id="subcategoriesaddmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-md modal-dialog-centered">
@@ -195,7 +237,8 @@
 						<div class="card shade">
 							<div class="form-group area_interest">
 								<label> Categories <span>*</span></label>
-								<select name="category_id[]" id="multiple-checkboxes"  class="custom-select w-100" multiple="multiple" required="">
+								<select name="category_id[]" class="custom-select w-100" required="">
+									<option value=""> Select Categories </option>
 									@foreach ($Category_list as $item)
 										<option value="{{$item->id}}"> {{$item->name}} </option>
 									@endforeach 
@@ -263,6 +306,30 @@
         });
     });
 </script>
+
+<script>
+	$('#subcategorieseditmodal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget); // Button that triggered the modal
+
+    var id = button.data('id');
+    var name = button.data('name');
+    var status = button.data('status');
+    var description = button.data('description');
+    var category_img = button.data('category_img');
+
+    var modal = $(this);
+    modal.find('#edit_id').val(id);
+    modal.find('#edit_category_name').val(name);
+    modal.find('#is_active_edit').val(status);
+    modal.find('#edit_description').val(description);
+
+    if(category_img) {
+        modal.find('#edit_category_img_preview').attr('src', "{{ asset('') }}" + category_img);
+    } else {
+        modal.find('#edit_category_img_preview').attr('src', "{{ asset('uploads/no-image.png') }}");
+    }
+});
+</script>
 <script>
 	// Categories fatch dynamic
 	var Categories = new Bloodhound({
@@ -287,12 +354,6 @@
 		}
 	});
 
-
-	function editDetails(id,name,status){
-		document.getElementById('edit_id').value = id;
-		document.getElementById('edit_category_name').value = name;
-		document.getElementById('is_active_edit').value = status;
-	}
 </script>
 <script type="text/javascript" src="//code.jquery.com/ui/1.12.1/jquery-ui.js" ></script>
 <script type="text/javascript">

@@ -55,6 +55,10 @@ Route::get('/about-us', function () {
     return view('frontend.about-us');
 });
 
+Route::get('/blog', function () {
+    return view('frontend.blog');
+});
+
 Route::get('/contact-us', function () {
     return view('frontend.contact-us');
 });
@@ -74,6 +78,10 @@ Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product
 
 Route::get('/project', [ProjectController::class, 'userProjectPage'])->name('frontend.project');
 Route::get('/project/{categorySeoUrl}', [ProjectController::class, 'userProjectPageByCategory'])->name('frontend.project.category');
+
+Route::get('/blogs', [BlogController::class, 'userBlogPage'])->name('frontend.blog');
+Route::get('/blog/{category_seourl}', [BlogController::class, 'blogsByCategory'])->name('blogs.byCategory');
+
 
 
 /* ===== ADMIN Route ===== */
@@ -241,14 +249,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
         /* Blog */
         Route::group(['prefix' => 'blog', 'as' => 'blog'], function () {
-
-            // Route::get('/media', [NewMediaController::class, 'index'])->name('index');
-            // Route::post('/store/media', [NewMediaController::class, 'store'])->name('store');
-            // Route::get('/{media}', [NewMediaController::class, 'show'])->name('show');
-            // Route::put('/edit/{media}', [NewMediaController::class, 'update'])->name('update'); // changed here
-            // Route::delete('/{media}', [NewMediaController::class, 'destroy'])->name('.destroy');
-            // Route::get('/list', [NewMediaController::class, 'getMedia'])->name('.list');
-
 
             Route::get('/all-post', [BlogController::class, 'Index'])->name('blog.index');
             Route::get('/blog-add', [BlogController::class, 'add'])->name('blog.add');
@@ -424,11 +424,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 });
 
 
-Route::get('/admin/dummy', function () {
-    return view('admin.dummy');
-});
-
-
 /* ===== End ADMIN Route ===== */
 
 
@@ -439,269 +434,15 @@ Route::get('/admin/dummy', function () {
 
 
 
-// Route::get('/', function () {
-//     // Step 1: Get all category IDs where category_id == categry_lookup (main categories)
-//     $mainCategoryIds = DB::table('categories_lookups')
-//         ->whereColumn('category_id', 'categry_lookup')
-//         ->pluck('category_id');
 
-//     // Step 2: Fetch those main categories with subcategories
-//     $mainCategories = Categories::whereIn('id', $mainCategoryIds)
-//         ->with(['subCategories'])
-//         ->get();
 
-//     return view('frontend.home', compact('mainCategories'));
-// });
 
-Route::get('/blog/{blogurl}', function ($blogurl) {
-    $blog = DB::table('blogs')
-        ->where('blog_url', $blogurl)
-        ->where('is_published', 1)
-        ->where('is_deleted', 0)
-        ->first();
 
-    if (!$blog) {
-        abort(404, 'Blog not found.');
-    }
 
-    // Fetch the category
-    $category = DB::table('categories')->where('id', $blog->category_id)->first();
 
-    // Fetch related blogs (same category, exclude current)
-    $relatedBlogs = DB::table('blogs')
-        ->where('category_id', $blog->category_id)
-        ->where('id', '!=', $blog->id)
-        ->where('is_published', 1)
-        ->where('is_deleted', 0)
-        ->limit(3)
-        ->get();
 
-    return view('frontend.products.blogdetails', compact('blog', 'category', 'relatedBlogs'));
-})->name('blog.details');
 
 
-
-Route::get('/blog', function () {
-    $blogs = DB::table('blogs')
-        ->where('is_published', 1)
-        ->where('is_deleted', 0)
-        ->orderBy('publish_date', 'desc')
-        ->get();
-
-    return view('frontend.products.blog', compact('blogs'));
-});
-
-Route::get('/why-aapl', function () {
-    return view('frontend.why_aapl');
-});
-
-Route::get('/sustainability', function () {
-    return view('frontend.sustainability');
-});
-
-Route::get('/trade-shows', function () {
-    return view('frontend.trade_shows');
-});
-
-
-// PRIVACY PAGE ROUTES HARSH
-
-Route::get('/privacy', function () {
-    return view('frontend.privacy');
-});
-// PRIVACY PAGE ROUTES HARSH END
-
-
-// TERMS AND CONDITION ROUTES HARSH 
-Route::get('/terms-condition', function () {
-    return view('frontend.terms');
-});
-// TERMS AND CONDITION ROUTES HARSH END
-
-
-
-
-/* Products */
-Route::get('/products/solutions', function () {
-    return view('frontend.products.index');
-});
-
-
-Route::get('/products/{seourl}', [FrontProductController::class, 'viewProductsCategory']);
-
-Route::get('/products/{seourl}/{subctg}', [FrontProductController::class, 'viewProductsCategory']);
-
-Route::get('/products/{seourl}/{subctg}/{slug}', [FrontProductController::class, 'productListing'])->name('products.listing');
-
-// Route::get('/category/{slug}', [FrontProductController::class, 'productListing'])->name('products.listing');
-// Route::get('/products/category/{mainCategoryId}/{associatedCategoryId?}/{seoUrl?}', function ($mainCategoryId, $associatedCategoryId = null, $seoUrl = null) {
-//     // Load main category with nested subcategories
-//     $category = Categories::with('subCategories.subCategories')->findOrFail($mainCategoryId);
-//     $associatedCategories = $category->subCategories;
-
-//     // Default values
-//     $selectedAssociatedCategory = null;
-//     $subcategories = collect();
-//     $products = collect();
-
-//     if ($associatedCategories->isEmpty()) {
-//         // No associated categories, get products from main category
-//         $products = Products::where('category_id', $mainCategoryId)->get();
-//     } else {
-//         // Determine selected associated category
-//         if ($associatedCategoryId) {
-//             $selectedAssociatedCategory = $associatedCategories->firstWhere('id', $associatedCategoryId);
-//             if (!$selectedAssociatedCategory) {
-//                 $selectedAssociatedCategory = $associatedCategories->first();
-//             }
-//         } else {
-//             $selectedAssociatedCategory = $associatedCategories->first();
-//         }
-
-//         // Get sub-subcategories of selected associated category
-//         $subcategories = $selectedAssociatedCategory ? $selectedAssociatedCategory->subCategories : collect();
-
-//         if ($subcategories->isEmpty()) {
-//             // No subcategories under selected associated category
-//             $products = Products::where('category_id', $selectedAssociatedCategory->id)->get();
-
-//             // If no products found in selected associated category, try to get from parent (mainCategory)
-//             if ($products->isEmpty()) {
-//                 $products = Products::where('category_id', $mainCategoryId)->get();
-//             }
-//         }
-//     }
-
-//     return view('frontend.products.categories', compact(
-//         'category',
-//         'associatedCategories',
-//         'selectedAssociatedCategory',
-//         'subcategories',
-//         'products'
-//     ));
-// });
-
-
-
-
-
-
-
-// Route::get('/products/category/productname/{category_id}', function ($category_id) {
-//     $category = Categories::findOrFail($category_id);
-
-//     $products = Products::where('category_id', $category_id)
-//         ->where('status', 1)
-//         ->where('is_deleted', 0)
-//         ->get();
-
-//     return view('frontend.products.product_listing', compact('products', 'category'));
-// });
-
-
-Route::post('/cart-submit', [AddCartController::class, 'AddToCart'])->name('cart.submit');
-
-
-
-// Route::get('/category/{slug}', [FrontProductController::class, 'productListing'])->name('products.listing');
-
-
-
-
-Route::get('/product/{product_url}', [FrontProductController::class, 'ViewProductDetails'])->name('products.view');
-
-// Add to cart from product page
-Route::get('/cart/add/{id}', [AddCartController::class, 'addToCart'])->name('cart.add');
-
-// View cart page
-Route::get('/cart', [AddCartController::class, 'viewCart'])->name('cart.view');
-
-// Submit cart enquiry form
-Route::post('/cart/submit', [AddCartController::class, 'submitEnquiry'])->name('cart.submit');
-
-// Remove cart item (AJAX)
-Route::delete('/cart-item/{productId}', [AddCartController::class, 'removeCartItem'])->name('cart.remove');
-
-// Filter search
-Route::get('/product-autocomplete', [FrontProductController::class, 'autocomplete'])->name('product.autocomplete');
-
-
-
-Route::post('/cart-submit', function (Request $request) {
-    // Validate form data (simple validation for single product)
-    // $request->validate([
-    //     'client_name' => 'required|string|max:255',
-    //     'email' => 'required|email|max:255',
-    //     'contact_no' => 'required|string|max:20',
-    //     'office_address' => 'required|string|max:500',
-    //     'product_name' => 'required|string|max:255',
-    //     'product_image' => 'nullable|string|max:255',
-    //     'quantity' => 'required|integer|min:1',
-    //     'requirement' => 'nullable|string|max:1000',
-    // ]);
-
-    try {
-        // Insert enquiry info
-        $cartEnquiryId = DB::table('cart_enquiry')->insertGetId([
-            'client_name' => $request->client_name,
-            'email' => $request->email,
-            'contact_no' => $request->contact_no,
-            'office_address' => $request->office_address,
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-
-        // Insert cart item linked to enquiry
-
-        DB::table('cart_items')->insert([
-            'cart_enquiry_id' => $cartEnquiryId,
-            'product_name' => $request->product_name,
-            'product_image' => $request->product_image,
-            'quantity' => $request->quantity,
-            'requirement' => $request->requirement,
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-        print_r($cartEnquiryId);
-        exit;
-        return redirect()->back()->with('success', 'Cart enquiry submitted successfully.');
-
-    } catch (\Exception $e) {
-        return redirect()->back()->withErrors(['error' => 'Failed to submit cart enquiry.']);
-    }
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-Route::get('/products/food-&-beverage', function () {
-    return view('frontend.products.food_beverage');
-});
-
-Route::get('/ethics', function () {
-    return view('frontend.ethics');
-});
-Route::get('/production-facility', function () {
-    return view('frontend.production_facility');
-});
-Route::get('/contact', function () {
-    return view('frontend.contact');
-});
-
-Route::post('/contacts/store', [HomeController::class, 'storeContact'])->name('contacts.store');
-
-Route::get('/thanks', function () {
-    return view('frontend.thanks');
-})->name('thanks');
 
 
 

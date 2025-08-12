@@ -734,7 +734,7 @@
                                         <p>Subscribe for updates</p>
                                         <form action="#" method="post" class="position-relative">
                                             <input class="form-control required" type="email" name="email" placeholder="Enter your email" />
-                                            <button class="btn" aria-label="submit"><img src="img/submit.png" class="img-fluid" /></button>
+                                            <button class="btn" aria-label="submit"><img src="{{ asset('img/submit.png') }}" class="img-fluid" /></button>
                                         </form>
                                     </div>
                                 </div>
@@ -745,10 +745,10 @@
                         <div class="container">
                             <div class="row justify-content-center align-items-center firts_ftr">
                                 <div class="col-lg-4 col-md-4 col-sm-4">
-                                    <a href="#" class="nav-link"> <img src="img/icons/call.svg" class="img-fluid" /> +91 8047625780</a>
+                                    <a href="#" class="nav-link"> <img src="{{ asset('img/icons/call.svg') }}" class="img-fluid" /> +91 8047625780</a>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 text-center">
-                                    <a href="#" class="nav-link"> <img src="img/icons/email.svg" class="img-fluid" /> info@sheraindia.in</a>
+                                    <a href="#" class="nav-link"> <img src="{{ asset('img/icons/email.svg') }}" class="img-fluid" /> info@sheraindia.in</a>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 text-end social-icons">
                                     <a href="#">

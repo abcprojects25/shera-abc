@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row row-sm">
       <div class="col-md-12"> <span>Copyright ©
-          <script>document.write(new Date().getFullYear())</script> <strong> AAPL </strong>. All rights reserved.
+          <script>document.write(new Date().getFullYear())</script> <strong> SHERA </strong>. All rights reserved.
         </span> </div>
     </div>
   </div>

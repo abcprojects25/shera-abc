@@ -76,7 +76,7 @@
 												<div class="col-lg-12 form-group"> 
 													<label>Blog URL : <span>*</span></label>
 													<div class="input-group mb-2"> 
-														<div class="input-group-prepend"> <div class="input-group-text">https://vivaacp.com/blog/</div> </div>
+														<div class="input-group-prepend"> <div class="input-group-text">https://shera.com/blog/</div> </div>
 														<input name="blog_url" value="{{($blog->blog_url) ? $blog->blog_url : 'NA'}}" required="" class="form-control"  maxlength="255" type="text" id="blog_url">
 													</div>
 												</div> 												
@@ -98,37 +98,10 @@
 													@endif
 												</select>
 											</div>
-											<div class="card shade">
-												<h5> SEO </h5>
-												
-												<div class="row">
-													<div class="col-md-6 form-group">
-														<div class="form-group">
-															<label>Page Title : <span>*</span></label>
-															<input name="page_title" value="{{($blog->page_title) ? $blog->page_title : 'NA'}}"  class="form-control" placeholder="Page Title..." maxlength="255" type="text" id="title" required>
-															<small> 0 of 70 characters used </small>
-														</div>
-														<div class="form-group">
-															<label>Meta Keywords :</label>
-															<input name="meta_keywords" value="{{($blog->meta_keywords) ? $blog->meta_keywords : 'NA'}}"  class="form-control" placeholder="Meta Keywords..." maxlength="255" type="text" id="meta_keywords">
-															<small> 100 to 255 Keywords used </small>
-														</div>
-													</div> 
-													<div class="col-md-6 form-group">
-														<label for="BookDescription">Meta Description </label>
-														<textarea name="meta_description" class="form-control" cols="10" rows="5" id="meta_description" placeholder="Meta Description..."> {!! ($blog->meta_description) ? $blog->meta_description : 'NA' !!} </textarea>
-														<small> 0 of 320 characters used </small>
-													</div> 
-												</div> 
-											</div> <!-- -->
+											 <!-- -->
 										</div> <!-- -->
 										<div class="col-xl-3 col-lg-3 col-md-3">
-											<div class="form-group">
-												<div class="card shade">  
-													<label class="text-left"> Upload Image For Blog Content </label> 
-													<a href="#" id="AddImage" data-toggle="modal" data-target="#ServerImageModal" class="btn ripple btn-primary">Upload For Blog Content </a>  
-												</div>
-											</div>
+											
 											<div class="form-group">
 												<div class="card shade">  
 													<div class="image-upload"> 
@@ -145,17 +118,7 @@
 													</div>
 												</div>
 											</div> 
-											<div class="form-group">
-												<div class="card shade">  
-													<div id="choose-thumbnail">
-														<label> Choose Banner Image  </label> 
-														<div id="img-preview"></div> 
-														<input type="file" accept="image/*" id="choose-file" value="" name="banner_image" />
-														<label for="choose-file">Choose Banner</label>
-														<img src="{{$blog->banner_image}}" class="img-thumbnail" width="200px" height="auto"/>
-													</div>
-												</div>
-											</div> 
+											
 
 											<div class="form-group">
 												<div class="card shade">  
@@ -165,11 +128,11 @@
 											</div> 
 												
 											<div class="form-group">
-    <div class="card shade">  
-        <label>Author :</label>
-        <input name="author" value="{{ $blog->author }}" class="form-control" type="text" id="author">
-    </div>
-</div>
+												<div class="card shade">  
+													<label>Author :</label>
+													<input name="author" value="{{ $blog->author }}" class="form-control" type="text" id="author">
+												</div>
+											</div>
 
 											<input type="hidden" name="edit_banner_image" value="{{$blog->banner_image}}"/>
 											<input type="hidden" name="edit_thumb_image" value="{{$blog->thumb_image}}"/>

@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,6 +19,8 @@ class AppServiceProvider extends ServiceProvider
 
 public function boot(): void
 {
+     Paginator::useBootstrap();
+
     // Step 1: Get categories where category_id = categry_lookup and type = 1
     $parentCategories = DB::table('categories')
         ->where('type', 1)
