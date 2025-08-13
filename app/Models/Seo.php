@@ -11,6 +11,6 @@ class Seo extends Model
 
      public function page()
 {
-    return $this->belongsTo(Urls::class, 'page_id'); 
+    return $this->belongsTo(Urls::class, 'url_id'); 
 }
 }

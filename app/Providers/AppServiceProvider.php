@@ -5,8 +5,11 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Pagination\Paginator;
+use App\Models\Categories;
+use App\Models\Seo;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,8 +22,33 @@ class AppServiceProvider extends ServiceProvider
 
 public function boot(): void
 {
+    View::composer('frontend.layout.header', function ($view) {
+    $view->with('categories', Categories::select('id','name','seourl')->where('type',2)->get());
+});
+
      Paginator::useBootstrap();
 
+      View::composer('*', function ($view) {
+        $currentUrl = Request::path(); // current URL path
+
+        // Fetch SEO info from DB
+        $seo = Seo::where('urls', $currentUrl)
+                  ->where('status', 1)
+                  ->first();
+
+        // Default SEO if none found
+        if (!$seo) {
+            $seo = (object)[
+                'title' => 'SHERA | Leading Manufacturer of Fibre Cement Building Materials',
+                'meta_keywords' => 'SHERA, Fibre Cement, Building Materials',
+                'meta_description' => 'Discover SHERA, a global leader in fibre cement boards, siding, and roofing.',
+                'meta_tag_script' => '',
+            ];
+        }
+
+        $view->with('seo', $seo);
+    });
+    
     // Step 1: Get categories where category_id = categry_lookup and type = 1
     $parentCategories = DB::table('categories')
         ->where('type', 1)

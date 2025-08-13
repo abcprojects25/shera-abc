@@ -1,7 +1,7 @@
 <div class="main-sidebar main-sidebar-sticky side-menu ps ps--active-y">
 	<div class="sidemenu-logo">
 		<a class="main-logo" href="#">
-			<img src="/img/logo.png" class="header-brand-img desktop-logo" alt="logo" style="width:20px;">
+			<img src="/img/logo.png" class="header-brand-img desktop-logo" alt="logo" style="width:120px;">
 			<img src="/img/logo.png" class="header-brand-img icon-logo" alt="logo" style="width:20px;">
 		</a>
 	</div>

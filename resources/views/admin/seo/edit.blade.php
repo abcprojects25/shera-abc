@@ -22,9 +22,9 @@ $urls_list = SeoController::UrlsList();
 						</ol>
 					</div>
 					<div class="d-flex">
-						<div class="justify-content-center">
+						<!-- <div class="justify-content-center">
 							<a href="/admin/seo/add-url" class="btn btn-white btn-icon-text my-2 mr-2"> <i class="fe fe-folder-plus mr-2"></i> Add New SEO URL </a> 
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<!-- End Page Header -->
@@ -65,15 +65,16 @@ $urls_list = SeoController::UrlsList();
 													<div class="col-lg-12 col-md-12 form-group">
 														<label>Page Urls List : <span>*</span></label>
 											<select name="url_id" class="form-control w-100" id="urls_list" onchange="getPageName(this)" required>
-    @foreach ($urls_list as $item)
-        <option 
-            value="{{ $item->id }}" 
-            data-id="{{ $item->urls }}"
-            {{ (string) $edit_data->page_id === (string) $item->id ? 'selected' : '' }}>
-            {{ $item->page_name }}
-        </option>
-    @endforeach
-</select>
+												<option value="">Select URL</option>
+											@foreach ($urls_list as $item)
+												<option 
+													value="{{ $item->id }}" 
+													data-id="{{ $item->urls }}"
+													{{ (string) $edit_data->page_id === (string) $item->id ? 'selected' : '' }}>
+													{{ $item->page_name }}
+												</option>
+											@endforeach
+										</select>
 
 													</div>
 												</div>
@@ -107,16 +108,16 @@ $urls_list = SeoController::UrlsList();
 													{{-- <small> 0 of 320 characters used </small> --}}
 												</div> 
 												<div class="form-group meta_tag_script">
-													<label for="meta_tag_script">Meta tags (HTML) </label>
+													<label for="meta_tag_script">Meta tags </label>
 													<textarea name="meta_tag_script" class="form-control" cols="10" rows="4" id="meta_tag_script" placeholder="Meta tags script...">{!! ($edit_data->meta_tag_script) ? $edit_data->meta_tag_script : '' !!} </textarea>
-													<small> Paste Your Tags here only html Tags </small> 
+													<!-- <small> Paste Your Tags here only html Tags </small>  -->
 												</div> 
-												<div class="form-group meta_tag_script">
+												<!-- <div class="form-group meta_tag_script">
 													<label for="meta_tag_script_header">Meta Script (JS Script) </label>
 													<textarea name="meta_tag_script_header" class="form-control" cols="10" rows="10" id="meta_tag_script_header" placeholder="Meta tags script...">
 														{!! ($edit_data->script_header) ? $edit_data->script_header : '' !!} </textarea>
 													<small> Paste Your Tags With < script > Tags </small> 
-												</div>
+												</div> -->
 												<div class="form-group">
 													<label>Status </label>
 													<select name="is_active" class="custom-select w-100">

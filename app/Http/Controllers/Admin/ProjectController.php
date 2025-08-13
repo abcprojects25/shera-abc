@@ -46,7 +46,7 @@ class ProjectController extends Controller
     ]);
 }
 
-
+ 
     public function userProjectPageByCategory($categorySeoUrl)
 {
     $category = Categories::where('seourl', $categorySeoUrl)->firstOrFail();

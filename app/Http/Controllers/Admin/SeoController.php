@@ -22,8 +22,7 @@ class SeoController extends Controller
     {
         $this->middleware('adminauth');
 
-    }
-    
+    }    
 
   public function Index(){
     $seo_data = Seo::with('page')->get(); 
@@ -35,6 +34,7 @@ class SeoController extends Controller
     //    $urls_list = Urls::select('id','page_name')->where('status',1)->get();
         return view('admin.seo.add',compact('Categories'));
     }
+
 public function edit($id)
 {
     $id = base64_decode($id);
@@ -61,15 +61,14 @@ public function edit($id)
         $is_active = $request->is_active;
 
         $obj = new Seo();
-        $obj->page_id = $page_id;
+        $obj->url_id = $page_id;
         $obj->title = $page_title;
+        $obj->page_name = $request->page_name; 
         $obj->urls = $page_url;
         $obj->meta_keywords = $meta_keywords;
         $obj->meta_description = $meta_description;
-        $obj->script_header = $request->meta_tag_script_header;
-        $obj->script_footer = $request->meta_tag_script_footer;
         $obj->meta_tag_script = $request->meta_tag_script;
-        $obj->user_id = $user_id;
+        // $obj->user_id = $user_id;
 
         $obj->status = $is_active;
         $obj->save();
@@ -113,12 +112,11 @@ public function edit($id)
         'urls' => $page_url,
         'meta_keywords' => $meta_keywords,
         'meta_description' => $meta_description,
-        'script_header' => $script_header,
-        'script_footer' => $script_footer,
+       
         'meta_tag_script' => $meta_tag_script,
         'status' => $is_active,
         'updated_at' => now(),
-        'page_id' => $page_id, // optional but good to keep
+        'url_id' => $page_id, // optional but good to keep
     ]);
 
     // ✅ Also update the page_name in `urls` table
@@ -224,7 +222,7 @@ public function edit($id)
         $obj->page_name = $request->page_name;
         $obj->urls = $request->page_url;
         $obj->utype = 2;
-        $obj->id = $user_id;
+        // $obj->id = $user_id;
         $obj->status = 1;
         $obj->save();
         // toast('URL Added Successfully!!!','success');

@@ -25,7 +25,7 @@ $url = url('/');
 								<a href="#" class="btn btn-white btn-icon-text my-2 mr-2" data-toggle="modal" data-target="#exampleModal"> <i class="fe fe-folder-plus mr-2"></i> Add New Categories </a>
 							-->
 							<a href="/admin/seo/add" class="btn btn-white btn-icon-text my-2 mr-2"> <i class="fe fe-folder-plus mr-2"></i> On page SEO Tags </a>
-							<a href="#" class="btn btn-white btn-icon-text my-2 mr-2" data-toggle="modal" data-target="#AddModal"> <i class="fe fe-folder-plus mr-2"></i> Add SEO URL Lising  </a>
+							<a href="#" class="btn btn-white btn-icon-text my-2 mr-2" data-toggle="modal" data-target="#AddModal"> <i class="fe fe-folder-plus mr-2"></i> Add SEO URL Listing  </a>
 						</div>
 					</div>
 				</div>
@@ -127,7 +127,7 @@ $url = url('/');
 						<div class="form-group">
 							<label>Page URL : <span>*</span></label>
 							<div class="input-group mb-2"> 
-								<div class="input-group-prepend"> <div class="input-group-text">https://aaplsolutions.com/</div> </div>
+								<div class="input-group-prepend"> <div class="input-group-text">https://shera.com/</div> </div>
 								<input name="page_url" value="" required="" class="form-control"  maxlength="255" type="text" id="page_url">
 							</div>
 						</div>	

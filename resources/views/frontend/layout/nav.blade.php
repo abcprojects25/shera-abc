@@ -1,4 +1,40 @@
-<div class="elementor elementor-7370 nav_top">
+<div class="elementor-element top-bar">
+                        <div class="container">
+                            <div class="top-menu">
+                                <ul class="top-menu-list">
+                                    <li class="list">
+                                        <a href="" class="link">Be Our Dealer</a>
+                                    </li>
+                                    <li class="list">
+                                        <a href="" class="link">Be Our Retailer</a>
+                                    </li>
+                                    
+                                </ul>
+                                <ul class="top-menu-list">
+                                    <li class="list">
+                                       <a href="{{ url('/about-us') }}" class="link">About Us</a>
+                                    </li>
+                                    <li class="list">
+                                        <a href="" class="link">Knowledge Center</a>
+                                    </li>
+                                    <li class="list">
+                                        <a href="" class="link">Resources</a>
+                                    </li>
+                                    <li class="list">
+                                        <a href="" class="link">Careers</a>
+                                    </li>
+                                    <li class="list">
+                                        <a href="" class="link">Support</a>
+                                    </li>
+                                    <li class="list">
+                                        <a href="{{ url('/contact-us') }}" class="link">Contact Us</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="elementor elementor-7370 nav_top">
                         <div class="container-fluid">
                             <div class="elementor-element elementor-element-9329b62 e-flex e-con-boxed e-con e-parent container">
                                 <div class="e-con-inner nav-con-inner">
@@ -67,7 +103,7 @@
                                                                         id="menu-item-9436"
                                                                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-9436"
                                                                     >
-                                                                        <a href="#">
+                                                                        <a href="{{ url('/products') }}">
                                                                             SHERA PRO
                                                                             <span class="submenu-indicator">
                                                                                 <svg
@@ -106,10 +142,10 @@
                                                                         </ul>
                                                                     </li>
                                                                     <li id="menu-item-9447" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9447">
-                                                                        <a href="#">SHERA NEU Board</a>
+                                                                        <a href="{{ url('/products') }}">SHERA NEU Board</a>
                                                                     </li>
                                                                     <li id="menu-item-9458" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9458">
-                                                                        <a href="#"
+                                                                        <a href="{{ url('/products') }}"
                                                                             >SHERA Accessories<span class="wcf-submenu-indicator"
                                                                                 ><svg
                                                                                     aria-hidden="true"
@@ -121,19 +157,19 @@
                                                                                         d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
                                                                                     ></path></svg></span
                                                                         ></a>
-                                                                
+                                                                        
                                                                     </li>
                                                                 </ul>
                                                             </li>
                                                             <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
                                                                 <a href="#" class="wcf-nav-item"
                                                                     >Applications
-                                                                    
+                                                                   
                                                                 </a>
-                                                                
+                                                               
                                                             </li>
                                                             <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
-                                                                <a href="#" class="wcf-nav-item"
+                                                                <a href="{{ url('/project/hospital') }}" class="wcf-nav-item"
                                                                     >Projects<span class="wcf-submenu-indicator"
                                                                         ><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
                                                                             <path
@@ -141,21 +177,15 @@
                                                                             ></path></svg></span
                                                                 ></a>
                                                                 <ul class="sub-menu">
+                                                                    @foreach($categories as $category)
                                                                     <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Hospital</a>
+                                                                        <a href="{{ route('frontend.project.category', $category->seourl) }}">{{ $category->name }}</a>
                                                                     </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">School</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Commercial Building</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9543" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9543">
-                                                                        <a href="#">Residential</a>
-                                                                    </li>
+                                                                    @endforeach
                                                                 </ul>
-
                                                             </li>
+                                                            
+                                                           
                                                             
                                                         </ul>
                                                         <button class="wcf-menu-close" type="button">
@@ -183,7 +213,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+                                   
                                 </div>
                             </div>
                         </div>

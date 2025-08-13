@@ -11,8 +11,8 @@
 	<ul class="nav-sub">
             <li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/seo/url/listing">URL Listing</a> </li>
             <li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/seo">On Page Seo Tag</a> </li>
-            <li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/seo/header-tags">Common Header</a> </li>
-						<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/seo/banner"> Banner </a> </li> 
+            <!-- <li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/seo/header-tags">Common Header</a> </li>
+						<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/seo/banner"> Banner </a> </li>  -->
             <br />
         </ul>
 	</li>

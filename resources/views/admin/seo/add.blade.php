@@ -64,8 +64,8 @@ $urls_list = SeoController::UrlsList();
 													
 														<label>Page Urls List : <span>*</span></label>
 														<select name="url_id" class="form-control w-100" id="urls_list" onchange="getPageName(this)" required>
+															<option value="">Select Page URL</option>
 															@foreach ($urls_list as $item)
-
 																<option value="{{$item->id}}" data-id="{{$item->urls}}">{{$item->page_name}}  ( {{ $item->urls }} )</option>
 															@endforeach
 														</select> 
@@ -79,7 +79,7 @@ $urls_list = SeoController::UrlsList();
 													<div class="col-lg-7 col-md-7 form-group">
 														<label>Page URL : <span>*</span></label>
 														<div class="input-group mb-2"> 
-															<div class="input-group-prepend"> <div class="input-group-text">https://aaplsolutions.com/</div> </div>
+															<div class="input-group-prepend"> <div class="input-group-text">https://shera.com/</div> </div>
 															<input name="page_url" value="" required="" class="form-control"  maxlength="255" type="text" id="page_url" readonly>
 														</div>
 													</div>
@@ -96,22 +96,22 @@ $urls_list = SeoController::UrlsList();
 													<small> 100 to 255 Keywords used </small>
 												</div> 
 												<div class="form-group">
-													<label for="meta_description">Meta Description </label>
+													<label for="meta_description">Meta Description :  <span>*</span> </label>
 													<textarea name="meta_description" class="form-control" cols="10" rows="2" id="meta_description" placeholder="Meta Description..."> </textarea>
 													<small> 155 to 160 Keywords used </small>
 												</div> 
 
 												<div class="form-group meta_tag_script">
-													<label for="meta_tag_script">Meta tags (HTML) </label>
+													<label for="meta_tag_script">Meta tags </label>
 													<textarea name="meta_tag_script" class="form-control" cols="10" rows="10" id="meta_tag_script" placeholder="Meta tags script..."> </textarea>
-													<small> Paste Your Tags here only html Tags </small> 
+													<!-- <small> Paste Your Tags here only html Tags </small>  -->
 												</div>
 
-												<div class="form-group meta_tag_script">
+												<!-- <div class="form-group meta_tag_script">
 													<label for="meta_tag_script_header">Meta Script (JS Script) </label>
 													<textarea name="meta_tag_script_header" class="form-control" cols="10" rows="10" id="meta_tag_script_header" placeholder="Meta tags script..."> </textarea>
 													<small> Paste Your Tags With < script > Tags </small> 
-												</div>
+												</div> -->
 												
 											<!--	<div class="form-group">
 													<label for="language" class="mr-3"><b>Language:</b> </label>

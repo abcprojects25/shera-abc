@@ -62,11 +62,12 @@ $url = url('/');
 											<th style="width:50px">Id</th>
 											<th style="width:110px"> Created At </th> 
 											<th>Page Name</th>  
-											<th>Language</th>  
+											<!-- <th>Language</th>   -->
 											<th> URL </th>    
 											<th> Meta Title </th> 
-											<!--											
 											<th> Meta Keywords </th>  
+											
+											<!--											
 											<th> Meta Description </th> 
 											-->
 											<th class="text-center" style="width:60px"> Status </th>
@@ -76,7 +77,9 @@ $url = url('/');
 										<tr> 
 											<td class="text-center">{{$k+1}} </td>
 											<td> {{ ($item->created_at) ? date('Y-m-d',strtotime($item->created_at)) : '' }}<br>  <small class="text-muted">{{ ($item->created_at) ? date('H:i:A',strtotime($item->created_at)) : '' }}</small>  </td> 
-											@php
+											<td>{{ $item->page->page_name ?? 'N/A' }}</td>
+											
+											<!-- @php
 												if ($item->language == "en") {
 													$lang = "English";
 												} else if ($item->language == "es"){
@@ -90,17 +93,12 @@ $url = url('/');
 												} else{
 													$lang = "NA";
 												}
-											@endphp
-										<td>{{ $item->page->page_name ?? 'N/A' }}</td>
-
-											<td class="language_badge">
+											@endphp -->
+											<!-- <td class="language_badge">
 												
 												<span class="badge bg-primary">{{$lang}}</span> 
-												<!--<span class="badge bg-primary">Spanish</span> 
-												<span class="badge bg-primary">Arabic</span> 
-												<span class="badge bg-primary">Swahili</span> 
-												<span class="badge bg-primary">French</span> -->
-											</td>
+												
+											</td> -->
 											<td> 
 												@if ($item->urls == '/')
 												<a href="/" target="_blank">{{$url}}</a>
@@ -109,8 +107,8 @@ $url = url('/');
 												@endif
 											</td>  
 											<td> {{$item->title}} </td>
-											{{--
 											<td>{{$item->meta_keywords}} </td> 
+											{{--
 											<td>{{$item->meta_description}} </td> 
 											--}}
 											@if($item->status == 0) 

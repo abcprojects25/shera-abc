@@ -23,8 +23,8 @@ $urls_list = SeoController::UrlsList();
 					</div>
 					<div class="d-flex">
 						<div class="justify-content-center">
-							<a href="/admin/seo/seo-add" class="btn btn-white btn-icon-text my-2 mr-2"> <i class="fe fe-folder-plus mr-2"></i> Add New SEO Tags </a>
-							<a href="/admin/seo/add-url" class="btn btn-white btn-icon-text my-2 mr-2"> <i class="fe fe-folder-plus mr-2"></i> Add New SEO URL </a> 
+							<!-- <a href="/admin/seo/seo-add" class="btn btn-white btn-icon-text my-2 mr-2"> <i class="fe fe-folder-plus mr-2"></i> Add New SEO Tags </a>
+							<a href="/admin/seo/add-url" class="btn btn-white btn-icon-text my-2 mr-2"> <i class="fe fe-folder-plus mr-2"></i> Add New SEO URL </a>  -->
 						</div>
 					</div>
 				</div>
