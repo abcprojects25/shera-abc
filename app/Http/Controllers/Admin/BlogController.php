@@ -32,14 +32,16 @@ class BlogController extends Controller
 {
      $categories = Categories::where('type', 3)
                     ->where('status', 1) 
+                    ->with('blogs') 
                     ->get();
-
+            
     return view('frontend.blogs', compact('categories'));
 }
 
 public function blogsByCategory($category_seourl)
 {
-    $category = Categories::where('seourl', $category_seourl)->where('type', 3)->firstOrFail();
+    $category = Categories::where('seourl', $category_seourl)
+                  ->where('type', 3)->firstOrFail();
 
     $blogs = Blogs::where('category_id', $category->id)
                   ->where('is_deleted', 0)

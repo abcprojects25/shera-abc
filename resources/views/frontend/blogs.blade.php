@@ -559,7 +559,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        @foreach ($categories as $item)
+                                        @foreach ($categories as $item) 
                                         <div class="col-lg-4 mb-4">
                                             <div class="blog-cards-wrapper">
                                                 <a href="{{ url('/blog/' . $item->seourl) }}" class="blog-card">
@@ -571,7 +571,9 @@
                                                             <h4 class="shera-mini-heading shera-green">{{ $item->created_at->format('d/m/Y') }}</h4>
                                                         </div>
                                                         <div class="text">
-                                                            <span class="shera-mini-heading">SHERA</span>
+                                                        @foreach ($item->blogs as $blog)
+                                                            <span class="shera-mini-heading">{{ $blog->author }}</span>
+                                                        @endforeach
                                                         </div>
                                                     </div>
                                                     <div class="blog-detail">
