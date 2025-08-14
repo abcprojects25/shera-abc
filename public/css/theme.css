@@ -4970,6 +4970,7 @@ h4.shera-brown {
 .contact_form_1 {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 .contact_form_heading {
     width: 100%;
@@ -4994,17 +4995,28 @@ h4.shera-brown {
     margin: 20px 0;
 }
 
-/* .contact_form_right form input {
-  padding: 0px 10px;
-  height: 70px;
-  font-family: "Beatrice Trial", sans-serif !important;
+form .form-control {
+    border: 0;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    color: #696969;
+    padding-block: 5px;
+    transition: 0.5s all ease;
+    border-bottom: 1px solid #00ab4d3f;
+}
+
+.contact_form_right form input {
+    padding: 0px 10px;
+    height: 70px;
+    font-family: "Beatrice Trial", sans-serif !important;
 }
 
 .contact_form_right form textarea {
-  padding: 0px 10px;
-  height: 90px;
-  font-family: "Beatrice Trial", sans-serif !important;
-} */
+    padding: 0px 10px;
+    height: 90px;
+    font-family: "Beatrice Trial", sans-serif !important;
+}
 
 /* CAREER PAGE */
 .career_main {
@@ -5817,9 +5829,9 @@ span.badge.text-bg-light {
 .contact_form label {
     margin-bottom: 10px;
 }
-.contact_form textarea {
+/* .contact_form textarea {
     border: 1px solid #c0c2c2;
-}
+} */
 
 .line-height {
     line-height: 100%;

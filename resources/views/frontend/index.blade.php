@@ -885,7 +885,7 @@
 
                                     <div class="elementor-widget-container">
                                         <div class="wc-btn-wrapper style-2 text-center" style="width: 220px; margin: 0 auto">
-                                            <a href="#" class="wc-btn-group">
+                                            <a href="{{ url('products') }}" class="wc-btn-group">
                                                 <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
                                                 <span class="wc-btn-primary"> Explore More </span>
                                                 <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
@@ -1674,7 +1674,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+ 
                                 <div class="elementor-widget-container">
                                     <div
                                         class="row g-4 elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
@@ -1684,46 +1684,51 @@
                                         data-widget_type="wcf--title.default"
                                     >
                                         <div class="col-lg-6">
-                                            <form class="row">
+                                            <form class="row" action="{{ route('enquiry.submit') }}" method="post" id="enquiryForm">
+                                                @csrf
                                                 <div class="col-lg-6">
                                                     <div class="input-box">
                                                         <label for="firstName" class="form-label">First Name</label>
-                                                        <input type="text" class="form-control" id="firstName" />
+                                                        <input type="text" name="first_name" class="form-control" id="firstName" />
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="input-box">
                                                         <label for="lastName" class="form-label">Last Name</label>
-                                                        <input type="text" class="form-control" id="lastName" />
+                                                        <input type="text" name="last_name" class="form-control" id="lastName" />
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <div class="input-box">
                                                         <label for="email" class="form-label">Email</label>
-                                                        <input type="email" class="form-control" id="email" />
+                                                        <input type="email" name="email" class="form-control" id="email" />
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <div class="input-box">
                                                         <label for="phoneNumber" class="form-label">Phone Number</label>
-                                                        <input type="tel" class="form-control" id="phoneNumber" />
+                                                        <input type="tel" name="contact" class="form-control" id="phoneNumber" />
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <div class="input-box">
                                                         <label for="message" class="form-label">Message</label>
-                                                        <textarea type="textarea" class="form-control" id="message"></textarea>
+                                                        <textarea type="textarea" name="message" class="form-control" id="message"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="input-box">
                                                         <div class="elementor-widget-container">
                                                             <div class="wc-btn-wrapper style-2 text-start">
-                                                                <a href="#" class="wc-btn-group">
-                                                                    <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
-                                                                    <span class="wc-btn-primary"> Submit </span>
-                                                                    <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
-                                                                </a>
+                                                               <button type="submit" class="wc-btn-group" id="submitBtn" style="border: none; background: none; padding: 0;">
+                                                                    <span class="wc-btn-play">
+                                                                        <i class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
+                                                                    </span>
+                                                                    <span class="wc-btn-primary" id="btnText"> Send Message </span>
+                                                                    <span class="wc-btn-play">
+                                                                        <i class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
+                                                                    </span>
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1741,7 +1746,18 @@
                             <!-- Container -->
                         </section>
                     </div>
+<script>
+document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+    var btn = document.getElementById('submitBtn');
+    var btnText = document.getElementById('btnText');
 
+    // Disable the button
+    btn.disabled = true;
+
+    // Show loader inside the button
+    btnText.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+});
+</script>
                    @include('frontend.layout.footer')
                 </div>
                 <!-- #page -->
@@ -1758,7 +1774,7 @@
             </a>
         </div>
         <div class="lets-talk-box">
-            <a href="#" class="lets-talk">
+            <a href="{{ url('contact-us') }}" class="lets-talk">
                 <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
                 <span class="text"> Lets Talk </span>
                 <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>

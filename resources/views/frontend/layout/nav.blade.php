@@ -99,12 +99,13 @@
                                                                             ></path></svg></span
                                                                 ></a>
                                                                 <ul class="sub-menu">
+                                                                    @foreach($mainCategories as $mainCategory)
                                                                     <li
                                                                         id="menu-item-9436"
                                                                         class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-9436"
                                                                     >
                                                                         <a href="{{ url('/products') }}">
-                                                                            SHERA PRO
+                                                                            {{ $mainCategory->name }}
                                                                             <span class="submenu-indicator">
                                                                                 <svg
                                                                                     aria-hidden="true"
@@ -117,48 +118,18 @@
                                                                                     ></path>
                                                                                 </svg> </span
                                                                         ></a>
+                                                                        @if(!empty($subCategoriesByMain[$mainCategory->id]) && $subCategoriesByMain[$mainCategory->id]->count())
                                                                         <ul class="sub-menu">
+                                                                            @foreach($subCategoriesByMain[$mainCategory->id] as $subCategory)
                                                                             <li id="menu-item-9437" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9437">
-                                                                                <a href="">High Performance Board</a>
+                                                                                <a href="{{ route('category.products', $subCategory->seourl) }}">{{ $subCategory->name }}</a>
                                                                             </li>
-                                                                            <li id="menu-item-9438" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9438">
-                                                                                <a href="">Deco Board</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9438" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9438">
-                                                                                <a href="">Uncoloured Plank</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9438" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9438">
-                                                                                <a href="">Pre Coloured Plank</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9438" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9438">
-                                                                                <a href="">Splendid Plank</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9438" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9438">
-                                                                                <a href="">Floor Plank</a>
-                                                                            </li>
-                                                                            <li id="menu-item-9438" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9438">
-                                                                                <a href="">Skirt</a>
-                                                                            </li>
+                                                                            @endforeach                                                                            
                                                                         </ul>
+                                                                        @endif
                                                                     </li>
-                                                                    <li id="menu-item-9447" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9447">
-                                                                        <a href="{{ url('/products') }}">SHERA NEU Board</a>
-                                                                    </li>
-                                                                    <li id="menu-item-9458" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9458">
-                                                                        <a href="{{ url('/products') }}"
-                                                                            >SHERA Accessories<span class="wcf-submenu-indicator"
-                                                                                ><svg
-                                                                                    aria-hidden="true"
-                                                                                    class="e-font-icon-svg e-fas-angle-down"
-                                                                                    viewBox="0 0 320 512"
-                                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                                >
-                                                                                    <path
-                                                                                        d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
-                                                                                    ></path></svg></span
-                                                                        ></a>
-                                                                        
-                                                                    </li>
+                                                                    @endforeach
+                                                                    
                                                                 </ul>
                                                             </li>
                                                             <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">

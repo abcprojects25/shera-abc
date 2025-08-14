@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Pagination\Paginator;
 use App\Models\Categories;
+use App\Models\admin\Categories_lookups;
 use App\Models\Seo;
 
 class AppServiceProvider extends ServiceProvider
@@ -22,9 +23,27 @@ class AppServiceProvider extends ServiceProvider
 
 public function boot(): void
 {
-    View::composer('frontend.layout.header', function ($view) {
-    $view->with('categories', Categories::select('id','name','seourl')->where('type',2)->get());
-});
+   View::composer('frontend.layout.header', function ($view) {
+        // Existing project categories
+        $view->with('categories', Categories::select('id', 'name', 'seourl')
+            ->where('type', 2)
+            ->get());
+
+        // Product Categories (Main IDs)
+        $mainCategoryIds = [1, 2, 8];
+        $mainCategories = Categories::whereIn('id', $mainCategoryIds)->get();
+
+        // Fetch subcategories for each main category
+        $subCategoriesByMain = [];
+        foreach ($mainCategoryIds as $mainCategoryId) {
+            $subCategoryIds = Categories_lookups::where('category_id', $mainCategoryId)
+                ->pluck('categry_lookup');
+            $subCategoriesByMain[$mainCategoryId] = Categories::whereIn('id', $subCategoryIds)->whereNotIn('id', $mainCategoryIds)->get();
+        }
+
+        // Pass to view
+        $view->with(compact('mainCategories', 'subCategoriesByMain'));
+    });
 
      Paginator::useBootstrap();
 

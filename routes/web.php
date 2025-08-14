@@ -23,6 +23,7 @@ use App\Models\admin\Categories_lookups;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\ProductImageController;
+use App\Http\Controllers\AdminNotificationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,6 +43,12 @@ Route::group(['as' => 'laravelpwa.'], function () {
         ->name('manifest');
     Route::get('/offline/', 'LaravelPWAController@offline');
 });
+
+
+    Route::get('admin/notifications', [AdminNotificationController::class, 'index'])->name('admin.notifications.index');
+    Route::post('admin/notifications/store', [AdminNotificationController::class, 'store'])->name('admin.notifications.store');
+    Route::post('admin/notifications/{id}/update', [AdminNotificationController::class, 'update']);
+    Route::delete('admin/notifications/{id}/delete', [AdminNotificationController::class, 'destroy']);
 
 
 /* ===== Frontend Route ===== */

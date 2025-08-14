@@ -158,6 +158,7 @@ class CmsController extends Controller
     $data = DB::select("SELECT * FROM enquires ORDER BY created_at DESC");
       return view('admin.contact-us',compact('data'));
     }
+    
     public function cartenquiry(){
          $data = DB::select("
         SELECT

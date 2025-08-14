@@ -44,9 +44,9 @@
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-6">
                                     <h5>Products</h5>
-                                    <a href=""> SHERA PRO </a>
-                                    <a href=""> SHERA NEU </a>
-                                    <a href=""> SHERA Accessories </a>
+                                    <a href="{{ url('/products') }}"> SHERA PRO </a>
+                                    <a href="{{ url('/products') }}"> SHERA NEU </a>
+                                    <a href="{{ url('/products') }}"> SHERA Accessories </a>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-6">
                                     <h5>Applications</h5>
@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-6">
                                     <h5>About Us</h5>
-                                    <a href=""> Overview </a>
+                                    <a href="{{ url('/about-us') }}"> Overview </a>
                                     <a href=""> Mission Vision </a>
                                     <a href=""> Milestones </a>
                                     <a href=""> CSR </a>
@@ -73,7 +73,7 @@
                                     <a href=""> Resources </a>
                                     <a href=""> Careers </a>
                                     <a href=""> Support </a>
-                                    <a href=""> Contact Us </a>
+                                    <a href="{{ url('contact-us') }}"> Contact Us </a>
                                 </div>
                             </div>
                             <div class="row justify-content-center align-items-center last_ftr">

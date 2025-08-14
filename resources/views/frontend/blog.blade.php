@@ -154,7 +154,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    .
+                                    
                                     <div class="swiper-container">
                                         <div class="swiper project-swipper">
                                             <!-- Additional required wrapper -->
@@ -216,7 +216,7 @@
             </a>
         </div>
         <div class="lets-talk-box">
-            <a href="#" class="lets-talk">
+            <a href="{{ url('contact-us') }}" class="lets-talk">
                 <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
                 <span class="text"> Lets Talk </span>
                 <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>

@@ -68,7 +68,7 @@ $urls_list = SeoController::UrlsList();
 												<div class="form-group">
 													<label>Page URL : <span>*</span></label>
 													<div class="input-group mb-2"> 
-														<div class="input-group-prepend"> <div class="input-group-text">https://aaplsolutions.com/</div> </div>
+														<div class="input-group-prepend"> <div class="input-group-text">https://shera.com/</div> </div>
 														<input name="page_url" value="{{ $edit_data->urls }}" required="" class="form-control"  maxlength="255" type="text" id="page_url" >
 													</div>
 												</div> 

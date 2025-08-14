@@ -65,7 +65,6 @@ public function showCategoryProducts($slug)
     }
 
     $subCategory->load('applications', 'products');
-
      
     return view('frontend.deco-boards', compact('mainCategory', 'subCategory'));
 }

@@ -105,6 +105,11 @@
 			<span class="shape1"></span><span class="shape2"></span> <i class="ti-view-list-alt sidemenu-icon"></i> <span class="sidemenu-label">  Contact Us </span>
 		</a>
 	</li> 
+	<li class="nav-item">
+		<a class="nav-link" href="/admin/notifications">
+			<span class="shape1"></span><span class="shape2"></span> <i class="ti-view-list-alt sidemenu-icon"></i> <span class="sidemenu-label">Notifications </span>
+		</a>
+	</li> 
 
 
 	{{-- <li class="nav-item">
