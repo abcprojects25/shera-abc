@@ -197,7 +197,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="project-gallery">
+                                    <div class="project-carousel">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="swiper-container">

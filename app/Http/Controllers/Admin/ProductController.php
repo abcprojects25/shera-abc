@@ -796,6 +796,42 @@ public function storeApplication(Request $request)
     return redirect()->back()->with('success', 'Applications added successfully.');
 }
 
+public function update(Request $request)
+{
+    $request->validate([
+        'application_id' => 'required|exists:category_applications,id',
+        'name' => 'required|string|max:255',
+        'alt_text' => 'nullable|string|max:255',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
+
+    $app = CategoryApplication::findOrFail($request->application_id);
+    $app->name = $request->name;
+    $app->alt_text = $request->alt_text;
+
+    // Handle Image Upload
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $imageName = time() . '_image_' . $image->getClientOriginalName();
+        $image->move(public_path('uploads/images'), $imageName);
+        $app->image = 'uploads/images/' . $imageName;
+    }
+
+    // Handle Icon Upload
+    if ($request->hasFile('icon')) {
+        $icon = $request->file('icon');
+        $iconName = time() . '_icon_' . $icon->getClientOriginalName();
+        $icon->move(public_path('uploads/icons'), $iconName);
+        $app->icon = 'uploads/icons/' . $iconName;
+    }
+
+    $app->save();
+
+    return back()->with('success', 'Application updated successfully!');
+}
+
+
 
 public function storeCategoryImages(Request $request)
 {

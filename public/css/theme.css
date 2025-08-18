@@ -4261,23 +4261,10 @@ p {
 }
 .blog-page .blog-section .blog-content .blog-main-heading {
     color: #00ab4d;
-    font-size: 35px;
+    font-size: 22px;
     font-weight: 450;
     font-family: "Beatrice Trial", sans-serif;
 }
-
-.description-columns {
-  column-count: 2;
-  column-gap: 40px;
-  -webkit-column-count: 2;
-  -moz-column-count: 2;
-  -webkit-column-gap: 40px;
-  -moz-column-gap: 40px;
-  hyphens: auto;
-  word-break: break-word;
-}
-
-
 .blog-page .blog-section .blog-content .image-box {
     overflow: hidden;
     border-radius: 20px;
@@ -4300,9 +4287,9 @@ p {
     height: 350px;
 }
 .blog-page .blog-section .blog-content .image-title .title {
-    font-size: 27px;
-    /* font-style: italic; */
-    /* text-align: center; */
+    font-size: 10px;
+    font-style: italic;
+    text-align: center;
     display: block;
 }
 .blog-page .blog-section .blog-content .share-box {
@@ -4866,6 +4853,38 @@ p {
 .about-page .company-section .logo-box {
     width: 12%;
 }
+.about-page .company-section .happy-clients span {
+    margin-left: -25px;
+    transform: translateX(25px);
+    display: inline-block;
+    border: 2px solid #e9e9e9;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.about-page .company-section .happy-clients span img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.about-page .company-section .happy-clients .text-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+}
+.about-page .company-section .happy-clients .text-container .sub-heading {
+    font-weight: 800;
+    font-size: 20px;
+    color: black;
+}
+.about-page .company-section .happy-clients .text-container .shera-mini-heading {
+    color: #6c6c6c;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 1px;
+    text-transform: lowercase;
+}
 
 .about-page .company-section .image-box img {
     min-height: 200px;
@@ -4873,7 +4892,7 @@ p {
     object-fit: cover;
 }
 .about-page .company-section .col-12:nth-of-type(1) {
-    align-self: flex-end;
+    align-self: flex-start;
 }
 .about-page .company-section .col-12:nth-of-type(1) .image-box {
     padding-right: 15%;
@@ -4887,6 +4906,256 @@ p {
 .about-page .company-section .col-12:nth-of-type(3) .image-box {
     padding-top: 25%;
 }
+
+.about-page .our-team-section .heading-box {
+    width: 60%;
+    margin: 0 auto;
+}
+.about-page .our-team-section .heading-box .inner-text {
+    font-size: 55px !important;
+}
+.about-page .our-team-section .heading-box .text-box {
+    max-width: 300px;
+    margin-left: auto;
+    transform: translateX(-50%);
+}
+.about-page .our-team-section .team-carousel .team-member .image-box img {
+    border-radius: 30px;
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    object-position: top;
+    transition: 0.5s all ease;
+}
+.about-page .our-team-section .team-carousel {
+    padding-top: 60px;
+}
+.about-page .our-team-section .team-carousel .swiper-slide:nth-child(even) .team-member .image-box img {
+    margin-top: -50px;
+}
+.about-page .our-team-section .team-carousel .team-member .text-box {
+    width: 80%;
+    margin: 0 auto;
+}
+.about-page .our-team-section .team-carousel .team-member .text-box .sub-heading {
+    color: #121212;
+    font-size: 17px;
+}
+.about-page .our-team-section .team-carousel .team-member .text-box .mini-heading {
+    color: #00ab4d;
+    font-size: 14px;
+    font-weight: 500;
+}
+.about-page .our-team-section .team-carousel .team-member .text-box p {
+    font-size: 14px;
+}
+
+.about-page .guiding-principal-section {
+    padding-top: 100px !important;
+}
+.about-page .guiding-principal-section .image-box {
+    height: 100%;
+}
+.about-page .guiding-principal-section .image-box img {
+    height: 100%;
+    object-fit: cover;
+}
+.about-page .guiding-principal-section .content-wrapper {
+    padding-block: 100px;
+}
+.about-page .guiding-principal-section .text-box {
+    padding-inline: 8%;
+    background: #f5f5f5;
+    height: 100%;
+    padding-block: 8%;
+    transform: translateX(-100px);
+}
+.about-page .guiding-principal-section .text-box .inner-text {
+    font-size: 50px !important;
+}
+.about-page .guiding-principal-section .text-box .list-item {
+    border-bottom: 2px solid #dedede;
+    padding: 20px 0px;
+    display: flex;
+    align-items: unset;
+    gap: 15px;
+    color: #212529;
+}
+.about-page .guiding-principal-section .text-box .list-item .shera-list-icon {
+    width: 25px;
+    height: 25px;
+    padding: 1px;
+}
+.about-page .guiding-principal-section .text-box .list-item .shera-list-icon img {
+    width: 12px;
+}
+.about-page .guiding-principal-section .text-box .list-item .shera-list-icon ~ span {
+    width: calc(100% - 40px);
+}
+
+.about-page .our-client-section {
+    border-block: 1px solid #ebebeb;
+    margin-block: 100px;
+    padding-block: 30px;
+    margin-bottom: 0;
+}
+.about-page .our-client-section .swiper-wrapper {
+    -webkit-transition-timing-function: linear !important;
+    transition-timing-function: linear !important;
+}
+
+.about-page .our-journey {
+    position: relative;
+}
+.about-page .our-journey .journey-wrapper {
+    position: absolute;
+    width: 30%;
+    height: 100%;
+}
+.about-page .our-journey .journey-wrapper .heading-icon {
+    width: 100%;
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: space-between;
+    z-index: 3;
+    background: white;
+}
+.about-page .our-journey .fixed-image-box {
+    /* transform: translateY(45%); */
+    transform: translateY(-100px);
+    border: 1px solid #00ab4d;
+    border-radius: 50%;
+    padding: 50px;
+    z-index: 2;
+    width: 50%;
+}
+.about-page .our-journey .carousel-wrapper {
+    width: 68%;
+    margin: 0;
+    margin-left: auto;
+}
+.about-page .our-journey .journey-carousel {
+    position: relative;
+    padding-block: 100px;
+    padding-bottom: 10px;
+}
+.about-page .our-journey .journey-carousel::after {
+    content: "";
+    position: absolute;
+    bottom: 9px;
+    left: 0;
+    width: 100%;
+    background: #00ab4d;
+    height: 2px;
+}
+
+.about-page .our-journey .journey-carousel .swiper-wrapper {
+    width: fit-content;
+}
+
+.about-page .our-journey .journey-carousel .swiper-slide .timeline-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    padding-top: 120px;
+
+    transition: 0.5s all ease;
+}
+.about-page .our-journey .journey-carousel .swiper-slide .timeline-wrapper .text-box {
+    transform: translateY(-40px);
+    opacity: 0.5;
+    transition: 0.5s all ease;
+}
+.about-page .our-journey .journey-carousel .swiper-slide.swiper-slide-active .timeline-wrapper .text-box {
+    opacity: 1;
+}
+/* 
+.about-page .our-journey .journey-carousel .swiper-slide:nth-child(even) .timeline-wrapper {
+    position: absolute;
+    transform: translateY(100%);
+    top: 100%;
+    padding-top: 0;
+    padding-bottom: 70px;
+}
+
+.about-page .our-journey .journey-carousel .swiper-slide:nth-child(even) .timeline-wrapper .text-box {
+    transform: translateY(40px);
+} */
+
+.about-page .our-journey .journey-carousel .swiper-slide .text-box .sub-heading {
+    font-size: 40px;
+    color: #121212;
+    margin-bottom: 20px;
+    transition: 0.5s all ease;
+}
+.about-page .our-journey .journey-carousel .swiper-slide.swiper-slide-active .text-box .sub-heading {
+    font-size: 40px;
+    color: #00ab4d;
+    margin-bottom: 20px;
+}
+.about-page .our-journey .journey-carousel .swiper-slide .line-box {
+    height: 130px;
+    width: 2px;
+    background-color: #626262;
+    position: relative;
+    transition: 0.5s all ease;
+}
+
+.about-page .our-journey .journey-carousel .swiper-slide.swiper-slide-active .timeline-wrapper {
+    padding-top: 0;
+    opacity: 1;
+}
+/* .about-page .our-journey .journey-carousel .swiper-slide.swiper-slide-active:nth-child(even) .timeline-wrapper {
+    padding-bottom: 0;
+} */
+
+.about-page .our-journey .journey-carousel .swiper-slide.swiper-slide-active .line-box {
+    height: 250px;
+    background-color: #00ab4d;
+}
+.about-page .our-journey .journey-carousel .swiper-slide .line-box::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transform: translate(-50%, 50%);
+    background: #626262;
+    transition: 0.5s all ease;
+}
+.about-page .our-journey .journey-carousel .swiper-slide.swiper-slide-active .line-box::after {
+    background-color: #00ab4d;
+}
+/* .about-page .our-journey .journey-carousel .swiper-slide:nth-child(even) .line-box::after {
+    top: 0;
+    transform: translate(-50%, -50%);
+    bottom: unset;
+} */
+.about-page .vision-section .image-box img {
+    transform: translateX(-5px);
+}
+.about-page .vision-section .vision-text {
+    padding: 40px;
+    background: #00ab4d;
+    border-radius: 20px;
+}
+.about-page .vision-section .vision-text .vision-heading {
+    font-family: "Beatrice Trial", sans-serif;
+    font-style: normal;
+    font-weight: 650;
+    font-size: 45px;
+    text-transform: uppercase;
+    line-height: 130%;
+    letter-spacing: 0.5px;
+    color: white;
+}
+
 /* about us page end */
 h4.shera-brown {
     color: #6d451b !important;
@@ -4970,7 +5239,6 @@ h4.shera-brown {
 .contact_form_1 {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
 }
 .contact_form_heading {
     width: 100%;
@@ -4995,28 +5263,21 @@ h4.shera-brown {
     margin: 20px 0;
 }
 
-form .form-control {
-    border: 0;
-    display: block;
-    width: 100%;
-    font-size: 14px;
-    color: #696969;
-    padding-block: 5px;
-    transition: 0.5s all ease;
-    border-bottom: 1px solid #00ab4d3f;
+.contact_form_right {
+    padding-bottom: 100px;
 }
 
-.contact_form_right form input {
-    padding: 0px 10px;
-    height: 70px;
-    font-family: "Beatrice Trial", sans-serif !important;
+/* .contact_form_right form input {
+  padding: 0px 10px;
+  height: 70px;
+  font-family: "Beatrice Trial", sans-serif !important;
 }
 
 .contact_form_right form textarea {
-    padding: 0px 10px;
-    height: 90px;
-    font-family: "Beatrice Trial", sans-serif !important;
-}
+  padding: 0px 10px;
+  height: 90px;
+  font-family: "Beatrice Trial", sans-serif !important;
+} */
 
 /* CAREER PAGE */
 .career_main {
@@ -5069,7 +5330,11 @@ form .form-control {
 
 .contact_form {
     padding: 20px 0;
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
+}
+
+.contact_form_right p {
+    font-family: "Beatrice Trial", sans-serif !important;
 }
 
 /* MAP DESIGN  */
@@ -5078,7 +5343,7 @@ form .form-control {
     background-color: gray;
     color: #000;
     margin: 20px 0px;
-    height: 50vh;
+    height: 100vh;
     width: 100%;
 }
 
@@ -5087,21 +5352,30 @@ form .form-control {
 }
 
 ul.nav.nav-tabs {
-    margin: 50px 0px;
+    /* margin: 50px 0px; */
     display: flex;
     gap: 50px;
+    margin-bottom: 30px;
 }
 
 ul.nav.nav-tabs li a.nav-link {
-    border-radius: 0px;
+    border-radius: 5px;
     border: 1px solid #000;
     color: #000;
     font-size: 20px;
     font-weight: 700;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    -ms-border-radius: 0px;
-    -o-border-radius: 0px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+ul.nav.nav-tabs li {
+    /* width: 180px; */
+    text-align: center;
+    border-radius: 53px;
+    width: 100%;
+    max-width: 180px;
 }
 
 ul.nav.nav-tabs li a.nav-link.active {
@@ -5110,78 +5384,71 @@ ul.nav.nav-tabs li a.nav-link.active {
     background-color: #00ab4d;
 }
 
-.card {
-    height: 180px !important;
-    /*border: 1px solid #00ab4d;
-  */
-    padding: 40px 25px;
-    /* background-color: #ddd; */
-    background-color: #00ab4d;
-    color: #fff;
-    font-family: "Beatrice Trial", sans-serif !important;
-    border-radius: 2px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
+/* .card {
+  height: 180px !important;
+  border: 1px solid #00ab4d;
+  padding: 40px 25px;
+  background-color: #ddd;
+  background-color: #00ab4d;
+  color: #fff;
+  font-family: "Beatrice Trial", sans-serif !important;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
 }
 
 .card-info {
-    position: relative;
-    padding: 0px 20px;
-    display: flex;
-    /* flex-direction: column; */
-    align-items: center;
-    justify-content: space-between;
-    /* gap: 30px; */
+  position: relative;
+  padding: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
 }
 
 .card-head h5 {
-    font-weight: 800;
+  font-weight: 800;
 }
 
 .card-body {
-    display: flex;
-    /* align-items: center; */
-    justify-content: space-between;
-    margin: 10px 0px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0px 0px;
 }
 
 .map-icon {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.card-title {
-    /* font-weight: 600; */
-}
-.card-text {
-    /* font-weight: 600; */
-}
 
 .card-address span {
-    padding: 0 20px;
-    display: inline-block;
-    max-width: 400px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    cursor: pointer;
-    /* font-weight: 800; */
+  padding: 0 20px;
+  display: inline-block;
+  max-width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  font-weight: 800;
 }
 
 .location {
-    color: #fff;
-    font-weight: 600;
+  color: #fff;
+  font-weight: 600;
 }
 
 .location:hover {
-    border-bottom: 2px solid #000;
-    color: #000;
-    font-weight: 600;
-    cursor: pointer;
-}
+  border-bottom: 2px solid #000;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+} */
 
 .swiper-button-prev,
 .swiper-button-next {
@@ -5213,6 +5480,168 @@ ul.nav.nav-tabs li a.nav-link.active {
 .swiper-button-next {
   right: -30px;
 } */
+
+/* OUR CURRENT DEALER */
+.card-address {
+    display: flex;
+    font-size: 12px;
+    text-align: start;
+    align-items: center;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+.card-title {
+    font-family: "Beatrice Trial", sans-serif;
+    color: #00ab4d;
+    font-weight: 800;
+}
+.card-title span,
+.card-text-heading span {
+    margin-left: 5px;
+}
+
+.card-heading {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.card-username,
+.card-number {
+    font-family: "Beatrice Trial", sans-serif;
+}
+.card-username {
+    text-align: start;
+    margin-bottom: 15px;
+}
+.card-number {
+    text-align: start;
+    /* margin-bottom: 15px; */
+}
+.card_btn_container .location {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 35px;
+    height: 35px;
+    background-color: #00ab4d;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.card_btn_container .view {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 35px;
+    height: 35px;
+    background-color: #00ab4d;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.card_btn_container button i {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(50%, 0%);
+    -webkit-transform: translate(50%, 0%);
+    -moz-transform: translate(50%, 0%);
+    -ms-transform: translate(50%, 0%);
+    -o-transform: translate(50%, 0%);
+}
+
+.card_btn_container .view i {
+    font-size: 16px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(50%, 0%);
+    -webkit-transform: translate(50%, 0%);
+    -moz-transform: translate(50%, 0%);
+    -ms-transform: translate(50%, 0%);
+    -o-transform: translate(50%, 0%);
+}
+
+.card-paragraph {
+    width: 100% !important;
+    text-align: start;
+    font-size: 14px;
+}
+
+.swiper.mySwiper {
+    width: 100%;
+    max-height: 700px;
+}
+
+.swiper-slide.current-dealer-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin-bottom: 0px !important;
+    height: 200px !important;
+}
+
+.card.current-location-dealer-card-container {
+    width: 85%;
+    max-height: 500px !important;
+    margin: 10px auto;
+    background-color: #ecebeb;
+    border: none !important;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
+    padding: 10px 10px;
+    position: relative;
+    margin-top: 10px;
+}
+.swiper-pagination.current-dealer-location-pagination {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00ab4d !important;
+}
+
+.swiper-pagination.current-dealer-location-pagination .swiper-pagination-bullet-active {
+    opacity: var(--swiper-pagination-bullet-opacity, 1);
+    background: #00ab4d !important;
+}
+
+.card-title {
+    text-align: start;
+}
+/* .card-heading-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+} */
+
+.card-heading-container .card-text-heading {
+    font-family: "Beatrice Trial", sans-serif;
+    font-size: 14px !important;
+    text-align: start;
+    margin-top: 20px;
+}
 
 .job__area {
     background-color: var(--black-2);
@@ -5829,9 +6258,9 @@ span.badge.text-bg-light {
 .contact_form label {
     margin-bottom: 10px;
 }
-/* .contact_form textarea {
+.contact_form textarea {
     border: 1px solid #c0c2c2;
-} */
+}
 
 .line-height {
     line-height: 100%;
@@ -6012,6 +6441,11 @@ span.badge.text-bg-light {
     justify-content: center;
 
     /* background-color: ; */
+}
+
+.contact_form_heading .contact_form_para {
+    font-size: 18px;
+    width: 55%;
 }
 
 @media (max-width: 768px) {

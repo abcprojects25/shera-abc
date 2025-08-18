@@ -95,7 +95,15 @@
         @if($applications->isNotEmpty())
             <ul class="list-unstyled mt-2 mb-2" style="max-height: 120px; overflow-y: auto;">
                 @foreach($applications as $app)
-                    <li class="badge badge-info mb-1">{{ $app->name }}</li>
+                    <li class="badge badge-info mb-1">{{ $app->name }}
+                         <button type="button" 
+                    class="btn btn-sm btn-warning" 
+                    data-toggle="modal" 
+                    data-target="#editApplicationModal" 
+                    onclick="openEditAppModal({{ $app->id }}, '{{ $app->name }}', '{{ $app->alt_text }}')">
+                Edit
+            </button>
+                    </li>
                 @endforeach
             </ul>
         @else
@@ -353,6 +361,53 @@ document.getElementById('category_name').addEventListener('input', function() {
   </div>
 </div>
 
+<!-- Edit Application Modal -->
+<div class="modal fade" id="editApplicationModal" tabindex="-1" role="dialog" aria-labelledby="editApplicationModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form action="{{ route('update.application') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+        <input type="hidden" name="application_id" id="edit_application_id">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Application</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Application Name</label>
+                    <input type="text" name="name" id="edit_application_name" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Image (Leave empty if not changing)</label>
+                    <input type="file" name="image" class="form-control-file">
+                </div>
+
+                <div class="form-group">
+                    <label>Icon (Leave empty if not changing)</label>
+                    <input type="file" name="icon" class="form-control-file">
+                </div>
+
+                <div class="form-group">
+                    <label>Alt Text</label>
+                    <input type="text" name="alt_text" id="edit_application_alt_text" class="form-control">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Update Application</button>
+            </div>
+        </div>
+    </form>
+  </div>
+</div>
+<script>
+function openEditAppModal(id, name, alt_text) {
+    document.getElementById('edit_application_id').value = id;
+    document.getElementById('edit_application_name').value = name;
+    document.getElementById('edit_application_alt_text').value = alt_text;
+}
+</script>
 
 
 
@@ -522,14 +577,10 @@ $('#categorieseditmodal').on('hidden.bs.modal', function () {
             <input type="hidden" name="seourl" id="seourl_subcategory" value="">
 
             <div class="form-group">
-                <label>Current Image:</label>
-                <div class="mb-2">
-                    <img id="current_category_img" src="" alt="Category Image" style="max-width: 200px; max-height: 200px; display: none;">
-                    <input type="hidden" id="existing_image" name="existing_image" value="">
-                </div>
-                <label>Change Image:</label>
-                <input type="file" name="category_img" class="form-control-file" id="edit_category_img" accept="image/*">
-                <small class="form-text text-muted">Leave blank to keep current image</small>
+                
+                <label>Upload Image:</label>
+                <input type="file" name="category_img" class="form-control-file" id="category_img" accept="image/*">
+                <!-- <small class="form-text text-muted">Leave blank to keep current image</small> -->
             </div>
 
             <div class="form-group">

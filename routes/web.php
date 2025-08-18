@@ -70,12 +70,14 @@ Route::get('/contact-us', function () {
     return view('frontend.contact-us');
 });
 
+
 Route::post('/submit-enquiry', [CmsController::class, 'storeEnquiry'])->name('enquiry.submit');
 Route::post('/products/images/store', [ProductImageController::class, 'store'])->name('admin.products.images.store');
 Route::get('/products', [ProductController::class, 'userProductPage'])->name('frontend.products');
 
 Route::post('/admin/store-application', [ProductController::class, 'storeApplication'])->name('store.application');
 Route::post('/admin/category-images/store', [ProductController::class, 'storeCategoryImages'])->name('admin.category_images.store');
+Route::put('/admin/applications/update', [ProductController::class, 'update'])->name('update.application');
 
 Route::post('/admin/store-ProductApplication', [ProductController::class, 'storeProductApplication'])->name('store.ProductApplication');
 Route::post('/admin/product-images/store', [ProductController::class, 'storeProductImages'])->name('admin.product_images.store');

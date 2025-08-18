@@ -159,7 +159,7 @@ document.getElementById('editNotificationForm').addEventListener('submit', funct
         }
     });
 });
-
+    
 // Delete Notification
 document.querySelectorAll('.delete-btn').forEach(btn => {
     btn.addEventListener('click', function(){

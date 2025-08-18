@@ -66,14 +66,24 @@ $page_head = ucwords($page_head);
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet" />
+        <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+    />
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
         <link rel="stylesheet" id="wpo_min-header-0-css" href="{{ asset('css/wpo-minify-header-49bab0b4.min.css?ver=02') }}" type="text/css" media="all" />
         <link rel="stylesheet" id="wpo_min-header-0-css" href="{{ asset('css/wpo-minify-header-8839aa18.min.css?ver=02') }}" type="text/css" media="all" />
         <link rel="stylesheet" href="{{ asset('css/theme.css?ver=02') }}" type="text/css" media="all" />
-
+ <link rel="stylesheet" href="{{ asset('css/magnify.css') }}" />
         <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}" id="jquery-core-js"></script>
         <script type="text/javascript" src="{{ asset('js/jquery-migrate.min.js') }}" id="jquery-migrate-js"></script>
+        <script
+      type="text/javascript"
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      id="jquery-ui-core-js"
+    ></script>
            
         <style id="arolax-theme-global-css">
             @media (max-width: 767.98px) {

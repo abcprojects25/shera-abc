@@ -1,8 +1,13 @@
 <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="ie ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="ie ie9 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
 <html class="no-js" lang="en">
-   
+    <!--<![endif]-->
 
-   @include('frontend.layout.header')
+    @include('frontend.layout.header')
 
                     <div data-elementor-type="wp-page" data-elementor-id="34" class="elementor elementor-34">
                         <div class="inner-page about-page">
@@ -44,24 +49,39 @@
                                             </h2>
                                         </div>
                                         <div class="logo-box">
-                                            <img src="./img/logo-alt.png" alt="" />
+                                            <img src="./img/logo-india.png" alt="" />
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-12 col-lg-4">
-                                            <div class="image-box">
-                                                <img src="./img/about-us/about-company/about-demo.webp" alt="" />
+                                            <div class="happy-clients">
+                                                <div class="images-container mb-4">
+                                                    <span>
+                                                        <img src="./img/clients/prestige.png" alt="" />
+                                                    </span>
+                                                    <span>
+                                                        <img src="./img/clients/dlf.png" alt="" />
+                                                    </span>
+                                                    <span>
+                                                        <img src="./img/clients/sobha.png" alt="" />
+                                                    </span>
+                                                </div>
+                                                <div class="text-container">
+                                                    <h4 class="sub-heading">140K +</h4>
+                                                    <h4 class="shera-mini-heading">
+                                                        happy <br />
+                                                        clients of <br />
+                                                        our Service
+                                                    </h4>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-4">
                                             <div class="text-content">
-                                                <p class="mb-6">
-                                                    Founded in 1974 in Bangkok, Thailand, The SHERA Public Company Limited has become a leading manufacturer of unique and eco-friendly Fibre-Cement
-                                                    products.
-                                                </p>
+                                                <p class="mb-6">SHERA began its journey in India in 2005 by introducing an innovative range of Fibre-Cement products.</p>
                                                 <div class="lerp-button">
                                                     <div class="button-box">
-                                                        <a href="" class="button">
+                                                        <a href="" class="button scroll-to-journey">
                                                             Scroll <br />
                                                             Down
                                                         </a>
@@ -78,11 +98,629 @@
                                     </div>
                                 </div>
                             </section>
+                            <section class="counter">
+                                <div class="container">
+                                    <div class="row align-center justify-content-middle">
+                                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                            <div
+                                                class="elementor-element elementor-element-946b02c e-con-full e-flex e-con e-child"
+                                                data-id="946b02c"
+                                                data-element_type="container"
+                                                data-settings='{"wcf_enable_cursor_hover_effect_text":"View","wcf-animation":"none"}'
+                                            >
+                                                <div
+                                                    class="elementor-element elementor-element-7d0fae9 wcf-t-animation-text_move elementor-widget elementor-widget-wcf--title"
+                                                    data-id="7d0fae9"
+                                                    data-element_type="widget"
+                                                    data-settings='{"text_transform_origin":"top center -50","wcf_text_animation":"text_move","text_delay":0.15,"text_duration":1,"text_stagger":0.02,"text_on_scroll":"yes","text_rotation_di":"x","text_rotation":"-80","wcf-animation":"none"}'
+                                                    data-widget_type="wcf--title.default"
+                                                >
+                                                    <div class="elementor-widget-container">
+                                                        <h4 class="wcf--title">SHera by Numbers</h4>
+                                                        <h2 class="wcf--title alt">Building the <br />Future</h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                            <img src="img/pattern.png" class="img-fluid pattern" />
+                                        </div>
+                                    </div>
+                                    <!-- Row -->
+                                    <div class="row counter_sec">
+                                        <div class="col-lg-3 col-md-3 col-sm-6">
+                                            <div
+                                                class="elementor-element elementor-element-c97cb54 wcf-position-column elementor-widget elementor-widget-wcf--counter"
+                                                data-id="c97cb54"
+                                                data-element_type="widget"
+                                                data-settings='{"wcf-animation":"fade","ease":"bounce","fade-offset":100,"delay":0.15,"on-scroll":1,"fade-from":"bottom","data-duration":1.5}'
+                                                data-widget_type="wcf--counter.default"
+                                            >
+                                                <div class="elementor-widget-container">
+                                                    <div class="wcf--counter">
+                                                        <div class="count">
+                                                            <span class="wcf--counter-number-prefix"></span>
+                                                            <span class="wcf--counter-number" data-duration="2000" data-to-value="50" data-from-value="0" data-delimiter=",">0</span>
+                                                            <span class="wcf--counter-number-suffix">+</span>
+                                                        </div>
+                                                        <div class="title">
+                                                            Years <br />
+                                                            experience
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-6">
+                                            <div
+                                                class="elementor-element elementor-element-0183b8a wcf-position-column elementor-widget elementor-widget-wcf--counter"
+                                                data-id="0183b8a"
+                                                data-element_type="widget"
+                                                data-settings='{"wcf-animation":"fade","delay":0.25,"ease":"bounce","fade-offset":100,"on-scroll":1,"fade-from":"bottom","data-duration":1.5}'
+                                                data-widget_type="wcf--counter.default"
+                                            >
+                                                <div class="elementor-widget-container">
+                                                    <div class="wcf--counter">
+                                                        <div class="count">
+                                                            <span class="wcf--counter-number-prefix"></span>
+                                                            <span class="wcf--counter-number" data-duration="2000" data-to-value="20" data-from-value="0" data-delimiter=",">0</span>
+                                                            <span class="wcf--counter-number-suffix">+</span>
+                                                        </div>
+                                                        <div class="title">Years as India’s Premier Fibre Cement Brand</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-6">
+                                            <div
+                                                class="elementor-element elementor-element-0ba0e80 wcf-position-column elementor-widget elementor-widget-wcf--counter"
+                                                data-id="0ba0e80"
+                                                data-element_type="widget"
+                                                data-settings='{"wcf-animation":"fade","delay":0.35,"ease":"bounce","fade-offset":100,"on-scroll":1,"fade-from":"bottom","data-duration":1.5}'
+                                                data-widget_type="wcf--counter.default"
+                                            >
+                                                <div class="elementor-widget-container">
+                                                    <div class="wcf--counter">
+                                                        <div class="count">
+                                                            <span class="wcf--counter-number-prefix"></span>
+                                                            <span class="wcf--counter-number" data-duration="2000" data-to-value="40" data-from-value="0" data-delimiter=",">0</span>
+                                                            <span class="wcf--counter-number-suffix">+</span>
+                                                        </div>
+                                                        <div class="title">Countries Presences</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-6">
+                                            <div
+                                                class="elementor-element elementor-element-f8e9911 wcf-position-column elementor-widget elementor-widget-wcf--counter"
+                                                data-id="f8e9911"
+                                                data-element_type="widget"
+                                                data-settings='{"wcf-animation":"fade","delay":0.5,"ease":"bounce","on-scroll":1,"fade-from":"bottom","data-duration":1.5,"fade-offset":50}'
+                                                data-widget_type="wcf--counter.default"
+                                            >
+                                                <div class="elementor-widget-container">
+                                                    <div class="wcf--counter">
+                                                        <div class="count">
+                                                            <span class="wcf--counter-number-prefix"></span>
+                                                            <span class="wcf--counter-number" data-duration="2000" data-to-value="5" data-from-value="0" data-delimiter=",">0</span>
+                                                            <span class="wcf--counter-number-suffix">Lakhs +</span>
+                                                        </div>
+                                                        <div class="title">Project completed</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-6">
+                                            <div
+                                                class="elementor-element elementor-element-f8e9911 wcf-position-column elementor-widget elementor-widget-wcf--counter"
+                                                data-id="f8e9911"
+                                                data-element_type="widget"
+                                                data-settings='{"wcf-animation":"fade","delay":0.5,"ease":"bounce","on-scroll":1,"fade-from":"bottom","data-duration":1.5,"fade-offset":50}'
+                                                data-widget_type="wcf--counter.default"
+                                            >
+                                                <div class="elementor-widget-container">
+                                                    <div class="wcf--counter">
+                                                        <div class="count">
+                                                            <span class="wcf--counter-number-prefix"></span>
+                                                            <span class="wcf--counter-number" data-duration="2000" data-to-value="3" data-from-value="0" data-delimiter=",">0</span>
+                                                            <span class="wcf--counter-number-suffix"></span>
+                                                        </div>
+                                                        <div class="title">Manufacturing Plant</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Row -->
+                                </div>
+                                <!-- Container -->
+                            </section>
+                            <section class="section vision-section">
+                                <div class="container-fluid px-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-7">
+                                            <div class="image-box">
+                                                <img src="./img/about-us/vision/vision.webp" alt="" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-5">
+                                            <div class="heading-box mb-4">
+                                                <div
+                                                    class="elementor-element elementor-element-946b02c e-con-full e-flex e-con e-child"
+                                                    data-id="946b02c"
+                                                    data-element_type="container"
+                                                    data-settings='{"wcf_enable_cursor_hover_effect_text":"View","wcf-animation":"none"}'
+                                                >
+                                                    <div
+                                                        class="elementor-element elementor-element-7d0fae9 wcf-t-animation-text_move elementor-widget elementor-widget-wcf--title"
+                                                        data-id="7d0fae9"
+                                                        data-element_type="widget"
+                                                        data-settings='{"text_transform_origin":"top center -50","wcf_text_animation":"text_move","text_delay":2.15,"text_duration":1,"text_stagger":0.02,"text_on_scroll":"yes","text_rotation_di":"x","text_rotation":"-80","wcf-animation":"none"}'
+                                                        data-widget_type="wcf--title.default"
+                                                    >
+                                                        <div class="elementor-widget-container">
+                                                            <h4 class="wcf--title">Clarity in Every Step</h4>
+                                                            <h2 class="wcf--title alt">SHERA Vision</h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="vision-text">
+                                                <h4 class="vision-heading">No.1 Innovative, Light-weight & Fast-built Solutions In The World</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="section our-journey" id="ourJourney">
+                                <div class="container">
+                                    <div class="journey-wrapper d-flex">
+                                        <div class="heading-icon">
+                                            <div class="heading-box mb-5">
+                                                <h4 class="wcf--title">Decades of Distinction</h4>
+                                                <h2 class="inner-text wcf--title alt">SHERA’s journey <br /></h2>
+                                            </div>
+                                            <div class="fixed-image-box">
+                                                <img src="./img/50year.png" alt="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-wrapper">
+                                    <div class="swiper journey-carousel">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div class="timeline-wrapper">
+                                                    <div class="text-box">
+                                                        <h3 class="sub-heading">1974</h3>
+                                                        <p class="shera-para description">
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nisi distinctio placeat, sint id possimus molestias animi enim reprehenderit
+                                                            perspiciatis!
+                                                        </p>
+                                                    </div>
+                                                    <div class="line-box"></div>
+                                                    <!-- <div class="imge-box">
+                                                                <img src="./img/clients/sobha.png" alt="" />
+                                                            </div> -->
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="timeline-wrapper">
+                                                    <div class="text-box">
+                                                        <h3 class="sub-heading">1974</h3>
+                                                        <p class="shera-para description">
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nisi distinctio placeat, sint id possimus molestias animi enim reprehenderit
+                                                            perspiciatis!
+                                                        </p>
+                                                    </div>
+                                                    <div class="line-box"></div>
+                                                    <!-- <div class="imge-box">
+                                                                <img src="./img/clients/sobha.png" alt="" />
+                                                            </div> -->
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="timeline-wrapper">
+                                                    <div class="text-box">
+                                                        <h3 class="sub-heading">1974</h3>
+                                                        <p class="shera-para description">
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nisi distinctio placeat, sint id possimus molestias animi enim reprehenderit
+                                                            perspiciatis!
+                                                        </p>
+                                                    </div>
+                                                    <div class="line-box"></div>
+                                                    <!-- <div class="imge-box">
+                                                                <img src="./img/clients/sobha.png" alt="" />
+                                                            </div> -->
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="timeline-wrapper">
+                                                    <div class="text-box">
+                                                        <h3 class="sub-heading">1974</h3>
+                                                        <p class="shera-para description">
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nisi distinctio placeat, sint id possimus molestias animi enim reprehenderit
+                                                            perspiciatis!
+                                                        </p>
+                                                    </div>
+                                                    <div class="line-box"></div>
+                                                    <!-- <div class="imge-box">
+                                                                <img src="./img/clients/sobha.png" alt="" />
+                                                            </div> -->
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="timeline-wrapper">
+                                                    <div class="text-box">
+                                                        <h3 class="sub-heading">1974</h3>
+                                                        <p class="shera-para description">
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nisi distinctio placeat, sint id possimus molestias animi enim reprehenderit
+                                                            perspiciatis!
+                                                        </p>
+                                                    </div>
+                                                    <div class="line-box"></div>
+                                                    <!-- <div class="imge-box">
+                                                                <img src="./img/clients/sobha.png" alt="" />
+                                                            </div> -->
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="timeline-wrapper">
+                                                    <div class="text-box">
+                                                        <h3 class="sub-heading">1974</h3>
+                                                        <p class="shera-para description">
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nisi distinctio placeat, sint id possimus molestias animi enim reprehenderit
+                                                            perspiciatis!
+                                                        </p>
+                                                    </div>
+                                                    <div class="line-box"></div>
+                                                    <!-- <div class="imge-box">
+                                                                <img src="./img/clients/sobha.png" alt="" />
+                                                            </div> -->
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="timeline-wrapper">
+                                                    <div class="text-box">
+                                                        <h3 class="sub-heading">1974</h3>
+                                                        <p class="shera-para description">
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nisi distinctio placeat, sint id possimus molestias animi enim reprehenderit
+                                                            perspiciatis!
+                                                        </p>
+                                                    </div>
+                                                    <div class="line-box"></div>
+                                                    <!-- <div class="imge-box">
+                                                                <img src="./img/clients/sobha.png" alt="" />
+                                                            </div> -->
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="timeline-wrapper">
+                                                    <div class="text-box">
+                                                        <h3 class="sub-heading">1974</h3>
+                                                        <p class="shera-para description">
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nisi distinctio placeat, sint id possimus molestias animi enim reprehenderit
+                                                            perspiciatis!
+                                                        </p>
+                                                    </div>
+                                                    <div class="line-box"></div>
+                                                    <!-- <div class="imge-box">
+                                                                <img src="./img/clients/sobha.png" alt="" />
+                                                            </div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="section guiding-principal-section p-0">
+                                <div class="container-fluid px-0">
+                                    <div class="row">
+                                        <div class="col-lg-6 p-0">
+                                            <div class="image-box">
+                                                <img src="./img/shera-applications/external-cladding.jpg" alt="" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 p-0">
+                                            <div class="content-wrapper">
+                                                <div class="text-box">
+                                                    <div class="heading-box mb-5">
+                                                        <h4 class="wcf--title">Buid Better, Live Better</h4>
+                                                        <h2 class="inner-text wcf--title alt">
+                                                            Our Guiding <br />
+                                                            Principal
+                                                        </h2>
+                                                    </div>
+                                                    <ul class="principles-list">
+                                                        <li class="list-item">
+                                                            <div class="shera-list-icon">
+                                                                <img src="./img/products-page/shera-pro/list-icon.png" alt="" />
+                                                            </div>
+                                                            <span> Durable, sustainable, and versatile products with high-quality finishes </span>
+                                                        </li>
+                                                        <li class="list-item">
+                                                            <div class="shera-list-icon">
+                                                                <img src="./img/products-page/shera-pro/list-icon.png" alt="" />
+                                                            </div>
+                                                            <span> Enhances quality of life through superior craftsmanship & green innovation </span>
+                                                        </li>
+                                                        <li class="list-item">
+                                                            <div class="shera-list-icon">
+                                                                <img src="./img/products-page/shera-pro/list-icon.png" alt="" />
+                                                            </div>
+                                                            <span> Supports environmental sustainability while offering excellent value </span>
+                                                        </li>
+                                                        <li class="list-item">
+                                                            <div class="shera-list-icon">
+                                                                <img src="./img/products-page/shera-pro/list-icon.png" alt="" />
+                                                            </div>
+                                                            <span> Lightweight materials reduce structural load for faster & more efficient construction </span>
+                                                        </li>
+                                                        <li class="list-item">
+                                                            <div class="shera-list-icon">
+                                                                <img src="./img/products-page/shera-pro/list-icon.png" alt="" />
+                                                            </div>
+                                                            <span> Easy to transport, handle, and install, saving time & labor </span>
+                                                        </li>
+                                                        <li class="list-item">
+                                                            <div class="shera-list-icon">
+                                                                <img src="./img/products-page/shera-pro/list-icon.png" alt="" />
+                                                            </div>
+                                                            <span> Cost-effective solutions without sacrificing strength or aesthetics </span>
+                                                        </li>
+                                                        <li class="list-item">
+                                                            <div class="shera-list-icon">
+                                                                <img src="./img/products-page/shera-pro/list-icon.png" alt="" />
+                                                            </div>
+                                                            <span> Committed to building better & more sustainable structures </span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="section our-client-section">
+                                <div class="container-fluid px-0">
+                                    <!-- Slider main container -->
+                                    <div class="swiper client-carousel">
+                                        <!-- Additional required wrapper -->
+                                        <div class="swiper-wrapper">
+                                            <!-- Slides -->
+                                            <div class="swiper-slide">
+                                                <div class="imge-box">
+                                                    <img src="./img/clients/adani.png" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="imge-box">
+                                                    <img src="./img/clients/brigade.png" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="imge-box">
+                                                    <img src="./img/clients/dlf.png" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="imge-box">
+                                                    <img src="./img/clients/embassy.png" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="imge-box">
+                                                    <img src="./img/clients/godrej.png" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="imge-box">
+                                                    <img src="./img/clients/lodha.png" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="imge-box">
+                                                    <img src="./img/clients/lt_realty.png" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="imge-box">
+                                                    <img src="./img/clients/mahindra.png" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="imge-box">
+                                                    <img src="./img/clients/prestige.png" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="imge-box">
+                                                    <img src="./img/clients/shapoorji.png" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="imge-box">
+                                                    <img src="./img/clients/sobha.png" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="imge-box">
+                                                    <img src="./img/clients/tata_housing.png" alt="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="section our-team-section">
+                                <div class="container">
+                                    <div class="heading-box">
+                                        <h4 class="wcf--title">Board of Directors</h4>
+                                        <h2 class="inner-text wcf--title alt mb-5">The strength behind <span class="shera-green">Shera's</span> success</h2>
+                                        <div class="text-box">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus saepe voluptatem.</p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-container mt-7">
+                                        <!-- Slider main container -->
+                                        <div class="swiper team-carousel">
+                                            <!-- Additional required wrapper -->
+                                            <div class="swiper-wrapper">
+                                                <!-- Slides -->
+                                                <div class="swiper-slide">
+                                                    <div class="team-member">
+                                                        <div class="image-box">
+                                                            <img src="./img/about-us/team/team-1.webp" alt="" />
+                                                        </div>
+                                                        <div class="text-box mt-4">
+                                                            <h4 class="sub-heading mb-1">Arnavh Seth</h4>
+                                                            <h3 class="mini-heading mb-2">Director & Ceo</h3>
+                                                            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos id quasi molestias vero molestiae unde vitae esse natus.</p> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="team-member">
+                                                        <div class="image-box">
+                                                            <img src="./img/about-us/team/team-2.webp" alt="" />
+                                                        </div>
+                                                        <div class="text-box mt-4">
+                                                            <h4 class="sub-heading mb-1">Arnavh Seth</h4>
+                                                            <h3 class="mini-heading mb-2">Director & Ceo</h3>
+                                                            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos id quasi molestias vero molestiae unde vitae esse natus.</p> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="team-member">
+                                                        <div class="image-box">
+                                                            <img src="./img/about-us/team/team-3.webp" alt="" />
+                                                        </div>
+                                                        <div class="text-box mt-4">
+                                                            <h4 class="sub-heading mb-1">Arnavh Seth</h4>
+                                                            <h3 class="mini-heading mb-2">Director & Ceo</h3>
+                                                            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos id quasi molestias vero molestiae unde vitae esse natus.</p> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="team-member">
+                                                        <div class="image-box">
+                                                            <img src="./img/about-us/team/team-1.webp" alt="" />
+                                                        </div>
+                                                        <div class="text-box mt-4">
+                                                            <h4 class="sub-heading mb-1">Arnavh Seth</h4>
+                                                            <h3 class="mini-heading mb-2">Director & Ceo</h3>
+                                                            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos id quasi molestias vero molestiae unde vitae esse natus.</p> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="team-member">
+                                                        <div class="image-box">
+                                                            <img src="./img/about-us/team/team-2.webp" alt="" />
+                                                        </div>
+                                                        <div class="text-box mt-4">
+                                                            <h4 class="sub-heading mb-1">Arnavh Seth</h4>
+                                                            <h3 class="mini-heading mb-2">Director & Ceo</h3>
+                                                            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos id quasi molestias vero molestiae unde vitae esse natus.</p> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="team-member">
+                                                        <div class="image-box">
+                                                            <img src="./img/about-us/team/team-3.webp" alt="" />
+                                                        </div>
+                                                        <div class="text-box mt-4">
+                                                            <h4 class="sub-heading mb-1">Arnavh Seth</h4>
+                                                            <h3 class="mini-heading mb-2">Director & Ceo</h3>
+                                                            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos id quasi molestias vero molestiae unde vitae esse natus.</p> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="certificates-section section">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-5">
+                                            <div class="heading-box">
+                                                <div
+                                                    class="elementor-element elementor-element-946b02c e-con-full e-flex e-con e-child"
+                                                    data-id="946b02c"
+                                                    data-element_type="container"
+                                                    data-settings='{"wcf_enable_cursor_hover_effect_text":"View","wcf-animation":"none"}'
+                                                >
+                                                    <div
+                                                        class="elementor-element elementor-element-7d0fae9 wcf-t-animation-text_move elementor-widget elementor-widget-wcf--title"
+                                                        data-id="7d0fae9"
+                                                        data-element_type="widget"
+                                                        data-settings='{"text_transform_origin":"top center -50","wcf_text_animation":"text_move","text_delay":0.15,"text_duration":1,"text_stagger":0.02,"text_on_scroll":"yes","text_rotation_di":"x","text_rotation":"-80","wcf-animation":"none"}'
+                                                        data-widget_type="wcf--title.default"
+                                                    >
+                                                        <div class="elementor-widget-container">
+                                                            <h4 class="wcf--title">Certifications</h4>
+                                                            <h2 class="wcf--title alt">
+                                                                Standards <br />
+                                                                that Speak
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-7">
+                                            <div class="pattern-box">
+                                                <img src="./img/pattern.png" alt="" class="img-fluid patern" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-image bg-white">
+                                        <div class="row">
+                                            <div class="col12 col-lg-2">
+                                                <div class="image-box">
+                                                    <img src="./img/certificates/certificate-1.png" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="col12 col-lg-2">
+                                                <div class="image-box">
+                                                    <img src="./img/certificates/certificate-2.png" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="col12 col-lg-2">
+                                                <div class="image-box">
+                                                    <img src="./img/certificates/certificate-3.png" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="col12 col-lg-2">
+                                                <div class="image-box">
+                                                    <img src="./img/certificates/certificate-4.png" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="col12 col-lg-2">
+                                                <div class="image-box">
+                                                    <img src="./img/certificates/certificate-5.png" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="col12 col-lg-2">
+                                                <div class="image-box">
+                                                    <img src="./img/certificates/certificate-6.png" alt="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
                     </div>
 
                     @include('frontend.layout.footer')
-                    
                 </div>
                 <!-- #page -->
             </div>
@@ -98,7 +736,7 @@
             </a>
         </div>
         <div class="lets-talk-box">
-            <a href="{{ url('contact-us') }}" class="lets-talk">
+            <a href="#" class="lets-talk">
                 <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
                 <span class="text"> Lets Talk </span>
                 <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
@@ -303,6 +941,7 @@
 
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script> -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" id="jquery-ui-core-js"></script>
         <script type="text/javascript" src="js/ScrollSmoother.min.js" id="ScrollSmoother-js"></script>
         <script type="text/javascript" src="js/SplitText.min.js" id="SplitText-js"></script>
         <script type="text/javascript" src="js/ScrollToPlugin.min.js" id="ScrollToPlugin-js"></script>
@@ -424,6 +1063,57 @@
                     breakpoints: {
                         1920: { slidesPerView: 4 },
                         1200: { slidesPerView: 4 },
+                        1028: { slidesPerView: 2 },
+                        480: { slidesPerView: 1 },
+                    },
+                });
+                new Swiper(".team-carousel", {
+                    loop: false,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    speed: 2000,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    slidesPerView: 4,
+                    paginationClickable: true,
+                    spaceBetween: 50,
+                    breakpoints: {
+                        1920: { slidesPerView: 4 },
+                        1200: { slidesPerView: 4 },
+                        1028: { slidesPerView: 2 },
+                        480: { slidesPerView: 1 },
+                    },
+                });
+                const clientSwiper = new Swiper(".client-carousel", {
+                    loop: true,
+                    autoplay: {
+                        delay: 0,
+                        disableOnInteraction: false,
+                    },
+                    speed: 5000,
+                    slidesPerView: 8,
+                    spaceBetween: 50,
+                    breakpoints: {
+                        1920: { slidesPerView: 8 },
+                        1200: { slidesPerView: 8 },
+                        1028: { slidesPerView: 2 },
+                        480: { slidesPerView: 1 },
+                    },
+                });
+                new Swiper(".journey-carousel", {
+                    loop: false,
+                    autoplay: false,
+                    speed: 1000,
+                    slidesPerView: 4,
+                    spaceBetween: 100,
+                    centeredSlides: true,
+                    breakpoints: {
+                        1920: { slidesPerView: 3 },
+                        1200: { slidesPerView: 3 },
                         1028: { slidesPerView: 2 },
                         480: { slidesPerView: 1 },
                     },
