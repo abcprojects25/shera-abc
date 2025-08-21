@@ -138,3 +138,4 @@ $('[data-fancybox="gallery"]').fancybox({
 	#changeTableDate .tableRow img{margin-right: 10px;}
 </style>
 
+@stack('scripts')

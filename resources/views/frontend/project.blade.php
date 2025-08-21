@@ -64,9 +64,9 @@
                                         @foreach ($data as $project)
                                         <div class="col-lg-4 mb-4">
                                             <div class="project-cards-wrapper">
-                                                <a href="#" class="project-card">
+                                                <a href="{{ route('frontend.project.details', $project->url) }}" class="project-card">
                                                     <div class="image-box">
-                                                        <img src="{{ asset($project->image) }}" alt="{{ $project->title }}" />
+                                                        <img src="{{ asset($project->banner_image) }}" alt="{{ $project->title }}" />
                                                     </div>
                                                     <div class="project-detail">
                                                         <h4 class="sub-heading shera-black">{{ $project->title }} - {{ $project->city_state_name }}</h4>

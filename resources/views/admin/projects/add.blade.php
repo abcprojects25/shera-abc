@@ -81,7 +81,7 @@
 																</div> 
 															</div>
 															<div class="col-lg-6 form-group">
-																<label>Project Summmery :</label>
+																<label> Project Description :</label>
 																<input name="project_summary" value=""  class="form-control" placeholder="Project summary..." type="text" id="project_summary">
 															</div>
 															<div class="col-lg-6 form-group">
@@ -140,7 +140,7 @@
 													</div>
 													
 													<div class="col-lg-3">
-														<div class="form-group text-center">
+														{{-- <div class="form-group text-center">
 															<div class="card shade"> 
 																<div class="image-upload"> 
 																	<label for="description">Add Project Thumbnail</label>
@@ -154,7 +154,7 @@
 																	<div id="upload-demo-i" style="cursor: pointer" onclick="editImage()"></div>
 																</div>
 															</div>
-														</div>
+														</div> --}}
 														<div class="form-group">
 															<div class="card shade">  
 																<div id="choose-thumbnail">
@@ -176,14 +176,12 @@
 												 
 											
 												
-												<div class="form-group">
+												{{-- <div class="form-group">
 													<label for="BookDescription"> Project Description </label>
 													<textarea name="description" class="form-control content" cols="10" rows="5" id="description" placeholder="Description...">
-														<!-- <p> <strong> Shade Used: </strong> VA-481 & VA-103  <br />
-														<strong> Specifications: </strong> 3mm <br />
-														<strong> Quantity: </strong> 1000 Sq.Mtr </p> -->
+														
 													</textarea> 
-												</div> 
+												</div>  --}}
 												
 												<!-- <div class="form-group">
 													<label> Add Tags </label>

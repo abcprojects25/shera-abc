@@ -102,14 +102,35 @@
 	
 	<li class="nav-item">
 		<a class="nav-link" href="/admin/contact-us">
-			<span class="shape1"></span><span class="shape2"></span> <i class="ti-view-list-alt sidemenu-icon"></i> <span class="sidemenu-label">  Contact Us </span>
+			<span class="shape1"></span><span class="shape2"></span> <i class="ti-email sidemenu-icon"></i> <span class="sidemenu-label">  Contact Us </span>
 		</a>
 	</li> 
 	<li class="nav-item">
-		<a class="nav-link" href="/admin/notifications">
-			<span class="shape1"></span><span class="shape2"></span> <i class="ti-view-list-alt sidemenu-icon"></i> <span class="sidemenu-label">Notifications </span>
+		<a class="nav-link" href="/admin/career">
+			<span class="shape1"></span><span class="shape2"></span> <i class="ti-layout-list-thumb sidemenu-icon"></i> <span class="sidemenu-label"> Career </span>
 		</a>
-	</li> 
+	</li>  
+	<!-- <li class="nav-item">
+		<a class="nav-link" href="/admin/notifications">
+			<span class="shape1"></span><span class="shape2"></span> <i class="ti-comment sidemenu-icon"></i> <span class="sidemenu-label">Notifications </span>
+		</a>
+	</li>  -->
+	<li class="nav-item">
+    <a class="nav-link" href="{{ route('admin.subscribers.index') }}">
+        <span class="shape1"></span><span class="shape2"></span> 
+        <i class="ti-bell sidemenu-icon"></i> 
+        <span class="sidemenu-label">Subscribers</span>
+    </a>
+	</li>	
+	
+	<li class="nav-item">
+		<a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="fas fa-gamepad sidemenu-icon"></i><span class="sidemenu-label"> Word game </span><i class="angle fe fe-chevron-right"></i></a>
+		<ul class="nav-sub">
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/guessing-game"> guessing game </a> </li>  
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/leaderboard"> LeaderBoard </a> </li>  
+					</ul>
+	</li> 	
+
 
 
 	{{-- <li class="nav-item">
@@ -121,12 +142,7 @@
 		<a class="nav-link" href="/admin/newsletter-subscription">
 			<span class="shape1"></span><span class="shape2"></span> <i class="ti-shield sidemenu-icon"></i> <span class="sidemenu-label">  Newsletter </span>
 		</a>
-	</li>  	
-	<li class="nav-item">
-		<a class="nav-link" href="/admin/career">
-			<span class="shape1"></span><span class="shape2"></span> <i class="ti-layout-list-thumb sidemenu-icon"></i> <span class="sidemenu-label"> Career </span>
-		</a>
-	</li>    --}}
+	</li>  	  --}}
 	 
 	<li class="nav-header"><span class="nav-label">For Admin</span></li>
 	<li class="nav-item">

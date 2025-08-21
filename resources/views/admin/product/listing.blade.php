@@ -91,7 +91,7 @@
 												<th> Category </th>
 												<th> Name </th>  
 												<th> Description </th>
-												<th class="text-center" style="width:60px"> Thumbnail </th>
+												{{-- <th class="text-center" style="width:60px"> Thumbnail </th> --}}
 												<th class="sort text-center" style="width:60px">Applications</th> 
 	                                        <th class="sort text-center" style="width:60px">Images</th> 
 												 <th class="text-center" style="width:120px"> Created At </th>
@@ -110,12 +110,12 @@
 													<td> {{$item->title}}</td>
 													<td> {!! $item->description !!}
  </td>
-													@if (!empty($item->image))
+													{{-- @if (!empty($item->image))
 													<td style="width:80px"><img src="{{$item->image}}" class="img-fluid" /></td>
 													@else
 													<td><i>No Image Selected</i></td>
 													@endif
-													
+													 --}}
 														<!-- Add Applications Button -->
 														<td class="text-center">
 															@php

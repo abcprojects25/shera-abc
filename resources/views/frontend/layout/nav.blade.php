@@ -3,10 +3,10 @@
                             <div class="top-menu">
                                 <ul class="top-menu-list">
                                     <li class="list">
-                                        <a href="" class="link">Be Our Dealer</a>
+                                        <a href="{{ url('be-our-dealer')}}" class="link">Be Our Dealer</a>
                                     </li>
                                     <li class="list">
-                                        <a href="" class="link">Be Our Retailer</a>
+                                        <a href="{{ url('be-our-retailer')}}" class="link">Be Our Retailer</a>
                                     </li>
                                     
                                 </ul>
@@ -21,7 +21,7 @@
                                         <a href="" class="link">Resources</a>
                                     </li>
                                     <li class="list">
-                                        <a href="" class="link">Careers</a>
+                                        <a href="{{ url('careers')}}" class="link">Careers</a>
                                     </li>
                                     <li class="list">
                                         <a href="" class="link">Support</a>
@@ -133,7 +133,7 @@
                                                                 </ul>
                                                             </li>
                                                             <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
-                                                                <a href="#" class="wcf-nav-item"
+                                                                <a href="{{ url('applications')}}" class="wcf-nav-item"
                                                                     >Applications
                                                                    
                                                                 </a>

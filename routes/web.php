@@ -24,6 +24,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\AdminNotificationController;
+use App\Http\Controllers\GameLogController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,6 +72,31 @@ Route::get('/contact-us', function () {
     return view('frontend.contact-us');
 });
 
+Route::get('/applications', function () {
+    return view('frontend.applications');
+});
+
+Route::get('/be-our-dealer', function () {
+    return view('frontend.be-our-dealer');
+});
+
+Route::get('/be-our-retailer', function () {
+    return view('frontend.be-our-retailer');
+});
+
+Route::get('/careers', function () {
+    return view('frontend.careers');
+});
+
+Route::get('/career-details', function () {
+    return view('frontend.career-details');
+});
+
+Route::get('/apply-job', function () {
+    return view('frontend.apply-job');
+});
+
+Route::post('/game/log', [GameLogController::class, 'store']);
 
 Route::post('/submit-enquiry', [CmsController::class, 'storeEnquiry'])->name('enquiry.submit');
 Route::post('/products/images/store', [ProductImageController::class, 'store'])->name('admin.products.images.store');
@@ -87,9 +114,26 @@ Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product
 
 Route::get('/project', [ProjectController::class, 'userProjectPage'])->name('frontend.project');
 Route::get('/project/{categorySeoUrl}', [ProjectController::class, 'userProjectPageByCategory'])->name('frontend.project.category');
+Route::get('/project-details/{slug}', [ProjectController::class, 'userProjectDetails'])->name('frontend.project.details');
+Route::post('/admin/project/images/store', [ProjectController::class, 'storeImages'])->name('admin.project.images.store');
 
 Route::get('/blogs', [BlogController::class, 'userBlogPage'])->name('frontend.blog');
 Route::get('/blog/{category_seourl}', [BlogController::class, 'blogsByCategory'])->name('blogs.byCategory');
+
+Route::post('/careers/store', [CmsController::class, 'storeCareer'])->name('careers.storeCareer');
+
+Route::post('/subscribe', [CmsController::class, 'store'])->name('subscribe.store');
+Route::get('/admin/subscribers', [CmsController::class, 'Subscriber'])->name('admin.subscribers.index');
+Route::delete('/admin/subscribers/{id}', [CmsController::class, 'subcriberDestroy'])
+    ->name('admin.subscribers.destroy');
+
+Route::get('/admin/guessing-game', function () {
+    return view('admin.guessing_game.index');
+})->name('admin.guessing_game.index');
+
+Route::get('/admin/leaderboard', [CmsController::class, 'leaderboard'])->name('admin.leaderboard');
+
+
 
 
 

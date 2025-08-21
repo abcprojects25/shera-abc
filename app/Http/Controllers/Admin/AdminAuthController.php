@@ -11,6 +11,7 @@ use App\Models\Contacts;
 use App\Models\admin\Enquiry;
 use App\Models\admin\Projects;
 use App\Models\admin\Products;
+use App\Models\admin\Blogs;
 use App\Models\admin\Subscribes;
 use Carbon\Carbon;
 
@@ -49,15 +50,17 @@ class AdminAuthController extends Controller
     }
     public function dashboard(Request $request)
     {
-        $Careers = careers::select('id','name','resume','resume_url','created_at')->orderby('id','desc')->take(5)->get();
+        $Careers = careers::select('id','career_name','career_resume','created_at')->orderby('id','desc')->take(5)->get();
         $Contacts = Enquiry::select('id','first_name','contact','email','message','created_at')->orderby('id','desc')->take(5)->get();
         $careersCount = careers::count();
         $EnquiriesCount = Enquiry::count();
-        $ProjectsCount = Products::count();
+        $ProductsCount = Products::count();
+        $BlogsCount = Blogs::count();
+        $ProjectsCount = Projects::count();
         $SubscribesCount = Subscribes::count();
         $today = Carbon::now()->format('Y-m-d');
         $TodayEnquiries = Enquiry::whereDate("created_at", $today)->count();
-        return view('admin.dashboard',compact('Careers','Contacts','EnquiriesCount','careersCount','ProjectsCount','SubscribesCount','TodayEnquiries'));
+        return view('admin.dashboard',compact('Careers','Contacts','EnquiriesCount','careersCount','ProductsCount','BlogsCount','ProjectsCount','SubscribesCount','TodayEnquiries'));
     }
 
 }

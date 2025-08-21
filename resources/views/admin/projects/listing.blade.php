@@ -69,7 +69,8 @@
 													<th style="width:30px">Id</th>
 													<th> Category </th>
 													<th> Title, URL & Created At </th>  
-													<th style="width:150px"> Thumbnail </th>    
+													<th style="width:150px"> Banner </th>    
+													<th class="text-center" style="width:60px"> Images </th>
 													<th class="text-center" style="width:60px"> Status </th>
 													<!-- <th class="text-center" style="width:50px"> Home Status </th>  -->
 													<th> Actions </th>
@@ -89,22 +90,38 @@
 														{{date('Y-m-d',strtotime($item->created_at))}} - <small class="text-muted">{{date('H:i a',strtotime($item->created_at))}}</small>
 														
 													</td>
-													@if (!empty($item->image))
-													<td><img src="{{$item->image}}" class="img-fluid" width="80px" /></td>
+													@if (!empty($item->banner_image))
+													<td><img src="{{$item->banner_image}}" class="img-fluid" width="80px" /></td>
 													@else
 													<td><img src="/admin/img/no_img_xl.jpg" class="img-fluid" /></td>
-													@endif		 
+													@endif	
+													<!-- Add Images Button -->
+														<td class="text-center">
+															@php
+																$projectImages = \App\Models\admin\ProjectImages::where('project_id', $item->id)->get();
+															@endphp
+															@if($projectImages->isNotEmpty())
+																<ul class="list-unstyled mb-2" style="max-height: 120px; overflow-y: auto;">
+																	@foreach($projectImages as $img)
+																		<li class="badge badge-info mb-1">
+																			{{ basename($img->urls) }}
+																		</li>
+																	@endforeach
+																</ul>
+															@else
+																<span class="text-muted d-block"></span>
+															@endif
+															<button class="btn btn-sm btn-success" data-toggle="modal" data-target="#addProjectImageModal" data-project="{{ $item->id }}">
+																Add Images
+															</button>
+														</td>	 
 													@if($item->status == 0) 
 													<td class="text-center"><a  href="project-status/{{base64_encode($item->status)}}/{{base64_encode($item->id)}}" class="btn btn-danger status_inactive" title="Change Status"><i class='fa fa-times'></i></a> </td>
 													@else 
 													<td class="text-center"> <a  href="project-status/{{base64_encode($item->status)}}/{{base64_encode($item->id)}}" class="btn btn-primary status-active" title="Change Status"><i class='fa fa-check'></i></a> </td>
 													@endif
 
-													<!-- @if($item->is_home == 0) 
-													<td class="text-center"><a  href="project-home-status/{{base64_encode($item->is_home)}}/{{base64_encode($item->id)}}" class="btn btn-danger status_inactive" title="Change Status"><i class='fa fa-times'></i></a> </td>
-													@else 
-													<td class="text-center"> <a  href="project-home-status/{{base64_encode($item->is_home)}}/{{base64_encode($item->id)}}" class="btn btn-primary status-active" title="Change Status"><i class='fa fa-check'></i></a> </td>
-													@endif -->
+													
 													 
 													<td class="actions">
 														{{-- <a href="#" class="btn ripple btn-info" data-toggle="modal" data-target="#exampleModal"> Edit Thumbnail </a> --}}
@@ -130,6 +147,64 @@
 	</div>	
 <!-- End Main Content-->
 
+
+<!-- Add Category Image Modal -->
+<div class="modal fade" id="addProjectImageModal" tabindex="-1" role="dialog" aria-labelledby="addProjectImageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <form id="projectImageForm" action="{{ route('admin.project.images.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="hidden" name="project_id" id="modal_project_id">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Project Images</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div id="image-upload-group">
+                        <div class="row mb-3 image-group">
+                            <div class="col-md-6">
+                                <input type="file" name="images[]" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" name="alt[]" class="form-control" placeholder="Alt text (optional)">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-sm btn-secondary" id="addMoreImages">+ Add More</button>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save Images</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $('#addProjectImageModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var projectId = button.data('project');
+        $('#modal_project_id').val(projectId);
+    });
+
+    // Add more image+alt input fields
+    $('#addMoreImages').click(function () {
+        $('#image-upload-group').append(`
+            <div class="row mb-3 image-group">
+                <div class="col-md-6">
+                    <input type="file" name="images[]" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="alt[]" class="form-control" placeholder="Alt text (optional)">
+                </div>
+            </div>
+        `);
+    });
+</script>
 <!-- Add Data -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-md modal-dialog-centered">

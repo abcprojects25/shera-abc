@@ -25,6 +25,7 @@ class ProjectController extends Controller
     public function index_view()
     {
       $data = Projects::orderBy('project_order','desc')->get();
+      // $BannerImages = BannerImages::where('status', 1)->where('type', 2)->get();
       return view('admin.projects.listing',compact('data'));
     }
 
@@ -41,7 +42,7 @@ class ProjectController extends Controller
     return view('frontend.project', [
         'data' => $data,
         'Categories' => $category,
-        'BannerImages' => BannerImages::where('status', 1)->where('type', 2)->get(),
+        // 'BannerImages' => BannerImages::where('status', 1)->where('type', 2)->get(),
         'categories' => Categories::select('id', 'name', 'seourl')->where('type', 2)->get(),
     ]);
 }
@@ -59,18 +60,59 @@ class ProjectController extends Controller
     return view('frontend.project', [
         'data' => $data,
         'Categories' => $category,
-        'BannerImages' => BannerImages::where('status', 1)->where('type', 2)->get(),
+        // 'BannerImages' => BannerImages::where('status', 1)->where('type', 2)->get(),
         'categories' => Categories::select('id', 'name', 'seourl')->where('type', 2)->get(),
     ]);
 }
 
-    
+    public function userProjectDetails($slug)
+{
+    $project = Projects::where('url', $slug)->firstOrFail();
+
+     $relatedProjects = Projects::where('status', 1)
+        ->where('category_id', $project->category_id)
+        ->where('id', '!=', $project->id) // optional: exclude the current project
+        ->orderBy('project_order', 'desc')
+        ->get();
+
+        $projectImages = ProjectImages::where('project_id', $project->id)->get();
+
+    return view('frontend.project-detail', [
+        'project' => $project,
+        'projectImages' => $projectImages,
+        'relatedProjects' => $relatedProjects,
+        'categories' => Categories::select('id', 'name', 'seourl')->where('type', 2)->get(),
+    ]);
+}
+
+public function storeImages(Request $request)
+{
+    $request->validate([
+        'project_id' => 'required|exists:projects,id',
+        'images.*' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+        'alt.*' => 'nullable|string|max:255',
+    ]);
+
+    foreach ($request->file('images') as $index => $image) {
+        $imageName = $image->getClientOriginalName();
+        $image->move(public_path('uploads/project_images'), $imageName);
+
+        ProjectImages::create([
+            'project_id' => $request->project_id,
+            'urls'  => 'uploads/project_images/' . $imageName,
+            'alt'    => $request->alt[$index] ?? '',
+            'status'      => 1,
+        ]);
+    }
+
+    return back()->with('success', 'Images added successfully.');
+}
     public function project_edit($id){
       $id=base64_decode($id);
       $edit_data = Projects::where('id',$id)->first();
       $Categories = Categories::where('type',2)->get();
-      $BannerImages = BannerImages::select('id','title','urls')->where('status',1)->where('type',2)->get();
-      return view('admin.projects.edit',compact('edit_data','Categories','BannerImages'));
+      // $BannerImages = BannerImages::select('id','title','urls')->where('status',1)->where('type',2)->get();
+      return view('admin.projects.edit',compact('edit_data','Categories'));
     }
 
     public function edit($id)
@@ -357,7 +399,7 @@ if ($request->tags != null) {
         'description' =>$inputDescription]);
         return redirect()->back();
     } 
-
+ 
     public function editStore(Request $request){
       ini_set('memory_limit', '3072M');
       ini_set('max_execution_time', 10980);

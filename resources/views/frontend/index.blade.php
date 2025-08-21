@@ -1676,7 +1676,7 @@
                                 </div>
  
                                 <div class="elementor-widget-container">
-                                    <div
+                                    <div 
                                         class="row g-4 elementor-element elementor-element-f9e9057 wcf-t-animation-none elementor-widget elementor-widget-wcf--title"
                                         data-id="f9e9057"
                                         data-element_type="widget"
@@ -1741,7 +1741,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                 </div>
                             </div>
                             <!-- Container -->
                         </section>

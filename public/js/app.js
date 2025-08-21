@@ -591,11 +591,12 @@ const sheraFilter = () => {
     tabs.forEach((tab) => {
         tab.addEventListener("click", () => {
             if (tab.classList.contains("active")) return;
+            document.body.style.pointerEvents = "none";
+            ScrollSmoother.get().paused(true);
 
             // Remove active tab and product
             tabs.forEach((t) => t.classList.remove("active"));
             products.forEach((p) => p.classList.remove("active"));
-
             const targetId = tab.dataset.target;
             const targetProduct = document.getElementById(targetId);
 
@@ -619,7 +620,7 @@ const sheraFilter = () => {
                             y: 0,
                             ease: "power2.out",
                             onComplete: () => {
-                                ScrollSmoother.get().paused(true);
+                                // ScrollSmoother.get().paused(true);
                                 // Refresh ScrollTrigger after the animation is done
                                 // Delay refresh to next frame so layout is stable
                                 requestAnimationFrame(() => {
@@ -628,6 +629,7 @@ const sheraFilter = () => {
 
                                     setTimeout(() => {
                                         ScrollSmoother.get().paused(false);
+                                        document.body.style.pointerEvents = "all";
                                     }, 500);
                                 });
                             },
@@ -728,3 +730,14 @@ const lerpButton = () => {
         });
     });
 };
+
+const scrollToJourney = () => {
+    const scrollToJourneyButton = document.querySelector(".scroll-to-journey");
+    if (!scrollToJourneyButton) return;
+
+    scrollToJourneyButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        ScrollSmoother.get().scrollTo("#ourJourney", true, 2);
+    });
+};
+scrollToJourney();

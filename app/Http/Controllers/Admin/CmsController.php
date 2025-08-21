@@ -21,9 +21,12 @@ use App\Models\admin\OurMilestones;
 use App\Models\admin\FollowUs;
 use App\Models\Contacts;
 use App\Models\Enquires;
+use App\Mail\EnquiryResponseMail;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Admin;
 use App\Models\Videos;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Leaderboard;
 use File;
 use DB;
 use GoogleTranslate;
@@ -132,27 +135,84 @@ class CmsController extends Controller
     {
       $careers = careers::where('is_deleted',0)->paginate(10);
       return view('admin.career',compact('careers'))->render();
-    }
+    } 
 
     public function CareerDelete($id){
         $delete_id=base64_decode($id);
-        careers::where('id',$delete_id)->delete();
+         $career = Career::findOrFail($delete_id);
+    $career->is_deleted = 1;
+    $career->save();
         toast('Career Deleted Successfully!!!','success');
-        return redirect()->back();
+        return redirect()->back();  
     }
 
-    public function Subscribe()
+    public function storeCareer(Request $request)
+{
+  try {
+    $request->validate([
+        'career_name' => 'required|string|max:255',
+        'career_mobile' => 'required|string|max:20',
+        'career_email' => 'required|email|max:255',
+        'career_resume' => 'required|file|mimes:pdf,doc,docx|max:2048',
+    ]);
+
+    // Handle resume upload
+    $resumePath = null;
+    if ($request->hasFile('career_resume')) {
+        $resumePath = $request->file('career_resume')->store('resumes', 'public');
+    }
+
+    \DB::table('careers')->insert([
+        'career_name'            => $request->career_name,
+        'career_mobile'          => $request->career_mobile,
+        'career_email'           => $request->career_email,
+        'career_work_exp'        => $request->career_work_exp,
+        'career_current_company' => $request->career_current_company,
+        'career_current_role'    => $request->career_current_role,
+        'career_current_ctc'     => $request->career_current_ctc,
+        'career_job_cat'         => $request->career_job_cat,
+        'career_function'        => $request->career_function,
+        'career_resume'          => $resumePath,
+        'career_notice_period'   => $request->career_notice_period,
+        'site_val'               => $request->site_val,
+        'created_at'             => now(),
+        'updated_at'             => now(),
+    ]);
+
+    return back()->with('success', 'Career form submitted successfully!');
+    } catch (\Exception $e) {
+        return back()->with('error', 'Something went wrong: ' . $e->getMessage());
+    }
+}
+
+    public function store(Request $request)
     {
-      $Subscribes = Subscribes::latest()->paginate(10);
-      return view('admin.newsletter_subscription',compact('Subscribes'))->render();
+        $request->validate([
+            'email' => 'required|email|unique:subscribes,email',
+        ]);
+
+        Subscribes::create([
+            'email' => $request->email,
+        ]);
+
+       return response()->json(['success' => 'Thank you for subscribing!']);
     }
 
-    public function SubscribeDelete($id){
-        $delete_id=base64_decode($id);
-        Subscribes::where('id',$delete_id)->delete();
-        toast('Career Deleted Successfully!!!','success');
-        return redirect()->back();
+      public function Subscriber()
+    {
+        $subscribers = Subscribes::orderBy('id', 'desc')->get();
+        return view('admin.subscribers.index', compact('subscribers'));
     }
+
+   public function subcriberDestroy($id)
+{
+    $subscriber = Subscribes::findOrFail($id);
+    $subscriber->delete();
+
+    return redirect()->route('admin.subscribers.index')
+                     ->with('success', 'Subscriber deleted successfully.');
+}
+
     // Contact us
 	public function ContactUs(){
     $data = DB::select("SELECT * FROM enquires ORDER BY created_at DESC");
@@ -1332,6 +1392,19 @@ public function certificateStatus($status,$id){
         $validated['country'] = null;
         Enquires::create($validated);
 
-        return back()->with('success', 'Your enquiry has been submitted successfully!');
+        Mail::to($request->email)->send(new EnquiryResponseMail($validated));
+
+        Mail::to('sofiya@abcdesigns.in')->send(new EnquiryResponseMail($validated, true));
+
+        return back()->with('success', 'Your enquiry has been submitted successfully!  Please check your email.');
+    }
+
+ public function leaderboard()
+    {
+        // fetch all scores, newest first
+        $scores = Leaderboard::orderBy('created_at', 'desc')->get();
+
+        return view('admin.leaderboard.index', compact('scores'));
     }
 }
+

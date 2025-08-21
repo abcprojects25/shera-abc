@@ -145,7 +145,7 @@
                   </p>
                 </div>
                 
-            <form action="{{ route('enquiry.submit') }}" method="post">
+            <form action="{{ route('enquiry.submit') }}" method="post" id="enquiryForm">
                                     @csrf
                   <div class="row mb-3">
                     <div class="col-md-6">
@@ -266,15 +266,16 @@
                   >
                     <div class="elementor-widget-container">
                       <div class="wc-btn-wrapper style-2">
-                        <button type="submit" class="wc-btn-group" style="border: none; background: none; padding: 0;">
-                                                    <span class="wc-btn-play">
-                                                        <i class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
-                                                    </span>
-                                                    <span class="wc-btn-primary"> Send Message </span>
-                                                    <span class="wc-btn-play">
-                                                        <i class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
-                                                    </span>
-                                                </button>
+                       <button type="submit" class="wc-btn-group" id="submitBtn" style="border: none; background: none; padding: 0;">
+                             <span class="wc-btn-play">
+                              <i class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
+                            </span>
+                          <span class="wc-btn-primary" id="btnText"> Send Message </span>
+                            <span class="wc-btn-play">
+                                  <i class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
+                             </span>
+                        </button>
+
                       </div>
                     </div>
                   </div>
@@ -282,7 +283,18 @@
               </div>
             </div>
           </section>
+<script>
+document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+    var btn = document.getElementById('submitBtn');
+    var btnText = document.getElementById('btnText');
 
+    // Disable the button
+    btn.disabled = true;
+
+    // Show loader inside the button
+    btnText.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+});
+</script>
           <section class="container">
             <div class="row">
               <div class="col-md-12 mb-4">

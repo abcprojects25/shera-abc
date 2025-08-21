@@ -51,30 +51,31 @@
 								<div class="table-responsive career_table">
 									<table class="table table-bordered mg-b-0">
 										<tr> 
-											<th style="width:40px">Id</th>
-											<th style="width:110px">Date &amp; Time </th> 
+											<th style="width:40px">Sr no.</th>
+											<th> Job Function</th>
 											<th> Name </th>  
-											<th style="width:150px">Email & Contact </th> 
-											<th> Location </th> 
+											<th style="width:150px">Email & Contact </th>  
 											<th> Resume </th>  
-											<th> Message  </th>  
+											<th> Current Role </th>
+											<th> Notice Period </th>
 											<th style="width:140px"> Actions </th> 
 										</tr> 
 
 										@foreach ($careers as $k=>$item)
 											<tr> 
 												<td>{{$k+1}}</td>
-												<td> {{date('d M Y',strtotime($item->created_at))}}<br> <small class="text-muted">{{date('H:i:A',strtotime($item->created_at))}}</small> </td> 											
-												<td> {{$item->name}} </td>  
+												<td> {{$item->career_function}} </td>
+												<td> {{$item->career_name}} </td>  
 												<td>
-													<a href="mailto:<?=$item->email?>"> {{$item->email}} </a> <hr />
-													<a href="tel:<?=$item->contact?>">{{$item->contact}} </a>
-												</td> 
-												<td> {{$item->location}} </td> 
-												<td> {{$item->resume}} <hr /> <a href="{{$item->resume_url}}" download> Resume </a> </td>
-												<td> <div class="text-box" data-maxlength="150"> <p>{{$item->message}} </p></div></td> 
+													<a href="mailto:<?=$item->email?>"> {{$item->career_email}} </a> <hr />
+													<a href="tel:<?=$item->contact?>">{{$item->career_mobile}} </a>
+												</td>  
+												<td> {{$item->career_resume}} <hr /> <a href="{{$item->career_resume}}" download> Resume </a> </td>
+												<td> {{$item->career_current_role}} </td>
+												<td> {{$item->career_notice_period}} </td>
 												<td class="actions">
-													<a href="#" onclick="viewDetails('{{$item->name}}','{{$item->email}}','{{$item->contact}}','{{$item->location}}','{{$item->resume_url}}')" class="btn btn-sm ripple btn-info" data-toggle="modal" data-target="#ViewModal">  View </a>
+													<a href="#" onclick="viewDetails('{{$item->career_job_cat}}','{{$item->career_function}}', '{{$item->career_name}}','{{$item->career_email}}','{{$item->career_mobile}}','{{ Storage::url($item->career_resume) }}','{{$item->career_work_exp}}','{{$item->career_current_company}}','{{$item->career_current_role}}', '{{$item->career_current_ctc}}','{{$item->career_notice_period}}'
+												)" class="btn btn-sm ripple btn-info" data-toggle="modal" data-target="#ViewModal">  View </a>
 													<a onclick="return confirm('Are you sure?')" href="#" class="btn ripple btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>  </a>
 												</td>
 											</tr>
@@ -108,30 +109,18 @@
 			</div>
 			<div class="modal-body">
 				<table class="table table-bordered mg-b-0">
-					<tr>  
-						<th> Name </th> 
-						<td id="viewName"> </td> 
-					</tr>
-					<tr>  
-						<th> Email </th>
-						<td id="viewEmail"> </td>  
-					</tr>
-					<tr> 
-						<th> Contact </th>
-						<td id="viewContact"> </td>  
-					</tr>
-					<tr> 
-						<th> Location </th>
-						<td id="viewLocation"> </td>  
-					</tr>
-					<tr> 
-						<th> Resume  </th>
-						<td> <a href="#" id="viewResumeUrl" download> Resume </a>  </td>  
-					</tr>
-					{{-- <tr>  
-						<th> Message </th>  
-						<td id="viewMessage"> </td> 
-					</tr> --}}
+					 <tr><th>Job Category</th><td id="viewJobCat"></td></tr>
+          <tr><th>Function</th><td id="viewFunc"></td></tr>
+          <tr><th>Name</th><td id="viewName"></td></tr>
+          <tr><th>Email</th><td id="viewEmail"></td></tr>
+          <tr><th>Contact</th><td id="viewContact"></td></tr>
+          <tr><th>Work Experience</th><td id="viewWorkExp"></td></tr>
+          <tr><th>Current Company</th><td id="viewCurrentCompany"></td></tr>
+          <tr><th>Current Role</th><td id="viewCurrentRole"></td></tr>
+          <tr><th>Current CTC</th><td id="viewCurrentCtc"></td></tr>
+          <tr><th>Notice Period</th><td id="viewNoticePeriod"></td></tr>
+          <tr><th>Resume</th><td><a href="#" id="viewResume" download>Resume</a></td></tr>
+					
 				</table>
 			</div> 
 		</div>
@@ -139,13 +128,32 @@
 </div>
 <script>
 
-function viewDetails(name,email,contact,location,resume_url){
-	document.getElementById("viewName").innerText = name;
-	document.getElementById("viewEmail").innerText = email;
-	document.getElementById("viewContact").innerText = contact;
-	document.getElementById("viewLocation").innerText = location;
-	document.getElementById("viewResumeUrl").href = resume_url;
+function viewDetails(
+    career_job_cat,
+    career_function,
+    career_name,
+    career_email,
+    career_mobile,
+    career_resume,
+    career_work_exp,
+    career_current_company,
+    career_current_role,
+    career_current_ctc,
+    career_notice_period
+) {
+    document.getElementById("viewJobCat").innerText = career_job_cat;
+    document.getElementById("viewFunc").innerText = career_function;
+    document.getElementById("viewName").innerText = career_name;
+    document.getElementById("viewEmail").innerText = career_email;
+    document.getElementById("viewContact").innerText = career_mobile;
+    document.getElementById("viewWorkExp").innerText = career_work_exp;
+    document.getElementById("viewCurrentCompany").innerText = career_current_company;
+    document.getElementById("viewCurrentRole").innerText = career_current_role;
+    document.getElementById("viewCurrentCtc").innerText = career_current_ctc;
+    document.getElementById("viewNoticePeriod").innerText = career_notice_period;
+    document.getElementById("viewResume").href = career_resume;
 }
+
 
 </script>
 

@@ -5,13 +5,22 @@
                                     <img src="{{ asset('img/logo_w.svg') }}" class="img-fluid" />
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="d-flex justify-content-end">
-                                        <p>Subscribe for updates</p>
-                                        <form action="#" method="post" class="position-relative">
-                                            <input class="form-control required" type="email" name="email" placeholder="Enter your email" />
-                                            <button class="btn" aria-label="submit"><img src="{{ asset('img/submit.png') }}" class="img-fluid" /></button>
-                                        </form>
-                                    </div>
+                                  <div class="d-flex justify-content-end">
+                                    <p>Subscribe for updates</p>
+                                    <form id="subscribeForm" action="{{ route('subscribe.store') }}" method="post" class="position-relative">
+                                        @csrf
+                                        <input class="form-control required" type="email" name="email" placeholder="Enter your email" required />
+                                      
+                                         <button type="submit" class="btn" aria-label="submit" id="subscribeBtn">
+                        <img src="img/submit.png" class="img-fluid" id="btnText"/>
+                         <span id="loader" class="spinner-border spinner-border-sm d-none" role="status"></span>
+                      </button>
+
+                                    </form>
+                                </div>
+
+                                <div id="subscribeMessage" class="mt-2"></div>
+
                                 </div>
                             </div>
                         </div>
@@ -71,7 +80,7 @@
                                     <h5>Others</h5>
                                     <a href=""> Knowledge Center </a>
                                     <a href=""> Resources </a>
-                                    <a href=""> Careers </a>
+                                    <a href="{{ url('careers')}}"> Careers </a>
                                     <a href=""> Support </a>
                                     <a href="{{ url('contact-us') }}"> Contact Us </a>
                                 </div>
@@ -90,3 +99,53 @@
                             </div>
                         </div>
                     </div>
+
+ <script>
+document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // stop normal form submit
+
+    let form = this;
+    let formData = new FormData(form);
+    let btnText = document.getElementById('btnText');
+    let loader = document.getElementById('loader');
+    let msgBox = document.getElementById('subscribeMessage');
+
+    // show loader
+    btnText.classList.add('d-none');
+    loader.classList.remove('d-none');
+
+    fetch(form.action, {
+        method: "POST",
+        headers: {
+            "X-CSRF-TOKEN": document.querySelector('input[name="_token"]').value
+        },
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        btnText.classList.remove('d-none');
+        loader.classList.add('d-none');
+
+       if (data.success) {
+    msgBox.innerHTML = `
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            ${data.success}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>`;
+    form.reset();
+} else if (data.error) {
+    msgBox.innerHTML = `
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            ${data.error}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>`;
+}
+
+    })
+    .catch(error => {
+        btnText.classList.remove('d-none');
+        loader.classList.add('d-none');
+        msgBox.innerHTML = `<div class="alert alert-danger">Something went wrong!</div>`;
+    });
+});
+</script>

@@ -84,7 +84,7 @@
 																</div> 
 															</div>
 															<div class="col-lg-6 form-group">
-																<label>Project Summmery :</label>
+																<label> Project Description :</label>
 																<input name="project_summary" value="{{($edit_data->project_summary) ? $edit_data->project_summary : ''}}"  class="form-control" placeholder="Project summary..." type="text" id="project_summary">
 															</div>
 															<div class="col-lg-6 form-group">
@@ -94,32 +94,7 @@
 														</div>
 														<hr />
 														<div class="row">
-															<!-- <div class="col-lg-8 form-group">
-																<label>Video Title :</label>
-																<input name="video_title" value="{{($edit_data->video_title) ? $edit_data->video_title : ''}}" class="form-control" placeholder="Title..." maxlength="255" type="text" id="title">
-															</div>
-															<div class="col-lg-4 form-group">
-																<label>Type : </label> 
-																<select name="video_type" id="types" class="custom-select w-100">
-																	<option value="">Select Type</option> 
-																	<option value="1" {{ $edit_data->video_type == 1 ? 'selected' : '' }}> YouTube </option>       
-																	<option value="2" {{ $edit_data->video_type == 2 ? 'selected' : '' }}> Vimeo </option>
-																</select>
-															</div>
-															<div class="col-lg-8 form-group">
-																<label>Video URL : </label>
-																<input name="video_url" value="{{$edit_data->video_url}}" class="form-control" placeholder="URL..." maxlength="255" type="text" id="url">
-															</div>
-															<div class="col-lg-4 form-group">
-																<label>Direction :</label> 
-																<select name="direction" id="direction" class="custom-select w-100">
-																	<option selected disabled>Select Direction</option> 
-																	<option value="east" {{ $edit_data->direction == 'east' ? 'selected' : '' }}> East</option>
-																	<option value="west" {{ $edit_data->direction == 'west' ? 'selected' : '' }}> West</option>
-																	<option value="north" {{ $edit_data->direction == 'north' ? 'selected' : '' }}> North</option>
-																	<option value="south" {{ $edit_data->direction == 'south' ? 'selected' : '' }}> South</option>
-																</select>
-															</div>	 -->
+															
 															<div class="col-lg-6 form-group">
 																<label>Thickness :</label>
 																<input name="thickness" value="{{($edit_data->thickness) ? $edit_data->thickness : ''}}" class="form-control" placeholder="Thickness..." type="text" id="thickness">
@@ -150,7 +125,7 @@
 													
 													<div class="col-lg-3">
 														<div class="form-group text-center">
-															<div class="card shade"> 
+															{{-- <div class="card shade"> 
 																<div class="image-upload">
 																	<label for="description">Add Project Thumbnail</label>
 																	<input type="hidden" name="thumnail" class="hidden-image-data" required/>
@@ -164,18 +139,27 @@
 																	<input type="file" id="upload" name="image" class="text-center" data-target="#myModal121" data-toggle="modal" accept="image/*">
 																	<div id="upload-demo-i" style="cursor: pointer" onclick="editImage()"></div>
 																</div>
-															</div>
+															</div> --}}
 														</div>
 														<div class="form-group">
 															<div class="card shade">  
 																<div id="choose-thumbnail">
-																	<label> Choose Banner Image  </label> <br />
-																	<input type="file" value="" accept="image/*" id="choose-file" name="banner_image" />
-																	<label for="choose-file">Choose Banner</label>
+																	<label> Edit Banner Image  </label> <br />
+																	 @if(!empty($edit_data->banner_image))
+																		<div class="mb-2">
+																			<img src="{{ asset($edit_data->banner_image) }}" 
+																				alt="Current Banner" 
+																				id="banner-preview"
+																				style="max-width: 250px; border:1px solid #ccc; padding:5px; border-radius:5px;">
+																		</div>
+																		<input type="hidden" name="edit_banner_image" value="{{ $edit_data->banner_image }}">
+																	@endif
+																	<input type="file" value="" accept="image/*" id="choose-file" name="banner_image"  />
+																	<label for="choose-file" style="margin-left:55px;">Edit Banner</label>
 																	<div id="img-preview"></div>
 																	
 																</div>
-																<input type="hidden" name="edit_banner_image" value="{{$edit_data->banner_image}}"/>
+																<!-- <input type="hidden" name="edit_banner_image" value="{{$edit_data->banner_image}}"/> -->
 																{{-- <select name="banner_img_id" class="form-control">
 																	<option selected disabled>-- Select Banner Image --</option>
 																	@foreach ($BannerImages as $item)
@@ -187,34 +171,8 @@
 													</div>
 												</div>   
 												 
-												{{-- <div class="form-group">
-													<label> Add Project Images </label> <br />
-													<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ServerImageModal">
-														Add Project Images
-													</button>
-												</div>  --}}
-												
-												<div class="form-group">
-													<label for="BookDescription"> Project Description </label>
-													<textarea name="description" class="form-control content" cols="10" rows="5" id="description" placeholder="Description...">
-														{{ $edit_data->description }}
-													</textarea> 
-												</div> 
-<!-- 												
-												<div class="form-group">
-													<label> Add Tags </label>
-													<select name="tags[]" id="search_tags" multiple data-role="tagsinput" Placeholder="Tags type and enter.."> 
-														@if (isset($edit_data->tags))
-														@php
-															$tags = explode(',', $edit_data->tags);
-														@endphp
-														@foreach ($tags as $tag)
-															<option value="{{$tag}}">{{$tag}}</option>
-														@endforeach
-														@endif
-													</select>
-												</div>
-												 -->
+											
+
 												<div class="form-group">
 													<label>Status </label>
 													<select name="is_active" class="custom-select w-100">
@@ -321,6 +279,28 @@
 	}
 
 </script> 
+<script>
+document.getElementById('choose-file').addEventListener('change', function (event) {
+    let preview = document.getElementById('banner-preview');
+
+    if (!preview) {
+        // If preview img doesn't exist yet, create it
+        preview = document.createElement('img');
+        preview.id = "banner-preview";
+        preview.style.maxWidth = "250px";
+        preview.style.border = "1px solid #ccc";
+        preview.style.padding = "5px";
+        preview.style.borderRadius = "5px";
+        document.getElementById('img-preview').appendChild(preview);
+    }
+
+    const file = event.target.files[0];
+    if (file) {
+        preview.src = URL.createObjectURL(file);
+    }
+});
+</script>
+
 <script>
 	function ArticleNameurl(){
 		// alert(s_data.length);
