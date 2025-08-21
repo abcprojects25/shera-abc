@@ -122,14 +122,21 @@
         <span class="sidemenu-label">Subscribers</span>
     </a>
 	</li>	
-	
 	<li class="nav-item">
+    <a class="nav-link" href="{{ route('admin.dealers.index') }}">
+        <span class="shape1"></span><span class="shape2"></span> 
+        <i class="ti-bell sidemenu-icon"></i> 
+        <span class="sidemenu-label">Dealers</span>
+    </a>
+	</li>	
+	
+	<!-- <li class="nav-item">
 		<a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="fas fa-gamepad sidemenu-icon"></i><span class="sidemenu-label"> Word game </span><i class="angle fe fe-chevron-right"></i></a>
 		<ul class="nav-sub">
 			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/guessing-game"> guessing game </a> </li>  
 			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/leaderboard"> LeaderBoard </a> </li>  
 					</ul>
-	</li> 	
+	</li> 	 -->
 
 
 

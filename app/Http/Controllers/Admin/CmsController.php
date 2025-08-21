@@ -139,7 +139,7 @@ class CmsController extends Controller
 
     public function CareerDelete($id){
         $delete_id=base64_decode($id);
-         $career = Career::findOrFail($delete_id);
+         $career = careers::findOrFail($delete_id);
     $career->is_deleted = 1;
     $career->save();
         toast('Career Deleted Successfully!!!','success');

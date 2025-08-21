@@ -60,9 +60,9 @@
                                 <div class="col-lg-3 col-md-3 col-sm-6">
                                     <h5>Applications</h5>
                                     <!-- <a href=""> Roof </a> -->
-                                    <a href=""> Ceiling </a>
-                                    <a href=""> Wall </a>
-                                    <a href=""> Floor </a>
+                                    <a href="{{ url('/applications') }}"> Ceiling </a>
+                                    <a href="{{ url('/applications') }}"> Wall </a>
+                                    <a href="{{ url('/applications') }}"> Floor </a>
                                     <!-- <a href=""> Fence </a> -->
                                     <!-- <a href=""> Door </a> -->
                                 </div>

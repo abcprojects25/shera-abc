@@ -362,7 +362,7 @@
                                                                                                             <li class="list mb-1">
                                                                                                                 <a href="#" class="link">
                                                                                                                     <div class="icon-box">
-                                                                                                                        <img src="{{ asset($app->icon) }}" alt="{{ $app->name }}">
+                                                                                                                        <img src="{{ asset($app->icon) }}" alt="{{ $app->alt_text }}">
                                                                                                                     </div>
                                                                                                                     <p class="text">{{ $app->name }}</p>
                                                                                                                 </a>

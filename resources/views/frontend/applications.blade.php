@@ -465,28 +465,29 @@
                                                         <!-- Additional required wrapper -->
                                                         <div class="swiper-wrapper">
                                                             <!-- Slides -->
+                                                             @foreach($projects as $project)
                                                             <div class="swiper-slide">
-                                                                <a href="./project.html" class="product-card">
+                                                                <a href="{{ route('frontend.project.details', $project->url) }}" class="product-card">
                                                                     <div class="image-box">
-                                                                        <img src="./img/projects/1.jpg" alt="" />
+                                                                        <img src="{{ asset($project->banner_image) }}" alt="{{ $project->title }}" />
                                                                         <div class="hover-box">
                                                                             <div href="" class="icon-box">View</div>
                                                                             <div class="text-box">
                                                                                 <ul class="detail-list">
                                                                                     <li class="list-item">
-                                                                                        <p class="date"><span>Location : </span> Mumbai</p>
+                                                                                        <p class="date"><span>Location : </span> {{ $project->city_state_name }}</p>
                                                                                     </li>
                                                                                     <li class="list-item">
-                                                                                        <p class="date"><span>Total Sq.Ft. : </span> 1000</p>
+                                                                                        <p class="date"><span>Total Sq.Ft. : </span> {{ $project->total_sqft }}</p>
                                                                                     </li>
                                                                                     <li class="list-item">
-                                                                                        <p class="date"><span>Product : </span> Deco Board</p>
+                                                                                        <p class="date"><span>Product : </span>  {{ $project->products }}</p>
                                                                                     </li>
                                                                                     <li class="list-item">
-                                                                                        <p class="date"><span>Thickness : </span> 6mm</p>
+                                                                                        <p class="date"><span>Thickness : </span> {{ $project->thickness }}</p>
                                                                                     </li>
                                                                                     <li class="list-item">
-                                                                                        <p class="date"><span>Size : </span> 1100 inch</p>
+                                                                                        <p class="date"><span>Size : </span>{{ $project->size }}</p>
                                                                                     </li>
                                                                                 </ul>
                                                                             </div>
@@ -494,93 +495,8 @@
                                                                     </div>
                                                                 </a>
                                                             </div>
-                                                            <div class="swiper-slide">
-                                                                <a href="./project.html" class="product-card">
-                                                                    <div class="image-box">
-                                                                        <img src="./img/projects/3.jpg" alt="" />
-                                                                        <div class="hover-box">
-                                                                            <div href="" class="icon-box">View</div>
-                                                                            <div class="text-box">
-                                                                                <ul class="detail-list">
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Location : </span> Mumbai</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Total Sq.Ft. : </span> 1000</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Product : </span> Deco Board</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Thickness : </span> 6mm</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Size : </span> 1100 inch</p>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <div class="swiper-slide">
-                                                                <a href="./project.html" class="product-card">
-                                                                    <div class="image-box">
-                                                                        <img src="./img/projects/4.jpg" alt="" />
-                                                                        <div class="hover-box">
-                                                                            <div href="" class="icon-box">View</div>
-                                                                            <div class="text-box">
-                                                                                <ul class="detail-list">
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Location : </span> Mumbai</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Total Sq.Ft. : </span> 1000</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Product : </span> Deco Board</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Thickness : </span> 6mm</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Size : </span> 1100 inch</p>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <div class="swiper-slide">
-                                                                <a href="./project.html" class="product-card">
-                                                                    <div class="image-box">
-                                                                        <img src="./img/projects/5.jpg" alt="" />
-                                                                        <div class="hover-box">
-                                                                            <div href="" class="icon-box">View</div>
-                                                                            <div class="text-box">
-                                                                                <ul class="detail-list">
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Location : </span> Mumbai</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Total Sq.Ft. : </span> 1000</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Product : </span> Deco Board</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Thickness : </span> 6mm</p>
-                                                                                    </li>
-                                                                                    <li class="list-item">
-                                                                                        <p class="date"><span>Size : </span> 1100 inch</p>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
+                                                            @endforeach
+                                                           
                                                         </div>
                                                     </div>
                                                     <div class="swipper-button-wrapper">
@@ -623,56 +539,18 @@
                                                 <!-- Additional required wrapper -->
                                                 <div class="swiper-wrapper">
                                                     <!-- Slides -->
+                                                     @foreach($catApps as $app)
                                                     <div class="swiper-slide">
                                                         <a href="" class="application-card">
                                                             <div class="image-box">
-                                                                <img src="./img/shera-applications/wall-cladding.jpg" alt="" />
+                                                                <img src="{{ asset($app->image) }}" alt="{{ $app->alt_text }}"/>
                                                             </div>
                                                             <div class="text-box">
-                                                                <h4 class="title">Wall Cladding</h4>
+                                                                <h4 class="title"> {{ $app->name }}</h4>
                                                             </div>
                                                         </a>
                                                     </div>
-                                                    <!-- <div class="swiper-slide">
-                                                <a href="" class="application-card">
-                                                    <div class="image-box">
-                                                        <img src="./img/shera-applications/wall-partitions.png" alt="" />
-                                                    </div>
-                                                    <div class="text-box">
-                                                        <h4 class="title">Wall Partitions</h4>
-                                                    </div>
-                                                </a>
-                                            </div> -->
-                                                    <div class="swiper-slide">
-                                                        <a href="" class="application-card">
-                                                            <div class="image-box">
-                                                                <img src="./img/shera-applications/landscaping.jpg" alt="" />
-                                                            </div>
-                                                            <div class="text-box">
-                                                                <h4 class="title">Landscaping</h4>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="swiper-slide">
-                                                        <a href="" class="application-card">
-                                                            <div class="image-box">
-                                                                <img src="./img/shera-applications/external-cladding.jpg" alt="" />
-                                                            </div>
-                                                            <div class="text-box">
-                                                                <h4 class="title">External Cladding</h4>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="swiper-slide">
-                                                        <a href="" class="application-card">
-                                                            <div class="image-box">
-                                                                <img src="./img/shera-applications/false-ceiling.jpg" alt="" />
-                                                            </div>
-                                                            <div class="text-box">
-                                                                <h4 class="title">False Ceiling</h4>
-                                                            </div>
-                                                        </a>
-                                                    </div>
+                                                   @endforeach
                                                 </div>
                                                 <!-- If we need pagination -->
                                             </div>
@@ -746,7 +624,7 @@
             </a>
         </div>
         <div class="lets-talk-box">
-            <a href="#" class="lets-talk">
+            <a href="{{ url('contact-us') }}" class="lets-talk">
                 <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
                 <span class="text"> Lets Talk </span>
                 <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>

@@ -76,7 +76,7 @@
 												<td class="actions">
 													<a href="#" onclick="viewDetails('{{$item->career_job_cat}}','{{$item->career_function}}', '{{$item->career_name}}','{{$item->career_email}}','{{$item->career_mobile}}','{{ Storage::url($item->career_resume) }}','{{$item->career_work_exp}}','{{$item->career_current_company}}','{{$item->career_current_role}}', '{{$item->career_current_ctc}}','{{$item->career_notice_period}}'
 												)" class="btn btn-sm ripple btn-info" data-toggle="modal" data-target="#ViewModal">  View </a>
-													<a onclick="return confirm('Are you sure?')" href="#" class="btn ripple btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>  </a>
+													<a onclick="return confirm('Are you sure?')" href="{{ route('career.delete', ['id' => base64_encode($item->id)]) }}" class="btn ripple btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>  </a>
 												</td>
 											</tr>
 										@endforeach

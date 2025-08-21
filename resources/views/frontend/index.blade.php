@@ -337,15 +337,15 @@
                         <section class="home_projects pb-0">
                             <div class="container-fluid">
                                 <div class="row circle_div">
-                                    <div class="g-slider--title">
+                                    <a href="{{ url('applications') }}" class="g-slider--title">
                                         <div class="progress-circle" style="--value: 0"></div>
                                         <h2 class="g-title">
                                             View All <br />
                                             Applications
                                         </h2>
-                                    </div>
+                                    </a>
                                 </div>
-                                <div class="row first_div">
+                                <a href="{{ url('applications') }}" class="row first_div">
                                     <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 first">
                                         <div class="thumb">
                                             <img src="img/projects/1.jpg" class="img-fluid" />
@@ -444,9 +444,9 @@
                                         </div>
                                     </div>
                                     <!-- -->
-                                </div>
+                                </a>
                                 <!-- First Div -->
-                                <div class="row second_div">
+                                <a href="{{ url('applications') }}" class="row second_div">
                                     <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 first">
                                         <div class="thumb">
                                             <img src="img/projects/5.jpg" class="img-fluid" />
@@ -545,7 +545,7 @@
                                         </div>
                                     </div>
                                     <!-- -->
-                                </div>
+                                </a>
                             </div>
                         </section>
 
@@ -1630,7 +1630,7 @@
                                             >
                                                 <div class="elementor-widget-container">
                                                     <div class="wc-btn-wrapper style-2 text-center" style="width: 220px; margin: 0 auto">
-                                                        <a href="#" class="wc-btn-group">
+                                                        <a href="{{ url('testimonials') }}" class="wc-btn-group">
                                                             <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
                                                             <span class="wc-btn-primary"> Explore More </span>
                                                             <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
@@ -1689,7 +1689,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="input-box">
                                                         <label for="firstName" class="form-label">First Name</label>
-                                                        <input type="text" name="first_name" class="form-control" id="firstName" />
+                                                        <input type="text" name="first_name" class="form-control" id="firstName" required/>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
@@ -1701,19 +1701,19 @@
                                                 <div class="col-lg-12">
                                                     <div class="input-box">
                                                         <label for="email" class="form-label">Email</label>
-                                                        <input type="email" name="email" class="form-control" id="email" />
+                                                        <input type="email" name="email" class="form-control" id="email" required/>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <div class="input-box">
                                                         <label for="phoneNumber" class="form-label">Phone Number</label>
-                                                        <input type="tel" name="contact" class="form-control" id="phoneNumber" />
+                                                        <input type="tel" name="contact" class="form-control" id="phoneNumber" required/>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <div class="input-box">
                                                         <label for="message" class="form-label">Message</label>
-                                                        <textarea type="textarea" name="message" class="form-control" id="message"></textarea>
+                                                        <textarea type="textarea" name="message" class="form-control" id="message" required></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">

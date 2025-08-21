@@ -393,7 +393,7 @@ document.getElementById('enquiryForm').addEventListener('submit', function(e) {
       </a>
     </div>
     <div class="lets-talk-box">
-      <a href="#" class="lets-talk">
+      <a href="{{ url('contact-us') }}" class="lets-talk">
         <span class="wc-btn-play">
           <i
             aria-hidden="true"

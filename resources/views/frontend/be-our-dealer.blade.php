@@ -125,7 +125,7 @@
                   >
                     <div class="elementor-widget-container">
                       <div class="wc-btn-wrapper style-2">
-                        <a href="#" class="wc-btn-group">
+                        <a href="{{ url('contact-us') }}" class="wc-btn-group">
                           <span class="wc-btn-play">
                             <i
                               aria-hidden="true"
@@ -159,195 +159,106 @@
 
               <!-- Right Column: Contact Form -->
               <div class="col-md-6 contact_form_right">
-                <form action="" method="post">
-                  <div class="row mb-3">
-                    <div class="col-md-12">
-                      <label for="firstName" class="form-label"
-                        >Dealer Shop/ Firm Name</label
-                      >
-                      <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend"
-                          ><i class="fas fa-house-damage"></i
-                        ></span>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="firstName"
-                          aria-describedby="inputGroupPrepend"
-                          required
-                        />
-                        <div class="invalid-feedback">
-                          Please choose a Firm Name.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <form action="{{ route('dealers.store') }}" method="post" id="dealerForm">
+  @csrf
+  <div class="row mb-3">
+    <div class="col-md-12">
+      <label for="firm_name" class="form-label">Dealer Shop/ Firm Name *</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text"><i class="fas fa-house-damage"></i></span>
+        <input type="text" class="form-control" id="firm_name" name="firm_name" required />
+      </div>
+    </div>
+  </div>
 
-                  <div class="row mb-3">
-                    <div class="col-md-6">
-                      <label for="email" class="form-label">Location</label>
-                      <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend"
-                          ><i class="fas fa-map-marked-alt"></i
-                        ></span>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="email"
-                          aria-describedby="inputGroupPrepend"
-                          required
-                        />
-                        <div class="invalid-feedback">
-                          Please choose a Location.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label for="email" class="form-label">State</label>
-                      <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend"
-                          ><i class="fas fa-globe-asia"></i></span>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="email"
-                          aria-describedby="inputGroupPrepend"
-                          required
-                        />
-                        <div class="invalid-feedback">
-                          Please choose a State.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label for="location" class="form-label">Location *</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text"><i class="fas fa-map-marked-alt"></i></span>
+        <input type="text" class="form-control" id="location" name="location" required />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="state" class="form-label">State *</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text"><i class="fas fa-globe-asia"></i></span>
+        <input type="text" class="form-control" id="state" name="state" required />
+      </div>
+    </div>
+  </div>
 
-                  <div class="row mb-3">
-                    <div class="col-md-12">
-                      <label for="email" class="form-label">Owner Name</label>
-                      <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend"
-                          ><i class="fas fa-user"></i></span>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="email"
-                          aria-describedby="inputGroupPrepend"
-                          required
-                        />
-                        <div class="invalid-feedback">
-                          Please choose a Location.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+  <div class="row mb-3">
+    <div class="col-md-12">
+      <label for="owner_name" class="form-label">Owner Name *</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text"><i class="fas fa-user"></i></span>
+        <input type="text" class="form-control" id="owner_name" name="owner_name" required />
+      </div>
+    </div>
+  </div>
 
-                  <div class="row mb-3">
-                    <div class="col-md-6">
-                      <label for="email" class="form-label">Email</label>
-                      <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend"
-                          ><i class="fas fa-envelope"></i
-                        ></span>
-                        <input
-                          type="email"
-                          class="form-control"
-                          id="email"
-                          aria-describedby="inputGroupPrepend"
-                          required
-                        />
-                        <div class="invalid-feedback">
-                          Please choose a Email.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label for="phone_number" class="form-label"
-                        >Phone Number</label
-                      >
-                      <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend"
-                          ><i class="fas fa-phone-alt"></i
-                        ></span>
-                        <input
-                          type="number"
-                          class="form-control"
-                          id="phone_number"
-                          aria-describedby="inputGroupPrepend"
-                          required
-                        />
-                        <div class="invalid-feedback">
-                          Please choose a phone number.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label for="email" class="form-label">Email *</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+        <input type="email" class="form-control" id="email" name="email" required />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="phone_number" class="form-label">Phone Number *</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text"><i class="fas fa-phone-alt"></i></span>
+        <input type="text" class="form-control" id="phone_number" name="phone_number" required />
+      </div>
+    </div>
+  </div>
 
-                  <div class="mb-3">
-                    <label for="message"
-                      >When did you started your business?</label
-                    >
-                    <textarea
-                      class="form-control"
-                      rows="4"
-                      placeholder="Your Message"
-                      id="message"
-                      required
-                    ></textarea>
-                  </div>
-                  <div class="mb-3">
-                    <label for="message"
-                      >What all products you are selling?</label
-                    >
-                    <textarea
-                      class="form-control"
-                      rows="4"
-                      placeholder="Your Message"
-                      id="message"
-                      required
-                    ></textarea>
-                  </div>
+  <div class="mb-3">
+    <label for="business_start">When did you start your business? *</label>
+    <textarea class="form-control" rows="4" id="business_start" name="business_start" required></textarea>
+  </div>
 
-                  <div
-                    class="elementor-element elementor-element-845e997 elementor-widget elementor-widget-wcf--arolax-button"
-                    data-id="845e997"
-                    data-element_type="widget"
-                    data-settings='{"wcf-animation":"fade","fade-from":"left","data-duration":0.75,"fade-offset":40,"delay":0.15,"on-scroll":1,"ease":"power2.out"}'
-                    data-widget_type="wcf--arolax-button.default"
-                    style="
-                      transition: none;
-                      translate: none;
-                      rotate: none;
-                      scale: none;
-                      transform: translate(0px, 0px);
-                      opacity: 1;
-                      margin-top: 40px;
-                    "
-                  >
-                    <div class="elementor-widget-container">
-                      <div class="wc-btn-wrapper style-2">
-                        <a href="#" class="wc-btn-group">
-                          <span class="wc-btn-play">
-                            <i
-                              aria-hidden="true"
-                              class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"
-                            ></i>
-                          </span>
-                          <span class="wc-btn-primary"> Send Message </span>
-                          <span class="wc-btn-play">
-                            <i
-                              aria-hidden="true"
-                              class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"
-                            ></i>
-                          </span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </form>
+  <div class="mb-3">
+    <label for="products">What all products you are selling? *</label>
+    <textarea class="form-control" rows="4" id="products" name="products" required></textarea>
+  </div>
+
+  <div class="col-12 mx-2">
+      <div class="input-box">
+        <div class="elementor-widget-container">
+          <div class="wc-btn-wrapper style-2 text-start">
+            <button type="submit" class="wc-btn-group" id="submitBtn" style="border: none; background: none; padding: 0;">
+             <span class="wc-btn-play">
+             <i class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
+              </span>
+              <span class="wc-btn-primary" id="btnText"> Send Message </span>
+              <span class="wc-btn-play">
+               <i class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+</div>
+</form>
+
               </div>
             </div>
           </section>
+<script>
+document.getElementById('dealerForm').addEventListener('submit', function(e) {
+    var btn = document.getElementById('submitBtn');
+    var btnText = document.getElementById('btnText');
 
+    // Disable the button
+    btn.disabled = true;
+
+    // Show loader inside the button
+    btnText.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+});
+</script>
           @include('frontend.layout.footer')
         </div>
         <!-- #page -->
@@ -368,7 +279,7 @@
       </a>
     </div>
     <div class="lets-talk-box">
-      <a href="#" class="lets-talk">
+      <a href="{{ url('contact-us') }}" class="lets-talk">
         <span class="wc-btn-play">
           <i
             aria-hidden="true"
