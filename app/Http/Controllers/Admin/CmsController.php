@@ -162,23 +162,30 @@ class CmsController extends Controller
         $resumePath = $request->file('career_resume')->store('resumes', 'public');
     }
 
-    \DB::table('careers')->insert([
-        'career_name'            => $request->career_name,
-        'career_mobile'          => $request->career_mobile,
-        'career_email'           => $request->career_email,
-        'career_work_exp'        => $request->career_work_exp,
-        'career_current_company' => $request->career_current_company,
-        'career_current_role'    => $request->career_current_role,
-        'career_current_ctc'     => $request->career_current_ctc,
-        'career_job_cat'         => $request->career_job_cat,
-        'career_function'        => $request->career_function,
-        'career_resume'          => $resumePath,
-        'career_notice_period'   => $request->career_notice_period,
-        'site_val'               => $request->site_val,
-        'created_at'             => now(),
-        'updated_at'             => now(),
-    ]);
+      $careerData = [
+            'career_name'            => $request->career_name,
+            'career_mobile'          => $request->career_mobile,
+            'career_email'           => $request->career_email,
+            'career_work_exp'        => $request->career_work_exp,
+            'career_current_company' => $request->career_current_company,
+            'career_current_role'    => $request->career_current_role,
+            'career_current_ctc'     => $request->career_current_ctc,
+            'career_job_cat'         => $request->career_job_cat,
+            'career_function'        => $request->career_function,
+            'career_resume'          => $resumePath,
+            'career_notice_period'   => $request->career_notice_period,
+            'site_val'               => $request->site_val,
+        ];
 
+        \DB::table('careers')->insert(array_merge($careerData, [
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]));
+        
+     Mail::send('admin.emails.career_mail', ['careerData' => $careerData], function ($message) use ($careerData) {
+            $message->to('sofiya@abcdesigns.in')
+                    ->subject('New Job Application - ' . $careerData['career_name']);
+        });
     return back()->with('success', 'Career form submitted successfully!');
     } catch (\Exception $e) {
         return back()->with('error', 'Something went wrong: ' . $e->getMessage());
