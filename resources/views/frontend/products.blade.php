@@ -422,56 +422,21 @@
                                                             <!-- Additional required wrapper -->
                                                             <div class="swiper-wrapper">
                                                                 <!-- Slides -->
+                                                                 @foreach($subCategoriesByMain[1] ?? [] as $subCategory)
+                                                                 @foreach ($subCategory->applications as $application)
                                                                 <div class="swiper-slide">
                                                                     <a href="" class="application-card">
                                                                         <div class="image-box">
-                                                                            <img src="./img/shera-applications/wall-cladding.jpg" alt="" />
+                                                                            <img src="{{ $application->image ?? asset('img/default.jpg') }}" alt="{{ $application->alt_text }}" />
                                                                         </div>
                                                                         <div class="text-box">
-                                                                            <h4 class="title">Wall Cladding</h4>
+                                                                            <h4 class="title">{{ $application->name }}</h4>
                                                                         </div>
                                                                     </a>
                                                                 </div>
-                                                                <div class="swiper-slide">
-                                                                    <a href="" class="application-card">
-                                                                        <div class="image-box">
-                                                                            <img src="./img/shera-applications/wall-partitions.png" alt="" />
-                                                                        </div>
-                                                                        <div class="text-box">
-                                                                            <h4 class="title">Wall Partitions</h4>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="swiper-slide">
-                                                                    <a href="" class="application-card">
-                                                                        <div class="image-box">
-                                                                            <img src="./img/shera-applications/landscaping.jpg" alt="" />
-                                                                        </div>
-                                                                        <div class="text-box">
-                                                                            <h4 class="title">Landscaping</h4>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="swiper-slide">
-                                                                    <a href="" class="application-card">
-                                                                        <div class="image-box">
-                                                                            <img src="./img/shera-applications/external-cladding.jpg" alt="" />
-                                                                        </div>
-                                                                        <div class="text-box">
-                                                                            <h4 class="title">External Cladding</h4>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="swiper-slide">
-                                                                    <a href="" class="application-card">
-                                                                        <div class="image-box">
-                                                                            <img src="./img/shera-applications/false-ceiling.jpg" alt="" />
-                                                                        </div>
-                                                                        <div class="text-box">
-                                                                            <h4 class="title">False Ceiling</h4>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
+                                                                @endforeach
+                                                                @endforeach
+                                                                
                                                             </div>
                                                             <!-- If we need pagination -->
                                                         </div>
@@ -636,7 +601,7 @@
                                                                                                             <li class="list mb-1">
                                                                                                                 <a href="#" class="link">
                                                                                                                     <div class="icon-box">
-                                                                                                                        <img src="{{ asset($app->image) }}" alt="{{ $app->name }}">
+                                                                                                                        <img src="{{ asset($app->icon) }}" alt="{{ $app->name }}">
                                                                                                                     </div>
                                                                                                                     <p class="text">{{ $app->name }}</p>
                                                                                                                 </a>
@@ -762,7 +727,7 @@
                                                                                                             <li class="list mb-1">
                                                                                                                 <a href="#" class="link">
                                                                                                                     <div class="icon-box">
-                                                                                                                        <img src="{{ asset($app->image) }}" alt="{{ $app->name }}">
+                                                                                                                        <img src="{{ asset($app->icon) }}" alt="{{ $app->name }}">
                                                                                                                     </div>
                                                                                                                     <p class="text">{{ $app->name }}</p>
                                                                                                                 </a>
@@ -910,56 +875,20 @@
                                                             <!-- Additional required wrapper -->
                                                             <div class="swiper-wrapper">
                                                                 <!-- Slides -->
+                                                        @foreach($subCategoriesByMain[2] ?? [] as $subCategory)
+                                                             @foreach ($subCategory->applications as $application)
                                                                 <div class="swiper-slide">
                                                                     <a href="" class="application-card">
                                                                         <div class="image-box">
-                                                                            <img src="./img/products-page/shera-neu/applications/wall-partitions.png" alt="" />
+                                                                            <img src="{{ $application->image ?? asset('img/default.jpg') }}" alt="{{ $application->alt_text }}" />
                                                                         </div>
                                                                         <div class="text-box">
-                                                                            <h4 class="title">Wall Partitions</h4>
+                                                                            <h4 class="title">{{ $application->name }}</h4>
                                                                         </div>
                                                                     </a>
                                                                 </div>
-                                                                <div class="swiper-slide">
-                                                                    <a href="" class="application-card">
-                                                                        <div class="image-box">
-                                                                            <img src="./img/products-page/shera-neu/applications/false-ceiling.png" alt="" />
-                                                                        </div>
-                                                                        <div class="text-box">
-                                                                            <h4 class="title">False Ceiling</h4>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="swiper-slide">
-                                                                    <a href="" class="application-card">
-                                                                        <div class="image-box">
-                                                                            <img src="./img/products-page/shera-neu/applications/mezzanine-flooring.png" alt="" />
-                                                                        </div>
-                                                                        <div class="text-box">
-                                                                            <h4 class="title">Mezzanine Flooring</h4>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="swiper-slide">
-                                                                    <a href="" class="application-card">
-                                                                        <div class="image-box">
-                                                                            <img src="./img/products-page/shera-neu/applications/wall-paneling.png" alt="" />
-                                                                        </div>
-                                                                        <div class="text-box">
-                                                                            <h4 class="title">Wall Paneling</h4>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="swiper-slide">
-                                                                    <a href="" class="application-card">
-                                                                        <div class="image-box">
-                                                                            <img src="./img/products-page/shera-neu/applications/underlayment.png" alt="" />
-                                                                        </div>
-                                                                        <div class="text-box">
-                                                                            <h4 class="title">Underlayment</h4>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
+                                                             @endforeach
+                                                             @endforeach   
                                                             </div>
                                                             <!-- If we need pagination -->
                                                         </div>
@@ -1101,7 +1030,7 @@
                                                                                                             <li class="list mb-1">
                                                                                                                 <a href="#" class="link">
                                                                                                                     <div class="icon-box">
-                                                                                                                        <img src="{{ asset($app->image) }}" alt="{{ $app->name }}">
+                                                                                                                        <img src="{{ asset($app->icon) }}" alt="{{ $app->name }}">
                                                                                                                     </div>
                                                                                                                     <p class="text">{{ $app->name }}</p>
                                                                                                                 </a>
@@ -1227,7 +1156,7 @@
                                                                                                             <li class="list mb-1">
                                                                                                                 <a href="#" class="link">
                                                                                                                     <div class="icon-box">
-                                                                                                                        <img src="{{ asset($app->image) }}" alt="{{ $app->name }}">
+                                                                                                                        <img src="{{ asset($app->icon) }}" alt="{{ $app->name }}">
                                                                                                                     </div>
                                                                                                                     <p class="text">{{ $app->name }}</p>
                                                                                                                 </a>
@@ -1289,56 +1218,20 @@
                                                             <!-- Additional required wrapper -->
                                                             <div class="swiper-wrapper">
                                                                 <!-- Slides -->
+                                                                 @foreach($subCategoriesByMain[8] ?? [] as $subCategory)
+                                                                 @foreach ($subCategory->applications as $application)
                                                                 <div class="swiper-slide">
                                                                     <a href="" class="application-card">
                                                                         <div class="image-box">
-                                                                            <img src="./img/shera-applications/wall-cladding.jpg" alt="" />
+                                                                            <img src="{{ $application->image ?? asset('img/default.jpg') }}" alt="{{ $application->alt_text }}" />
                                                                         </div>
                                                                         <div class="text-box">
-                                                                            <h4 class="title">Wall Cladding</h4>
+                                                                            <h4 class="title">{{ $application->name }}</h4>
                                                                         </div>
                                                                     </a>
                                                                 </div>
-                                                                <div class="swiper-slide">
-                                                                    <a href="" class="application-card">
-                                                                        <div class="image-box">
-                                                                            <img src="./img/shera-applications/wall-partitions.png" alt="" />
-                                                                        </div>
-                                                                        <div class="text-box">
-                                                                            <h4 class="title">Wall Partitions</h4>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="swiper-slide">
-                                                                    <a href="" class="application-card">
-                                                                        <div class="image-box">
-                                                                            <img src="./img/shera-applications/landscaping.jpg" alt="" />
-                                                                        </div>
-                                                                        <div class="text-box">
-                                                                            <h4 class="title">Landscaping</h4>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="swiper-slide">
-                                                                    <a href="" class="application-card">
-                                                                        <div class="image-box">
-                                                                            <img src="./img/shera-applications/external-cladding.jpg" alt="" />
-                                                                        </div>
-                                                                        <div class="text-box">
-                                                                            <h4 class="title">External Cladding</h4>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="swiper-slide">
-                                                                    <a href="" class="application-card">
-                                                                        <div class="image-box">
-                                                                            <img src="./img/shera-applications/false-ceiling.jpg" alt="" />
-                                                                        </div>
-                                                                        <div class="text-box">
-                                                                            <h4 class="title">False Ceiling</h4>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
+                                                               @endforeach
+                                                               @endforeach
                                                             </div>
                                                             <!-- If we need pagination -->
                                                         </div>

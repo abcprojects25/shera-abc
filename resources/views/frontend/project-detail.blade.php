@@ -121,7 +121,7 @@
                                                 data-widget_type="wcf--title.default"
                                             >
                                                 <div class="elementor-widget-container">
-                                                    <h4 class="wcf--title">More Commercial Building</h4>
+                                                    <h4 class="wcf--title">More {{ $category->name }}</h4>
                                                     <h2 class="wcf--title alt">Projects</h2>
                                                 </div>
                                             </div>

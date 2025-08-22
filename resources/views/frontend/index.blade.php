@@ -345,10 +345,11 @@
                                         </h2>
                                     </a>
                                 </div>
-                                <a href="{{ url('applications') }}" class="row first_div">
-                                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 first">
+                                <div class="row first_div">
+                                    @foreach($categories->chunk(4)[0] as $category)
+                                    <a href="{{ route('frontend.application', $category->id) }}" class="col-lg-3 col-md-3 col-sm-4 col-xs-6 first">
                                         <div class="thumb">
-                                            <img src="img/projects/1.jpg" class="img-fluid" />
+                                            <img src="{{ asset($category->image) }}" class="img-fluid" />
                                             <div class="content-wrap">
                                                 <div class="icon-wrap">
                                                     <div class="icon">
@@ -359,97 +360,27 @@
                                                                 d="M0.0249186 -2.09988e-06L0.0249182 2.20346L12.2385 2.20346L1.28959e-06 14.4419L1.55808 16L13.7965 3.76154L13.7965 15.9751L16 15.9751L16 6.93295e-07L15.8623 -2.40791e-08L13.7965 3.0803e-07L0.0249186 -2.09988e-06Z"
                                                                 fill="#121212"
                                                             ></path>
-                                                        </svg>
+                                                        </svg> 
                                                     </div>
                                                 </div>
                                                 <div class="content">
-                                                    <h2 class="title">Interior Cladding</h2>
+                                                    <h2 class="title">{{ $category->name }}</h2>
                                                     <p class="desc">Design - 2019</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
+                                    @endforeach
                                     <!-- -->
-                                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                        <div class="thumb">
-                                            <video muted autoplay loop>
-                                                <source src="img/projects/video_1.mp4" type="video/mp4" />
-                                            </video>
-                                            <div class="content-wrap">
-                                                <div class="icon-wrap">
-                                                    <div class="icon">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                                            <path
-                                                                fill-rule="evenodd"
-                                                                clip-rule="evenodd"
-                                                                d="M0.0249186 -2.09988e-06L0.0249182 2.20346L12.2385 2.20346L1.28959e-06 14.4419L1.55808 16L13.7965 3.76154L13.7965 15.9751L16 15.9751L16 6.93295e-07L15.8623 -2.40791e-08L13.7965 3.0803e-07L0.0249186 -2.09988e-06Z"
-                                                                fill="#121212"
-                                                            ></path>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                                <div class="content">
-                                                    <h2 class="title">Interior Cladding</h2>
-                                                    <p class="desc">Design - 2019</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                   
                                     <!-- -->
-                                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                        <div class="thumb">
-                                            <img src="img/projects/3.jpg" class="img-fluid" />
-                                            <div class="content-wrap">
-                                                <div class="icon-wrap">
-                                                    <div class="icon">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                                            <path
-                                                                fill-rule="evenodd"
-                                                                clip-rule="evenodd"
-                                                                d="M0.0249186 -2.09988e-06L0.0249182 2.20346L12.2385 2.20346L1.28959e-06 14.4419L1.55808 16L13.7965 3.76154L13.7965 15.9751L16 15.9751L16 6.93295e-07L15.8623 -2.40791e-08L13.7965 3.0803e-07L0.0249186 -2.09988e-06Z"
-                                                                fill="#121212"
-                                                            ></path>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                                <div class="content">
-                                                    <h2 class="title">Exterior Cladding</h2>
-                                                    <p class="desc">Design - 2019</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- -->
-                                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                        <div class="thumb">
-                                            <img src="img/projects/4.jpg" class="img-fluid" />
-                                            <div class="content-wrap">
-                                                <div class="icon-wrap">
-                                                    <div class="icon">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                                            <path
-                                                                fill-rule="evenodd"
-                                                                clip-rule="evenodd"
-                                                                d="M0.0249186 -2.09988e-06L0.0249182 2.20346L12.2385 2.20346L1.28959e-06 14.4419L1.55808 16L13.7965 3.76154L13.7965 15.9751L16 15.9751L16 6.93295e-07L15.8623 -2.40791e-08L13.7965 3.0803e-07L0.0249186 -2.09988e-06Z"
-                                                                fill="#121212"
-                                                            ></path>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                                <div class="content">
-                                                    <h2 class="title">Exterior Cladding</h2>
-                                                    <p class="desc">Design - 2019</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- -->
-                                </a>
+                                </div>
                                 <!-- First Div -->
-                                <a href="{{ url('applications') }}" class="row second_div">
+                                <a href="{{ route('frontend.application', $category->id) }}" class="row second_div">
+                                    @foreach($categories->chunk(4)[1] as $category)
                                     <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 first">
                                         <div class="thumb">
-                                            <img src="img/projects/5.jpg" class="img-fluid" />
+                                            <img src="{{ asset($category->image) }}" class="img-fluid" />
                                             <div class="content-wrap">
                                                 <div class="icon-wrap">
                                                     <div class="icon">
@@ -464,87 +395,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="content">
-                                                    <h2 class="title">Exterior Cladding</h2>
+                                                    <h2 class="title">{{ $category->name }}</h2>
                                                     <p class="desc">Design - 2019</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- -->
-                                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                        <div class="thumb">
-                                            <img src="img/projects/6.jpg" class="img-fluid" />
-                                            <div class="content-wrap">
-                                                <div class="icon-wrap">
-                                                    <div class="icon">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                                            <path
-                                                                fill-rule="evenodd"
-                                                                clip-rule="evenodd"
-                                                                d="M0.0249186 -2.09988e-06L0.0249182 2.20346L12.2385 2.20346L1.28959e-06 14.4419L1.55808 16L13.7965 3.76154L13.7965 15.9751L16 15.9751L16 6.93295e-07L15.8623 -2.40791e-08L13.7965 3.0803e-07L0.0249186 -2.09988e-06Z"
-                                                                fill="#121212"
-                                                            ></path>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                                <div class="content">
-                                                    <h2 class="title">Exterior Cladding</h2>
-                                                    <p class="desc">Design - 2019</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- -->
-                                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                        <div class="thumb">
-                                            <video muted autoplay loop>
-                                                <source src="img/projects/video_2.mp4" type="video/mp4" />
-                                            </video>
-                                            <div class="content-wrap">
-                                                <div class="icon-wrap">
-                                                    <div class="icon">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                                            <path
-                                                                fill-rule="evenodd"
-                                                                clip-rule="evenodd"
-                                                                d="M0.0249186 -2.09988e-06L0.0249182 2.20346L12.2385 2.20346L1.28959e-06 14.4419L1.55808 16L13.7965 3.76154L13.7965 15.9751L16 15.9751L16 6.93295e-07L15.8623 -2.40791e-08L13.7965 3.0803e-07L0.0249186 -2.09988e-06Z"
-                                                                fill="#121212"
-                                                            ></path>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                                <div class="content">
-                                                    <h2 class="title">Exterior Cladding</h2>
-                                                    <p class="desc">Design - 2019</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- -->
-                                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                        <div class="thumb">
-                                            <img src="img/projects/8.jpg" class="img-fluid" />
-                                            <div class="content-wrap">
-                                                <div class="icon-wrap">
-                                                    <div class="icon">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                                            <path
-                                                                fill-rule="evenodd"
-                                                                clip-rule="evenodd"
-                                                                d="M0.0249186 -2.09988e-06L0.0249182 2.20346L12.2385 2.20346L1.28959e-06 14.4419L1.55808 16L13.7965 3.76154L13.7965 15.9751L16 15.9751L16 6.93295e-07L15.8623 -2.40791e-08L13.7965 3.0803e-07L0.0249186 -2.09988e-06Z"
-                                                                fill="#121212"
-                                                            ></path>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                                <div class="content">
-                                                    <h2 class="title">Interior Cladding</h2>
-                                                    <p class="desc">Design - 2019</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- -->
+                                    @endforeach
                                 </a>
                             </div>
                         </section>
@@ -1746,18 +1604,18 @@
                             <!-- Container -->
                         </section>
                     </div>
-<script>
-document.getElementById('enquiryForm').addEventListener('submit', function(e) {
-    var btn = document.getElementById('submitBtn');
-    var btnText = document.getElementById('btnText');
+                        <script>
+                        document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+                            var btn = document.getElementById('submitBtn');
+                            var btnText = document.getElementById('btnText');
 
-    // Disable the button
-    btn.disabled = true;
+                            // Disable the button
+                            btn.disabled = true;
 
-    // Show loader inside the button
-    btnText.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-});
-</script>
+                            // Show loader inside the button
+                            btnText.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                        });
+                        </script>
                    @include('frontend.layout.footer')
                 </div>
                 <!-- #page -->

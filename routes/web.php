@@ -56,11 +56,8 @@ Route::group(['as' => 'laravelpwa.'], function () {
 
 /* ===== Frontend Route ===== */
 
-Route::get('/', function () {
-    return view('frontend.index');
-})->name('frontend.index');
+Route::get('/', [ProductController::class, 'indexFront'])->name('frontend.indexFront');
 
-    
 Route::get('/about-us', function () {
     return view('frontend.about-us');
 });
@@ -96,6 +93,9 @@ Route::get('/apply-job', function () {
 Route::get('testimonials', function(){
     return view('frontend.testimonials');
 });
+Route::get('certificates', function(){
+    return view('frontend.certificates');
+});
 
 Route::post('/game/log', [GameLogController::class, 'store']);
 
@@ -117,7 +117,9 @@ Route::get('/project', [ProjectController::class, 'userProjectPage'])->name('fro
 Route::get('/project/{categorySeoUrl}', [ProjectController::class, 'userProjectPageByCategory'])->name('frontend.project.category');
 Route::get('/project-details/{slug}', [ProjectController::class, 'userProjectDetails'])->name('frontend.project.details');
 Route::post('/admin/project/images/store', [ProjectController::class, 'storeImages'])->name('admin.project.images.store');
-Route::get('/applications',  [ProjectController::class, 'viewProject'])->name('admin.project.viewApp');
+// Route::get('/applications',  [ProductController::class, 'application'])->name('admin.project.viewApp');
+Route::get('/applications/{id}', [ProductController::class, 'application'])
+    ->name('frontend.application');
 
 Route::get('/blogs', [BlogController::class, 'userBlogPage'])->name('frontend.blog');
 Route::get('/blog/{category_seourl}', [BlogController::class, 'blogsByCategory'])->name('blogs.byCategory');

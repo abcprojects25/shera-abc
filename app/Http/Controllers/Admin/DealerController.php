@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\admin\Dealers;
 use Illuminate\Support\Str;
+use App\Mail\EnquiryResponseMail;
+use Illuminate\Support\Facades\Mail;
 
 class DealerController extends Controller{
 
@@ -38,8 +40,14 @@ class DealerController extends Controller{
     $dealer->business_start = $request->business_start;
     $dealer->products = $request->products;
     $dealer->status = 1; // default active
-    $dealer->url = Str::slug($request->firm_name); // auto-generate URL slug
+    $dealer->url = Str::slug($request->firm_name);
+    $dealer->source = $request->source ?? 'dealer';
     $dealer->save();
+
+    Mail::send('admin.emails.dealers_mail', ['dealer' => $dealer], function ($message) use ($dealer) {
+            $message->to('sofiya@abcdesigns.in')
+                    ->subject('New ' . $dealer->source . ' - ' . $dealer->firm_name);
+        });
 
     return redirect()->back()->with('success', 'Dealer info saved successfully!');
 }

@@ -30,6 +30,27 @@ use GoogleTranslate;
 
 class ProductController extends Controller
 {
+
+    public function indexFront()
+{
+   
+    $categories = CategoryApplication::inRandomOrder()->take(8)->get();
+
+    return view('frontend.index', compact('categories'));
+}
+
+public function application($id)
+{
+    $app = CategoryApplication::where('id', $id)->firstOrFail();
+ $categories = Category::where('id', $app->category_id)->take(4)->get();
+    // Fetch products belonging to this category
+    $products = Products::where('category_id', $category->id)->get();
+
+    $projects  = Projects::all();
+      $catApps = CategoryApplication::all();
+    return view('frontend.applications', compact('app',  'categories','products', 'projects', 'catApps'));
+}
+
     //Index page
     public function Index(){
       $Products = Products::orderBy('product_order','asc')->get();
@@ -40,9 +61,9 @@ class ProductController extends Controller
     }
 
     public function userProductPage()
-{
+{ 
         $mainCategoryIds = [1, 2, 8];
-        $mainCategories = Categories::whereIn('id', $mainCategoryIds)->get();
+        $mainCategories = Categories::whereIn('id', $mainCategoryIds)->with('applications')->get();
         $subCategoriesByMain = [];
         foreach ($mainCategoryIds as $mainCategoryId) {
                 $subCategoryIds = Categories_lookups::where('category_id', $mainCategoryId)
@@ -71,17 +92,19 @@ public function showCategoryProducts($slug)
 
 public function show($slug)
 {
+    
     $product = Products::with('category', 'applications', 'productImages')
         ->where('product_url', $slug)
         ->firstOrFail();
-
+        $subCategory = $product->category;
+        $subCategory->load('products');
     $projects = Projects::with('category')
         ->where('products', 'like', '%' . $product->title . '%')
         ->where('status', 1)
         ->get();
 
 
-    return view('frontend.product-description', compact('product', 'projects'));
+    return view('frontend.product-description', compact('product', 'projects', 'subCategory'));
 }
 
 

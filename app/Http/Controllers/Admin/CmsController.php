@@ -21,7 +21,7 @@ use App\Models\admin\OurMilestones;
 use App\Models\admin\FollowUs;
 use App\Models\Contacts;
 use App\Models\Enquires;
-use App\Mail\EnquiryResponseMail;
+use App\Mail\EnquiryResponseMail; 
 use Illuminate\Support\Facades\Mail;
 use App\Models\Admin;
 use App\Models\Videos;

@@ -9,7 +9,7 @@
 
     @include('frontend.layout.header')
     
-<div class="wcf-preloader preloader-container preloader-circle-loading"> -->
+<div class="wcf-preloader preloader-container preloader-circle-loading"> 
 
         <!--view download modal -->
         <div class="modal fade enquiry-modal alt" id="viewDownloadModal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">

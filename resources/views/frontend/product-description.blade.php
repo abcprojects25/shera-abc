@@ -212,9 +212,9 @@
                                                             @endif
                                                              @foreach($projects as $project)
                                                             <div class="swiper-slide">
-                                                                <a href="{{ url('/project/' . $project->id) }}" class="product-card">
+                                                                <a href="{{ url('/project-details/' . $project->url) }}" class="product-card">
                                                                     <div class="image-box">
-                                                                        <img src="{{ asset($project->image) }}" alt="{{ $project->title }}" />
+                                                                        <img src="{{ asset($project->banner_image) }}" alt="{{ $project->title }}" />
                                                                         <div class="hover-box">
                                                                             <a href="{{ route('frontend.project.category', $project->category->seourl) }}" class="icon-box"> View </a>
                                                                             <div class="text-box">
@@ -275,7 +275,7 @@
                                                         data-widget_type="wcf--title.default"
                                                     >
                                                         <div class="elementor-widget-container">
-                                                            <h4 class="sub-heading wcf--title mb-3">More Deco Board Textures</h4>
+                                                            <h4 class="sub-heading wcf--title mb-3">More {{ $subCategory->name }} Textures</h4>
                                                             <h2 class="wcf--title shera-black alt">Products</h2>
                                                         </div>
                                                     </div>
@@ -290,7 +290,7 @@
                                                 >
                                                     <div class="elementor-widget-container">
                                                         <div class="wc-btn-wrapper style-2">
-                                                            <a href="{{ url('/deco-boards') }}" class="wc-btn-group">
+                                                            <a href="{{ url('/category/' . $subCategory->seourl) }}" class="wc-btn-group">
                                                                 <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
                                                                 <span class="wc-btn-primary"> View More </span>
                                                                 <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
@@ -308,92 +308,26 @@
                                                             <!-- Additional required wrapper -->
                                                             <div class="swiper-wrapper">
                                                                 <!-- Slides -->
+                                                                 @foreach($subCategory->products as $p)
                                                                 <div class="swiper-slide">
-                                                                    <a href="#" class="product-card">
+                                                                    <a href="{{ url('product/'.$p->product_url) }}" class="product-card">
                                                                         <div class="image-box mb-4">
-                                                                                <img src="{{ asset('img/products-page/shera-pro/products/deco-board/blossom/deco-blossom.jpg') }}" alt="" />
+                                                                                <img src="{{ asset($p->image) }}" alt="{{ $p->title }}" />
                                                                             <div class="hovered-box">
                                                                                 <!-- <h4 class="title">Wall Partitions, False Ceiling, Wall Cladding, Landscaping, External Cladding</h4> -->
                                                                                 <ul class="information-list">
-                                                                                    <li class="list mb-1">Profile : Square-Cut Edge</li>
-                                                                                    <li class="list mb-1">Colour : Uncoloured</li>
+                                                                                    <li class="list mb-1">Profile : {{ $p->profile ?? 'N/A' }}</li>
+                                                                                    <li class="list mb-1">Colour : {{ $p->colour ?? 'N/A' }}</li>
                                                                                 </ul>
-                                                                            </div>
+                                                                            </div> 
                                                                         </div>
                                                                         <div class="text-box">
-                                                                            <h3 class="title inner-title mb-1">Blossom</h3>
+                                                                            <h3 class="title inner-title mb-1">{{ $p->title }}</h3>
                                                                         </div>
                                                                     </a>
                                                                 </div>
-                                                                <div class="swiper-slide">
-                                                                    <a href="#" class="product-card">
-                                                                        <div class="image-box mb-4">
-                                                                            <img src="{{ asset('img/products-page/shera-pro/products/deco-board/drop/deco-drop.png') }}" alt="" />
-
-                                                                            <div class="hovered-box">
-                                                                                <!-- <h4 class="title">Wall Partitions, False Ceiling, Wall Cladding, Landscaping, External Cladding</h4> -->
-                                                                                <ul class="information-list">
-                                                                                    <li class="list mb-1">Profile : Square-Cut Edge</li>
-                                                                                    <li class="list mb-1">Colour : Uncoloured</li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="text-box">
-                                                                            <h3 class="title inner-title mb-1">Drop</h3>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="swiper-slide">
-                                                                    <a href="#" class="product-card">
-                                                                        <div class="image-box mb-4">
-                                                                            <img src="{{ asset('img/products-page/shera-pro/products/deco-board/cassia/deco-cassia.png') }}" alt="" />
-                                                                            <div class="hovered-box">
-                                                                                <!-- <h4 class="title">Wall Partitions, False Ceiling, Wall Cladding, Landscaping, External Cladding</h4> -->
-                                                                                <ul class="information-list">
-                                                                                    <li class="list mb-1">Profile : Square-Cut Edge</li>
-                                                                                    <li class="list mb-1">Colour : Uncoloured</li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="text-box">
-                                                                            <h3 class="title inner-title mb-1">Cassia</h3>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="swiper-slide">
-                                                                    <a href="#" class="product-card">
-                                                                        <div class="image-box mb-4">
-                                                                            <img src="{{ asset('img/products-page/shera-pro/products/deco-board/straight-grain-3/deco-straight-grain-3.png') }}" alt="" />
-                                                                            <div class="hovered-box">
-                                                                                <!-- <h4 class="title">Wall Partitions, False Ceiling, Wall Cladding, Landscaping, External Cladding</h4> -->
-                                                                                <ul class="information-list">
-                                                                                    <li class="list mb-1">Profile : Square-Cut Edge</li>
-                                                                                    <li class="list mb-1">Colour : Uncoloured</li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="text-box">
-                                                                            <h3 class="title inner-title mb-1">Straight Grain 3</h3>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="swiper-slide">
-                                                                    <a href="#" class="product-card">
-                                                                        <div class="image-box mb-4">
-                                                                            <img src="{{ asset('img/products-page/shera-pro/products/deco-board/cassiano/deco-cassiano.png') }}" alt="" />
-                                                                            <div class="hovered-box">
-                                                                                <!-- <h4 class="title">Wall Partitions, False Ceiling, Wall Cladding, Landscaping, External Cladding</h4> -->
-                                                                                <ul class="information-list">
-                                                                                    <li class="list mb-1">Profile : Square-Cut Edge</li>
-                                                                                    <li class="list mb-1">Colour : Uncoloured</li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="text-box">
-                                                                            <h3 class="title inner-title mb-1">Cassiano</h3>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
+                                                                @endforeach
+                                                                
                                                             </div>
                                                         </div>
                                                         <div class="swipper-button-wrapper text">

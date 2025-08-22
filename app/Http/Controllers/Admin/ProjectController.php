@@ -30,12 +30,6 @@ class ProjectController extends Controller
       return view('admin.projects.listing',compact('data'));
     }
 
-    public function viewProject()
-    {
-      $projects  = Projects::all();
-      $catApps = CategoryApplication::all();
-      return view('frontend.applications',compact('projects', 'catApps'));
-    }
 
 
   public function userProjectPage()
@@ -90,6 +84,7 @@ class ProjectController extends Controller
         'projectImages' => $projectImages,
         'relatedProjects' => $relatedProjects,
         'categories' => Categories::select('id', 'name', 'seourl')->where('type', 2)->get(),
+        'category' => Categories::select('id', 'name', 'seourl')->find($project->category_id),
     ]);
 }
 

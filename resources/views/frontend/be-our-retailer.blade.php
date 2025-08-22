@@ -162,6 +162,8 @@
               <div class="col-md-6 contact_form_right">
                  <form action="{{ route('dealers.store') }}" method="post" id="dealerForm">
   @csrf
+  <input type="hidden" name="source" value="retailer">
+
   <div class="row mb-3">
     <div class="col-md-12">
       <label for="firm_name" class="form-label">Dealer Shop/ Firm Name *</label>

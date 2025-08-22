@@ -50,8 +50,8 @@ class AdminAuthController extends Controller
     }
     public function dashboard(Request $request)
     {
-        $Careers = careers::select('id','career_name','career_resume','created_at')->orderby('id','desc')->take(5)->get();
-        $Contacts = Enquiry::select('id','first_name','contact','email','message','created_at')->orderby('id','desc')->take(5)->get();
+        $Careers = careers::select('id','career_name','career_resume','created_at')->orderby('id','desc')->take(2)->get();
+        $Contacts = Enquiry::select('id','first_name','contact','email','message','created_at')->orderby('id','desc')->take(2)->get();
         $careersCount = careers::count();
         $EnquiriesCount = Enquiry::count();
         $ProductsCount = Products::count();

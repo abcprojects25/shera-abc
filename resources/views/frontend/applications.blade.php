@@ -13,7 +13,7 @@
                         <div class="inner-page applications-page">
                             <section class="banner">
                                 <div class="image-box">
-                                    <img src="./img/shera-applications/wall-partition/banner.jpg" alt="" />
+                                    <img src="{{ asset('img/shera-applications/wall-partition/banner.jpg') }}" alt="" />
                                 </div>
                                 <div class="heading-box">
                                     <div
@@ -31,7 +31,7 @@
                                         >
                                             <div class="elementor-widget-container">
                                                 <!-- <h2 class="sub-heading alt mb-3">Shera Product</h2> -->
-                                                <h2 class="sub-heading alt"><span class="mini-heading">Application</span> <span class="heading">Wall Partitions</span></h2>
+                                                <h2 class="sub-heading alt"><span class="mini-heading">Application</span> <span class="heading">{{ $app->name }}</span></h2>
                                             </div>
                                         </div>
                                     </div>
@@ -43,7 +43,7 @@
                                     <div class="row align-center">
                                         <div class="col-12 col-lg-6">
                                             <div class="image-box">
-                                                <img src="./img/shera-applications/wall-partition/about.png" alt="" />
+                                                <img src="{{ $app->image }}" alt="{{ $app->name }}" />
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-6">
@@ -64,7 +64,7 @@
                                                         >
                                                             <div class="elementor-widget-container">
                                                                 <h4 class="wcf--title mb-3"><span class="shera-green">Shera</span> <span class="shera-brown">About</span></h4>
-                                                                <h2 class="heading shera-black alt">Wall Partitions</h2>
+                                                                <h2 class="heading shera-black alt">{{ $app->name }}</h2>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -290,145 +290,49 @@
                                             >
                                                 <div class="elementor-widget-container">
                                                     <h2 class="shera-mini-heading text-center mb-3"><span class="shera-green">Shera</span> <span class="text-white">Products Used For</span></h2>
-                                                    <h2 class="heading alt justify-content-center">Wall Partition</h2>
+                                                    <h2 class="heading alt justify-content-center">{{ $app->name }}</h2>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="application-products products-container mb-0">
                                         <div class="row">
-                                            <!-- <div class="col col-12 col-lg-3">
-                                                <a href="./product-description.html" class="product-card">
-                                                    <div class="image-box mb-4">
-                                                        <img src="./img/products-page/shera-pro/products/deco-board/brick/brick-1.jpg" alt="" />
-                                                        <div class="hovered-box">
-                                                            <ul class="information-list">
-                                                                <li class="list mb-1">Profile : Square-Cut Edge</li>
-                                                                <li class="list mb-1">Colour : Uncoloured</li>
-                                                                <li class="list mb-1">Thickness : 6 mm</li>
-                                                                <li class="list mb-1">Size : 1220 x 2440</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="text-box">
-                                                        <h3 class="title inner-title mb-1">Brick</h3>
-                                                    </div>
-                                                </a>
-                                            </div> -->
-                                            <!-- <div class="col-lg-6 mt-5">
-                                                <a href="./deco-boards.html" class="product-text">
-                                                    <div class="image-box">
-                                                        <img src="./img/products-page/shera-neu/about/shera-applications.jpg" alt="" />
-                                                    </div>
-                                                    <div class="text-box">
-                                                        <h3 class="heading mb-2">
-                                                            <span class="shera-green">Shera <span class="shera-white"> Plain Board</span> </span>
-                                                        </h3>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-lg-6 mt-5">
-                                                <a href="./deco-boards.html" class="product-text">
-                                                    <div class="image-box">
-                                                        <img src="./img/products-page/shera-neu/about/shera-neu.jpg" alt="" />
-                                                    </div>
-                                                    <div class="text-box">
-                                                        <h3 class="heading mb-2">
-                                                            <span class="shera-green">Shera <span class="shera-white"> Decorative Board</span> </span>
-                                                        </h3>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-lg-6 mt-5">
-                                                <a href="./deco-boards.html" class="product-text">
-                                                    <div class="image-box">
-                                                        <img src="./img/products-page/shera-pro/about/main.jpg" alt="" />
-                                                    </div>
-                                                    <div class="text-box">
-                                                        <h3 class="heading mb-2">
-                                                            <span class="shera-green">Shera <span class="shera-white"> Uncoloured Plank</span> </span>
-                                                        </h3>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-lg-6 mt-5">
-                                                <a href="./deco-boards.html" class="product-text">
-                                                    <div class="image-box">
-                                                        <img src="./img/products-page/shera-pro/about/left.jpg" alt="" />
-                                                    </div>
-                                                    <div class="text-box">
-                                                        <h3 class="heading mb-2">
-                                                            <span class="shera-green">Shera <span class="shera-white"> Precoloured Plank</span> </span>
-                                                        </h3>
-                                                    </div>
-                                                </a>
-                                            </div> -->
+                                            
                                         </div>
                                     </div>
-                                    <!-- <div class="heading-box mb-4">
-                                        <div
-                                            class="elementor-element elementor-element-946b02c e-con-full e-flex e-con e-child"
-                                            data-id="946b02c"
-                                            data-element_type="container"
-                                            data-settings='{"wcf_enable_cursor_hover_effect_text":"View","wcf-animation":"none"}'
-                                        >
-                                            <div
-                                                class="elementor-element elementor-element-7d0fae9 wcf-t-animation-text_move elementor-widget elementor-widget-wcf--title"
-                                                data-id="7d0fae9"
-                                                data-element_type="widget"
-                                                data-settings='{"text_transform_origin":"top center -50","wcf_text_animation":"text_move","text_delay":0.5,"text_duration":1,"text_stagger":0.02,"text_on_scroll":"yes","text_rotation_di":"x","text_rotation":"-80","wcf-animation":"none"}'
-                                                data-widget_type="wcf--title.default"
-                                            >
-                                                <div class="elementor-widget-container">
-                                                    <h2 class="shera-mini-heading text-center mb-2">Wall Partition</h2>
-                                                    <h2 class="heading alt justify-content-middle shera-black">Sizes</h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> -->
+                                    
                                     <div class="table-responsive table-wrapper">
                                         <table class="description-table" style="visibility: visible; animation-name: fadeIn">
                                             <thead>
                                                 <tr>
-                                                    <th class="text-start">Product</th>
+                                                    <th class="text-start">category</th>
                                                     <th>Thickness (mm)</th>
                                                     <th>Width (mm)</th>
                                                     <th>Length (mm)</th>
                                                 </tr>
                                             </thead>
+                                            @php
+    // Define your static rows
+    $staticRows = [
+        ['thickness' => 6,  'width' => 1220, 'length' => 2440],
+        ['thickness' => 8,  'width' => 1220, 'length' => 2440],
+        ['thickness' => 10, 'width' => 1220, 'length' => 2440],
+        ['thickness' => 12, 'width' => 1220, 'length' => 2440],
+    ];
+@endphp
                                             <tbody>
+                                                @foreach($categories as $category)
+                                                    @foreach($staticRows as $row)
                                                 <tr>
                                                     <td class="text-start">
-                                                        <a href="">Deco Board</a>
+                                                        <a href="">{{ $category->name }}</a>
                                                     </td>
-                                                    <td>6</td>
-                                                    <td>1220</td>
-                                                    <td>2440</td>
+                                                    <td>{{ $row['thickness'] }}</td>
+                                                    <td>{{ $row['width'] }}</td>
+                                                    <td>{{ $row['length'] }}</td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="text-start">
-                                                        <a href="">Plain Board</a>
-                                                    </td>
-                                                    <td>8</td>
-                                                    <td>1220</td>
-                                                    <td>2440</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-start">
-                                                        <a href="">Precoloured Plank</a>
-                                                    </td>
-                                                    <td>10</td>
-                                                    <td>1220</td>
-                                                    <td>2440</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-start">
-                                                        <a href="">Uncoloured Plank</a>
-                                                    </td>
-                                                    <td>12</td>
-                                                    <td>1220</td>
-                                                    <td>2440</td>
-                                                </tr>
+                                                    @endforeach
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
