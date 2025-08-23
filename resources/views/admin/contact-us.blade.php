@@ -18,7 +18,7 @@
                     </div>
                     <div class="d-flex">
                         <div class="justify-content-center">
-                            <a href="#" class="btn btn-white btn-icon-text my-2 mr-2"><i
+                            <a href="{{ route('contactus.index', ['export' => 1]) }}" class="btn btn-white btn-icon-text my-2 mr-2"><i
                                     class="fe fe-file-text mr-2"></i> Export Data </a>
                         </div>
                     </div>

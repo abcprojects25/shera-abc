@@ -348,6 +348,10 @@ document.getElementById('category_name').addEventListener('input', function() {
                             <label>Alt Text</label>
                             <input type="text" name="alt_text[]" class="form-control">
                         </div>
+                        <div class="form-group">
+                            <label>Description</label>
+    							<textarea name="desc" class="form-control" id="desc" placeholder="Description..."></textarea>
+                        </div>       
                         <button type="button" class="btn btn-danger btn-sm remove-block d-none">Remove</button>
                     </div>
                 </div>
@@ -393,6 +397,10 @@ document.getElementById('category_name').addEventListener('input', function() {
                     <label>Alt Text</label>
                     <input type="text" name="alt_text" id="edit_application_alt_text" class="form-control">
                 </div>
+                <div class="form-group">
+                   <label>Description</label>
+    				<textarea name="desc" class="form-control" id="edit_application_desc" placeholder="Description..."></textarea>
+                </div> 
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Update Application</button>
@@ -402,10 +410,11 @@ document.getElementById('category_name').addEventListener('input', function() {
   </div>
 </div>
 <script>
-function openEditAppModal(id, name, alt_text) {
+function openEditAppModal(id, name, alt_text, desc) {
     document.getElementById('edit_application_id').value = id;
     document.getElementById('edit_application_name').value = name;
     document.getElementById('edit_application_alt_text').value = alt_text;
+    document.getElementById('edit_application_desc').value = desc;
 }
 </script>
 

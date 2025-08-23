@@ -42,13 +42,10 @@ class ProductController extends Controller
 public function application($id)
 {
     $app = CategoryApplication::where('id', $id)->firstOrFail();
- $categories = Category::where('id', $app->category_id)->take(4)->get();
-    // Fetch products belonging to this category
-    $products = Products::where('category_id', $category->id)->get();
-
+ 
     $projects  = Projects::all();
-      $catApps = CategoryApplication::all();
-    return view('frontend.applications', compact('app',  'categories','products', 'projects', 'catApps'));
+    $catApps = CategoryApplication::inRandomOrder()->take(8)->get();
+    return view('frontend.applications', compact('app', 'projects', 'catApps'));
 }
 
     //Index page
@@ -812,6 +809,7 @@ public function storeApplication(Request $request)
             'alt_text' => $request->alt_text[$index] ?? null,
             'image' => 'uploads/images/' . $imagePath,
             'icon' => $iconPath ? 'uploads/icons/' . $iconPath : null,
+            'desc' => $$request->desc,
             'status' => 1,
         ]);
     }
@@ -832,7 +830,7 @@ public function update(Request $request)
     $app = CategoryApplication::findOrFail($request->application_id);
     $app->name = $request->name;
     $app->alt_text = $request->alt_text;
-
+    $app->desc = $request->desc;
     // Handle Image Upload
     if ($request->hasFile('image')) {
         $image = $request->file('image');

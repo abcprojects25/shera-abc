@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\AdminNotificationController;
 use App\Http\Controllers\GameLogController;
+use App\Http\Controllers\admin\DownloadEnquiryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,8 +94,29 @@ Route::get('/apply-job', function () {
 Route::get('testimonials', function(){
     return view('frontend.testimonials');
 });
+
 Route::get('certificates', function(){
     return view('frontend.certificates');
+});
+
+Route::get('catalogues', function(){
+    return view('frontend.catalogues');
+});
+
+Route::get('events-gallery', function(){
+    return view('frontend.events-gallery');
+});
+
+Route::get('faq', function(){
+    return view('frontend.faq');
+});
+
+Route::get('manuals', function(){
+    return view('frontend.manuals');
+});
+
+Route::get('technical-details', function(){
+    return view('frontend.technical-details');
 });
 
 Route::post('/game/log', [GameLogController::class, 'store']);
@@ -117,7 +139,7 @@ Route::get('/project', [ProjectController::class, 'userProjectPage'])->name('fro
 Route::get('/project/{categorySeoUrl}', [ProjectController::class, 'userProjectPageByCategory'])->name('frontend.project.category');
 Route::get('/project-details/{slug}', [ProjectController::class, 'userProjectDetails'])->name('frontend.project.details');
 Route::post('/admin/project/images/store', [ProjectController::class, 'storeImages'])->name('admin.project.images.store');
-// Route::get('/applications',  [ProductController::class, 'application'])->name('admin.project.viewApp');
+
 Route::get('/applications/{id}', [ProductController::class, 'application'])
     ->name('frontend.application');
 
@@ -142,6 +164,7 @@ Route::get('/admin/leaderboard', [CmsController::class, 'leaderboard'])->name('a
 Route::get('/admin/dealers', [DealerController::class, 'index'])->name('admin.dealers.index');
 Route::delete('/admin/dealers/{id}', [DealerController::class, 'delete'])->name('admin.dealers.delete');
 
+Route::post('/downloadEnquiry/store', [DownloadEnquiryController::class, 'store'])->name('downloadEnquiry.store');
 
 
 

@@ -20,7 +20,7 @@ $page_head = ucwords($page_head);
 
  <head>
         <meta charset="UTF-8" />
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{{ $seo->title ?? 'Default Title' }}</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -77,6 +77,8 @@ $page_head = ucwords($page_head);
         <link rel="stylesheet" id="wpo_min-header-0-css" href="{{ asset('css/wpo-minify-header-8839aa18.min.css?ver=02') }}" type="text/css" media="all" />
         <link rel="stylesheet" href="{{ asset('css/theme.css?ver=02') }}" type="text/css" media="all" />
  <link rel="stylesheet" href="{{ asset('css/magnify.css') }}" />
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.css" />
+        <link rel="stylesheet" href="css/theme.css?ver=02" type="text/css" media="all" />
         <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}" id="jquery-core-js"></script>
         <script type="text/javascript" src="{{ asset('js/jquery-migrate.min.js') }}" id="jquery-migrate-js"></script>
         <script

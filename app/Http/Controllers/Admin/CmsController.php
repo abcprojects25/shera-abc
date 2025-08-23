@@ -221,8 +221,38 @@ class CmsController extends Controller
 }
 
     // Contact us
-	public function ContactUs(){
+	public function ContactUs(Request $request){
+    
     $data = DB::select("SELECT * FROM enquires ORDER BY created_at DESC");
+      
+    if ($request->has('export')) {
+        $fileName = "contact_us_export_" . date('Y-m-d_H-i-s') . ".csv";
+
+        $handle = fopen('php://memory', 'w');
+
+        fputcsv($handle, ['id', 'first_name', 'last_name', 'contact', 'email', 'message', 'created_at']);
+
+        foreach ($data as $row) {
+            fputcsv($handle, [
+                $row->id,
+                $row->first_name,
+                $row->last_name,
+                $row->contact,
+                $row->email,
+                $row->message,
+                $row->created_at
+            ]);
+        }
+
+        fseek($handle, 0);
+
+        return response()->streamDownload(function () use ($handle) {
+            fpassthru($handle);
+        }, $fileName, [
+            'Content-Type' => 'text/csv',
+        ]);
+    }
+    
       return view('admin.contact-us',compact('data'));
     }
     

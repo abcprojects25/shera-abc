@@ -8,112 +8,7 @@
     <!--<![endif]-->
 
    @include('frontend.layout.header')
-        <!-- <div class="wcf-preloader preloader-container preloader-circle-loading"> -->
-        <!--view download modal -->
-        <div class="modal fade enquiry-modal alt" id="viewDownloadModal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
-            <div class="modal-dialog modal-xl modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="model-wrapper">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6">
-                                <div class="modal-main">
-                                    <div class="modal-header">
-                                        <h2 class="heading modal-title fs-5" id="exampleModalLabel">Enquiry Form</h2>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-box">
-                                            <form action="./inquire-form-handler.php" method="POST">
-                                                <div class="form-floating mb-2">
-                                                    <input type="text" class="form-control" id="floatingName" placeholder=" " name="name" required="" />
-                                                    <label for="floatingName"> Name <span>*</span> </label>
-                                                </div>
-                                                <div class="form-floating mb-2">
-                                                    <input type="tel" class="form-control" id="floatingPhone" placeholder=" " name="phone" required="" />
-                                                    <label for="floatingPhone"> Company Name <span>*</span> </label>
-                                                </div>
-                                                <div class="form-floating mb-2">
-                                                    <input type="text" class="form-control" id="floatingCountry" placeholder=" " name="email" required="" />
-                                                    <label for="floatingCountry"> Designation <span>*</span> </label>
-                                                </div>
-                                                <div class="form-floating mb-2">
-                                                    <input type="tel" class="form-control" id="floatingPhone" placeholder=" " name="phone" required="" />
-                                                    <label for="floatingPhone"> Contact Number <span>*</span> </label>
-                                                </div>
-                                                <div class="form-floating mb-2">
-                                                    <input type="email" class="form-control" id="floatingEmail" placeholder=" " name="email" required="" />
-                                                    <label for="floatingEmail"> Email <span>*</span> </label>
-                                                </div>
-                                                <div class="form-floating mb-2">
-                                                    <textarea class="form-control" placeholder=" " id="floatingTextarea2" style="height: 100px"></textarea>
-                                                    <label for="floatingTextarea2">Message</label>
-                                                </div>
-                                                <!-- <div class="form-floating-select mb-2">
-                                                    <label for="floatingEmail"> Event Types </label>
-                                                    <select class="form-control text-dark fw-light" style="background: transparent" name="event-type">
-                                                        <option selected>Select Event Types</option>
-                                                        <option>Conferences</option>
-                                                        <option>Wedding</option>
-                                                        <option>Birthday Party</option>
-                                                        <option>Reception</option>
-                                                        <option>Sangeet</option>
-                                                        <option>Mehandi</option>
-                                                        <option>Naming Ceremony</option>
-                                                        <option>Anniversary</option>
-                                                        <option>Baby Shower</option>
-                                                        <option>Engagement</option>
-                                                        <option>Haldi</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-floating-select mb-2">
-                                                    <label for="message">Venue</label>
-                                                    <select class="form-control text-dark fw-light" style="background: transparent" name="event-venue">
-                                                        <option selected>Select Venue</option>
-                                                        <option>PEARL</option>
-                                                        <option>EMERALD</option>
-                                                        <option>MOONSTONE</option>
-                                                    </select>
-                                                </div>
-    
-                                                <div class="form-floating-select mb-2">
-                                                    <label for="message">Date of Event</label>
-                                                    <input type="date" name="event-date" class="form-control text-dark c3 fw-light" />
-                                                </div> -->
-
-                                                <input type="hidden" name="recaptcha_response" id="recaptchaResponse1" />
-                                                <script>
-                                                    // SITE KEY
-                                                    grecaptcha.ready(function () {
-                                                        grecaptcha
-                                                            .execute("6Ld4Tj4qAAAAACDHeFq-SzPVM0OPIlUgKRyRy2uL", {
-                                                                action: "contact",
-                                                            })
-                                                            .then(function (token) {
-                                                                var recaptchaResponse = document.getElementById("recaptchaResponse1");
-                                                                recaptchaResponse.value = token;
-                                                            });
-                                                    });
-                                                </script>
-                                                <div class="mt-4">
-                                                    <button type="submit" class="button enquiry-button" name="enq-submit">Download</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-6">
-                                <div class="modal-img">
-                                    <img src="./img/shera-applications/false-ceiling.jpg" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     
                     <div data-elementor-type="wp-page" data-elementor-id="34" class="elementor elementor-34">
                         <div class="inner-page catalogues-page">
@@ -178,7 +73,7 @@
                                                             <a class="button download-button" href="./pdf/guides/Shera_Boards_Application_Guide.pdf#toolbar=0&navpanes=0&scrollbar=0" data-fancybox>
                                                                 View
                                                             </a>
-                                                            <a href="#" class="button download-button" data-bs-toggle="modal" data-bs-target="#viewDownloadModal"> Download </a>
+                                                            <a href="#" class="button download-button" data-bs-toggle="modal" data-bs-target="#viewDownloadModal" data-pdf="Shera_Boards_Application_Guide.pdf" data-source="technical-details"> Download </a>
                                                         </div>
                                                     </div>
                                                     <div class="title-box mt-3">
@@ -202,7 +97,7 @@
                                                             <a class="button download-button" href="./pdf/guides/SHERA_Deco_Board_Application.pdf#toolbar=0&navpanes=0&scrollbar=0" data-fancybox>
                                                                 View
                                                             </a>
-                                                            <a href="#" class="button download-button" data-bs-toggle="modal" data-bs-target="#viewDownloadModal"> Download </a>
+                                                            <a href="#" class="button download-button" data-bs-toggle="modal" data-bs-target="#viewDownloadModal" data-pdf="SHERA_Deco_Board_Application.pdf" data-source="technical-details"> Download </a>
                                                         </div>
                                                     </div>
                                                     <div class="title-box mt-3">
@@ -226,7 +121,7 @@
                                                             <a class="button download-button" href="./pdf/guides/SHERA_Uncolored_Plank_Application.pdf#toolbar=0&navpanes=0&scrollbar=0" data-fancybox>
                                                                 View
                                                             </a>
-                                                            <a href="#" class="button download-button" data-bs-toggle="modal" data-bs-target="#viewDownloadModal"> Download </a>
+                                                            <a href="#" class="button download-button" data-bs-toggle="modal" data-bs-target="#viewDownloadModal" data-pdf="SHERA_Uncolored_Plank_Application.pdf" data-source="technical-details"> Download </a>
                                                         </div>
                                                     </div>
                                                     <div class="title-box mt-3">
@@ -254,7 +149,7 @@
                                                             >
                                                                 View
                                                             </a>
-                                                            <a href="#" class="button download-button" data-bs-toggle="modal" data-bs-target="#viewDownloadModal"> Download </a>
+                                                            <a href="#" class="button download-button" data-bs-toggle="modal" data-bs-target="#viewDownloadModal" data-pdf="SHERA_Deco_Board_Application.pdf" data-source="technical-details"> Download </a>
                                                         </div>
                                                     </div>
                                                     <div class="title-box mt-3">
@@ -278,7 +173,7 @@
                                                             <a class="button download-button" href="./pdf/guides/SHERA_Splendid_Plank_Application.pdf#toolbar=0&navpanes=0&scrollbar=0" data-fancybox>
                                                                 View
                                                             </a>
-                                                            <a href="#" class="button download-button" data-bs-toggle="modal" data-bs-target="#viewDownloadModal"> Download </a>
+                                                            <a href="#" class="button download-button" data-bs-toggle="modal" data-bs-target="#viewDownloadModal" data-pdf="SHERA_Deco_Board_Application.pdf" data-source="technical-details"> Download </a>
                                                         </div>
                                                     </div>
                                                     <div class="title-box mt-3">
@@ -461,6 +356,112 @@
                     @include('frontend.layout.footer')
                 </div>
                 <!-- #page -->
+            </div>
+        </div>
+
+        <!--view download modal -->
+        <div class="modal fade enquiry-modal alt" id="viewDownloadModal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="model-wrapper">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="modal-main">
+                                    <div class="modal-header">
+                                        <h2 class="heading modal-title fs-5" id="exampleModalLabel">Enquiry Form</h2>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-box">
+                                            <form action="./inquire-form-handler.php" method="POST">
+                                                <div class="form-floating mb-2">
+                                                    <input type="text" class="form-control" id="floatingName" placeholder=" " name="name" required="" />
+                                                    <label for="floatingName"> Name <span>*</span> </label>
+                                                </div>
+                                                <div class="form-floating mb-2">
+                                                    <input type="tel" class="form-control" id="floatingPhone" placeholder=" " name="phone" required="" />
+                                                    <label for="floatingPhone"> Company Name <span>*</span> </label>
+                                                </div>
+                                                <div class="form-floating mb-2">
+                                                    <input type="text" class="form-control" id="floatingCountry" placeholder=" " name="email" required="" />
+                                                    <label for="floatingCountry"> Designation <span>*</span> </label>
+                                                </div>
+                                                <div class="form-floating mb-2">
+                                                    <input type="tel" class="form-control" id="floatingPhone" placeholder=" " name="phone" required="" />
+                                                    <label for="floatingPhone"> Contact Number <span>*</span> </label>
+                                                </div>
+                                                <div class="form-floating mb-2">
+                                                    <input type="email" class="form-control" id="floatingEmail" placeholder=" " name="email" required="" />
+                                                    <label for="floatingEmail"> Email <span>*</span> </label>
+                                                </div>
+                                                <div class="form-floating mb-2">
+                                                    <textarea class="form-control" placeholder=" " id="floatingTextarea2" style="height: 100px"></textarea>
+                                                    <label for="floatingTextarea2">Message</label>
+                                                </div>
+                                                <!-- <div class="form-floating-select mb-2">
+                                                    <label for="floatingEmail"> Event Types </label>
+                                                    <select class="form-control text-dark fw-light" style="background: transparent" name="event-type">
+                                                        <option selected>Select Event Types</option>
+                                                        <option>Conferences</option>
+                                                        <option>Wedding</option>
+                                                        <option>Birthday Party</option>
+                                                        <option>Reception</option>
+                                                        <option>Sangeet</option>
+                                                        <option>Mehandi</option>
+                                                        <option>Naming Ceremony</option>
+                                                        <option>Anniversary</option>
+                                                        <option>Baby Shower</option>
+                                                        <option>Engagement</option>
+                                                        <option>Haldi</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-floating-select mb-2">
+                                                    <label for="message">Venue</label>
+                                                    <select class="form-control text-dark fw-light" style="background: transparent" name="event-venue">
+                                                        <option selected>Select Venue</option>
+                                                        <option>PEARL</option>
+                                                        <option>EMERALD</option>
+                                                        <option>MOONSTONE</option>
+                                                    </select>
+                                                </div>
+    
+                                                <div class="form-floating-select mb-2">
+                                                    <label for="message">Date of Event</label>
+                                                    <input type="date" name="event-date" class="form-control text-dark c3 fw-light" />
+                                                </div> -->
+
+                                                <input type="hidden" name="recaptcha_response" id="recaptchaResponse1" />
+                                                <script>
+                                                    // SITE KEY
+                                                    grecaptcha.ready(function () {
+                                                        grecaptcha
+                                                            .execute("6Ld4Tj4qAAAAACDHeFq-SzPVM0OPIlUgKRyRy2uL", {
+                                                                action: "contact",
+                                                            })
+                                                            .then(function (token) {
+                                                                var recaptchaResponse = document.getElementById("recaptchaResponse1");
+                                                                recaptchaResponse.value = token;
+                                                            });
+                                                    });
+                                                </script>
+                                                <div class="mt-4">
+                                                    <button type="submit" class="button enquiry-button" name="enq-submit">Download</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="modal-img">
+                                    <img src="./img/shera-applications/false-ceiling.jpg" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="whatsapp-box">

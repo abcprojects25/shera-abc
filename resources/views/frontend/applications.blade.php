@@ -43,7 +43,7 @@
                                     <div class="row align-center">
                                         <div class="col-12 col-lg-6">
                                             <div class="image-box">
-                                                <img src="{{ $app->image }}" alt="{{ $app->name }}" />
+                                                <img src="{{ asset($app->image) }}" alt="{{ $app->name }}" />
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-6">
@@ -70,18 +70,8 @@
                                                     </div>
                                                 </div>
                                                 <p class="shera-para mb-3">
-                                                    SHERA Wall Partition Systems are built with advanced fibre cement technology that combines strength, versatility, and resilience — offering a
-                                                    smarter, safer, and more sustainable solution for internal and external walls. Engineered for both residential and commercial applications, SHERA
-                                                    Boards deliver exceptional fire resistance, moisture protection, and acoustic insulation, making them ideal for modern construction needs.
-                                                </p>
-                                                <p class="shera-para mb-3">
-                                                    Unlike traditional materials, SHERA fibre cement boards do not warp, rot, or degrade under humidity or pest exposure. They are lightweight, easy to
-                                                    handle, and compatible with steel or timber framing — enabling fast installation and reduced on-site disruption.
-                                                </p>
-                                                <p class="shera-para">
-                                                    Whether you're designing office interiors, modular cabins, washrooms, or high-traffic public spaces, SHERA Wall Partitions provide a durable and
-                                                    elegant finish that stands the test of time.
-                                                </p>
+                                                    {{ $app->desc }} This is a testing desc, change it to original...
+                                                </p>                                              
                                             </div>
                                         </div>
                                     </div>
@@ -104,7 +94,7 @@
                                                 data-widget_type="wcf--title.default"
                                             >
                                                 <div class="elementor-widget-container">
-                                                    <h2 class="sub-heading alt mb-3"><span class="shera-green">Shera</span> <span class="shera-brown">Wall Partitions</span></h2>
+                                                    <h2 class="sub-heading alt mb-3"><span class="shera-green">Shera</span> <span class="shera-brown">{{ $app->name }}</span></h2>
                                                     <h2 class="heading shera-black alt">Features</h2>
                                                 </div>
                                             </div>
@@ -115,7 +105,7 @@
                                             <div class="grid-item">
                                                 <div class="icon-box mb-4">
                                                     <div class="bordered-box">
-                                                        <img src="./img/shera-applications/features/asbestos.png" alt="" />
+                                                        <img src="{{ asset('img/shera-applications/features/asbestos.png') }}" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="text-box">
@@ -128,7 +118,7 @@
                                             <div class="grid-item">
                                                 <div class="icon-box mb-4">
                                                     <div class="bordered-box">
-                                                        <img src="./img/shera-applications/features/building-solution.png" alt="" />
+                                                        <img src="{{ asset('img/shera-applications/features/building-solution.png') }}" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="text-box">
@@ -141,7 +131,7 @@
                                             <div class="grid-item">
                                                 <div class="icon-box mb-4">
                                                     <div class="bordered-box">
-                                                        <img src="./img/shera-applications/features/carbon-footprint.png" alt="" />
+                                                        <img src="{{ asset('img/shera-applications/features/carbon-footprint.png') }}" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="text-box">
@@ -154,7 +144,7 @@
                                             <div class="grid-item">
                                                 <div class="icon-box mb-4">
                                                     <div class="bordered-box">
-                                                        <img src="./img/shera-applications/features/easy-workability.png" alt="" />
+                                                        <img src="{{ asset('img/shera-applications/features/easy-workability.png') }}" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="text-box">
@@ -167,7 +157,7 @@
                                             <div class="grid-item">
                                                 <div class="icon-box mb-4">
                                                     <div class="bordered-box">
-                                                        <img src="./img/shera-applications/features/eco-friendly.png" alt="" />
+                                                        <img src="{{ asset('img/shera-applications/features/eco-friendly.png') }}" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="text-box">
@@ -180,7 +170,7 @@
                                             <div class="grid-item">
                                                 <div class="icon-box mb-4">
                                                     <div class="bordered-box">
-                                                        <img src="./img/shera-applications/features/fast-building.png" alt="" />
+                                                        <img src="{{ asset('img/shera-applications/features/fast-building.png') }}" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="text-box">
@@ -193,7 +183,7 @@
                                             <div class="grid-item">
                                                 <div class="icon-box mb-4">
                                                     <div class="bordered-box">
-                                                        <img src="./img/shera-applications/features/fire-resistance.png" alt="" />
+                                                        <img src="{{ asset('img/shera-applications/features/fire-resistance.png') }}" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="text-box">
@@ -206,7 +196,7 @@
                                             <div class="grid-item">
                                                 <div class="icon-box mb-4">
                                                     <div class="bordered-box">
-                                                        <img src="./img/shera-applications/features/lightweight.png" alt="" />
+                                                        <img src="{{ asset('img/shera-applications/features/lightweight.png') }}" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="text-box">
@@ -219,7 +209,7 @@
                                             <div class="grid-item">
                                                 <div class="icon-box mb-4">
                                                     <div class="bordered-box">
-                                                        <img src="./img/shera-applications/features/low-shrinkage.png" alt="" />
+                                                        <img src="{{ asset('img/shera-applications/features/low-shrinkage.png') }}" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="text-box">
@@ -232,7 +222,7 @@
                                             <div class="grid-item">
                                                 <div class="icon-box mb-4">
                                                     <div class="bordered-box">
-                                                        <img src="./img/shera-applications/features/not-brittle.png" alt="" />
+                                                        <img src="{{ asset('img/shera-applications/features/not-brittle.png') }}" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="text-box">
@@ -245,7 +235,7 @@
                                             <div class="grid-item">
                                                 <div class="icon-box mb-4">
                                                     <div class="bordered-box">
-                                                        <img src="./img/shera-applications/features/sag-resistance.png" alt="" />
+                                                        <img src="{{ asset('img/shera-applications/features/sag-resistance.png') }}" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="text-box">
@@ -258,7 +248,7 @@
                                             <div class="grid-item">
                                                 <div class="icon-box mb-4">
                                                     <div class="bordered-box">
-                                                        <img src="./img/shera-applications/features/termite-resistance.png" alt="" />
+                                                        <img src="{{ asset('img/shera-applications/features/termite-resistance.png') }}" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="text-box">
@@ -305,34 +295,46 @@
                                         <table class="description-table" style="visibility: visible; animation-name: fadeIn">
                                             <thead>
                                                 <tr>
-                                                    <th class="text-start">category</th>
+                                                    <th class="text-start">Product</th>
                                                     <th>Thickness (mm)</th>
                                                     <th>Width (mm)</th>
                                                     <th>Length (mm)</th>
                                                 </tr>
                                             </thead>
-                                            @php
-    // Define your static rows
-    $staticRows = [
-        ['thickness' => 6,  'width' => 1220, 'length' => 2440],
-        ['thickness' => 8,  'width' => 1220, 'length' => 2440],
-        ['thickness' => 10, 'width' => 1220, 'length' => 2440],
-        ['thickness' => 12, 'width' => 1220, 'length' => 2440],
-    ];
-@endphp
+                                            
                                             <tbody>
-                                                @foreach($categories as $category)
-                                                    @foreach($staticRows as $row)
+                                              <tr>
+                                                    <td class="text-start">
+                                                        <a href="">Deco Board</a>
+                                                    </td>
+                                                    <td>6</td>
+                                                    <td>1220</td>
+                                                    <td>2440</td>
+                                                </tr>
                                                 <tr>
                                                     <td class="text-start">
-                                                        <a href="">{{ $category->name }}</a>
+                                                        <a href="">Plain Board</a>
                                                     </td>
-                                                    <td>{{ $row['thickness'] }}</td>
-                                                    <td>{{ $row['width'] }}</td>
-                                                    <td>{{ $row['length'] }}</td>
+                                                    <td>8</td>
+                                                    <td>1220</td>
+                                                    <td>2440</td>
                                                 </tr>
-                                                    @endforeach
-                                                @endforeach
+                                                <tr>
+                                                    <td class="text-start">
+                                                        <a href="">Precoloured Plank</a>
+                                                    </td>
+                                                    <td>10</td>
+                                                    <td>1220</td>
+                                                    <td>2440</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-start">
+                                                        <a href="">Uncoloured Plank</a>
+                                                    </td>
+                                                    <td>12</td>
+                                                    <td>1220</td>
+                                                    <td>2440</td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -355,7 +357,7 @@
                                                 data-widget_type="wcf--title.default"
                                             >
                                                 <div class="elementor-widget-container">
-                                                    <h4 class="wcf--title">More Wall Partitions</h4>
+                                                    <h4 class="wcf--title">More {{ $app->name }}</h4>
                                                     <h2 class="wcf--title alt">Projects</h2>
                                                 </div>
                                             </div>
@@ -445,7 +447,7 @@
                                                     <!-- Slides -->
                                                      @foreach($catApps as $app)
                                                     <div class="swiper-slide">
-                                                        <a href="" class="application-card">
+                                                        <a href="{{ route('frontend.application', $app->id) }}" class="application-card">
                                                             <div class="image-box">
                                                                 <img src="{{ asset($app->image) }}" alt="{{ $app->alt_text }}"/>
                                                             </div>
@@ -464,48 +466,7 @@
                                             </div>
                                         </div>
 
-                                        <!-- <div class="row">
-                                            <div class="col col-12 col-lg-3">
-                                                <a href="" class="application-card">
-                                                    <div class="image-box">
-                                                        <img src="./img/shera-applications/56e15d4177655aacefb2632171b73d433aa14ba7.png" alt="" />
-                                                    </div>
-                                                    <div class="text-box">
-                                                        <h4 class="title">Ceiling</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col col-12 col-lg-3">
-                                                <a href="" class="application-card">
-                                                    <div class="image-box">
-                                                        <img src="./img/shera-applications/77059a237835abf1566df125631bfd7be082f092.jpg" alt="" />
-                                                    </div>
-                                                    <div class="text-box">
-                                                        <h4 class="title">Ceiling</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col col-12 col-lg-3">
-                                                <a href="" class="application-card">
-                                                    <div class="image-box">
-                                                        <img src="./img/shera-applications/dc90aeb91d529a9b7a1f9f1876cd58aa7bf0dfa9.jpg" alt="" />
-                                                    </div>
-                                                    <div class="text-box">
-                                                        <h4 class="title">Ceiling</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col col-12 col-lg-3">
-                                                <a href="" class="application-card">
-                                                    <div class="image-box">
-                                                        <img src="./img/shera-applications/shera-applications.jpg" alt="" />
-                                                    </div>
-                                                    <div class="text-box">
-                                                        <h4 class="title">Ceiling</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div> -->
+                                      
                                     </div>
                                 </div>
                             </section>
@@ -606,17 +567,17 @@
                 mix-blend-mode: difference;
             }
         </style>
-        <link rel="stylesheet" id="wpo_min-footer-0-css" href="css/wpo-minify-footer-24b84006.min.css" type="text/css" media="all" />
+        <link rel="stylesheet" id="wpo_min-footer-0-css" href="{{ asset('css/wpo-minify-footer-24b84006.min.css') }}" type="text/css" media="all" />
 
-        <script type="text/javascript" src="./js/gsap.min.js" id="gsap-js"></script>
-        <script type="text/javascript" src="./js/ScrollTrigger.min.js" id="ScrollTrigger-js"></script>
+        <script type="text/javascript" src="{{ asset('js/gsap.min.js') }}" id="gsap-js"></script>
+        <script type="text/javascript" src="{{ asset('js/ScrollTrigger.min.js') }}" id="ScrollTrigger-js"></script>
 
         <script type="text/javascript" id="arolax-essential--global-core-js-extra">
             /* <![CDATA[ */
             var AROLAX_ADDONS_JS = { ajaxUrl: "", _wpnonce: "d2b278181b" };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/wcf--global-core.min.js" id="arolax-essential--global-core-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wcf--global-core.min.js') }}" id="arolax-essential--global-core-js"></script>
         <script type="text/javascript" id="wcf--addons-js-extra">
             /* <![CDATA[ */
             var WCF_ADDONS_JS = {
@@ -629,17 +590,17 @@
             };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/wcf-addons.min.js" id="wcf--addons-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wcf-addons.min.js') }}" id="wcf--addons-js"></script>
         <script type="text/javascript" id="arolax-script-js-extra">
             /* <![CDATA[ */
             var arolax_obj = { ajax_url: "", cart_update_qty_change: "" };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/script.min.js" id="arolax-script-js"></script>
-        <script type="text/javascript" src="js/swiper.min.js" id="swiper-js"></script>
-        <script type="text/javascript" src="js/slider.min.js" id="wcf--slider-js"></script>
-        <script type="text/javascript" src="js/jquery-numerator.min.js" id="jquery-numerator-js"></script>
-        <script type="text/javascript" src="js/counter.min.js" id="wcf--counter-js"></script>
+        <script type="text/javascript" src="{{ asset('js/script.min.js') }}" id="arolax-script-js"></script>
+        <script type="text/javascript" src="{{ asset('js/swiper.min.js') }}" id="swiper-js"></script>
+        <script type="text/javascript" src="{{ asset('js/slider.min.js') }}" id="wcf--slider-js"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery-numerator.min.js') }}" id="jquery-numerator-js"></script>
+        <script type="text/javascript" src="{{ asset('js/counter.min.js') }}" id="wcf--counter-js"></script>
         <script type="text/javascript" id="mediaelement-core-js-before">
             /* <![CDATA[ */
             var mejsL10n = {
@@ -722,49 +683,35 @@
             };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/mediaelement-and-player.min.js" id="mediaelement-core-js"></script>
-        <script type="text/javascript" src="js/mediaelement-migrate.min.js" id="mediaelement-migrate-js"></script>
+        <script type="text/javascript" src="{{ asset('js/mediaelement-and-player.min.js') }}" id="mediaelement-core-js"></script>
+        <script type="text/javascript" src="{{ asset('js/mediaelement-migrate.min.js') }}" id="mediaelement-migrate-js"></script>
         <script type="text/javascript" id="mediaelement-js-extra">
             /* <![CDATA[ */
             var _wpmejsSettings = { pluginPath: "", classPrefix: "mejs-", stretching: "responsive", audioShortcodeLibrary: "mediaelement", videoShortcodeLibrary: "mediaelement" };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/wp-mediaelement.min.js" id="wp-mediaelement-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wp-mediaelement.min.js') }}" id="wp-mediaelement-js"></script>
 
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script> -->
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" id="jquery-ui-core-js"></script>
-        <script type="text/javascript" src="js/ScrollSmoother.min.js" id="ScrollSmoother-js"></script>
-        <script type="text/javascript" src="js/SplitText.min.js" id="SplitText-js"></script>
-        <script type="text/javascript" src="js/ScrollToPlugin.min.js" id="ScrollToPlugin-js"></script>
-        <script type="text/javascript" src="js/Flip.min.js" id="flip-js"></script>
-        <script type="text/javascript" src="js/post.js" id="wcf--posts-js"></script>
-        <script type="text/javascript" src="js/wcf-addons-pro.js" id="wcf--addons-pro-js"></script>
-        <script type="text/javascript" src="js/wcf-addons-ex.js" id="wcf--addons-ex-js"></script>
-        <script type="text/javascript" defer src="js/offcanvas-menu.js" id="wcf-offcanvas-menu-js"></script>
-        <script type="text/javascript" src="js/video-testimonial.js" id="arolax-video-testimonial-js"></script>
-        <script type="text/javascript" defer src="js/mailchimp.js" id="wcf--mailchimp-js"></script>
-        <script type="text/javascript" src="js/webpack.runtime.min.js" id="elementor-webpack-runtime-js"></script>
-        <script type="text/javascript" src="js/frontend-modules.min.js" id="elementor-frontend-modules-js"></script>
-        <script type="text/javascript" src="js/core.min.js" id="jquery-ui-core-js"></script>
-        <script type="text/javascript" src="js/app.js" id="jquery-ui-core-js"></script>
+        <script type="text/javascript" src="{{ asset('js/ScrollSmoother.min.js') }}" id="ScrollSmoother-js"></script>
+        <script type="text/javascript" src="{{ asset('js/SplitText.min.js') }}" id="SplitText-js"></script>
+        <script type="text/javascript" src="{{ asset('js/ScrollToPlugin.min.js') }}" id="ScrollToPlugin-js"></script>
+        <script type="text/javascript" src="{{ asset('js/Flip.min.js') }}" id="flip-js"></script>
+        <script type="text/javascript" src="{{ asset('js/post.js') }}" id="wcf--posts-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wcf-addons-pro.js') }}" id="wcf--addons-pro-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wcf-addons-ex.js') }}" id="wcf--addons-ex-js"></script>
+        <script type="text/javascript" defer src="{{ asset('js/offcanvas-menu.js') }}" id="wcf-offcanvas-menu-js"></script>
+        <script type="text/javascript" src="{{ asset('js/video-testimonial.js') }}" id="arolax-video-testimonial-js"></script>
+        <script type="text/javascript" defer src="{{ asset('js/mailchimp.js') }}" id="wcf--mailchimp-js"></script>
+        <script type="text/javascript" src="{{ asset('js/webpack.runtime.min.js') }}" id="elementor-webpack-runtime-js"></script>
+        <script type="text/javascript" src="{{ asset('js/frontend-modules.min.js') }}" id="elementor-frontend-modules-js"></script>
+        <script type="text/javascript" src="{{ asset('js/core.min.js') }}" id="jquery-ui-core-js"></script>
+        <script type="text/javascript" src="{{ asset('js/app.js') }}" id="jquery-ui-core-js"></script>
 
         <script>
-            // console.log("oh well");
-            // const arr = Array.from(document.querySelectorAll(".pinner .row"));
-            // arr.forEach((element, index) => {
-            //     ScrollTrigger.create({
-            //         trigger: ".pinner", // Element to "stick"
-            //         start: "top top", // Start when top hits viewport top
-            //         end: "50% top", // End when parent section ends
-            //         pin: element, // Pins the element in place
-            //         pinSpacing: false, // Prevents layout spacing issues
-            //         markers: true, // Set true for debugging
-            //         invalidateOnRefresh: true,
-            //     });
-            // });
-
-            // function calls
+          
             loaderAnimation();
             loaderDisapper();
             jQuery(document).ready(function ($) {
@@ -1029,11 +976,11 @@
             };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/frontend.min.js" id="elementor-frontend-js"></script>
+        <script type="text/javascript" src="{{ asset('js/frontend.min.js') }}" id="elementor-frontend-js"></script>
 
         <!-- Fancybox -->
-        <link rel="stylesheet" href="css/jquery.fancybox.min.css" type="text/css" />
-        <script src="js/jquery.fancybox.min.js"></script>
+        <link rel="stylesheet" href="{{ asset('css/jquery.fancybox.min.css') }}" type="text/css" />
+        <script src="{{ asset('js/jquery.fancybox.min.js') }}"></script>
 
         <script>
             // Fancybox Config

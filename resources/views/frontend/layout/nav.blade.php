@@ -133,7 +133,7 @@
                                                                 </ul>
                                                             </li>
                                                             <li id="menu-item-9542" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-9542">
-                                                                <a href="{{ url('applications')}}" class="wcf-nav-item"
+                                                                <a href="{{ url('applications/90')}}" class="wcf-nav-item"
                                                                     >Applications
                                                                    
                                                                 </a>

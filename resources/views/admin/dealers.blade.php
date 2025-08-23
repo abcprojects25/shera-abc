@@ -28,6 +28,7 @@
         <thead>
             <tr>
                 <th>#</th>
+                <th>Source</th>
                 <th>Firm Name</th>
                 <th>Location</th>
                 <th>State</th>
@@ -39,6 +40,7 @@
             @foreach($dealers as $dealer)
             <tr>
                 <td>{{ $loop->iteration }}</td>
+                <td>{{ $dealer->source }}</td>
                 <td>{{ $dealer->firm_name }}</td>
                 <td>{{ $dealer->location }}</td>
                 <td>{{ $dealer->state }}</td>
@@ -69,6 +71,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
+                            <p><strong>Source:</strong> {{ $dealer->source }}
                             <p><strong>Firm name:</strong> {{ $dealer->firm_name }}
                             <p><strong>Location:</strong> {{ $dealer->location }}
                             <p><strong>State:</strong> {{ $dealer->state }}

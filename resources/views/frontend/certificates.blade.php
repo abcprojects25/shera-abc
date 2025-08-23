@@ -7,218 +7,9 @@
 <html class="no-js" lang="en">
     <!--<![endif]-->
 
-    @include('frontend.layout.header')
-    
-<div class="wcf-preloader preloader-container preloader-circle-loading"> 
+   @include('frontend.layout.header')
 
-        <!--view download modal -->
-        <div class="modal fade enquiry-modal alt" id="viewDownloadModal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
-            <div class="modal-dialog modal-xl modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="model-wrapper">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6">
-                                <div class="modal-main">
-                                    <div class="modal-header">
-                                        <h2 class="heading modal-title fs-5" id="exampleModalLabel">Enquiry Form</h2>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-box">
-                                            <form action="./inquire-form-handler.php" method="POST">
-                                                <div class="form-floating mb-2">
-                                                    <input type="text" class="form-control" id="floatingName" placeholder=" " name="name" required="" />
-                                                    <label for="floatingName"> Name <span>*</span> </label>
-                                                </div>
-                                                <div class="form-floating mb-2">
-                                                    <input type="tel" class="form-control" id="floatingPhone" placeholder=" " name="phone" required="" />
-                                                    <label for="floatingPhone"> Company Name <span>*</span> </label>
-                                                </div>
-                                                <div class="form-floating mb-2">
-                                                    <input type="text" class="form-control" id="floatingCountry" placeholder=" " name="email" required="" />
-                                                    <label for="floatingCountry"> Designation <span>*</span> </label>
-                                                </div>
-                                                <div class="form-floating mb-2">
-                                                    <input type="tel" class="form-control" id="floatingPhone" placeholder=" " name="phone" required="" />
-                                                    <label for="floatingPhone"> Contact Number <span>*</span> </label>
-                                                </div>
-                                                <div class="form-floating mb-2">
-                                                    <input type="email" class="form-control" id="floatingEmail" placeholder=" " name="email" required="" />
-                                                    <label for="floatingEmail"> Email <span>*</span> </label>
-                                                </div>
-                                                <div class="form-floating mb-2">
-                                                    <textarea class="form-control" placeholder=" " id="floatingTextarea2" style="height: 100px"></textarea>
-                                                    <label for="floatingTextarea2">Message</label>
-                                                </div>
-                                                <!-- <div class="form-floating-select mb-2">
-                                                    <label for="floatingEmail"> Event Types </label>
-                                                    <select class="form-control text-dark fw-light" style="background: transparent" name="event-type">
-                                                        <option selected>Select Event Types</option>
-                                                        <option>Conferences</option>
-                                                        <option>Wedding</option>
-                                                        <option>Birthday Party</option>
-                                                        <option>Reception</option>
-                                                        <option>Sangeet</option>
-                                                        <option>Mehandi</option>
-                                                        <option>Naming Ceremony</option>
-                                                        <option>Anniversary</option>
-                                                        <option>Baby Shower</option>
-                                                        <option>Engagement</option>
-                                                        <option>Haldi</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-floating-select mb-2">
-                                                    <label for="message">Venue</label>
-                                                    <select class="form-control text-dark fw-light" style="background: transparent" name="event-venue">
-                                                        <option selected>Select Venue</option>
-                                                        <option>PEARL</option>
-                                                        <option>EMERALD</option>
-                                                        <option>MOONSTONE</option>
-                                                    </select>
-                                                </div>
-    
-                                                <div class="form-floating-select mb-2">
-                                                    <label for="message">Date of Event</label>
-                                                    <input type="date" name="event-date" class="form-control text-dark c3 fw-light" />
-                                                </div> -->
-
-                                                <input type="hidden" name="recaptcha_response" id="recaptchaResponse1" />
-                                                <script>
-                                                    // SITE KEY
-                                                    grecaptcha.ready(function () {
-                                                        grecaptcha
-                                                            .execute("6Ld4Tj4qAAAAACDHeFq-SzPVM0OPIlUgKRyRy2uL", {
-                                                                action: "contact",
-                                                            })
-                                                            .then(function (token) {
-                                                                var recaptchaResponse = document.getElementById("recaptchaResponse1");
-                                                                recaptchaResponse.value = token;
-                                                            });
-                                                    });
-                                                </script>
-                                                <div class="mt-4">
-                                                    <button type="submit" class="button enquiry-button" name="enq-submit">Download</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-6">
-                                <div class="modal-img">
-                                    <img src="./img/shera-applications/false-ceiling.jpg" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--view download modal end -->
-        <div class="loader-container preloader-container">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_2" data-name="Layer 2" viewBox="0 0 77.88 28.57">
-                <defs>
-                    <style>
-                        .cls-1 {
-                            fill: #00ab4e;
-                        }
-
-                        .cls-2 {
-                            fill: url(#linear-gradient-2);
-                        }
-
-                        .cls-3 {
-                            fill: #27b461;
-                        }
-
-                        .cls-4 {
-                            fill: #231f20;
-                        }
-
-                        .cls-5 {
-                            fill: #008a3f;
-                        }
-
-                        .cls-6 {
-                            fill: #00682c;
-                        }
-
-                        .cls-7 {
-                            fill: #005a24;
-                        }
-
-                        .cls-8 {
-                            fill: url(#linear-gradient);
-                        }
-                    </style>
-                    <linearGradient id="linear-gradient" x1="40.66" y1=".36" x2="40.66" y2="3.82" gradientUnits="userSpaceOnUse">
-                        <stop offset="0" stop-color="#00ab4e" />
-                        <stop offset="1" stop-color="#006f30" />
-                    </linearGradient>
-                    <linearGradient id="linear-gradient-2" x1="37.64" y1="6.12" x2="37.64" y2="16.41" gradientUnits="userSpaceOnUse">
-                        <stop offset="0" stop-color="#008a3f" />
-                        <stop offset="1" stop-color="#00682c" />
-                    </linearGradient>
-                </defs>
-                <g id="Layer_1-2" data-name="Layer 1">
-                    <g id="main-logo">
-                        <g>
-                            <g>
-                                <g>
-                                    <g>
-                                        <path id="top-part" class="cls-8" d="M38.76.36c-2.44,0-2.93,1.29-3,1.69l-.59,3.33c.15-.5.77-1.55,2.97-1.55h4.68c2.43,0,2.92-1.29,2.99-1.69l.31-1.78h-7.37Z" />
-                                        <path
-                                            id="middle-part"
-                                            class="cls-2"
-                                            d="M30.8,11.99c.09-.51.45-.95.91-1.19.45-.23,1.06-.39,1.91-.39h8.04c2.44,0,2.93-1.29,3-1.69l.59-3.33c-.15.5-.76,1.55-2.97,1.55h-8.04c-2.44,0-2.92,1.3-3,1.69l-1.18,6.71c-.07.4-.04,1.69,2.4,1.69h10.74l.62-3.47h-10.75c-.85,0-1.41-.16-1.77-.38-.38-.23-.58-.68-.49-1.19Z"
-                                        />
-                                    </g>
-                                    <path
-                                        id="left-shapes"
-                                        class="cls-1"
-                                        d="M5.54,17.42c-2.22,0-4.51-.27-5.54-.54l.48-2.74c1.42.11,2.94.27,5.12.27,1.89,0,2.77-.56,2.99-1.82.17-.94-.17-1.32-1.62-2l-2.24-1.03c-2.2-1.01-3.47-2.2-2.99-4.96C2.32,1.3,4.84,0,9.06,0c2.22,0,4.05.34,5,.56l-.48,2.69c-1.53-.13-2.96-.27-4.82-.27-1.71,0-2.66.34-2.87,1.48-.15.85.15,1.19,1.57,1.82l2.19.97c2.58,1.14,3.65,2.47,3.19,5.1-.61,3.46-3.25,5.07-7.29,5.07Z"
-                                    />
-                                    <path
-                                        id="right-shapes"
-                                        class="cls-1"
-                                        d="M54.89,17.04l-2.36-5.95h-2.51l-1.05,5.95h-4.04L47.86.36c1.68-.09,3.36-.2,5.42-.2,4.2,0,7.6.81,6.8,5.39l-.03.16c-.44,2.47-1.66,3.79-3.46,4.6l2.54,6.73h-4.24ZM56.01,5.61c.33-1.89-.67-2.31-3.14-2.31-.54,0-.94,0-1.48.02l-.86,4.85h1.53c2.49,0,3.61-.58,3.93-2.4l.03-.16Z"
-                                    />
-                                    <g id="center-shapes">
-                                        <polygon class="cls-1" points="19.31 7.1 20.5 .36 16.28 .36 13.34 17.04 17.56 17.04 18.75 10.29 24.13 10.29 24.7 7.1 19.31 7.1" />
-                                        <polygon class="cls-1" points="28.02 17.04 23.82 17.04 26.76 .36 30.96 .36 28.02 17.04" />
-                                    </g>
-                                    <path id="bottom-shapes" class="cls-1" d="M71.95.36h-6.99l-7.59,16.68h4.31l1.91-4.2h5.58l.44,4.2h4.09l-1.75-16.68ZM64.96,9.83l2.92-6.42h.3l.67,6.42h-3.89Z" />
-                                </g>
-                                <g id="details">
-                                    <path
-                                        class="cls-7"
-                                        d="M45.92,1.57s0,0,0,.01c-.15.5-.77,1.52-2.9,1.53-.02,0-4.73,0-4.73,0-2.14,0-2.8.99-2.97,1.51l-.13.76c.15-.5.77-1.55,2.97-1.55h4.68c2.43,0,2.92-1.29,2.99-1.69l.1-.57h0Z"
-                                    />
-                                    <path class="cls-3" d="M38.67.96h7.36l.11-.6h-7.37c-2.44,0-2.93,1.29-3,1.69l-.1.57c.09-.43.62-1.66,3.01-1.66Z" />
-                                    <path class="cls-7" d="M32.56,16.41c-1.96,0-2.4-.83-2.46-1.37l-.05.31c-.07.4-.04,1.69,2.4,1.69h10.74l.11-.63h-10.74Z" />
-                                    <path
-                                        class="cls-1"
-                                        d="M31.23,8.64l-.05.3c.25-.53.97-1.38,2.94-1.38,0,0,8.08,0,8.09,0,2.09-.02,2.73-.99,2.9-1.5,0-.02.01-.04.02-.06l.11-.61c-.15.5-.76,1.55-2.97,1.55h-8.04c-2.44,0-2.92,1.3-3,1.69Z"
-                                    />
-                                    <path
-                                        class="cls-6"
-                                        d="M44.77,8.11s0,.01,0,.02c-.09.44-.63,1.63-2.93,1.65-.02,0-8.1,0-8.1,0-.86,0-1.47.16-1.91.39-.45.23-.81.68-.91,1.19l-.11.64h0c.09-.51.45-.95.91-1.19.45-.23,1.06-.39,1.91-.39h8.04c2.44,0,2.93-1.29,3-1.69l.11-.62s0,0,0,0Z"
-                                    />
-                                    <path
-                                        class="cls-5"
-                                        d="M30.7,12.53c-.09.51.11.96.49,1.19.36.23.92.38,1.77.38h10.75l.1-.54h-10.75c-.85,0-1.41-.16-1.77-.38-.38-.23-.58-.68-.49-1.19h0s-.09.54-.09.54Z"
-                                    />
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                </g>
-            </svg>
-        </div>
         
-
 
                     <div data-elementor-type="wp-page" data-elementor-id="34" class="elementor elementor-34">
                         <div class="inner-page catalogues-page">
@@ -243,7 +34,8 @@
                                             <div class="elementor-widget-container">
                                                 <!-- <h2 class="sub-heading alt mb-3">Shera Product</h2> -->
                                                 <h2 class="sub-heading alt">
-                                                    <span class="mini-heading">Our Certificates</span> <span class="heading"> Proof of quality, compliance, and trust</span>
+                                                    <span class="mini-heading">Our Certificates</span>
+                                                    <span class="heading"> Proof of quality, compliance, and trust</span>
                                                 </h2>
                                             </div>
                                         </div>
@@ -372,173 +164,117 @@
                                     </div>
                                 </div>
                             </section>
-                            <section class="section faq-section">
-                                <div class="container">
-                                    <div class="heading-box mb-4">
-                                        <div
-                                            class="elementor-element elementor-element-946b02c e-con-full e-flex e-con e-child"
-                                            data-id="946b02c"
-                                            data-element_type="container"
-                                            data-settings='{"wcf_enable_cursor_hover_effect_text":"View","wcf-animation":"none"}'
-                                        >
-                                            <div
-                                                class="elementor-element elementor-element-7d0fae9 wcf-t-animation-text_move elementor-widget elementor-widget-wcf--title"
-                                                data-id="7d0fae9"
-                                                data-element_type="widget"
-                                                data-settings='{"text_transform_origin":"top center -50","wcf_text_animation":"text_move","text_delay":0.5,"text_duration":1,"text_stagger":0.02,"text_on_scroll":"yes","text_rotation_di":"x","text_rotation":"-80","wcf-animation":"none"}'
-                                                data-widget_type="wcf--title.default"
-                                            >
-                                                <div class="elementor-widget-container">
-                                                    <h2 class="shera-mini-heading shera-green text-center mb-2">Shera</h2>
-                                                    <h2 class="heading alt justify-content-middle shera-black">FAQs</h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="elementor-element elementor-widget elementor-widget-accordion" data-element_type="widget" data-widget_type="accordion.skin-wcf-accordion">
-                                        <div class="elementor-widget-container">
-                                            <div class="accordion-container">
-                                                <div class="elementor-accordion" data-active="yes">
-                                                    <div class="elementor-accordion-item">
-                                                        <div id="elementor-tab-title-4131" class="elementor-tab-title" data-active="yes" data-indexkey="27760f6_0">
-                                                            <span class="elementor-accordion-icon elementor-accordion-icon-right" aria-hidden="true">
-                                                                <span class="elementor-accordion-icon-closed"><i class="arolax-theme arolax-wcf-icon icon-wcf-plus"></i></span>
-                                                                <span class="elementor-accordion-icon-opened"><i class="arolax-theme arolax-wcf-icon icon-wcf-minus"></i></span>
-                                                            </span>
-                                                            <div class="elementor-accordion-title" tabindex="0">
-                                                                <span class="elementor-accordion-title-icon"></span>
-                                                                How are SHERA products installed?
-                                                            </div>
-                                                        </div>
-                                                        <div id="elementor-tab-content-4131" class="elementor-tab-content elementor-clearfix" data-active="yes" data-indexkey="27760f6_0">
-                                                            <div class="wcf--inner--accrodion--body">
-                                                                <div class="wcf--content">
-                                                                    SHERA products are very easy to install using a screwing process. They can be installed using MS/GI/Aluminum framing support as
-                                                                    mentioned in SHERA manuals
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="elementor-accordion-item">
-                                                        <div id="elementor-tab-title-4132" class="elementor-tab-title" data-active="" data-indexkey="27760f6_1">
-                                                            <span class="elementor-accordion-icon elementor-accordion-icon-right" aria-hidden="true">
-                                                                <span class="elementor-accordion-icon-closed"><i class="arolax-theme arolax-wcf-icon icon-wcf-plus"></i></span>
-                                                                <span class="elementor-accordion-icon-opened"><i class="arolax-theme arolax-wcf-icon icon-wcf-minus"></i></span>
-                                                            </span>
-                                                            <div class="elementor-accordion-title" tabindex="0">
-                                                                <span class="elementor-accordion-title-icon"></span>
-                                                                What will happen if we apply SHERA product directly on wall, i.e., without framing?
-                                                            </div>
-                                                        </div>
-                                                        <div id="elementor-tab-content-4132" class="elementor-tab-content elementor-clearfix" data-active="" data-indexkey="27760f6_1">
-                                                            <div class="wcf--inner--accrodion--body">
-                                                                <div class="wcf--content">
-                                                                    <ul class="accordion-list">
-                                                                        <li class="shera-list list mb-2">
-                                                                            <div class="shera-list-icon">
-                                                                                <img src="./img/products-page/shera-pro/list-icon.png" alt="" />
-                                                                            </div>
-                                                                            <span> When cladding a SHERA product directly on the wall, be aware of the potential for water trapping. </span>
-                                                                        </li>
-                                                                        <li class="shera-list list mb-2">
-                                                                            <div class="shera-list-icon">
-                                                                                <img src="./img/products-page/shera-pro/list-icon.png" alt="" />
-                                                                            </div>
-                                                                            <span> Ensure proper drainage for trapped water or moisture to prevent issues such as swelling or paint peeling. </span>
-                                                                        </li>
-                                                                        <li class="shera-list list mb-2">
-                                                                            <div class="shera-list-icon">
-                                                                                <img src="./img/products-page/shera-pro/list-icon.png" alt="" />
-                                                                            </div>
-                                                                            <span> Verify that the wall's line level is accurate before installation. </span>
-                                                                        </li>
-                                                                        <li class="shera-list list">
-                                                                            <div class="shera-list-icon">
-                                                                                <img src="./img/products-page/shera-pro/list-icon.png" alt="" />
-                                                                            </div>
-                                                                            <span>
-                                                                                Use concrete fasteners for securing SHERA products to internal walls. For external walls, refer to SHERA manuals and use
-                                                                                MS/GI/Aluminum framing support as recommended.
-                                                                            </span>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="elementor-accordion-item">
-                                                        <div id="elementor-tab-title-4133" class="elementor-tab-title" data-active="" data-indexkey="27760f6_2">
-                                                            <span class="elementor-accordion-icon elementor-accordion-icon-right" aria-hidden="true">
-                                                                <span class="elementor-accordion-icon-closed"><i class="arolax-theme arolax-wcf-icon icon-wcf-plus"></i></span>
-                                                                <span class="elementor-accordion-icon-opened"><i class="arolax-theme arolax-wcf-icon icon-wcf-minus"></i></span>
-                                                            </span>
-                                                            <div class="elementor-accordion-title" tabindex="0">
-                                                                <span class="elementor-accordion-title-icon"></span>
-                                                                Are SHERA products waterproof and fireproof?
-                                                            </div>
-                                                        </div>
-                                                        <div id="elementor-tab-content-4133" class="elementor-tab-content elementor-clearfix" data-active="" data-indexkey="27760f6_2">
-                                                            <div class="wcf--inner--accrodion--body">
-                                                                <div class="wcf--content">
-                                                                    SHERA products are water-resistant & fire-resistant. Water cannot damage the product, & SHERA products retain all their properties
-                                                                    after drying. Additionally, SHERA products do not burn and have excellent fire resistance properties.
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="elementor-accordion-item">
-                                                        <div id="elementor-tab-title-4134" class="elementor-tab-title" data-active="" data-indexkey="27760f6_3">
-                                                            <span class="elementor-accordion-icon elementor-accordion-icon-right" aria-hidden="true">
-                                                                <span class="elementor-accordion-icon-closed"><i class="arolax-theme arolax-wcf-icon icon-wcf-plus"></i></span>
-                                                                <span class="elementor-accordion-icon-opened"><i class="arolax-theme arolax-wcf-icon icon-wcf-minus"></i></span>
-                                                            </span>
-                                                            <div class="elementor-accordion-title" tabindex="0">
-                                                                <span class="elementor-accordion-title-icon"></span>
-                                                                Is it possible to use tiles, wallpaper, or laminates on SHERA boards?
-                                                            </div>
-                                                        </div>
-                                                        <div id="elementor-tab-content-4134" class="elementor-tab-content elementor-clearfix" data-active="" data-indexkey="27760f6_3">
-                                                            <div class="wcf--inner--accrodion--body">
-                                                                <div class="wcf--content">
-                                                                    As mentioned in the SHERA Tile Cladding Manual, we can use tiles, wallpaper, or laminates with suitable adhesives. For tiling on
-                                                                    SHERA wall systems, we recommend 6mm boards, the weight of tile cladding should not exceed 30 kg/m². For 8mm boards, the weight of
-                                                                    tile cladding should not exceed 40 kg/m².
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="elementor-accordion-item">
-                                                        <div id="elementor-tab-title-4135" class="elementor-tab-title" data-active="" data-indexkey="27760f6_4">
-                                                            <span class="elementor-accordion-icon elementor-accordion-icon-right" aria-hidden="true">
-                                                                <span class="elementor-accordion-icon-closed"><i class="arolax-theme arolax-wcf-icon icon-wcf-plus"></i></span>
-                                                                <span class="elementor-accordion-icon-opened"><i class="arolax-theme arolax-wcf-icon icon-wcf-minus"></i></span>
-                                                            </span>
-                                                            <div class="elementor-accordion-title" tabindex="0">
-                                                                <span class="elementor-accordion-title-icon"></span>
-                                                                What thickness can be used for exterior & interior applications?
-                                                            </div>
-                                                        </div>
-                                                        <div id="elementor-tab-content-4135" class="elementor-tab-content elementor-clearfix" data-active="" data-indexkey="27760f6_4">
-                                                            <div class="wcf--inner--accrodion--body">
-                                                                <div class="wcf--content">
-                                                                    For exterior application, we recommend using 8mm and onwards. For interior application, all SHERA products can be used as per the
-                                                                    requirements.
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
                         </div>
                     </div>
 
-                    @include('frontend.layout.footer')
+                   @include('frontend.layout.footer')
                 </div>
                 <!-- #page -->
+            </div>
+        </div>
+        <!--view download modal -->
+        <div class="modal fade enquiry-modal alt" id="viewDownloadModal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="model-wrapper">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="modal-main">
+                                    <div class="modal-header">
+                                        <h2 class="heading modal-title fs-5" id="exampleModalLabel">Request Download</h2>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-box">
+                                            <form action="./inquire-form-handler.php" method="POST">
+                                                <div class="form-floating mb-2">
+                                                    <input type="text" class="form-control" id="floatingName" placeholder=" " name="name" required="" />
+                                                    <label for="floatingName"> Name <span>*</span> </label>
+                                                </div>
+                                                <div class="form-floating mb-2">
+                                                    <input type="tel" class="form-control" id="floatingPhone" placeholder=" " name="phone" required="" />
+                                                    <label for="floatingPhone"> Company Name <span>*</span> </label>
+                                                </div>
+                                                <div class="form-floating mb-2">
+                                                    <input type="text" class="form-control" id="floatingCountry" placeholder=" " name="email" required="" />
+                                                    <label for="floatingCountry"> Designation <span>*</span> </label>
+                                                </div>
+                                                <div class="form-floating mb-2">
+                                                    <input type="tel" class="form-control" id="floatingPhone" placeholder=" " name="phone" required="" />
+                                                    <label for="floatingPhone"> Contact Number <span>*</span> </label>
+                                                </div>
+                                                <div class="form-floating mb-2">
+                                                    <input type="email" class="form-control" id="floatingEmail" placeholder=" " name="email" required="" />
+                                                    <label for="floatingEmail"> Email <span>*</span> </label>
+                                                </div>
+                                                <div class="form-floating mb-2">
+                                                    <textarea class="form-control" placeholder=" " id="floatingTextarea2" style="height: 100px"></textarea>
+                                                    <label for="floatingTextarea2">Message</label>
+                                                </div>
+                                                <!-- <div class="form-floating-select mb-2">
+                                                    <label for="floatingEmail"> Event Types </label>
+                                                    <select class="form-control text-dark fw-light" style="background: transparent" name="event-type">
+                                                        <option selected>Select Event Types</option>
+                                                        <option>Conferences</option>
+                                                        <option>Wedding</option>
+                                                        <option>Birthday Party</option>
+                                                        <option>Reception</option>
+                                                        <option>Sangeet</option>
+                                                        <option>Mehandi</option>
+                                                        <option>Naming Ceremony</option>
+                                                        <option>Anniversary</option>
+                                                        <option>Baby Shower</option>
+                                                        <option>Engagement</option>
+                                                        <option>Haldi</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-floating-select mb-2">
+                                                    <label for="message">Venue</label>
+                                                    <select class="form-control text-dark fw-light" style="background: transparent" name="event-venue">
+                                                        <option selected>Select Venue</option>
+                                                        <option>PEARL</option>
+                                                        <option>EMERALD</option>
+                                                        <option>MOONSTONE</option>
+                                                    </select>
+                                                </div>
+    
+                                                <div class="form-floating-select mb-2">
+                                                    <label for="message">Date of Event</label>
+                                                    <input type="date" name="event-date" class="form-control text-dark c3 fw-light" />
+                                                </div> -->
+
+                                                <input type="hidden" name="recaptcha_response" id="recaptchaResponse1" />
+                                                <script>
+                                                    // SITE KEY
+                                                    grecaptcha.ready(function () {
+                                                        grecaptcha
+                                                            .execute("6Ld4Tj4qAAAAACDHeFq-SzPVM0OPIlUgKRyRy2uL", {
+                                                                action: "contact",
+                                                            })
+                                                            .then(function (token) {
+                                                                var recaptchaResponse = document.getElementById("recaptchaResponse1");
+                                                                recaptchaResponse.value = token;
+                                                            });
+                                                    });
+                                                </script>
+                                                <div class="mt-4">
+                                                    <button type="submit" class="button enquiry-button" name="enq-submit">Download</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="modal-img">
+                                    <img src="./img/shera-applications/false-ceiling.jpg" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="whatsapp-box">
@@ -552,14 +288,20 @@
             </a>
         </div>
         <div class="lets-talk-box">
-            <a href="{{ url('contact-us') }}" class="lets-talk">
-                <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
+            <a href="#" class="lets-talk">
+                <span class="wc-btn-play">
+                    <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
+                </span>
                 <span class="text"> Lets Talk </span>
-                <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
+                <span class="wc-btn-play">
+                    <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
+                </span>
                 <!-- <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-right1"></i>  -->
             </a>
         </div>
-        <div class="wcf-scroll-to-top scroll-to-"><i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-4"></i></div>
+        <div class="wcf-scroll-to-top scroll-to-">
+            <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-4"></i>
+        </div>
         <div class="wcf-cursor"></div>
         <div class="wcf-cursor-follower"></div>
 
@@ -750,7 +492,13 @@
         <script type="text/javascript" src="js/mediaelement-migrate.min.js" id="mediaelement-migrate-js"></script>
         <script type="text/javascript" id="mediaelement-js-extra">
             /* <![CDATA[ */
-            var _wpmejsSettings = { pluginPath: "", classPrefix: "mejs-", stretching: "responsive", audioShortcodeLibrary: "mediaelement", videoShortcodeLibrary: "mediaelement" };
+            var _wpmejsSettings = {
+                pluginPath: "",
+                classPrefix: "mejs-",
+                stretching: "responsive",
+                audioShortcodeLibrary: "mediaelement",
+                videoShortcodeLibrary: "mediaelement",
+            };
             /* ]]> */
         </script>
         <script type="text/javascript" src="js/wp-mediaelement.min.js" id="wp-mediaelement-js"></script>
@@ -1011,9 +759,27 @@
                 responsive: {
                     breakpoints: {
                         mobile: { label: "Mobile Portrait", value: 767, default_value: 767, direction: "max", is_enabled: true },
-                        mobile_extra: { label: "Mobile Landscape", value: 880, default_value: 880, direction: "max", is_enabled: true },
-                        tablet: { label: "Tablet Portrait", value: 1024, default_value: 1024, direction: "max", is_enabled: true },
-                        tablet_extra: { label: "Tablet Landscape", value: 1200, default_value: 1200, direction: "max", is_enabled: true },
+                        mobile_extra: {
+                            label: "Mobile Landscape",
+                            value: 880,
+                            default_value: 880,
+                            direction: "max",
+                            is_enabled: true,
+                        },
+                        tablet: {
+                            label: "Tablet Portrait",
+                            value: 1024,
+                            default_value: 1024,
+                            direction: "max",
+                            is_enabled: true,
+                        },
+                        tablet_extra: {
+                            label: "Tablet Landscape",
+                            value: 1200,
+                            default_value: 1200,
+                            direction: "max",
+                            is_enabled: true,
+                        },
                         laptop: { label: "Laptop", value: 1366, default_value: 1366, direction: "max", is_enabled: true },
                         widescreen: { label: "Widescreen", value: 2400, default_value: 2400, direction: "min", is_enabled: true },
                     },
