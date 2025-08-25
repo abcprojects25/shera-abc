@@ -251,14 +251,54 @@
           </section>
 <script>
 document.getElementById('dealerForm').addEventListener('submit', function(e) {
-    var btn = document.getElementById('submitBtn');
-    var btnText = document.getElementById('btnText');
+    e.preventDefault();
 
-    // Disable the button
+    let form = this;
+    let btn = document.getElementById('submitBtn');
+    let btnText = document.getElementById('btnText');
+
     btn.disabled = true;
-
-    // Show loader inside the button
     btnText.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+    // Send AJAX request
+    fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: {
+            "X-Requested-With": "XMLHttpRequest"
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        btn.disabled = false;
+        btnText.innerHTML = "Send Message";
+
+        if (data.success) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Thank you!',
+                text: data.success,
+                confirmButtonColor: '#3085d6',
+            });
+
+            form.reset(); // clear fields
+        } else if (data.error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops!',
+                text: data.error,
+            });
+        }
+    })
+    .catch(err => {
+        btn.disabled = false;
+        btnText.innerHTML = "Send Message";
+        Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: 'Something went wrong. Please try again.',
+        });
+    });
 });
 </script>
           @include('frontend.layout.footer')
@@ -266,6 +306,8 @@ document.getElementById('dealerForm').addEventListener('submit', function(e) {
         <!-- #page -->
       </div>
     </div>
+
+      @include('frontend.layout.enquiryModal')
     <div class="whatsapp-box">
       <a
         href="https://wa.me/1234567890?text=Test"
@@ -281,7 +323,7 @@ document.getElementById('dealerForm').addEventListener('submit', function(e) {
       </a>
     </div>
     <div class="lets-talk-box">
-      <a href="{{ url('contact-us') }}" class="lets-talk">
+      <a href="#" class="lets-talk" data-bs-toggle="modal" data-bs-target="#viewDownloadModal">
         <span class="wc-btn-play">
           <i
             aria-hidden="true"

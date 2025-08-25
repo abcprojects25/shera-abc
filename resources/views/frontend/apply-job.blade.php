@@ -316,6 +316,8 @@ document.getElementById('career_form').addEventListener('submit', function(e) {
         <!-- #page -->
       </div>
     </div>
+
+      @include('frontend.layout.enquiryModal')
     <div class="whatsapp-box">
       <a
         href="https://wa.me/1234567890?text=Test"
@@ -331,7 +333,7 @@ document.getElementById('career_form').addEventListener('submit', function(e) {
       </a>
     </div>
     <div class="lets-talk-box">
-      <a href="{{ url('contact-us') }}" class="lets-talk">
+      <a href="#" class="lets-talk" data-bs-toggle="modal" data-bs-target="#viewDownloadModal">
         <span class="wc-btn-play">
           <i
             aria-hidden="true"

@@ -1,4 +1,5 @@
- <div class="footer_top">
+
+<div class="footer_top">
                         <div class="container clients_lising">
                             <div class="row align-center">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
@@ -149,3 +150,5 @@ document.getElementById('subscribeForm').addEventListener('submit', function(e) 
     });
 });
 </script>
+
+

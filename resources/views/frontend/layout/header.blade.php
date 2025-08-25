@@ -63,6 +63,7 @@ $page_head = ucwords($page_head);
                 text-decoration: none;
             }
         </style>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -286,4 +287,7 @@ $page_head = ucwords($page_head);
             <div id="smooth-content">
                 <div id="page" class="hfeed site">
                     
+                
                     @include('frontend.layout.nav')
+
+    

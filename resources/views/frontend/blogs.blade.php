@@ -99,6 +99,7 @@
                 <!-- #page -->
             </div>
         </div>
+          @include('frontend.layout.enquiryModal')
         <div class="whatsapp-box">
             <a href="https://wa.me/1234567890?text=Test" class="whatsapp-icon" target="_blank">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -110,7 +111,7 @@
             </a>
         </div>
         <div class="lets-talk-box">
-            <a href="{{ url('contact-us') }}" class="lets-talk">
+            <a href="#" class="lets-talk" data-bs-toggle="modal" data-bs-target="#viewDownloadModal">
                 <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
                 <span class="text"> Lets Talk </span>
                 <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>

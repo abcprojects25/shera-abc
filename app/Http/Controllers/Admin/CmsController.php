@@ -1425,14 +1425,16 @@ public function certificateStatus($status,$id){
             'contact'      => 'required|string|max:20',
             'message'    => 'required|string',
         ]);
-
+ 
         $validated['country'] = null;
         Enquires::create($validated);
 
         Mail::to($request->email)->send(new EnquiryResponseMail($validated));
 
         Mail::to('sofiya@abcdesigns.in')->send(new EnquiryResponseMail($validated, true));
-
+        if ($request->ajax()) {
+                return response()->json(['success' => 'Your enquiry has been submitted successfully! Please check your email.']);
+            }
         return back()->with('success', 'Your enquiry has been submitted successfully!  Please check your email.');
     }
 

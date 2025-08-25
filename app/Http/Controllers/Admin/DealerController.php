@@ -13,8 +13,17 @@ class DealerController extends Controller{
 
     public function index()
 {
-    $dealers = Dealers::where('status', 1)->get(); // Only non-deleted dealers
+    $dealers = Dealers::where('status', 1)
+                      ->where('source', 'dealer')
+                      ->get();
     return view('admin.dealers', compact('dealers'));
+}
+
+    public function retailIndex()
+{
+    $retailers = Dealers::where('status', 1)
+                        ->where('source', 'retailer')->get();
+    return view('admin.retailers', compact('retailers'));
 }
 
     public function store(Request $request)
@@ -39,7 +48,7 @@ class DealerController extends Controller{
     $dealer->phone_number = $request->phone_number;
     $dealer->business_start = $request->business_start;
     $dealer->products = $request->products;
-    $dealer->status = 1; // default active
+    $dealer->status = 1; 
     $dealer->url = Str::slug($request->firm_name);
     $dealer->source = $request->source ?? 'dealer';
     $dealer->save();
@@ -48,14 +57,16 @@ class DealerController extends Controller{
             $message->to('sofiya@abcdesigns.in')
                     ->subject('New ' . $dealer->source . ' - ' . $dealer->firm_name);
         });
-
+        if ($request->ajax()) {
+                return response()->json(['success' => 'Your Details has been submitted successfully!']);
+            }
     return redirect()->back()->with('success', 'Dealer info saved successfully!');
 }
 
 public function delete($id)
 {
     $dealer = Dealers::findOrFail($id);
-    $dealer->delete(); // This will remove the row completely from DB
+    $dealer->delete(); 
 
     return redirect()->back()->with('success', 'Dealer deleted successfully!');
 }

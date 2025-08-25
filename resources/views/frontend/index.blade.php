@@ -4,7 +4,7 @@
 
     @include('frontend.layout.header')
 
-                    
+    
 
                     <div data-elementor-type="wp-page" data-elementor-id="34" class="elementor elementor-34">
                         <div
@@ -1604,23 +1604,67 @@
                             <!-- Container -->
                         </section>
                     </div>
-                        <script>
-                        document.getElementById('enquiryForm').addEventListener('submit', function(e) {
-                            var btn = document.getElementById('submitBtn');
-                            var btnText = document.getElementById('btnText');
+                    <script>
+document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Stop normal form submit
 
-                            // Disable the button
-                            btn.disabled = true;
+    let form = this;
+    let btn = document.getElementById('submitBtn');
+    let btnText = document.getElementById('btnText');
 
-                            // Show loader inside the button
-                            btnText.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                        });
-                        </script>
+    btn.disabled = true;
+    btnText.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+    // Send AJAX request
+    fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: {
+            "X-Requested-With": "XMLHttpRequest"
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        btn.disabled = false;
+        btnText.innerHTML = "Send Message";
+
+        if (data.success) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Thank you!',
+                text: data.success,
+                confirmButtonColor: '#3085d6',
+            });
+
+            form.reset(); // clear fields
+        } else if (data.error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops!',
+                text: data.error,
+            });
+        }
+    })
+    .catch(err => {
+        btn.disabled = false;
+        btnText.innerHTML = "Send Message";
+        Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: 'Something went wrong. Please try again.',
+        });
+    });
+});
+</script>
+
+                         
                    @include('frontend.layout.footer')
                 </div>
+
                 <!-- #page -->
             </div>
         </div>
+   @include('frontend.layout.enquiryModal')
         <div class="whatsapp-box">
             <a href="https://wa.me/1234567890?text=Test" class="whatsapp-icon" target="_blank">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -1632,11 +1676,10 @@
             </a>
         </div>
         <div class="lets-talk-box">
-            <a href="{{ url('contact-us') }}" class="lets-talk">
+            <a href="#" class="lets-talk" data-bs-toggle="modal" data-bs-target="#viewDownloadModal">
                 <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
                 <span class="text"> Lets Talk </span>
                 <span class="wc-btn-play"> <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i> </span>
-                <!-- <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-right1"></i>  -->
             </a>
         </div>
         <div class="wcf-scroll-to-top scroll-to-"><i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-4"></i></div>

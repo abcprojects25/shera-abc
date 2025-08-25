@@ -9,8 +9,7 @@
 
    @include('frontend.layout.header')
 
-        
-
+    
                     <div data-elementor-type="wp-page" data-elementor-id="34" class="elementor elementor-34">
                         <div class="inner-page catalogues-page">
                             <section class="banner">
@@ -81,7 +80,7 @@
                                                             >
                                                                 View
                                                             </a>
-                                                            <a href="#" class="button download-button" data-bs-toggle="modal" data-bs-target="#viewDownloadModal"> Download </a>
+                                                            <a href="#" class="button download-button" data-bs-toggle="modal" data-bs-target="#viewDownloadModal" data-pdf="Green_Certification_Green_Choice_Philippines.pdf" data-source="certificates"> Download </a>
                                                         </div>
                                                     </div>
                                                     <div class="title-box mt-3">
@@ -172,6 +171,30 @@
                 <!-- #page -->
             </div>
         </div>
+         @if(session('download_pdf'))
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let pdf = "{{ session('download_pdf') }}";
+            let source = "{{ session('download_source') }}";
+
+            // Build path to PDF
+            let url = "/pdf/certification"  + "/" + pdf;
+
+            let link = document.createElement("a");
+            link.href = url;
+            link.download = pdf;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            var modalEl = document.getElementById('viewDownloadModal');
+            var modal = bootstrap.Modal.getInstance(modalEl);
+            if (modal) {
+                modal.hide();
+            }
+        });
+    </script>
+@endif
         <!--view download modal -->
         <div class="modal fade enquiry-modal alt" id="viewDownloadModal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-centered">
@@ -188,21 +211,24 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-box">
-                                            <form action="./inquire-form-handler.php" method="POST">
+                                            <form action="{{ route('downloadEnquiry.store') }}" method="POST">
+                                                 @csrf
+                                                <input type="hidden" name="source" id="modalSource">
+                                                <input type="hidden" name="pdf_name" id="modalPdfName">
                                                 <div class="form-floating mb-2">
                                                     <input type="text" class="form-control" id="floatingName" placeholder=" " name="name" required="" />
                                                     <label for="floatingName"> Name <span>*</span> </label>
                                                 </div>
                                                 <div class="form-floating mb-2">
-                                                    <input type="tel" class="form-control" id="floatingPhone" placeholder=" " name="phone" required="" />
+                                                    <input type="tel" class="form-control" id="floatingPhone" placeholder=" " name="company_name" required="" />
                                                     <label for="floatingPhone"> Company Name <span>*</span> </label>
                                                 </div>
                                                 <div class="form-floating mb-2">
-                                                    <input type="text" class="form-control" id="floatingCountry" placeholder=" " name="email" required="" />
+                                                    <input type="text" class="form-control" id="floatingCountry" placeholder=" " name="designation" required="" />
                                                     <label for="floatingCountry"> Designation <span>*</span> </label>
                                                 </div>
                                                 <div class="form-floating mb-2">
-                                                    <input type="tel" class="form-control" id="floatingPhone" placeholder=" " name="phone" required="" />
+                                                    <input type="tel" class="form-control" id="floatingPhone" placeholder=" " name="contact_number" required="" />
                                                     <label for="floatingPhone"> Contact Number <span>*</span> </label>
                                                 </div>
                                                 <div class="form-floating mb-2">
@@ -210,40 +236,10 @@
                                                     <label for="floatingEmail"> Email <span>*</span> </label>
                                                 </div>
                                                 <div class="form-floating mb-2">
-                                                    <textarea class="form-control" placeholder=" " id="floatingTextarea2" style="height: 100px"></textarea>
+                                                    <textarea class="form-control" name="message" placeholder=" " id="floatingTextarea2" style="height: 100px"></textarea>
                                                     <label for="floatingTextarea2">Message</label>
                                                 </div>
-                                                <!-- <div class="form-floating-select mb-2">
-                                                    <label for="floatingEmail"> Event Types </label>
-                                                    <select class="form-control text-dark fw-light" style="background: transparent" name="event-type">
-                                                        <option selected>Select Event Types</option>
-                                                        <option>Conferences</option>
-                                                        <option>Wedding</option>
-                                                        <option>Birthday Party</option>
-                                                        <option>Reception</option>
-                                                        <option>Sangeet</option>
-                                                        <option>Mehandi</option>
-                                                        <option>Naming Ceremony</option>
-                                                        <option>Anniversary</option>
-                                                        <option>Baby Shower</option>
-                                                        <option>Engagement</option>
-                                                        <option>Haldi</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-floating-select mb-2">
-                                                    <label for="message">Venue</label>
-                                                    <select class="form-control text-dark fw-light" style="background: transparent" name="event-venue">
-                                                        <option selected>Select Venue</option>
-                                                        <option>PEARL</option>
-                                                        <option>EMERALD</option>
-                                                        <option>MOONSTONE</option>
-                                                    </select>
-                                                </div>
-    
-                                                <div class="form-floating-select mb-2">
-                                                    <label for="message">Date of Event</label>
-                                                    <input type="date" name="event-date" class="form-control text-dark c3 fw-light" />
-                                                </div> -->
+                                              
 
                                                 <input type="hidden" name="recaptcha_response" id="recaptchaResponse1" />
                                                 <script>
@@ -277,6 +273,21 @@
                 </div>
             </div>
         </div>
+         <script>
+document.addEventListener("DOMContentLoaded", function() {
+    var downloadButtons = document.querySelectorAll("[data-bs-target='#viewDownloadModal']");
+    var pdfInput = document.getElementById("modalPdfName");
+    var sourceInput = document.getElementById("modalSource");
+
+    downloadButtons.forEach(function(btn) {
+        btn.addEventListener("click", function() {
+            pdfInput.value = this.getAttribute("data-pdf");
+            sourceInput.value = this.getAttribute("data-source");
+        });
+    });
+});
+</script>
+  @include('frontend.layout.enquiryModal')
         <div class="whatsapp-box">
             <a href="https://wa.me/1234567890?text=Test" class="whatsapp-icon" target="_blank">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -288,7 +299,7 @@
             </a>
         </div>
         <div class="lets-talk-box">
-            <a href="#" class="lets-talk">
+            <a href="#" class="lets-talk" data-bs-toggle="modal" data-bs-target="#viewDownloadModal">
                 <span class="wc-btn-play">
                     <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
                 </span>

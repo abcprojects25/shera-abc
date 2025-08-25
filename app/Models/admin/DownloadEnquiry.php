@@ -19,7 +19,7 @@ class DownloadEnquiry extends Model
     'source',
     'pdf_name',
     'is_download',
-    'source',
+    
 ];
 
 }

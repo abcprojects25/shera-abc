@@ -88,17 +88,7 @@
 	-->	
 	
 	<li class="nav-header"><span class="nav-label">For Enquiry</span></li>
-	<!--
-	<li class="nav-item">
-		<a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-view-list-alt sidemenu-icon"></i><span class="sidemenu-label"> Contact </span><i class="angle fe fe-chevron-right"></i></a>
-		<ul class="nav-sub">  
-			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/contact-us"> Contact Us </a>  </li> 
-			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/dealers-distributors">  Dealers & Distributors  </a>  </li> 
-			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/inquiry"> Enquiry </a> </li> 
-			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/branches-location"> Branch Location </a> </li> 
-		</ul>
-	</li> 
-	-->
+	
 	
 	<li class="nav-item">
 		<a class="nav-link" href="/admin/contact-us">
@@ -125,8 +115,16 @@
 	<li class="nav-item">
     <a class="nav-link" href="{{ route('admin.dealers.index') }}">
         <span class="shape1"></span><span class="shape2"></span> 
-        <i class="ti-bell sidemenu-icon"></i> 
+        <i class="ti-medall sidemenu-icon"></i> 
         <span class="sidemenu-label">Dealers</span>
+    </a>
+	</li>	
+
+	<li class="nav-item">
+    <a class="nav-link" href="{{ route('admin.retailers.retailIndex') }}">
+        <span class="shape1"></span><span class="shape2"></span> 
+        <i class="ti-medall-alt sidemenu-icon"></i> 
+        <span class="sidemenu-label">Retailers</span>
     </a>
 	</li>	
 	
@@ -138,6 +136,16 @@
 					</ul>
 	</li> 	 -->
 
+	<li class="nav-item">
+		<a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2"></span><i class="ti-view-list-alt sidemenu-icon"></i><span class="sidemenu-label"> Catalogues Enquiries </span><i class="angle fe fe-chevron-right"></i></a>
+		<ul class="nav-sub">  
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="{{ route('admin.catalogues.index') }}"> Catalogues </a>  </li> 
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="{{ route('admin.certificates.certIndex') }}"> Certificates  </a>  </li> 
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="{{ route('admin.manuals.manIndex') }}"> Manuals </a> </li> 
+			<li class="nav-sub-item"> <a class="nav-sub-link" href="{{ route('admin.tech-details.techIndex') }}"> Technical-details </a> </li> 
+		</ul>
+	</li> 
+	
 
 
 	{{-- <li class="nav-item">

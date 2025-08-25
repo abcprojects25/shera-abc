@@ -119,6 +119,7 @@ Route::get('technical-details', function(){
     return view('frontend.technical-details');
 });
 
+
 Route::post('/game/log', [GameLogController::class, 'store']);
 
 Route::post('/submit-enquiry', [CmsController::class, 'storeEnquiry'])->name('enquiry.submit');
@@ -162,9 +163,22 @@ Route::get('/admin/guessing-game', function () {
 Route::get('/admin/leaderboard', [CmsController::class, 'leaderboard'])->name('admin.leaderboard');
 
 Route::get('/admin/dealers', [DealerController::class, 'index'])->name('admin.dealers.index');
+Route::get('/admin/retailers', [DealerController::class, 'retailIndex'])->name('admin.retailers.retailIndex');
+Route::get('/admin/retailers/{id}', [DealerController::class, 'delete'])->name('admin.dealers.delete');
 Route::delete('/admin/dealers/{id}', [DealerController::class, 'delete'])->name('admin.dealers.delete');
 
 Route::post('/downloadEnquiry/store', [DownloadEnquiryController::class, 'store'])->name('downloadEnquiry.store');
+Route::get('/admin/catalogues', [DownloadEnquiryController::class, 'index'])->name('admin.catalogues.index');
+Route::delete('/admin/catalogues/{id}', [DownloadEnquiryController::class, 'destroy'])->name('admin.catalogues.destroy');
+
+Route::get('/admin/certificates', [DownloadEnquiryController::class, 'certIndex'])->name('admin.certificates.certIndex');
+Route::delete('/admin/certificates/{id}', [DownloadEnquiryController::class, 'destroy'])->name('admin.certificates.destroy');
+
+Route::get('/admin/manuals', [DownloadEnquiryController::class, 'manIndex'])->name('admin.manuals.manIndex');
+Route::delete('/admin/manuals/{id}', [DownloadEnquiryController::class, 'destroy'])->name('admin.manuals.destroy');
+
+Route::get('/admin/tech-details', [DownloadEnquiryController::class, 'techIndex'])->name('admin.tech-details.techIndex');
+Route::delete('/admin/tech-details/{id}', [DownloadEnquiryController::class, 'destroy'])->name('admin.tech-details.destroy');
 
 
 
