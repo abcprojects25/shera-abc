@@ -485,54 +485,19 @@
                 </div>
                 <div class="col-xxl-12">
                   <div class="job__list">
-                    <a href="{{ url('career-details') }}">
+                    @foreach($list as $index => $job)
+                    <a href="{{ route('career.details', $job->url) }}">
                       <div class="job__item">
-                        <p class="job__no">01</p>
-                        <h3 class="job__title">Lead Specialist</h3>
-                        <h4 class="job__open">1-2 Year Exp.</h4>
+                        <p class="job__no">{{ str_pad($index+1, 2, '0', STR_PAD_LEFT) }}</p>
+                        <h3 class="job__title">{{ $job->title }}</h3>
+                        <h4 class="job__open">{{ $job->experience }}</h4>
                         <div class="job__links">
                           <span><i class="fas fa-external-link"></i></span>
                         </div>
                       </div>
                     </a>
-                    <a href="{{ url('career-details') }}">
-                      <div class="job__item">
-                        <p class="job__no">02</p>
-                        <h3 class="job__title">Lead Specialist</h3>
-                        <h4 class="job__open">1-2 Year Exp.</h4>
-                        <div class="job__links">
-                          <span><i class="fas fa-external-link"></i></span>
-                        </div>
-                      </div>
-                    </a>
-                    <a href="{{ url('career-details') }}">
-                      <div class="job__item">
-                        <p class="job__no">03</p>
-                        <h3 class="job__title">Lead Specialist</h3>
-                        <h4 class="job__open">1-2 Year Exp.</h4>
-                        <div class="job__links">
-                          <span><i class="fas fa-external-link"></i></span>
-                        </div>
-                      </div>
-                    </a>
-                    <!--
-                  <a href="/career/frontend-developer">
-                    <div class="job__item">
-                      <p class="job__no">02</p>
-                      <h3 class="job__title">Frontend Developer</h3>
-                      <h4 class="job__open">(02 Open Roles)</h4>
-                      <div class="job__link"><span><i class="fa-solid fa-arrow-right"></i></span></div>
-                    </div>
-                  </a>
-                  <a href="/career/backend-developer">
-                    <div class="job__item">
-                      <p class="job__no">03</p>
-                      <h3 class="job__title">Backend Developer</h3>
-                      <h4 class="job__open">(03 Open Roles)</h4>
-                      <div class="job__link"><span><i class="fa-solid fa-arrow-right"></i></span></div>
-                    </div>
-                  </a>
-					-->
+                    @endforeach
+                    
                   </div>
                 </div>
               </div>

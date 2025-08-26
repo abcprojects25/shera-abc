@@ -13,7 +13,7 @@
                                         <input class="form-control required" type="email" name="email" placeholder="Enter your email" required />
                                       
                                          <button type="submit" class="btn" aria-label="submit" id="subscribeBtn">
-                        <img src="img/submit.png" class="img-fluid" id="btnText"/>
+                        <img src="{{ asset('img/submit.png') }}" class="img-fluid" id="btnText"/>
                          <span id="loader" class="spinner-border spinner-border-sm d-none" role="status"></span>
                       </button>
 

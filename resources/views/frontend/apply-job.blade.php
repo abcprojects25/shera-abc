@@ -16,7 +16,7 @@
             <div class="inner-page product-page shera-product-page">
               <section class="banner">
                 <div class="image-box">
-                  <img src="./img/contactus/Contactus.webp" alt="" />
+                  <img src="{{ asset('img/contactus/Contactus.webp') }}" alt="" />
                 </div>
                 <div class="heading-box">
                   <div
@@ -185,30 +185,12 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="f-group">Function *</label>
-                    <select
-                      class="form-control"
-                      name="career_function"
-                      id="career_function"
-                    >
-                      <option value="" selected="">
-                        Select from drop down
-                      </option>
-                      <option value="Sales and Marketing">
-                        Sales and Marketing
-                      </option>
-                      <option value="Project Management">
-                        Project Management
-                      </option>
-                      <option value="Operations/Factory">
-                        Operations/Factory
-                      </option>
-                      <option value="Supply Chain">Supply Chain</option>
-                      <option value="Finance">Finance</option>
-                      <option value="Information Technology">
-                        Information Technology
-                      </option>
-                      <option value="Human Resources">Human Resources</option>
-                    </select>
+                     <input type="text" 
+           class="form-control" 
+           name="career_job_title" 
+           id="career_job_title" 
+           value="{{ $job->title ?? '' }}" 
+           readonly />
                   </div>
                 </div>
 
@@ -432,15 +414,15 @@ document.getElementById('career_form').addEventListener('submit', function(e) {
     <link
       rel="stylesheet"
       id="wpo_min-footer-0-css"
-      href="css/wpo-minify-footer-24b84006.min.css"
+      href="{{ asset('css/wpo-minify-footer-24b84006.min.css') }}"
       type="text/css"
       media="all"
     />
 
-    <script type="text/javascript" src="./js/gsap.min.js" id="gsap-js"></script>
+    <script type="text/javascript" src="{{ asset('js/gsap.min.js') }}" id="gsap-js"></script>
     <script
       type="text/javascript"
-      src="./js/ScrollTrigger.min.js"
+      src="{{ asset('js/ScrollTrigger.min.js') }}"
       id="ScrollTrigger-js"
     ></script>
 
@@ -451,7 +433,7 @@ document.getElementById('career_form').addEventListener('submit', function(e) {
     </script>
     <script
       type="text/javascript"
-      src="js/wcf--global-core.min.js"
+      src="{{ asset('js/wcf--global-core.min.js') }}"
       id="arolax-essential--global-core-js"
     ></script>
     <script type="text/javascript" id="wcf--addons-js-extra">
@@ -474,7 +456,7 @@ document.getElementById('career_form').addEventListener('submit', function(e) {
     </script>
     <script
       type="text/javascript"
-      src="js/wcf-addons.min.js"
+      src="{{ asset('js/wcf-addons.min.js') }}"
       id="wcf--addons-js"
     ></script>
     <script type="text/javascript" id="arolax-script-js-extra">
@@ -484,27 +466,27 @@ document.getElementById('career_form').addEventListener('submit', function(e) {
     </script>
     <script
       type="text/javascript"
-      src="js/script.min.js"
+      src="{{ asset('js/script.min.js') }}"
       id="arolax-script-js"
     ></script>
     <script
       type="text/javascript"
-      src="js/swiper.min.js"
+      src="{{ asset('js/swiper.min.js') }}"
       id="swiper-js"
     ></script>
     <script
       type="text/javascript"
-      src="js/slider.min.js"
+      src="{{ asset('js/slider.min.js') }}"
       id="wcf--slider-js"
     ></script>
     <script
       type="text/javascript"
-      src="js/jquery-numerator.min.js"
+      src="{{ asset('js/jquery-numerator.min.js') }}"
       id="jquery-numerator-js"
     ></script>
     <script
       type="text/javascript"
-      src="js/counter.min.js"
+      src="{{ asset('js/counter.min.js') }}"
       id="wcf--counter-js"
     ></script>
     <script type="text/javascript" id="mediaelement-core-js-before">
@@ -593,12 +575,12 @@ document.getElementById('career_form').addEventListener('submit', function(e) {
     </script>
     <script
       type="text/javascript"
-      src="js/mediaelement-and-player.min.js"
+      src="{{ asset('js/mediaelement-and-player.min.js') }}"
       id="mediaelement-core-js"
     ></script>
     <script
       type="text/javascript"
-      src="js/mediaelement-migrate.min.js"
+      src="{{ asset('js/mediaelement-migrate.min.js') }}"
       id="mediaelement-migrate-js"
     ></script>
     <script type="text/javascript" id="mediaelement-js-extra">
@@ -614,7 +596,7 @@ document.getElementById('career_form').addEventListener('submit', function(e) {
     </script>
     <script
       type="text/javascript"
-      src="js/wp-mediaelement.min.js"
+      src="{{ asset('js/wp-mediaelement.min.js') }}"
       id="wp-mediaelement-js"
     ></script>
 
@@ -622,71 +604,71 @@ document.getElementById('career_form').addEventListener('submit', function(e) {
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script> -->
     <script
       type="text/javascript"
-      src="js/ScrollSmoother.min.js"
+      src="{{ asset('js/ScrollSmoother.min.js') }}"
       id="ScrollSmoother-js"
     ></script>
     <script
       type="text/javascript"
-      src="js/SplitText.min.js"
+      src="{{ asset('js/SplitText.min.js') }}"
       id="SplitText-js"
     ></script>
     <script
       type="text/javascript"
-      src="js/ScrollToPlugin.min.js"
+      src="{{ asset('js/ScrollToPlugin.min.js') }}"
       id="ScrollToPlugin-js"
     ></script>
-    <script type="text/javascript" src="js/Flip.min.js" id="flip-js"></script>
-    <script type="text/javascript" src="js/post.js" id="wcf--posts-js"></script>
+    <script type="text/javascript" src="{{ asset('js/Flip.min.js') }}" id="flip-js"></script>
+    <script type="text/javascript" src="{{ asset('js/post.js') }}" id="wcf--posts-js"></script>
     <script
       type="text/javascript"
-      src="js/wcf-addons-pro.js"
+      src="{{ asset('js/wcf-addons-pro.js') }}"
       id="wcf--addons-pro-js"
     ></script>
     <script
       type="text/javascript"
-      src="js/wcf-addons-ex.js"
+      src="{{ asset('js/wcf-addons-ex.js') }}"
       id="wcf--addons-ex-js"
     ></script>
     <script
       type="text/javascript"
       defer
-      src="js/offcanvas-menu.js"
+      src="{{ asset('js/offcanvas-menu.js') }}"
       id="wcf-offcanvas-menu-js"
     ></script>
     <script
       type="text/javascript"
-      src="js/video-testimonial.js"
+      src="{{ asset('js/video-testimonial.js') }}"
       id="arolax-video-testimonial-js"
     ></script>
     <script
       type="text/javascript"
       defer
-      src="js/mailchimp.js"
+      src="{{ asset('js/mailchimp.js') }}"
       id="wcf--mailchimp-js"
     ></script>
     <script
       type="text/javascript"
-      src="js/webpack.runtime.min.js"
+      src="{{ asset('js/webpack.runtime.min.js') }}"
       id="elementor-webpack-runtime-js"
     ></script>
     <script
       type="text/javascript"
-      src="js/frontend-modules.min.js"
+      src="{{ asset('js/frontend-modules.min.js') }}"
       id="elementor-frontend-modules-js"
     ></script>
     <script
       type="text/javascript"
-      src="js/jquery.magnify.js"
+      src="{{ asset('js/jquery.magnify.js') }}"
       id="jquery-core-js"
     ></script>
     <script
       type="text/javascript"
-      src="js/core.min.js"
+      src="{{ asset('js/core.min.js') }}"
       id="jquery-ui-core-js"
     ></script>
     <script
       type="text/javascript"
-      src="js/app.js"
+      src="{{ asset('js/app.js') }}"
       id="jquery-ui-core-js"
     ></script>
 
@@ -936,12 +918,12 @@ document.getElementById('career_form').addEventListener('submit', function(e) {
     </script>
     <script
       type="text/javascript"
-      src="js/frontend.min.js"
+      src="{{ asset('js/frontend.min.js') }}"
       id="elementor-frontend-js"
     ></script>
 
     <!-- Fancybox -->
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('css/jquery.fancybox.min.css') }}" type="text/css" />
     <!-- <script src="js/jquery.fancybox.min.js"></script> -->
 
     <script>

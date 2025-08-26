@@ -13,7 +13,7 @@
                         <div class="inner-page product-page shera-product-page">
                             <section class="banner">
                                 <div class="image-box">
-                                    <img src="./img/contactus/Contactus.webp" alt="" />
+                                    <img src="{{ asset('img/contactus/Contactus.webp') }}" alt="" />
                                 </div>
                                 <div class="heading-box">
                                     <div
@@ -55,56 +55,34 @@
                                         <!-- -->
                                         <div class="">
                                             <div class="job__detail-wrapper">
-                                                <h2 class="sec-title">Lead Specialist</h2>
+                                                <h2 class="sec-title">{{ $jobs->title }}</h2>
                                                 <ul class="job__detail-meta">
-                                                    <li><span>Location</span> ANDHERI (E)</li>
-                                                    <li><span>Date</span> 04, AUG 2025</li>
-                                                    <li><span>Job Type</span> Full Time</li>
+                                                    <li><span>Location</span> {{ $jobs->location }}</li>
+                                                    <li><span>Date</span>{{ $jobs->date_posted }}</li>
+                                                    <li><span>Job Type</span> {{ $jobs->job_type }}</li>
                                                 </ul>
                                                 <div class="job__detail-content">
                                                     <h2>Job Description</h2>
                                                     <p>
-                                                        A Lead Specialist, often a Lead Generation Specialist, focuses on attracting potential customers (leads) for a business. They use various
-                                                        strategies, including marketing and sales techniques, to identify, qualify, and nurture leads, ultimately passing them on to the sales team.
-                                                        Their work is crucial for driving revenue and growth by ensuring a steady flow of qualified prospects.
+                                                        {{ $jobs->job_description }}
                                                     </p>
 
                                                     <h2>Responsibilities</h2>
                                                     <ul>
-                                                        <li>Understand client brand in and out, attend regular calls with clients (internal and external) to understand their requests.</li>
-                                                        <li>Present insight-driven designs and concepts internally and externally.</li>
-                                                        <li>Research-based on the client brief and present new ideas.</li>
-                                                        <li>Work on minimal turnaround documents based in InDesign and PowerPoint.</li>
-                                                        <li>
-                                                            Brainstorm and execute projects with other designers and art directors with the aim of enhancing the creative and design skillsets of the
-                                                            department.
-                                                        </li>
-                                                        <li>Designing graphic content, illustrations, and infographics.</li>
-                                                        <li>Managing graphic designs from conception to delivery.</li>
-                                                        <li>Generating fresh concepts.</li>
-                                                        <li>Ensuring brand consistency throughout various marketing projects.</li>
-                                                        <li>Liaising between the marketing and design teams to ensure deadlines are met.</li>
-                                                        <li>Keeping up-to-date with industry developments.</li>
+                                                        @foreach(preg_split('/\r\n|\r|\n/', $jobs->responsibilities) as $resp)
+                                                            @if(trim($resp) !== '')
+                                                                <li>{{ trim($resp) }}</li>
+                                                            @endif
+                                                        @endforeach
                                                     </ul>
 
                                                     <h2>Skills And Qualifications</h2>
                                                     <ul>
-                                                        <li>Bachelor’s degree in graphic design, art, or similar discipline</li>
-                                                        <li>Exceptional creativity and innovative design skills</li>
-                                                        <li>
-                                                            2 year’s experience (academic and professional) with design software, including Illustrator, Photoshop, coral draw, after effects, InDesign
-                                                            etc.
-                                                        </li>
-                                                        <li>Proven experience with graphic design, with a strong portfolio of work</li>
-                                                        <li>Excellent communication and presentation skills</li>
-                                                        <li>Organizational and time-management skills for meeting deadlines in a fast-paced environment</li>
-                                                        <li>Knowledge of Wordpress and content management systems a plus.</li>
-                                                        <li>Photography experience and proficiency with photo-editing software.</li>
-                                                        <li>Update and maintain internal databases of designs, photography, and video.</li>
-                                                        <li>Manage the design and uploading process of all project material, understanding best practices for using a content management system.</li>
-                                                        <li>
-                                                            Use trend intelligence and an understanding of the current and historical business and market to design and execute specific classifications
-                                                        </li>
+                                                        @foreach(preg_split('/\r\n|\r|\n/', $jobs->skills_and_qualifications) as $skill)
+                                                            @if(trim($skill) !== '')
+                                                                <li>{{ trim($skill) }}</li>
+                                                            @endif
+                                                        @endforeach
                                                     </ul>
 
                                                     <p>
@@ -178,12 +156,12 @@
                                                     <div class="pin-spacer">
                                                         <div class="job__detail-sidebar">
                                                             <ul>
-                                                                <li><span>Experience</span> 2+ Years Experience</li>
-                                                                <li><span>Working Hours</span> 10 AM to 06 PM</li>
-                                                                <li><span>Working Days</span> Weekly 6 days (Mon to Sat)</li>
-                                                                <li><span>Salary</span> 20k - 35k (Monthly)</li>
-                                                                <li><span>Vacancy</span> No of Vacancies: 2</li>
-                                                                <li><span>Deadline</span> 05 July 2026</li>
+                                                                <li><span>Experience</span> {{ $jobs->experience }}</li>
+                                                                <li><span>Working Hours</span> {{ $jobs->working_hours }}</li>
+                                                                <li><span>Working Days</span>{{ $jobs->working_days }}</li>
+                                                                <li><span>Salary</span>{{ $jobs->salary }}</li>
+                                                                <li><span>Vacancy</span> No of Vacancies: {{ $jobs->vacancy }}</li>
+                                                                <li><span>Deadline</span>{{ $jobs->deadline }}</li>
                                                             </ul>
 
                                                             <div
@@ -196,7 +174,7 @@
                                                             >
                                                                 <div class="elementor-widget-container">
                                                                     <div class="wc-btn-wrapper style-2">
-                                                                        <a href="{{ url('apply-job')}}" class="wc-btn-group">
+                                                                        <a href="{{ url('apply-job', $jobs->id)}}" class="wc-btn-group">
                                                                             <span class="wc-btn-play">
                                                                                 <i aria-hidden="true" class="arolax-theme arolax-wcf-icon icon-wcf-arrow-up-right2"></i>
                                                                             </span>
@@ -322,17 +300,17 @@
                 mix-blend-mode: difference;
             }
         </style>
-        <link rel="stylesheet" id="wpo_min-footer-0-css" href="css/wpo-minify-footer-24b84006.min.css" type="text/css" media="all" />
+        <link rel="stylesheet" id="wpo_min-footer-0-css" href="{{ asset('css/wpo-minify-footer-24b84006.min.css') }}" type="text/css" media="all" />
 
-        <script type="text/javascript" src="./js/gsap.min.js" id="gsap-js"></script>
-        <script type="text/javascript" src="./js/ScrollTrigger.min.js" id="ScrollTrigger-js"></script>
+        <script type="text/javascript" src="{{ asset('js/gsap.min.js') }}" id="gsap-js"></script>
+        <script type="text/javascript" src="{{ asset('js/ScrollTrigger.min.js') }}" id="ScrollTrigger-js"></script>
 
         <script type="text/javascript" id="arolax-essential--global-core-js-extra">
             /* <![CDATA[ */
             var AROLAX_ADDONS_JS = { ajaxUrl: "", _wpnonce: "d2b278181b" };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/wcf--global-core.min.js" id="arolax-essential--global-core-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wcf--global-core.min.js') }}" id="arolax-essential--global-core-js"></script>
         <script type="text/javascript" id="wcf--addons-js-extra">
             /* <![CDATA[ */
             var WCF_ADDONS_JS = {
@@ -351,17 +329,17 @@
             };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/wcf-addons.min.js" id="wcf--addons-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wcf-addons.min.js') }}" id="wcf--addons-js"></script>
         <script type="text/javascript" id="arolax-script-js-extra">
             /* <![CDATA[ */
             var arolax_obj = { ajax_url: "", cart_update_qty_change: "" };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/script.min.js" id="arolax-script-js"></script>
-        <script type="text/javascript" src="js/swiper.min.js" id="swiper-js"></script>
-        <script type="text/javascript" src="js/slider.min.js" id="wcf--slider-js"></script>
-        <script type="text/javascript" src="js/jquery-numerator.min.js" id="jquery-numerator-js"></script>
-        <script type="text/javascript" src="js/counter.min.js" id="wcf--counter-js"></script>
+        <script type="text/javascript" src="{{ asset('js/script.min.js') }}" id="arolax-script-js"></script>
+        <script type="text/javascript" src="{{ asset('js/swiper.min.js') }}" id="swiper-js"></script>
+        <script type="text/javascript" src="{{ asset('js/slider.min.js') }}" id="wcf--slider-js"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery-numerator.min.js') }}" id="jquery-numerator-js"></script>
+        <script type="text/javascript" src="{{ asset('js/counter.min.js') }}" id="wcf--counter-js"></script>
         <script type="text/javascript" id="mediaelement-core-js-before">
             /* <![CDATA[ */
             var mejsL10n = {
@@ -444,8 +422,8 @@
             };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/mediaelement-and-player.min.js" id="mediaelement-core-js"></script>
-        <script type="text/javascript" src="js/mediaelement-migrate.min.js" id="mediaelement-migrate-js"></script>
+        <script type="text/javascript" src="{{ asset('js/mediaelement-and-player.min.js') }}" id="mediaelement-core-js"></script>
+        <script type="text/javascript" src="{{ asset('js/mediaelement-migrate.min.js') }}" id="mediaelement-migrate-js"></script>
         <script type="text/javascript" id="mediaelement-js-extra">
             /* <![CDATA[ */
             var _wpmejsSettings = {
@@ -457,25 +435,25 @@
             };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/wp-mediaelement.min.js" id="wp-mediaelement-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wp-mediaelement.min.js') }}" id="wp-mediaelement-js"></script>
 
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script> -->
-        <script type="text/javascript" src="js/ScrollSmoother.min.js" id="ScrollSmoother-js"></script>
-        <script type="text/javascript" src="js/SplitText.min.js" id="SplitText-js"></script>
-        <script type="text/javascript" src="js/ScrollToPlugin.min.js" id="ScrollToPlugin-js"></script>
-        <script type="text/javascript" src="js/Flip.min.js" id="flip-js"></script>
-        <script type="text/javascript" src="js/post.js" id="wcf--posts-js"></script>
-        <script type="text/javascript" src="js/wcf-addons-pro.js" id="wcf--addons-pro-js"></script>
-        <script type="text/javascript" src="js/wcf-addons-ex.js" id="wcf--addons-ex-js"></script>
-        <script type="text/javascript" defer src="js/offcanvas-menu.js" id="wcf-offcanvas-menu-js"></script>
-        <script type="text/javascript" src="js/video-testimonial.js" id="arolax-video-testimonial-js"></script>
-        <script type="text/javascript" defer src="js/mailchimp.js" id="wcf--mailchimp-js"></script>
-        <script type="text/javascript" src="js/webpack.runtime.min.js" id="elementor-webpack-runtime-js"></script>
-        <script type="text/javascript" src="js/frontend-modules.min.js" id="elementor-frontend-modules-js"></script>
-        <script type="text/javascript" src="js/jquery.magnify.js" id="jquery-core-js"></script>
-        <script type="text/javascript" src="js/core.min.js" id="jquery-ui-core-js"></script>
-        <script type="text/javascript" src="js/app.js" id="jquery-ui-core-js"></script>
+        <script type="text/javascript" src="{{ asset('js/ScrollSmoother.min.js') }}" id="ScrollSmoother-js"></script>
+        <script type="text/javascript" src="{{ asset('js/SplitText.min.js') }}" id="SplitText-js"></script>
+        <script type="text/javascript" src="{{ asset('js/ScrollToPlugin.min.js') }}" id="ScrollToPlugin-js"></script>
+        <script type="text/javascript" src="{{ asset('js/Flip.min.js') }}" id="flip-js"></script>
+        <script type="text/javascript" src="{{ asset('js/post.js') }}" id="wcf--posts-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wcf-addons-pro.js') }}" id="wcf--addons-pro-js"></script>
+        <script type="text/javascript" src="{{ asset('js/wcf-addons-ex.js') }}" id="wcf--addons-ex-js"></script>
+        <script type="text/javascript" defer src="{{ asset('js/offcanvas-menu.js') }}" id="wcf-offcanvas-menu-js"></script>
+        <script type="text/javascript" src="{{ asset('js/video-testimonial.js') }}" id="arolax-video-testimonial-js"></script>
+        <script type="text/javascript" defer src="{{ asset('js/mailchimp.js') }}" id="wcf--mailchimp-js"></script>
+        <script type="text/javascript" src="{{ asset('js/webpack.runtime.min.js') }}" id="elementor-webpack-runtime-js"></script>
+        <script type="text/javascript" src="{{ asset('js/frontend-modules.min.js') }}" id="elementor-frontend-modules-js"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.magnify.js') }}" id="jquery-core-js"></script>
+        <script type="text/javascript" src="{{ asset('js/core.min.js') }}" id="jquery-ui-core-js"></script>
+        <script type="text/javascript" src="{{ asset('js/app.js') }}" id="jquery-ui-core-js"></script>
 
         <script>
             // console.log("oh well");
@@ -711,10 +689,10 @@
             };
             /* ]]> */
         </script>
-        <script type="text/javascript" src="js/frontend.min.js" id="elementor-frontend-js"></script>
+        <script type="text/javascript" src="{{ asset('js/frontend.min.js') }}" id="elementor-frontend-js"></script>
 
         <!-- Fancybox -->
-        <link rel="stylesheet" href="css/jquery.fancybox.min.css" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('css/jquery.fancybox.min.css') }}" type="text/css" />
         <!-- <script src="js/jquery.fancybox.min.js"></script> -->
 
         <script>

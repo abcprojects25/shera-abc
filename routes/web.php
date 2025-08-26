@@ -27,6 +27,7 @@ use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\AdminNotificationController;
 use App\Http\Controllers\GameLogController;
 use App\Http\Controllers\admin\DownloadEnquiryController;
+use App\Http\Controllers\admin\jobController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,18 +78,6 @@ Route::get('/be-our-dealer', function () {
 
 Route::get('/be-our-retailer', function () {
     return view('frontend.be-our-retailer');
-});
-
-Route::get('/careers', function () {
-    return view('frontend.careers');
-});
-
-Route::get('/career-details', function () {
-    return view('frontend.career-details');
-});
-
-Route::get('/apply-job', function () {
-    return view('frontend.apply-job');
 });
 
 Route::get('testimonials', function(){
@@ -147,14 +136,13 @@ Route::get('/applications/{id}', [ProductController::class, 'application'])
 Route::get('/blogs', [BlogController::class, 'userBlogPage'])->name('frontend.blog');
 Route::get('/blog/{category_seourl}', [BlogController::class, 'blogsByCategory'])->name('blogs.byCategory');
 
-Route::post('/careers/store', [CmsController::class, 'storeCareer'])->name('careers.storeCareer');
 
 Route::post('/dealers/store', [DealerController::class, 'store'])->name('dealers.store');
 
 Route::post('/subscribe', [CmsController::class, 'store'])->name('subscribe.store');
 Route::get('/admin/subscribers', [CmsController::class, 'Subscriber'])->name('admin.subscribers.index');
 Route::delete('/admin/subscribers/{id}', [CmsController::class, 'subcriberDestroy'])
-    ->name('admin.subscribers.destroy');
+->name('admin.subscribers.destroy');
 
 Route::get('/admin/guessing-game', function () {
     return view('admin.guessing_game.index');
@@ -180,7 +168,18 @@ Route::delete('/admin/manuals/{id}', [DownloadEnquiryController::class, 'destroy
 Route::get('/admin/tech-details', [DownloadEnquiryController::class, 'techIndex'])->name('admin.tech-details.techIndex');
 Route::delete('/admin/tech-details/{id}', [DownloadEnquiryController::class, 'destroy'])->name('admin.tech-details.destroy');
 
+Route::get('/apply-job/{id}', function ($id) {
+    $job = \App\Models\admin\JobDetails::findOrFail($id);
+    return view('frontend.apply-job', compact('job'));
+})->name('apply-job');
 
+Route::post('/careers/store', [CmsController::class, 'storeCareer'])->name('careers.storeCareer'); //apply job
+Route::get('/career-details/{url}', [JobController::class, 'userPage'])->name('career.details');
+Route::get('admin/career-details', [JobController::class, 'index'])->name('admin.career-details.index');
+Route::post('/admin/career-details/store', [JobController::class, 'store'])->name('admin.career-details.store');
+Route::put('/admin/career-details/edit/{id}', [JobController::class, 'update'])->name('admin.career-details.update');
+Route::delete('/admin/career-details//{id}', [JobController::class, 'destroy'])->name('admin.career-details.destroy');
+Route::get('/careers', [JobController::class, 'userListJobs'])->name('careers');
 
 /* ===== ADMIN Route ===== */
 
