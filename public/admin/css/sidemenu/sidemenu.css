@@ -15,6 +15,7 @@
 .sidemenu-label {
   -webkit-transition: margin-left 0.45s ease;
   transition: margin-left 0.45s ease;
+  color: white;
 }
 
 .side-menu .nav-link:hover {
@@ -62,6 +63,7 @@
   top: 15px;
   right: 20px;
   font-size: 12px;
+  color: white;
 }
 
 .side-menu .nav-item.show i.angle {
@@ -483,6 +485,7 @@
   line-height: 35px;
   text-align: center;
   border-radius: 50%;
+  color:white;
 }
 
 .main-sidebar-body .nav-link i.typcn {
@@ -545,6 +548,7 @@
   color: rgba(255, 255, 255, 0.4);
   font-size: 13px;
   padding: 8px 0;
+  text-decoration: none;
 }
 
 .main-sidebar-body .nav-sub-link.with-sub {

@@ -119,6 +119,24 @@
 												</div>
 											</div> 
 											
+<div class="form-group">
+  <div class="card shade">  
+    <div class="text-center">
+      <label class="text-left"> Choose Banner Image </label>  
+      
+      <!-- Preview existing banner -->
+      @if($blog->banner_image)
+        <div id="img-preview">
+          <img src="{{ asset($blog->banner_image) }}" class="img-fluid mb-2" style="max-height:200px;">
+        </div>
+      @endif
+
+      <!-- File input -->
+      <input type="file" accept="image/*" id="choose-file" name="banner_image" />
+      <label for="choose-file" class="w-100">Choose Banner</label>
+    </div>
+  </div>
+</div>
 
 											<div class="form-group">
 												<div class="card shade">  

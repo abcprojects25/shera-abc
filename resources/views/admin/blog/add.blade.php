@@ -97,35 +97,11 @@
 												</select>
 											</div> 
 											
-											<!-- <div class="card shade">
-												<h5> SEO </h5>
-												<div class="row">
-													<div class="col-md-6 form-group">
-														<div class="form-group">
-															<label>Page Title : <span>*</span></label>
-															<input name="page_title" value=""  class="form-control" placeholder="Page Title..." maxlength="70" type="text" id="title" required>
-															<small> 0 of 70 characters used </small>
-														</div>
-														<div class="form-group">
-															<label>Meta Keywords :</label>
-															<input name="meta_keywords" value=""  class="form-control" placeholder="Meta Keywords..." minlength="100" maxlength="255" type="text" id="meta_keywords">
-															<small> 100 to 255 Keywords used </small>
-														</div> 
-													</div>
-													<div class="col-md-6 form-group"> 
-														<label for="BookDescription">Meta Description </label>
-														<textarea name="meta_description" class="form-control" cols="5" rows="5" id="meta_description" maxlength="320" placeholder="Meta Description..."> </textarea>
-														<small> 0 of 320 characters used </small>
-													</div>
-												</div> 
-											</div> 								 -->
+																
 										</div> <!-- -->
 										<div class="col-xl-3 col-lg-3 col-md-3"> 
 											<div class="form-group">
-												<!-- <div class="card shade">  
-													<label class="text-left"> Upload Image For Blog Content </label> 
-													<a href="#" id="AddImage" data-toggle="modal" data-target="#ServerImageModal" class="btn ripple btn-primary">Upload For Blog Content </a>  
-												</div> -->
+											
 											</div>
 											<div class="form-group">
 												<div class="card shade">  

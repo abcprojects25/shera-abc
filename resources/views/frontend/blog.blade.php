@@ -46,7 +46,7 @@
                                         
                                         <div class="image-title">
                                             <div class="image-box cover-image mt-4">
-                                                <img src="{{ asset($category->category_img) }}" alt="{{ $category->name }}" />
+                                                <img src="{{ asset($category->banner_image) }}" alt="{{ $category->name }}" />
                                             </div>
                                             <!-- <span class="title mt-1">
                                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat officia quisquam eum. Perferendis repudiandae, molestias aperiam quas aliquid repellat

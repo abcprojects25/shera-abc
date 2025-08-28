@@ -1,7 +1,9 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<div class="container main-content side-content pt-5" style="margin-left: 20em;">
+<div class="main-content side-content pt-0">
+		<div class="container-fluid">
+<div>
     <h2> Subscribers</h2>
     @if(session('success'))
     <div class="alert alert-success w-50">
@@ -48,5 +50,7 @@
             </table>
         </div>
     </div>
+</div>
+</div>
 </div>
 @endsection

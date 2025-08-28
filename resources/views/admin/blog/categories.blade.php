@@ -59,7 +59,8 @@
 											<th class="sort" style="width:120px"> Created At </th>
 											<th class="sort">Categories / Sub-categories</th> 
 											<th class="sort">Description</th>
-											<th class="text-center sort" style="width:100px"> Image </th>
+											<th class="text-center sort" style="width:100px"> Thumbnail </th>
+											<th class="text-center sort" style="width:100px"> Banner </th>
 											<th class="text-center sort" style="width:100px"> Status </th>
 											<th> Actions </th>
 										</tr> 
@@ -79,6 +80,15 @@
 													max-width: 100px; max-height: 100px;"/>
 												@endif
 											</td>
+											<td class="text-center">
+												@if($item->banner_image)
+													<img src="{{asset($item->banner_image)}}" class="img-fluid" style="
+													max-width: 100px; max-height: 100px;"/>
+												@else
+													<img src="{{asset('uploads/no-image.png')}}" class="img-fluid" style="
+													max-width: 100px; max-height: 100px;"/>
+												@endif
+											</td>
 											@if($item->status == 0)
 												<td class="text-center"><a href="blog-categories-status/{{base64_encode($item->status)}}/{{base64_encode($item->id)}}" class="btn btn-danger status_inactive" title="Change Status"><i class='fa fa-times'></i></a> </td>
 											@else 
@@ -91,6 +101,7 @@
    data-status="{{ $item->status }}"
    data-description="{{ $item->description }}"
    data-category_img="{{ $item->category_img }}"
+   data-banner_image="{{ $item->banner_image }}"
    data-toggle="modal" data-target="#subcategorieseditmodal"> Edit </a>
 
 
@@ -129,16 +140,20 @@
 					@csrf									
 						<div class="card shade">
 							<div class="form-group">
-								<label> Category Name : <span>*</span></label>
+								<label> Category Name : </label>
 								<input name="edit_id" value="0" type="hidden"/>
 								<input name="type" value="3" type="hidden"/>
 								<input name="category_name" value=""  class="form-control" placeholder="Category type and enter..." data-role="tagsinput" maxlength="255" type="text" id="category_name">
 							</div>
 							<div class="form-group">
-								<label>Category Image</label>
+								<label>Category Thumbnail</label>
 								<input type="file" name="category_img" class="form-control" accept="image/*">
+								 <small class="text-danger">Image must be 400x250 pixels</small>
 							</div>
-
+							<div class="form-group">
+								<label>Category Banner</label>
+								<input type="file" name="banner_image" class="form-control" accept="image/*">
+							</div>
 							<div class="form-group">
 								<label>Description</label>
 								<textarea name="description" class="form-control" placeholder="Enter category description..." rows="3"></textarea>
@@ -191,9 +206,14 @@
 								<input name="edit_category_name" id="edit_category_name" value=""  class="form-control" placeholder="Category type and enter..." maxlength="255" type="text" id="edit_category_name">
 							</div>
 							<div class="form-group">
-								<label>Current Image</label><br>
+								<label>Current Thumbnail</label><br>
 								<img id="edit_category_img_preview" src="{{ asset('uploads/no-image.png') }}" alt="Category Image" style="max-width: 150px; max-height: 150px; display: block; margin-bottom: 10px;">
 								<input type="file" name="edit_category_img" id="edit_category_img" class="form-control" accept="image/*">
+							</div>
+							<div class="form-group">
+								<label>Current Banner</label><br>
+								<img id="edit_banner_image_preview" src="{{ asset('uploads/no-image.png') }}" alt="Banner Image" style="max-width: 150px; max-height: 150px; display: block; margin-bottom: 10px;">
+								<input type="file" name="edit_banner_image" id="edit_banner_image" class="form-control" accept="image/*">
 							</div>
 							
 							<div class="form-group">
@@ -316,6 +336,7 @@
     var status = button.data('status');
     var description = button.data('description');
     var category_img = button.data('category_img');
+    var banner_image = button.data('banner_image');
 
     var modal = $(this);
     modal.find('#edit_id').val(id);
@@ -327,6 +348,11 @@
         modal.find('#edit_category_img_preview').attr('src', "{{ asset('') }}" + category_img);
     } else {
         modal.find('#edit_category_img_preview').attr('src', "{{ asset('uploads/no-image.png') }}");
+    }
+    if(banner_image) {
+        modal.find('#edit_banner_image_preview').attr('src', "{{ asset('') }}" + banner_image);
+    } else {
+        modal.find('#edit_banner_image_preview').attr('src', "{{ asset('uploads/no-image.png') }}");
     }
 });
 </script>

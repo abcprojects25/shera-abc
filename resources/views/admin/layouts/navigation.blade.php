@@ -55,7 +55,7 @@
 			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/blog/blog-add"> Add New </a> </li>  
 			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/blog/blog-categories"> Categories </a> </li>  
 			{{-- <li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/blog/blog-subcategories"> Sub Categories </a> </li>      --}}
-			<li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/blog/blog-tags"> Tags </a> </li>     
+			<!-- <li class="nav-sub-item"> <a class="nav-sub-link" href="/admin/blog/blog-tags"> Tags </a> </li>      -->
 		</ul>
 	</li> 
 	<!--

@@ -434,6 +434,12 @@ $blog = Blogs::findOrFail($id);
                     $file->move(public_path('uploads/blogCategories'), $filename);
                     $Insert->category_img = 'uploads/blogCategories/' . $filename;
                 }
+                 if ($request->hasFile('banner_image')) {
+                    $file = $request->file('banner_image');
+                    $filename = 'banner_' . time() . '.' . $file->getClientOriginalExtension();
+                    $file->move(public_path('uploads/blogCategories/banners'), $filename);
+                    $Insert->banner_image = 'uploads/blogCategories/banners/' . $filename;
+                }
             $Insert->save();
 
             $looup = new Categories_lookups;
@@ -465,6 +471,14 @@ $blog = Blogs::findOrFail($id);
             $file->move(public_path('uploads/blogCategories'), $filename);
             $obj->category_img = 'uploads/blogCategories/' . $filename;
         }
+
+        if ($request->hasFile('edit_banner_image')) {
+            $file = $request->file('edit_banner_image');
+            $filename = 'banner_' . time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/blogCategories/banners'), $filename);
+            $obj->banner_image = 'uploads/blogCategories/banners/' . $filename;
+        }
+
         $obj->seourl = Str::slug($request->edit_category_name);
         $obj->update();
         toast('Categories Successfully Edited!!!','success');
