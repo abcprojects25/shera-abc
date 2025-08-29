@@ -46,7 +46,9 @@
                                 <td>{{ $tech->email }}</td>
                                 <td>{{ $tech->message ?? '-' }}</td>
                               
-                                <td style="max-width:200px;">{{ $tech->pdf_name }}</td>
+                                <td style="max-width:200px;"><a href="{{ asset('pdf/guides/' . $tech->pdf_name) }}" target="_blank">
+        {{ $tech->pdf_name }}
+    </a></td>
                                 <td>
                                     @if($tech->is_download)
                                         <span class="badge bg-success">Yes</span>

@@ -38,13 +38,14 @@
 							<!--Row-->
 							<div class="row row-sm  mt-lg-4">
 								<div class="col-sm-12 col-lg-12 col-xl-12">
-									<div class="card bg-primary custom-card card-box">
+									<div class="card custom-card card-box" style="background-color: #6259ca;">
 										<div class="card-body p-4">
 											<div class="row align-items-center">
 												<div class="offset-xl-4 offset-sm-6 col-xl-8 col-sm-6 col-12 img-bg ">
 													<h4 class="d-flex mb-3"> <span class="font-weight-bold text-white"> Hi, Admin Name Should be here!</span> </h4>
 													<p class="tx-white-7 mb-1">You have <b class="text-warning">{{$TodayEnquiries}}</b> New Inquiries Today. </p>
-												</div> <img src="/admin/img/pngs/work3.png" alt="user-img">
+												</div> 
+												<img src="/admin/img/pngs/work3.png" alt="user-img">
 											</div>
 										</div>
 									</div>
@@ -77,9 +78,9 @@
 														@foreach ($Careers as $item)
 														
 														<tr>
-															<td class=" "> {{$loop->iteration}} </td>
-															<td class=" "> {{$item->career_name}} </td>
-															<td class=" "><a href="{{ Storage::url($item->career_resume) }}" target="_blank" download>
+															<td> {{$loop->iteration}} </td>
+															<td> {{$item->career_name}} </td>
+															<td><a href="{{ Storage::url($item->career_resume) }}" target="_blank" download style="color:#6259ca; text-transform: none;">
 																Resume Link
 															</a> </td>
 															<td>{{ $item->created_at->format('d/m/Y') }}</td>
@@ -112,7 +113,7 @@
 												<div class="card-item-body">
 													<div class="card-item-stat">
 														<h4 class="font-weight-bold">{{$EnquiriesCount}}</h4>
-														<small><b class="text-success"><a href="/admin/contact-us"> Include All </a></b> </small>
+														<small><b class="text-success"><a href="/admin/contact-us" style="color:#6259ca;"> Include All </a></b> </small>
 													</div>
 												</div>
 											</div>
@@ -135,7 +136,7 @@
 													<label class="main-content-label tx-13 font-weight-bold mb-1">Total Products</label></div>
 												<div class="card-item-body">
 													<div class="card-item-stat">
-														<h4 class="font-weight-bold">{{$ProductsCount}}</h4> <small><b class="text-danger"> <a href="/admin/product/all-product"> Include All </a></b></small> </div>
+														<h4 class="font-weight-bold">{{$ProductsCount}}</h4> <small><b class="text-danger"> <a href="/admin/product/all-product" style="color:#6259ca;"> Include All </a></b></small> </div>
 												</div>
 											</div>
 										</div>
@@ -157,7 +158,7 @@
 													<label class="main-content-label tx-13 font-weight-bold mb-1">Total Projects</label></div>
 												<div class="card-item-body">
 													<div class="card-item-stat">
-														<h4 class="font-weight-bold">{{$ProjectsCount}}</h4> <small><b class="text-danger"> <a href="/admin/project/all-project"> Include All </a></b></small> </div>
+														<h4 class="font-weight-bold">{{$ProjectsCount}}</h4> <small><b class="text-danger"> <a href="/admin/project/all-project" style="color:#6259ca;"> Include All </a></b></small> </div>
 												</div>
 											</div>
 										</div>
@@ -179,7 +180,7 @@
 													<label class="main-content-label tx-13 font-weight-bold mb-1">Total Blogs</label></div>
 												<div class="card-item-body">
 													<div class="card-item-stat">
-														<h4 class="font-weight-bold">{{$BlogsCount}}</h4> <small><b class="text-danger"> <a href="/admin/blog/all-post"> Include All </a></b></small> </div>
+														<h4 class="font-weight-bold">{{$BlogsCount}}</h4> <small><b class="text-danger"> <a href="/admin/blog/all-post" style="color:#6259ca;"> Include All </a></b></small> </div>
 												</div>
 											</div>
 										</div>
@@ -200,7 +201,7 @@
 													<label class="main-content-label tx-13 font-weight-bold mb-1">Total Subscribers</label></div>
 												<div class="card-item-body">
 													<div class="card-item-stat">
-														<h4 class="font-weight-bold">{{$SubscribesCount}}</h4> <small><b class="text-danger"> <a href="subscribers"> Include All </a></b></small> </div>
+														<h4 class="font-weight-bold">{{$SubscribesCount}}</h4> <small><b class="text-danger"> <a href="subscribers" style="color:#6259ca;"> Include All </a></b></small> </div>
 												</div>
 											</div>
 										</div>
@@ -263,7 +264,7 @@
 												<label class="main-content-label tx-13 font-weight-bold mb-2">Total Subscriber</label>
 												<span class="d-block tx-12 mb-0 text-muted"> </span>
 											</div>
-											<p class="tx-24 mt-2"><b class="text-primary">{{$SubscribesCount}} </b></p>
+											<p class="tx-24 mt-2" ><b style="color:#6259ca;" >{{$SubscribesCount}} </b></p>
 										</div>
 										<div class="col-6"> <img src="/admin/img/pngs/work.png" alt="image" class="best-emp"> </div>
 									</div>

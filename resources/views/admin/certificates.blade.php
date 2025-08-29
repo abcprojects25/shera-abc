@@ -46,7 +46,9 @@
                                 <td>{{ $certificate->email }}</td>
                                 <td>{{ $certificate->message ?? '-' }}</td>
                               
-                                <td style="max-width:200px;">{{ $certificate->pdf_name }}</td>
+                                <td style="max-width:200px;"><a href="{{ asset('pdf/certification/' . $certificate->pdf_name) }}" target="_blank">
+        {{ $certificate->pdf_name }}
+    </a></td>
                                 <td>
                                     @if($certificate->is_download)
                                         <span class="badge bg-success">Yes</span>

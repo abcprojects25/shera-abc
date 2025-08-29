@@ -15,7 +15,7 @@
 				</a>
 				<div class="dropdown-menu">
 					<div class="header-navheading pb-0">
-						<h6 class="main-notification-title">AAPL</h6>
+						<h6 class="main-notification-title">SHERA</h6>
 						<hr />
 					</div>
 

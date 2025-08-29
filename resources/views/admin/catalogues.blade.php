@@ -46,7 +46,9 @@
                                 <td>{{ $catalogue->email }}</td>
                                 <td>{{ $catalogue->message ?? '-' }}</td>
                               
-                                <td>{{ $catalogue->pdf_name }}</td>
+                                <td><a href="{{ asset('pdf/catelogues/' . $catalogue->pdf_name) }}" target="_blank">
+        {{ $catalogue->pdf_name }}
+    </a></td>
                                 <td>
                                     @if($catalogue->is_download)
                                         <span class="badge bg-success">Yes</span>
